@@ -1,26 +1,51 @@
 import React from 'react'
 
 // eslint-disable-next-line import/no-unresolved
-import HelloWorld from '@src/components/HelloWorld'
 import Head from 'next/head'
 import { CoolInterface } from 'server/src/lib/CoolInterface'
+import MainMenu from '@src/components/menu/MainMenu'
+import { GridItem } from '@chakra-ui/react'
+import { MainGrid } from 'ui/components/MainGrid'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const coolKid: CoolInterface = {
   amICool: false,
 }
 
-const Home = () => (
-  <div className="flex flex-col items-center justify-center min-h-screen py-2">
+const HomePage = () => (
+  <>
     <Head>
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-      <HelloWorld />
-    </main>
-  </div>
+    <MainGrid>
+      <GridItem as="nav" gridColumn="content-start/content-end">
+        <p>Main Navigation</p>
+      </GridItem>
+    </MainGrid>
+
+    <MainGrid as="header">
+      <GridItem gridColumn="content-start/content-end">
+        <p>Content</p>
+      </GridItem>
+    </MainGrid>
+
+    <MainGrid as="main">
+      <GridItem gridColumn="col-start 1 / span 1">Item 1</GridItem>
+      <GridItem gridColumn="col-start 2 / span 1">Item 2</GridItem>
+      <GridItem gridColumn="col-start 3 / span 1">Item 3</GridItem>
+      <GridItem gridColumn="col-start 4 / span 1">Item 4</GridItem>
+      <GridItem gridColumn="col-start 5 / span 1">Item 5</GridItem>
+      <GridItem gridColumn="col-start 6 / span 1">Item 6</GridItem>
+      <GridItem gridColumn="col-start 7 / span 1">Item 7</GridItem>
+      <GridItem gridColumn="col-start 8 / span 1">Item 8</GridItem>
+      <GridItem gridColumn="col-start 9 / span 1">Item 9</GridItem>
+      <GridItem gridColumn="col-start 10 / span 1">Item 10</GridItem>
+      <GridItem gridColumn="col-start 11 / span 1">Item 11</GridItem>
+      <GridItem gridColumn="col-start 12 / content-end">Item 12</GridItem>
+    </MainGrid>
+  </>
 )
 
-export default Home
+export default HomePage
