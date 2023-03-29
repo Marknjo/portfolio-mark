@@ -35,6 +35,8 @@ module.exports = {
       },
     ],
 
+    'react/jsx-props-no-spreading': 'off',
+
     // next
     '@next/next/no-html-link-for-pages': 'off',
   },
