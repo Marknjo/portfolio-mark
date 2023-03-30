@@ -1,14 +1,27 @@
 import React from 'react'
-import { Box, GridItem, Text } from '@chakra-ui/react'
+import { GridItem, HStack, Link } from '@chakra-ui/react'
+import NextLink from 'next/link'
+
 import { MainGrid } from 'ui'
+import LogoText from './LogoText'
 
 const HomePageNav = () => (
-  <MainGrid>
-    <GridItem gridColumn="content-start/col-end 4">
-      <Box>Mark Njoroge</Box>
-    </GridItem>
+  <MainGrid
+    options={{
+      backgroundColor: 'orange.600',
+    }}
+  >
+    <LogoText />
     <GridItem as="nav" gridColumn="col-start 5/content-end">
-      <Text>Navigation</Text>
+      <HStack as="ul">
+        <Link href="/" as={NextLink}>
+          Home
+        </Link>
+
+        <Link href="/" as={NextLink}>
+          Home
+        </Link>
+      </HStack>
     </GridItem>
   </MainGrid>
 )
