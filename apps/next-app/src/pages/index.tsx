@@ -3,7 +3,7 @@ import React from 'react'
 // eslint-disable-next-line import/no-unresolved
 import Head from 'next/head'
 import { CoolInterface } from 'server/src/lib/CoolInterface'
-import MainMenu from '@src/components/menu/MainMenu'
+import HomePageNav from '@src/components/navigation/HomePageNav'
 import { GridItem } from '@chakra-ui/react'
 import { MainGrid } from 'ui/components/MainGrid'
 
@@ -19,11 +19,8 @@ const HomePage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <MainGrid>
-      <GridItem as="nav" gridColumn="content-start/content-end">
-        <p>Main Navigation</p>
-      </GridItem>
-    </MainGrid>
+    {/* HomePage Navigation */}
+    <HomePageNav />
 
     <MainGrid as="header">
       <GridItem gridColumn="content-start/content-end">

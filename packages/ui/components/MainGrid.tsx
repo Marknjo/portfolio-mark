@@ -1,9 +1,10 @@
-import { As, Grid } from '@chakra-ui/react'
+import { As, Grid, GridProps } from '@chakra-ui/react'
 import React, { ReactNode } from 'react'
 
 interface GenericProps {
   children: ReactNode
   as?: As
+  options?: GridProps
 }
 
 interface GridSizes {
@@ -74,12 +75,13 @@ const flexGaps = {
   sm: innerGaps.base,
 }
 
-export const MainGrid = ({ children, as }: GenericProps) => {
+export const MainGrid = ({ children, options = {}, as }: GenericProps) => {
   return (
     <Grid
       templateColumns={flexGrids}
       columnGap={flexGaps}
-      {...(as ? { as } : {})}
+      {...(as ? { as: as } : {})}
+      {...options}
     >
       {children}
     </Grid>
