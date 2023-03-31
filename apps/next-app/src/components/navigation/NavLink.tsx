@@ -37,7 +37,7 @@ const NavLink = ({ title, link }: NavItem) => {
           (title.toLowerCase() === 'home' && params.asPath === '/')
         }
       >
-        {title.toLocaleUpperCase()}
+        {title}
       </Link>
     </Box>
   )
