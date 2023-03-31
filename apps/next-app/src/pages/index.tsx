@@ -6,6 +6,7 @@ import { CoolInterface } from 'server/src/lib/CoolInterface'
 import HomePageNav from '@src/components/navigation/HomePageNav'
 import { GridItem } from '@chakra-ui/react'
 import { MainGrid } from 'ui/components/MainGrid'
+import HomePageHero from '@src/components/hero/HomePageHero'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const coolKid: CoolInterface = {
@@ -22,11 +23,7 @@ const HomePage = () => (
     {/* HomePage Navigation */}
     <HomePageNav />
 
-    <MainGrid as="header">
-      <GridItem gridColumn="content-start/content-end">
-        <p>Content</p>
-      </GridItem>
-    </MainGrid>
+    <HomePageHero />
 
     <MainGrid as="main">
       <GridItem gridColumn="col-start 1 / span 1">Item 1</GridItem>
