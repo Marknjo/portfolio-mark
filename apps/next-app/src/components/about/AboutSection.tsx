@@ -1,5 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Button, GridItem, Text, VStack } from '@chakra-ui/react'
+import {
+  AspectRatio,
+  Button,
+  Flex,
+  GridItem,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 import React from 'react'
 
 import { LargeTitle, MainGrid, SectionTitle, SectionTitleVariants } from 'ui'
@@ -36,6 +43,7 @@ const AboutSection = () => {
       >
         My Short Story
       </SectionTitle>
+
       {/*  Row 4/5 - content only (start/end), video (start/end) */}
       <GridItem gridColumn="content-start/span 5" gridRow="4/5" marginY="8">
         <VStack
@@ -71,6 +79,30 @@ const AboutSection = () => {
         <Button variant="outline" colorScheme="orange">
           Reach Me For a Chat
         </Button>
+      </GridItem>
+
+      <GridItem
+        gridColumn="col-start 6/span 5"
+        gridRow="4/5"
+        marginY="auto"
+        paddingRight="8"
+      >
+        <AspectRatio
+          maxW="560px"
+          ratio={16 / 9}
+          borderRadius="8px"
+          overflow="hidden"
+          border="2px solid"
+          borderColor="orange.100"
+        >
+          <iframe
+            src="https://www.youtube.com/embed/SREpK81HHJQ?controls=0"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </AspectRatio>
       </GridItem>
 
       {/*  Row 5/6 - Details End */}
