@@ -1,6 +1,6 @@
-export const DotsTopRight = () => (
+export const DotsTopRight = ({ width = 64 }: { width?: number }) => (
   <svg
-    width="64%"
+    width={`${width}%`}
     style={{
       position: 'absolute',
       top: 0,

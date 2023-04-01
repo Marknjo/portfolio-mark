@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const DotsBottomRight = () => (
+export const DotsBottomRight = ({ width = 64 }: { width?: number }) => (
   <svg
-    width="64%"
+    width={`${width}%`}
     viewBox="0 0 424 375"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

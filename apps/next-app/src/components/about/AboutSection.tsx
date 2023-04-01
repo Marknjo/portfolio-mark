@@ -1,15 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import {
-  AspectRatio,
-  Button,
-  Flex,
-  GridItem,
-  Text,
-  VStack,
-} from '@chakra-ui/react'
+import { AspectRatio, Button, GridItem, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 
-import { LargeTitle, MainGrid, SectionTitle, SectionTitleVariants } from 'ui'
+import {
+  DotsBottomRight,
+  LargeTitle,
+  MainGrid,
+  SectionTitle,
+  SectionTitleVariants,
+} from 'ui'
 
 const AboutSection = () => {
   console.log('info')
@@ -26,8 +25,6 @@ const AboutSection = () => {
           subTitle="Let's Start With My Background"
         />
       </GridItem>
-
-      {/*  Row 2/3 - Details Start */}
 
       {/*  Row 3/4 - Heading only (start/end), Detail Background Start - contains dots bottom-right */}
       <SectionTitle
@@ -81,6 +78,7 @@ const AboutSection = () => {
         </Button>
       </GridItem>
 
+      {/* My Story Video  */}
       <GridItem
         gridColumn="col-start 6/span 5"
         gridRow="4/5"
@@ -94,6 +92,7 @@ const AboutSection = () => {
           overflow="hidden"
           border="2px solid"
           borderColor="orange.100"
+          shadow="lg"
         >
           <iframe
             src="https://www.youtube.com/embed/SREpK81HHJQ?controls=0"
@@ -103,6 +102,19 @@ const AboutSection = () => {
             allowFullScreen
           />
         </AspectRatio>
+      </GridItem>
+
+      {/*  Row 2/3 - Detail Background Start - contains dots bottom-right */}
+      <GridItem
+        gridColumn="col-start 7/outer-right-end"
+        gridRow="3/5"
+        backgroundColor="orange.600"
+        shadow="md"
+        border="2px solid"
+        borderColor="orange.100"
+        borderLeftRadius="8px"
+      >
+        <DotsBottomRight width={30} />
       </GridItem>
 
       {/*  Row 5/6 - Details End */}
