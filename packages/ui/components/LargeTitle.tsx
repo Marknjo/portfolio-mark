@@ -48,6 +48,7 @@ export const LargeTitle = ({
       lineHeight: titleConfig?.lineHeight ? titleConfig.lineHeight : 'none',
       color: titleConfig?.color ? titleConfig.color : 'orange.900',
       fontSize: titleConfig?.fontSize ? titleConfig.fontSize : '6xl',
+      marginY: titleConfig?.marginY ? titleConfig.marginY : '16',
       ...titleConfig,
     }),
     [titleConfig],
