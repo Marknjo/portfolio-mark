@@ -1,16 +1,23 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
+import NextLink from 'next/link'
 import {
   AspectRatio,
   Box,
   Button,
   GridItem,
   HStack,
+  Icon,
   Heading,
   Text,
   VStack,
+  Link,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 
+import { BsLinkedin, BsTwitter, BsYoutube, BsGithub } from 'react-icons/bs'
+import { IconType } from 'react-icons'
 import {
   DotsBottomRight,
   LargeTitle,
@@ -19,15 +26,47 @@ import {
   SectionTitleVariants,
 } from 'ui'
 
+const DetailsItemsTitle = ({
+  title,
+  align,
+}: {
+  title: string
+  align: SystemStyleObject
+}) => (
+  <Heading as="h4" fontSize="lg" color="blackAlpha.800" sx={align}>
+    {title}
+  </Heading>
+)
+
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
-    <Heading as="h4" fontSize="lg" color="blackAlpha.800">
-      {title}
-    </Heading>
-    <Text fontSize="sm" color="blackAlpha.700">
+    <DetailsItemsTitle align={{ textAlign: 'left' }} title={title} />
+    <Text fontSize="sm" color="orange.800">
       {text}
     </Text>
   </Box>
+)
+
+const SocialIcon = ({ link, icon }: { link: string; icon: IconType }) => (
+  <Link
+    href={link}
+    as={NextLink}
+    target="_blank"
+    color="orange.400"
+    transition="all 0.15s ease-in"
+    _hover={{
+      color: 'orange.500',
+      transform: 'translateY(-1.5px) scale(1.02)',
+    }}
+    _active={{
+      color: 'orange.500',
+      transform: 'translateY(-1.5px) scale(1.02)',
+    }}
+    width="5"
+    height="5"
+  >
+    <Icon width="100%" height="100%" as={icon} />
+  </Link>
 )
 
 const AboutSection = () => {
@@ -58,6 +97,7 @@ const AboutSection = () => {
       <GridItem
         gridColumn="content-start/content-end"
         gridRow="title-start/title-end"
+        zIndex="1"
       >
         <LargeTitle
           title="About Me"
@@ -71,10 +111,12 @@ const AboutSection = () => {
         headingGridSetting={{
           gridColumn: 'content-start / span 5',
           gridRow: 'section-title-start/section-title-end',
+          zIndex: '1',
         }}
         bgGridSetting={{
           gridRow: 'section-title-start/section-title-end',
           gridColumn: 'outer-left-start / span 6',
+          zIndex: '1',
         }}
       >
         My Short Story
@@ -85,6 +127,7 @@ const AboutSection = () => {
         gridColumn="content-start/span 5"
         gridRow="content-start/content-end"
         marginY="8"
+        zIndex="1"
       >
         <VStack
           fontSize="md"
@@ -127,6 +170,7 @@ const AboutSection = () => {
         gridRow="content-start/content-end"
         marginY="auto"
         paddingRight="8"
+        zIndex="1"
       >
         <AspectRatio
           maxW="560px"
@@ -156,6 +200,7 @@ const AboutSection = () => {
         border="2px solid"
         borderColor="orange.100"
         borderLeftRadius="8px"
+        zIndex="0"
       >
         <DotsBottomRight width={30} />
       </GridItem>
@@ -165,6 +210,7 @@ const AboutSection = () => {
         gridColumn="col-start 11 / span 2"
         gridRow="details-upper-start / details-lower-end"
         backgroundColor="orange.50"
+        zIndex="1"
       >
         &nbsp;
       </GridItem>
@@ -174,31 +220,57 @@ const AboutSection = () => {
         justifySelf="center"
         alignSelf="center"
         paddingX="2"
-        paddingY="4"
+        paddingY="8"
+        zIndex="2"
       >
         <VStack alignItems="flex-start">
           <Heading
             as="h3"
             fontSize="3xl"
             color="orange.900"
-            borderBottom="1px solid"
+            borderBottom="2px solid"
             borderBottomColor="orange.200"
-            lineHeight="1.4"
-            marginBottom="1"
+            lineHeight="1.5"
+            marginBottom="4"
             width="100%"
           >
             Details
           </Heading>
-          <VStack alignItems="flex-start" gap="2">
+          <VStack alignItems="flex-start" gap="4" paddingBottom="6">
             <DetailsItem title="Name" text="Mark Njoroge" />
             <DetailsItem title="Work Availability" text="Open For Long-Term" />
             <DetailsItem title="Location" text="Kenya" />
           </VStack>
-          <HStack>
-            <p>Icons</p>
-            <p>Icons</p>
-            <p>Icons</p>
-          </HStack>
+
+          <Box
+            width="100%"
+            marginTop="4"
+            paddingY="4"
+            borderTop="2px solid"
+            borderTopColor="orange.100"
+            borderBottom="2px solid"
+            borderBottomColor="orange.100"
+          >
+            <DetailsItemsTitle
+              align={{ textAlign: 'center', marginBottom: '3' }}
+              title="Social"
+            />
+            <HStack justifyContent="space-evenly">
+              <SocialIcon
+                link="https://linkedin.com/in/mark-njoroge/"
+                icon={BsLinkedin}
+              />
+              <SocialIcon
+                link="https://twitter.com/marknjo7"
+                icon={BsTwitter}
+              />
+              <SocialIcon link="https://github.com/Marknjo" icon={BsGithub} />
+              <SocialIcon
+                link="https://youtube.com/@thetalkingdev"
+                icon={BsYoutube}
+              />
+            </HStack>
+          </Box>
         </VStack>
       </GridItem>
     </MainGrid>
