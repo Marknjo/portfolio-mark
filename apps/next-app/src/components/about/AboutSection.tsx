@@ -1,6 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-import { AspectRatio, Button, GridItem, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
+import {
+  AspectRatio,
+  Box,
+  Button,
+  GridItem,
+  HStack,
+  Heading,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 
 import {
   DotsBottomRight,
@@ -10,16 +19,46 @@ import {
   SectionTitleVariants,
 } from 'ui'
 
+const DetailsItem = ({ title, text }: { title: string; text: string }) => (
+  <Box>
+    <Heading as="h4" fontSize="lg" color="blackAlpha.800">
+      {title}
+    </Heading>
+    <Text fontSize="sm" color="blackAlpha.700">
+      {text}
+    </Text>
+  </Box>
+)
+
 const AboutSection = () => {
-  console.log('info')
+  // @TODO: Implement flexible rows
+  const templateRows = {
+    // sm: "", // 480px
+    // md: "", // 768px
+    // lg: "", // 992px
+    // xl: "", // 1280px
+    md: `
+        [title-start] auto [title-end details-upper-start] 
+        32px [details-upper-end section-title-start] 
+        auto [section-title-end content-start] 
+        auto [content-end details-lower-start]
+        32px [details-lower-end]`, // 992px
+  }
 
   return (
     <MainGrid
       as="section"
-      options={{ backgroundColor: 'orange.50', paddingBottom: '12' }}
+      options={{
+        backgroundColor: 'orange.50',
+        paddingBottom: '12',
+        gridTemplateRows: templateRows,
+      }}
     >
       {/* Title */}
-      <GridItem gridColumn="content-start/content-end" gridRow="1/2">
+      <GridItem
+        gridColumn="content-start/content-end"
+        gridRow="title-start/title-end"
+      >
         <LargeTitle
           title="About Me"
           subTitle="Let's Start With My Background"
@@ -31,10 +70,10 @@ const AboutSection = () => {
         variant={SectionTitleVariants.Orange600to50}
         headingGridSetting={{
           gridColumn: 'content-start / span 5',
-          gridRow: '3/4',
+          gridRow: 'section-title-start/section-title-end',
         }}
         bgGridSetting={{
-          gridRow: '3/4',
+          gridRow: 'section-title-start/section-title-end',
           gridColumn: 'outer-left-start / span 6',
         }}
       >
@@ -42,7 +81,11 @@ const AboutSection = () => {
       </SectionTitle>
 
       {/*  Row 4/5 - content only (start/end), video (start/end) */}
-      <GridItem gridColumn="content-start/span 5" gridRow="4/5" marginY="8">
+      <GridItem
+        gridColumn="content-start/span 5"
+        gridRow="content-start/content-end"
+        marginY="8"
+      >
         <VStack
           fontSize="md"
           alignItems="flex-start"
@@ -81,7 +124,7 @@ const AboutSection = () => {
       {/* My Story Video  */}
       <GridItem
         gridColumn="col-start 6/span 5"
-        gridRow="4/5"
+        gridRow="content-start/content-end"
         marginY="auto"
         paddingRight="8"
       >
@@ -107,7 +150,7 @@ const AboutSection = () => {
       {/*  Row 2/3 - Detail Background Start - contains dots bottom-right */}
       <GridItem
         gridColumn="col-start 7/outer-right-end"
-        gridRow="3/5"
+        gridRow="section-title-start / content-end"
         backgroundColor="orange.600"
         shadow="md"
         border="2px solid"
@@ -118,6 +161,46 @@ const AboutSection = () => {
       </GridItem>
 
       {/*  Row 5/6 - Details End */}
+      <GridItem
+        gridColumn="col-start 11 / span 2"
+        gridRow="details-upper-start / details-lower-end"
+        backgroundColor="orange.50"
+      >
+        &nbsp;
+      </GridItem>
+      <GridItem
+        gridColumn="col-start 11 / span 2"
+        gridRow="section-title/content-end"
+        justifySelf="center"
+        alignSelf="center"
+        paddingX="2"
+        paddingY="4"
+      >
+        <VStack alignItems="flex-start">
+          <Heading
+            as="h3"
+            fontSize="3xl"
+            color="orange.900"
+            borderBottom="1px solid"
+            borderBottomColor="orange.200"
+            lineHeight="1.4"
+            marginBottom="1"
+            width="100%"
+          >
+            Details
+          </Heading>
+          <VStack alignItems="flex-start" gap="2">
+            <DetailsItem title="Name" text="Mark Njoroge" />
+            <DetailsItem title="Work Availability" text="Open For Long-Term" />
+            <DetailsItem title="Location" text="Kenya" />
+          </VStack>
+          <HStack>
+            <p>Icons</p>
+            <p>Icons</p>
+            <p>Icons</p>
+          </HStack>
+        </VStack>
+      </GridItem>
     </MainGrid>
   )
 }
