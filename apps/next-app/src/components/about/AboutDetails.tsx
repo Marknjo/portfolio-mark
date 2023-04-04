@@ -1,26 +1,7 @@
-import {
-  Box,
-  GridItem,
-  HStack,
-  Heading,
-  VStack,
-  SystemStyleObject,
-  Text,
-} from '@chakra-ui/react'
+import { Box, GridItem, HStack, Heading, VStack, Text } from '@chakra-ui/react'
 import { BsLinkedin, BsTwitter, BsYoutube, BsGithub } from 'react-icons/bs'
+import { DetailsItemsTitle } from 'ui'
 import { SocialIcon } from '../next-ui'
-
-const DetailsItemsTitle = ({
-  title,
-  align,
-}: {
-  title: string
-  align: SystemStyleObject
-}) => (
-  <Heading as="h4" fontSize="lg" color="blackAlpha.800" sx={align}>
-    {title}
-  </Heading>
-)
 
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
