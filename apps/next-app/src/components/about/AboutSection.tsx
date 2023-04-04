@@ -2,12 +2,12 @@ import { AspectRatio, Button, GridItem, Text, VStack } from '@chakra-ui/react'
 
 import {
   DotsBottomRight,
-  LargeTitle,
   MainGrid,
   SectionTitle,
   SectionTitleVariants,
 } from 'ui'
 import AboutDetailsContent from './AboutDetailsContent'
+import AboutSectionTitle from './AboutSectionLarge'
 
 const AboutSection = () => {
   // @TODO: Implement flexible rows
@@ -34,16 +34,7 @@ const AboutSection = () => {
       }}
     >
       {/* Title */}
-      <GridItem
-        gridColumn="content-start/content-end"
-        gridRow="title-start/title-end"
-        zIndex="1"
-      >
-        <LargeTitle
-          title="About Me"
-          subTitle="Let's Start With My Background"
-        />
-      </GridItem>
+      <AboutSectionTitle />
 
       {/*  Row 3/4 - Heading only (start/end), Detail Background Start - contains dots bottom-right */}
       <SectionTitle
