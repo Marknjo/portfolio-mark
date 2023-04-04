@@ -1,4 +1,4 @@
-import { AspectRatio, GridItem } from '@chakra-ui/react'
+import { GridItem } from '@chakra-ui/react'
 
 import {
   DotsBottomRight,
@@ -9,6 +9,7 @@ import {
 import AboutDetailsContent from './AboutDetailsContent'
 import AboutSectionTitle from './AboutSectionLarge'
 import AboutSectionTextContent from './AboutSectionTextContent'
+import AboutVideo from './AboutVideo'
 
 const AboutSection = () => {
   // @TODO: Implement flexible rows
@@ -58,31 +59,7 @@ const AboutSection = () => {
       <AboutSectionTextContent />
 
       {/* My Story Video  */}
-      <GridItem
-        gridColumn="col-start 6/span 5"
-        gridRow="content-start/content-end"
-        marginY="auto"
-        paddingRight="8"
-        zIndex="1"
-      >
-        <AspectRatio
-          maxW="560px"
-          ratio={16 / 9}
-          borderRadius="8px"
-          overflow="hidden"
-          border="2px solid"
-          borderColor="orange.100"
-          shadow="lg"
-        >
-          <iframe
-            src="https://www.youtube.com/embed/SREpK81HHJQ?controls=0"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </AspectRatio>
-      </GridItem>
+      <AboutVideo />
 
       {/*  Row 2/3 - Detail Background Start - contains dots bottom-right */}
       <GridItem
