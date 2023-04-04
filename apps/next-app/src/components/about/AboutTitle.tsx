@@ -1,7 +1,7 @@
 import { GridItem } from '@chakra-ui/react'
 import { LargeTitle } from 'ui'
 
-const AboutSectionTitle = () => (
+const AboutTitle = () => (
   <GridItem
     gridColumn="content-start/content-end"
     gridRow="title-start/title-end"
@@ -11,4 +11,4 @@ const AboutSectionTitle = () => (
   </GridItem>
 )
 
-export default AboutSectionTitle
+export default AboutTitle

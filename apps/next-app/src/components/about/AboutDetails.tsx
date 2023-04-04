@@ -31,7 +31,7 @@ const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   </Box>
 )
 
-const AboutDetailsContent = () => (
+const AboutDetails = () => (
   <>
     <GridItem
       gridColumn="col-start 11 / span 2"
@@ -101,4 +101,4 @@ const AboutDetailsContent = () => (
   </>
 )
 
-export default AboutDetailsContent
+export default AboutDetails

@@ -1,7 +1,7 @@
 import { MainGrid, SectionTitle, SectionTitleVariants } from 'ui'
-import AboutDetailsContent from './AboutDetailsContent'
-import AboutSectionTitle from './AboutSectionLarge'
-import AboutSectionTextContent from './AboutSectionTextContent'
+import AboutDetails from './AboutDetails'
+import AboutTitle from './AboutTitle'
+import AboutTextContent from './AboutTextContent'
 import AboutVideo from './AboutVideo'
 import AboutBg from './AboutBg'
 
@@ -30,7 +30,7 @@ const AboutSection = () => {
       }}
     >
       {/* Title */}
-      <AboutSectionTitle />
+      <AboutTitle />
 
       {/*  Row 3/4 - Heading only (start/end), Detail Background Start - contains dots bottom-right */}
       <SectionTitle
@@ -50,7 +50,7 @@ const AboutSection = () => {
       </SectionTitle>
 
       {/*  Row 4/5 - content only (start/end), video (start/end) */}
-      <AboutSectionTextContent />
+      <AboutTextContent />
 
       {/* My Story Video  */}
       <AboutVideo />
@@ -59,7 +59,7 @@ const AboutSection = () => {
       <AboutBg />
 
       {/*  Row 5/6 - Details End */}
-      <AboutDetailsContent />
+      <AboutDetails />
     </MainGrid>
   )
 }

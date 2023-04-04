@@ -1,6 +1,6 @@
 import { Button, GridItem, Text, VStack } from '@chakra-ui/react'
 
-const AboutSectionTextContent = () => (
+const AboutTextContent = () => (
   <GridItem
     gridColumn="content-start/span 5"
     gridRow="content-start/content-end"
@@ -42,4 +42,4 @@ const AboutSectionTextContent = () => (
   </GridItem>
 )
 
-export default AboutSectionTextContent
+export default AboutTextContent
