@@ -1,23 +1,16 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react'
-import NextLink from 'next/link'
 import {
   AspectRatio,
   Box,
   Button,
   GridItem,
   HStack,
-  Icon,
   Heading,
   Text,
   VStack,
-  Link,
   SystemStyleObject,
 } from '@chakra-ui/react'
 
 import { BsLinkedin, BsTwitter, BsYoutube, BsGithub } from 'react-icons/bs'
-import { IconType } from 'react-icons'
 import {
   DotsBottomRight,
   LargeTitle,
@@ -25,6 +18,7 @@ import {
   SectionTitle,
   SectionTitleVariants,
 } from 'ui'
+import { SocialIcon } from '../next-ui'
 
 const DetailsItemsTitle = ({
   title,
@@ -45,28 +39,6 @@ const DetailsItem = ({ title, text }: { title: string; text: string }) => (
       {text}
     </Text>
   </Box>
-)
-
-const SocialIcon = ({ link, icon }: { link: string; icon: IconType }) => (
-  <Link
-    href={link}
-    as={NextLink}
-    target="_blank"
-    color="orange.400"
-    transition="all 0.15s ease-in"
-    _hover={{
-      color: 'orange.500',
-      transform: 'translateY(-1.5px) scale(1.02)',
-    }}
-    _active={{
-      color: 'orange.500',
-      transform: 'translateY(-1.5px) scale(1.02)',
-    }}
-    width="5"
-    height="5"
-  >
-    <Icon width="100%" height="100%" as={icon} />
-  </Link>
 )
 
 const AboutSection = () => {

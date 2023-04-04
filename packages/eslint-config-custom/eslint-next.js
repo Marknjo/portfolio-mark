@@ -37,6 +37,11 @@ module.exports = {
 
     'react/jsx-props-no-spreading': 'off',
 
+    'react/react-in-jsx-scope': 'off',
+
+    'import/prefer-default-export': 'off',
+    'react/no-unescaped-entities': 'off',
+
     // next
     '@next/next/no-html-link-for-pages': 'off',
   },
