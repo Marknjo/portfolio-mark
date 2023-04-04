@@ -1,15 +1,9 @@
-import { GridItem } from '@chakra-ui/react'
-
-import {
-  DotsBottomRight,
-  MainGrid,
-  SectionTitle,
-  SectionTitleVariants,
-} from 'ui'
+import { MainGrid, SectionTitle, SectionTitleVariants } from 'ui'
 import AboutDetailsContent from './AboutDetailsContent'
 import AboutSectionTitle from './AboutSectionLarge'
 import AboutSectionTextContent from './AboutSectionTextContent'
 import AboutVideo from './AboutVideo'
+import AboutBg from './AboutBg'
 
 const AboutSection = () => {
   // @TODO: Implement flexible rows
@@ -62,18 +56,7 @@ const AboutSection = () => {
       <AboutVideo />
 
       {/*  Row 2/3 - Detail Background Start - contains dots bottom-right */}
-      <GridItem
-        gridColumn="col-start 7/outer-right-end"
-        gridRow="section-title-start / content-end"
-        backgroundColor="orange.600"
-        shadow="md"
-        border="2px solid"
-        borderColor="orange.100"
-        borderLeftRadius="8px"
-        zIndex="0"
-      >
-        <DotsBottomRight width={30} />
-      </GridItem>
+      <AboutBg />
 
       {/*  Row 5/6 - Details End */}
       <AboutDetailsContent />
