@@ -10,9 +10,10 @@ const AboutBg = () => (
     border="2px solid"
     borderColor="orange.100"
     borderLeftRadius="8px"
+    position="relative"
     zIndex="0"
   >
-    <DotsBottomRight width={30} />
+    <DotsBottomRight />
   </GridItem>
 )
 
