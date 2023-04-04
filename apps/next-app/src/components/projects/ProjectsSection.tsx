@@ -1,5 +1,6 @@
 import { GridItem, GridProps, Text } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
+import ProjectTitle from './ProjectTitle'
 
 const ProjectsSection = () => {
   const templateRows = {
@@ -15,7 +16,6 @@ const ProjectsSection = () => {
   }
 
   const mainGridStyles: GridProps = {
-    paddingY: '16',
     backgroundColor: 'orange.500',
     color: 'orange.50',
     gridTemplateRows: templateRows,
@@ -25,12 +25,7 @@ const ProjectsSection = () => {
   return (
     <MainGrid as="section" options={mainGridStyles}>
       {/* Main Title */}
-      <GridItem
-        gridColumn="content-start/content-end"
-        gridRow="title-start/title-end"
-      >
-        <Text>title</Text>
-      </GridItem>
+      <ProjectTitle />
 
       {/* Subtitle */}
       <GridItem
