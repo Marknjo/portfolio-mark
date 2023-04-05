@@ -13,9 +13,9 @@ const ProjectsSection = () => {
     // xl: "", // 1280px
     md: `[title-start] auto [title-end sub-start]
          auto [sub-end img-start]
-         repeat(2, 1fr) [img-end img-r3-start]
-         2fr [img-r3-end cards-start]
-         1fr [cards-end]`, // 992px
+         repeat(2, auto) [img-end img-r3-start]
+         8rem [img-r3-end cards-start]
+         auto [cards-end]`, // 992px
   }
 
   const mainGridStyles: GridProps = {
