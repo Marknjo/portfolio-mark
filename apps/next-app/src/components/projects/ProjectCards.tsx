@@ -75,19 +75,14 @@ const ProjectCard = ({ title, url, tags }: CardsInfoInterface) => {
       gridTemplateColumns="24px repeat(4, 1fr) 24px"
       gridTemplateRows={gridRowsTemplate}
     >
-      <GridItem
-        gridColumn="1/-1"
-        gridRow="r1-start/r4-end"
-        objectFit="cover"
-        borderRadius="md"
-        shadow="lg"
-        border="2px solid"
-        borderColor="orange.100"
-      >
+      <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
           src="./images/card-image.jpg"
           alt="Project card Image"
           borderRadius="md"
+          border="2px solid"
+          borderColor="orange.100"
+          objectFit="cover"
         />
       </GridItem>
 
