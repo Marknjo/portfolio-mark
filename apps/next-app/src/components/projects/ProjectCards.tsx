@@ -135,7 +135,7 @@ const ProjectCard = ({ title, url, tags }: CardsInfoInterface) => {
 
 const ProjectCards = () => (
   <GridItem gridColumn="col-start 3/col-end 11" gridRow="img-r3-start/ span 2">
-    <HStack justifySelf="space-around" rowGap="4" alignItems="flex-start">
+    <HStack justifySelf="space-around" columnGap="4" alignItems="flex-start">
       {cardsInfo.map(info => (
         <ProjectCard key={info.title} {...info} />
       ))}
