@@ -27,7 +27,7 @@ interface CardsInfoInterface {
 
 const cardsInfo: Array<CardsInfoInterface> = [
   {
-    title: 'Natours',
+    title: 'Natours App Project',
     url: '#',
     tags: [
       { tagName: 'Nodejs', colorTheme: 'blue' },
@@ -101,8 +101,14 @@ const ProjectCard = ({ title, url, tags }: CardsInfoInterface) => {
         shadow="lg"
         borderColor="orange.100"
       >
-        <VStack rowGap="2">
-          <Heading as="h3" color="orange.800" fontSize="3xl">
+        <VStack rowGap="3">
+          <Heading
+            as="h3"
+            color="orange.800"
+            fontSize="3xl"
+            textAlign="center"
+            lineHeight="none"
+          >
             {title}
           </Heading>
 
@@ -134,7 +140,7 @@ const ProjectCard = ({ title, url, tags }: CardsInfoInterface) => {
 
 const ProjectCards = () => (
   <GridItem gridColumn="col-start 3/col-end 11" gridRow="img-r3-start/ span 2">
-    <HStack justifySelf="space-around" rowGap="4">
+    <HStack justifySelf="space-around" rowGap="4" alignItems="flex-start">
       {cardsInfo.map(info => (
         <ProjectCard key={info.title} {...info} />
       ))}
