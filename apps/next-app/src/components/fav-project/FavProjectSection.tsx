@@ -2,6 +2,7 @@ import { StyleProps } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
 import FavTitle from './FavTittle'
 import FavBg from './FavBg'
+import FavContent from './FavContent'
 
 const FavProjectSection = () => {
   const gridRows = {
@@ -11,7 +12,7 @@ const FavProjectSection = () => {
         auto [r2-end r3-start]
         auto [r3-end r4-start]
         8rem [r4-end r5-start]
-        auto [r5-end r6-start]        
+        auto [r5-end]        
         `,
   }
 
@@ -29,9 +30,11 @@ const FavProjectSection = () => {
 
       {/* Fav BG */}
       <FavBg />
+
       {/* Fav Gallery */}
 
       {/* Content */}
+      <FavContent />
     </MainGrid>
   )
 }
