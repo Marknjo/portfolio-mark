@@ -3,6 +3,7 @@ import {
   GridItem,
   GridItemProps,
   Heading,
+  StyleProps,
   SystemStyleObject,
 } from '@chakra-ui/react'
 import React, { ReactNode, useCallback } from 'react'
@@ -26,6 +27,7 @@ export const SectionTitle = React.memo(
     type = 'h3',
     isRightAligned = false,
     headingOverrides = {},
+    withBoarders = false,
   }: {
     children: ReactNode
     variant: SectionTitleVariants
@@ -34,6 +36,7 @@ export const SectionTitle = React.memo(
     type?: As
     isRightAligned?: Boolean
     headingOverrides?: SystemStyleObject
+    withBoarders?: Boolean
   }) => {
     /**
      * Handles setting section title bg type
@@ -49,6 +52,7 @@ export const SectionTitle = React.memo(
           variant: SectionTitleVariants,
           direction: boolean = false,
           overrides: SystemStyleObject = {},
+          boarders: boolean,
         ): {
           bgDefaults: SystemStyleObject
           headingDefaults: SystemStyleObject
@@ -65,12 +69,34 @@ export const SectionTitle = React.memo(
             ...overrides,
           }
 
-          let bgDefaults: SystemStyleObject = {}
+          const orange500Border: StyleProps = {
+            borderTop: '1px solid',
+            borderTopColor: 'orange.400',
+            borderBottom: '1px solid',
+            borderBottomColor: 'orange.400',
+          }
+
+          const teal500Border: StyleProps = {
+            borderTop: '1px solid',
+            borderTopColor: 'orange.400',
+            borderBottom: '1px solid',
+            borderBottomColor: 'orange.400',
+          }
+
+          const hasBoarder =
+            boarders && SectionTitleVariants.Orange600to500
+              ? orange500Border
+              : boarders && SectionTitleVariants.Orange600to500
+              ? teal500Border
+              : {}
+
+          let bgDefaults: SystemStyleObject = hasBoarder
           let headingDefaults: SystemStyleObject = {}
 
           switch (variant) {
             case SectionTitleVariants.Orange600to500:
               bgDefaults = {
+                ...bgDefaults,
                 bgGradient: `linear(${gradientDirection}, orange.600 0, orange.600 64%, orange.500)`,
               }
               headingDefaults = {
@@ -81,6 +107,7 @@ export const SectionTitle = React.memo(
 
             case SectionTitleVariants.Teal600to50:
               bgDefaults = {
+                ...bgDefaults,
                 bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 64%, teal.500)`,
               }
               headingDefaults = {
@@ -91,6 +118,7 @@ export const SectionTitle = React.memo(
 
             case SectionTitleVariants.Teal600to50:
               bgDefaults = {
+                ...bgDefaults,
                 bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 64%, teal.500)`,
               }
               headingDefaults = {
@@ -102,6 +130,7 @@ export const SectionTitle = React.memo(
 
             default:
               bgDefaults = {
+                ...bgDefaults,
                 bgGradient: `linear(${gradientDirection}, orange.600 0, orange.600 64%, orange.50)`,
               }
               headingDefaults = {
@@ -123,6 +152,7 @@ export const SectionTitle = React.memo(
       variant,
       !!isRightAligned,
       headingOverrides,
+      !!withBoarders,
     )
 
     return (

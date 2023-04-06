@@ -15,6 +15,7 @@ const ProjectSub = () => (
       zIndex: '1',
       mb: '6',
     }}
+    withBoarders
   >
     Top 3 Projects
   </SectionTitle>
