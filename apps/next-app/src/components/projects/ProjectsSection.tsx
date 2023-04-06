@@ -1,5 +1,5 @@
 import { GridProps } from '@chakra-ui/react'
-import { MainGrid } from 'ui'
+import { DotsTopRight, MainGrid } from 'ui'
 import ProjectTitle from './ProjectTitle'
 import ProjectSub from './ProjectSub'
 import ProjectHeroImg from './ProjectHeroImg'
@@ -23,10 +23,14 @@ const ProjectsSection = () => {
     color: 'orange.50',
     gridTemplateRows: templateRows,
     pb: '16',
+    position: 'relative',
   }
 
   return (
     <MainGrid as="section" options={mainGridStyles}>
+      {/* Dots */}
+      <DotsTopRight width={30} />
+
       {/* Main Title */}
       <ProjectTitle />
 
