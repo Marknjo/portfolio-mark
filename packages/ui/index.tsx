@@ -8,3 +8,6 @@ export * from './components/SectionTitle'
 export * from './components/DetailsItemsTitle'
 
 /// Types
+
+/// ICONS
+export * from './components/LinkIcon'

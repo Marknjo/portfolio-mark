@@ -5,14 +5,13 @@ import {
   GridItem,
   HStack,
   Heading,
-  Icon,
   Image,
   Tag,
   VStack,
   Wrap,
   WrapItem,
 } from '@chakra-ui/react'
-import { FiArrowUpRight } from 'react-icons/fi'
+import { LinkIcon } from 'ui'
 
 interface ProjectTagsInterface {
   tagName: string
@@ -55,7 +54,6 @@ const cardsInfo: Array<CardsInfoInterface> = [
   },
 ]
 
-const LinkIcon = () => <Icon as={FiArrowUpRight} />
 
 const ProjectCard = ({ title, url, tags }: CardsInfoInterface) => {
   const gridRowsTemplate = {
