@@ -1,6 +1,7 @@
 import { StyleProps } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
 import FavTitle from './FavTittle'
+import FavBg from './FavBg'
 
 const FavProjectSection = () => {
   const gridRows = {
@@ -17,7 +18,8 @@ const FavProjectSection = () => {
   const defaultStyles: StyleProps = {
     gridTemplateRows: gridRows,
     backgroundColor: 'orange.50',
-    pb: '16',
+    paddingY: '16',
+    position: 'relative',
   }
 
   return (
@@ -26,7 +28,7 @@ const FavProjectSection = () => {
       <FavTitle />
 
       {/* Fav BG */}
-
+      <FavBg />
       {/* Fav Gallery */}
 
       {/* Content */}
