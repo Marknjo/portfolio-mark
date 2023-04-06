@@ -16,6 +16,8 @@ const FavProjectSection = () => {
 
   const defaultStyles: StyleProps = {
     gridTemplateRows: gridRows,
+    backgroundColor: 'orange.50',
+    pb: '16',
   }
 
   return (
