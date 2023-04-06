@@ -3,6 +3,7 @@ import { MainGrid } from 'ui'
 import FavTitle from './FavTittle'
 import FavBg from './FavBg'
 import FavContent from './FavContent'
+import FavGallery from './FavGallery'
 
 const FavProjectSection = () => {
   const gridRows = {
@@ -32,6 +33,7 @@ const FavProjectSection = () => {
       <FavBg />
 
       {/* Fav Gallery */}
+      <FavGallery />
 
       {/* Content */}
       <FavContent />
