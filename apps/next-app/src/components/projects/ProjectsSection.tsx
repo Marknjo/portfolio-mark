@@ -38,6 +38,8 @@ const ProjectsSection = () => {
 
       {/* Cards Section */}
       <ProjectCards />
+
+      {/* @TODO: Implement a view all projects sub-section */}
     </MainGrid>
   )
 }
