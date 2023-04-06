@@ -7,6 +7,7 @@ import { Box } from '@chakra-ui/react'
 import HomePageHero from '@src/components/hero/HomePageHero'
 import AboutSection from '@src/components/about/AboutSection'
 import ProjectsSection from '@src/components/projects/ProjectsSection'
+import FavProjectSection from '@src/components/fav-project/FavProjectSection'
 
 const HomePage = () => (
   <>
@@ -30,6 +31,7 @@ const HomePage = () => (
       <ProjectsSection />
 
       {/* Favorite Project Section */}
+      <FavProjectSection />
 
       {/* Skills Section */}
 
