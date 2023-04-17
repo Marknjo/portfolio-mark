@@ -7,6 +7,7 @@ export * from './components/LargeTitle'
 export * from './components/SectionTitle'
 export * from './components/DetailsItemsTitle'
 export * from './components/ProjectCards'
+export * from './components/GalleryImageCard'
 
 /// Types
 
