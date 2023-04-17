@@ -22,6 +22,7 @@ const FavProjectSection = () => {
     backgroundColor: 'orange.50',
     paddingY: '16',
     position: 'relative',
+    zIndex: '0',
   }
 
   return (

@@ -9,6 +9,7 @@ const FavBg = () => (
     position="relative"
     borderRadius="md"
     overflow="hidden"
+    zIndex="1"
   >
     <DotsBottomLeft width={90} />
   </GridItem>

@@ -8,6 +8,7 @@ const FavContent = () => (
     gridRow="r5-start / r5-end"
     gridColumn="col-start 4 / content-end"
     mt="12"
+    zIndex="2"
   >
     <VStack alignItems="flex-start" rowGap="8">
       <VStack alignItems="flex-start" rowGap="4">

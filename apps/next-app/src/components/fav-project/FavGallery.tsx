@@ -48,14 +48,23 @@ const FavGalleryCard = ({
   </GridItem>
 )
 
-const FavGallery = () => (
-  <GridItem gridColumn="col-start 4 / content-end" gridRow="r3-start/r5-end">
-    <Grid>
-      {gridImages.map(img => (
-        <FavGalleryCard key={img.id} imgName={img.imgName} alt={img.alt} />
-      ))}
-    </Grid>
-  </GridItem>
-)
+const FavGallery = () => {
+  const gridColumnDef = {
+    sm: 'repeat(auto-fit, minmax(18rem, 1fr))',
+  }
 
+  return (
+    <GridItem
+      gridColumn="col-start 4 / content-end"
+      gridRow="r3-start/r4-end"
+      zIndex="2"
+    >
+      <Grid gridTemplateColumns={gridColumnDef} gap="3">
+        {gridImages.map(img => (
+          <FavGalleryCard key={img.id} imgName={img.imgName} alt={img.alt} />
+        ))}
+      </Grid>
+    </GridItem>
+  )
+}
 export default FavGallery
