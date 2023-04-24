@@ -8,6 +8,7 @@ import HomePageHero from '@src/components/hero/HomePageHero'
 import AboutSection from '@src/components/about/AboutSection'
 import ProjectsSection from '@src/components/projects/ProjectsSection'
 import FavProjectSection from '@src/components/fav-project/FavProjectSection'
+import SkillsSection from '@src/components/skills-section/SkillsSection'
 
 const HomePage = () => (
   <>
@@ -34,6 +35,7 @@ const HomePage = () => (
       <FavProjectSection />
 
       {/* Skills Section */}
+      <SkillsSection />
 
       {/* Contact Section */}
 
