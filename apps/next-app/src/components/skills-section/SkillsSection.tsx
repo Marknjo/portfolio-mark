@@ -1,6 +1,7 @@
 import { GridItem, GridItemProps } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
 import SkillsTitle from './SkillsTittle'
+import SkillsSub from './SkillsSub'
 
 const SkillsSection = () => {
   const gridRows: GridItemProps = {
@@ -13,14 +14,16 @@ const SkillsSection = () => {
     auto [r5-end r6-start]        
     auto [r6-end]        
     `,
+    position: 'relative',
   }
 
   return (
     <MainGrid as="section" options={gridRows}>
       {/* Main Heading */}
       <SkillsTitle />
-      {/* Section Title */}
 
+      {/* Section Title */}
+      <SkillsSub />
       {/* Programming Languages */}
 
       {/* Columns of: Frontend, backend, & Tools */}
