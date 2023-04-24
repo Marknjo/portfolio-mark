@@ -2,6 +2,7 @@ import { GridItem, GridItemProps } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
 import SkillsTitle from './SkillsTittle'
 import SkillsSub from './SkillsSub'
+import SkillsPrLangs from './SkillsPrLangs'
 
 const SkillsSection = () => {
   const gridRows: GridItemProps = {
@@ -24,7 +25,9 @@ const SkillsSection = () => {
 
       {/* Section Title */}
       <SkillsSub />
+
       {/* Programming Languages */}
+      <SkillsPrLangs />
 
       {/* Columns of: Frontend, backend, & Tools */}
 
