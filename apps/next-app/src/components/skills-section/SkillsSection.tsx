@@ -1,4 +1,4 @@
-import { GridItem, GridItemProps } from '@chakra-ui/react'
+import { GridItemProps } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
 import SkillsTitle from './SkillsTittle'
 import SkillsSub from './SkillsSub'
@@ -16,6 +16,10 @@ const SkillsSection = () => {
     auto [r6-end]        
     `,
     position: 'relative',
+    backgroundColor: 'orange.50',
+    py: '16',
+    borderTop: '2px solid',
+    borderTopColor: 'blackAlpha.200',
   }
 
   return (
