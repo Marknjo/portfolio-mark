@@ -1,4 +1,4 @@
-import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { GridItem, HStack, Heading, SystemStyleObject } from '@chakra-ui/react'
 import { ISkillsCard, SkillThemes, SkillsCard } from 'ui'
 
 const progLangs: Array<ISkillsCard> = [
@@ -17,6 +17,27 @@ const progLangs: Array<ISkillsCard> = [
     theme: SkillThemes.DEFAULT,
   },
   {
+    name: 'C# (csharp)',
+    homePage: 'https://go.dev/',
+    active: true,
+    icon: 'c#',
+    theme: SkillThemes.DEFAULT,
+  },
+  {
+    name: 'Rust',
+    homePage: 'https://www.rust-lang.org/',
+    active: true,
+    icon: 'rust',
+    theme: SkillThemes.DEFAULT,
+  },
+  {
+    name: 'Golang (Go)',
+    homePage: 'https://go.dev/',
+    active: true,
+    icon: 'go',
+    theme: SkillThemes.DEFAULT,
+  },
+  {
     name: 'PHP',
     homePage: 'https://www.php.net/',
     active: false,
@@ -32,16 +53,43 @@ const SkillsPrLangs = () => {
   const mainStyles: SystemStyleObject = {
     gridRow: 'r3-start/r3-end',
     gridColumn: 'content-start/content-end',
+    justifyContent: 'center',
+    gap: '4',
 
     display: 'flex',
-    gap: '4',
+    flexDirection: 'column',
+    alignItems: 'center',
+
+    // Visual
+    border: '1px solid',
+    borderColor: 'blackAlpha.100',
+    boxShadow: 'base',
+    py: '8',
+    px: '2',
+    borderRadius: 'md',
+  }
+  const h4HeadingStyles: SystemStyleObject = {
+    // Visual
+    borderBottom: '2px solid',
+    borderColor: 'orange.200',
+    pb: '2',
+    width: '100%',
+    textAlign: 'center',
+    fontSize: '2xl',
+    color: 'orange.900',
   }
 
   return (
     <GridItem sx={mainStyles}>
-      {progLangs.map(lang => (
-        <SkillsCard key={lang.name} skill={lang} showBadge />
-      ))}
+      <Heading as="h4" sx={h4HeadingStyles}>
+        General Programming Languages
+      </Heading>
+
+      <HStack gap="4" flexWrap="wrap" mt="4">
+        {progLangs.map(lang => (
+          <SkillsCard key={lang.name} skill={lang} showBadge />
+        ))}
+      </HStack>
     </GridItem>
   )
 }

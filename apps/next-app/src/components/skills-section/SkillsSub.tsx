@@ -4,7 +4,7 @@ const SkillsSub = () => (
   <SectionTitle
     variant={SectionTitleVariants.Orange600to50}
     headingGridSetting={{
-      gridColumn: 'content-start / span 5',
+      gridColumn: 'content-start / span 6',
       gridRow: 'r2-start/r2-end',
       zIndex: '1',
       mb: '6',
@@ -16,7 +16,7 @@ const SkillsSub = () => (
       mb: '6',
     }}
   >
-    My Skills
+    Skills
   </SectionTitle>
 )
 
