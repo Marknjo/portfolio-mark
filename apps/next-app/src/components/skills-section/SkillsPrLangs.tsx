@@ -16,6 +16,13 @@ const progLangs: Array<ISkillsCard> = [
     icon: 'py',
     theme: SkillThemes.DEFAULT,
   },
+  {
+    name: 'PHP',
+    homePage: 'https://www.php.net/',
+    active: false,
+    icon: 'php',
+    theme: SkillThemes.PASSIVE,
+  },
 ]
 
 /**
@@ -33,7 +40,7 @@ const SkillsPrLangs = () => {
   return (
     <GridItem sx={mainStyles}>
       {progLangs.map(lang => (
-        <SkillsCard key={lang.name} skill={lang} />
+        <SkillsCard key={lang.name} skill={lang} showBadge />
       ))}
     </GridItem>
   )
