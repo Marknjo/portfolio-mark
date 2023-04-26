@@ -3,7 +3,7 @@ import { MainGrid } from 'ui'
 import SkillsTitle from './SkillsTittle'
 import SkillsSub from './SkillsSub'
 import SkillsPrLangs from './SkillsPrLangs'
-import SkillsFrontend from './SkillsFrontend'
+import SkillsCategories from './SkillsCategories'
 
 const SkillsSection = () => {
   const gridRows: GridItemProps = {
@@ -11,10 +11,11 @@ const SkillsSection = () => {
     [r1-start]
     auto [r1-end r2-start]
     auto [r2-end r3-start]
-    auto [r3-end r4-start]
-    8rem [r4-end r5-start]
-    auto [r5-end r6-start]        
-    auto [r6-end]        
+    6rem [r3-end r4-start]
+    auto [r4-end r5-start]
+    8rem [r5-end r6-start]        
+    auto [r6-end r7-start]        
+    auto [r8-end]        
     `,
     position: 'relative',
     backgroundColor: 'orange.50',
@@ -35,9 +36,9 @@ const SkillsSection = () => {
       <SkillsPrLangs />
 
       {/* Columns of: Frontend, backend, & Tools */}
-      <SkillsFrontend />
+      <SkillsCategories />
 
-      {/* Mobile Programming Tools */}
+      {/* @TODO: Add Mobile & Desktop Programming Skills */}
     </MainGrid>
   )
 }

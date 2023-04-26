@@ -210,11 +210,29 @@ const progLangs: Array<ISkillsCard> = [
     isHidden: false,
   },
   {
+    name: 'Vite',
+    homePage: 'https://vitejs.dev/',
+    category: SkillsCategory.TOOLS,
+    active: true,
+    icon: 'vite',
+    theme: SkillThemes.DEFAULT,
+    isHidden: false,
+  },
+  {
     name: 'Docker Swarm',
     homePage: 'https://docs.docker.com/engine/swarm/',
     category: SkillsCategory.TOOLS,
     active: true,
     icon: 'swarm',
+    theme: SkillThemes.DEFAULT,
+    isHidden: false,
+  },
+  {
+    name: 'Vitest',
+    homePage: 'https://vitest.dev/',
+    category: SkillsCategory.TOOLS,
+    active: true,
+    icon: 'vitest',
     theme: SkillThemes.DEFAULT,
     isHidden: false,
   },
@@ -236,24 +254,7 @@ const progLangs: Array<ISkillsCard> = [
     theme: SkillThemes.DEFAULT,
     isHidden: false,
   },
-  {
-    name: 'CI/CD Github Actions',
-    homePage: 'https://github.com/features/actions',
-    category: SkillsCategory.TOOLS,
-    active: true,
-    icon: 'ci-cd',
-    theme: SkillThemes.DEFAULT,
-    isHidden: false,
-  },
-  {
-    name: 'Vitest',
-    homePage: 'https://vitest.dev/',
-    category: SkillsCategory.TOOLS,
-    active: true,
-    icon: 'vitest',
-    theme: SkillThemes.DEFAULT,
-    isHidden: false,
-  },
+
   {
     name: 'MVC',
     homePage: '#',
@@ -263,6 +264,7 @@ const progLangs: Array<ISkillsCard> = [
     theme: SkillThemes.DEFAULT,
     isHidden: false,
   },
+
   {
     name: 'REST API',
     homePage: '#',
@@ -273,11 +275,11 @@ const progLangs: Array<ISkillsCard> = [
     isHidden: false,
   },
   {
-    name: 'Vite',
-    homePage: 'https://vitejs.dev/',
+    name: 'Github Actions (CI/CD)',
+    homePage: 'https://github.com/features/actions',
     category: SkillsCategory.TOOLS,
     active: true,
-    icon: 'vite',
+    icon: 'ci-cd',
     theme: SkillThemes.DEFAULT,
     isHidden: false,
   },
@@ -302,7 +304,7 @@ const SkillsCategoryContainer = ({
   const mainStyles: SystemStyleObject = {
     gridRow: 'r3-start/r3-end',
     gridColumn: 'content-start/content-end',
-    justifyContent: 'center',
+    justifyContent: 'start',
     gap: '4',
 
     display: 'flex',

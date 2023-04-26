@@ -1,14 +1,14 @@
 import { SkillsCategory } from 'ui'
 import SkillsCategoryContainer from './SkillsCategoryContainer'
 
-const SkillsFrontend = () => (
+const SkillsTools = () => (
   <SkillsCategoryContainer
-    headingText="Frontend & UI/UX"
-    category={SkillsCategory.FRONTEND}
+    headingText="Tools & Other Skills"
+    category={SkillsCategory.TOOLS}
     mainStylesOverrides={{
       gridRow: 'r2-start/-1',
-      gridColumn: '1 / span 1',
+      gridColumn: '3 / span 1',
     }}
   />
 )
-export default SkillsFrontend
+export default SkillsTools

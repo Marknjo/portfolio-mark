@@ -8,9 +8,8 @@ const SkillsPrLangs = () => (
     headingText="General Programming Languages"
     category={SkillsCategory.PROGRAMMING_LANGS}
     mainStylesOverrides={{
-      gridRow: 'r3-start/r4-end',
-      pb: '16',
-      mb: '24',
+      gridRow: 'r3-start/r5-end',
+      pb: '10rem',
     }}
     headingStylesOverrides={{
       mb: '6',
