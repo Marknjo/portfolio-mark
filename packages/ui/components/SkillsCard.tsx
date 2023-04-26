@@ -19,14 +19,14 @@ export interface ISkillsCard {
   name: string
   homePage: string
   icon: string
-  theme?: SkillThemes
-  active?: boolean
+  isHidden: boolean // allows to a skill to be hidden from displaying on the UI
+  active?: boolean // a config to show if I am still using the skill/I have used the skill in the past but not actively using it
+  theme?: SkillThemes // allows customization of card colors: font color, border color and background color
 }
 
 /**
  *  Theme Styles for different card
  */
-
 const defaultOrangeTheme: SystemStyleObject = {
   color: 'orange.200',
   borderTopColor: 'orange.200',

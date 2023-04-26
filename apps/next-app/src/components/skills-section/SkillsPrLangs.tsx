@@ -8,6 +8,7 @@ const progLangs: Array<ISkillsCard> = [
     active: true,
     icon: 'js',
     theme: SkillThemes.DEFAULT,
+    isHidden: false,
   },
   {
     name: 'Python',
@@ -15,6 +16,7 @@ const progLangs: Array<ISkillsCard> = [
     active: true,
     icon: 'py',
     theme: SkillThemes.DEFAULT,
+    isHidden: false,
   },
   {
     name: 'C# (csharp)',
@@ -22,6 +24,7 @@ const progLangs: Array<ISkillsCard> = [
     active: true,
     icon: 'c#',
     theme: SkillThemes.DEFAULT,
+    isHidden: false,
   },
   {
     name: 'Rust',
@@ -29,6 +32,7 @@ const progLangs: Array<ISkillsCard> = [
     active: true,
     icon: 'rust',
     theme: SkillThemes.DEFAULT,
+    isHidden: true,
   },
   {
     name: 'Golang (Go)',
@@ -36,6 +40,7 @@ const progLangs: Array<ISkillsCard> = [
     active: true,
     icon: 'go',
     theme: SkillThemes.DEFAULT,
+    isHidden: false,
   },
   {
     name: 'PHP',
@@ -43,6 +48,7 @@ const progLangs: Array<ISkillsCard> = [
     active: false,
     icon: 'php',
     theme: SkillThemes.PASSIVE,
+    isHidden: false,
   },
 ]
 
@@ -86,9 +92,12 @@ const SkillsPrLangs = () => {
       </Heading>
 
       <HStack gap="4" flexWrap="wrap" mt="4">
-        {progLangs.map(lang => (
-          <SkillsCard key={lang.name} skill={lang} showBadge />
-        ))}
+        {progLangs.map(
+          lang =>
+            !lang.isHidden && (
+              <SkillsCard key={lang.name} skill={lang} showBadge />
+            ),
+        )}
       </HStack>
     </GridItem>
   )
