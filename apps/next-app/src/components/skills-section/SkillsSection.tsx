@@ -3,6 +3,7 @@ import { MainGrid } from 'ui'
 import SkillsTitle from './SkillsTittle'
 import SkillsSub from './SkillsSub'
 import SkillsPrLangs from './SkillsPrLangs'
+import SkillsFrontend from './SkillsFrontend'
 
 const SkillsSection = () => {
   const gridRows: GridItemProps = {
@@ -34,6 +35,7 @@ const SkillsSection = () => {
       <SkillsPrLangs />
 
       {/* Columns of: Frontend, backend, & Tools */}
+      <SkillsFrontend />
 
       {/* Mobile Programming Tools */}
     </MainGrid>

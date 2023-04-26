@@ -15,10 +15,20 @@ export enum SkillThemes {
   PASSIVE = 'passive',
 }
 
+export enum SkillsCategory {
+  PROGRAMMING_LANGS = 'programming languages',
+  FRONTEND = 'frontend',
+  BACKEND = 'backend',
+  TOOLS = 'tools',
+  MOBILE = 'mobile apps',
+  DESKTOP = 'desktop apps',
+}
+
 export interface ISkillsCard {
   name: string
   homePage: string
   icon: string
+  category: SkillsCategory
   isHidden: boolean // allows to a skill to be hidden from displaying on the UI
   active?: boolean // a config to show if I am still using the skill/I have used the skill in the past but not actively using it
   theme?: SkillThemes // allows customization of card colors: font color, border color and background color
