@@ -4,6 +4,7 @@ import SkillsTitle from './SkillsTittle'
 import SkillsSub from './SkillsSub'
 import SkillsPrLangs from './SkillsPrLangs'
 import SkillsCategories from './SkillsCategories'
+import SkillsNote from './SkillsNote'
 
 const SkillsSection = () => {
   const gridRows: GridItemProps = {
@@ -15,6 +16,7 @@ const SkillsSection = () => {
     auto [r4-end r5-start]
     8rem [r5-end r6-start]        
     auto [r6-end r7-start]        
+    auto [r7-end r8-start]        
     auto [r8-end]        
     `,
     position: 'relative',
@@ -39,6 +41,7 @@ const SkillsSection = () => {
       <SkillsCategories />
 
       {/* @TODO: Add Mobile & Desktop Programming Skills */}
+      <SkillsNote />
     </MainGrid>
   )
 }
