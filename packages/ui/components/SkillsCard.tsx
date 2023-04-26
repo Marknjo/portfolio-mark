@@ -36,7 +36,7 @@ const defaultOrangeTheme: SystemStyleObject = {
 const defaultOrangeThemeHover: SystemStyleObject = {
   color: 'orange.100',
   borderTopColor: 'orange.100',
-  backgroundColor: 'blackAlpha.900',
+  backgroundColor: 'orange.900',
   boxShadow: 'lg',
 }
 
@@ -135,11 +135,24 @@ const CardLink = ({
 
 export const SkillsCard = ({
   skill,
-  showBadge = false,
+  showBadge = true,
+  showLink = true,
+  showIcon = true,
+  showAllEls = true,
 }: {
   skill: ISkillsCard
   showBadge?: boolean
+  showLink?: boolean
+  showIcon?: boolean
+  showAllEls?: boolean
 }) => {
+  // Allow disable all attached components with one setting
+  if (!showAllEls) {
+    showIcon = false
+    showLink = false
+    showBadge = false
+  }
+
   /// Styles
   const cardDefaultStyles: SystemStyleObject = {
     position: 'relative',
@@ -161,10 +174,10 @@ export const SkillsCard = ({
   const cardTitleStyles: SystemStyleObject = {
     borderTop: '8px solid',
     borderRadius: '4px',
-    boxShadow: 'md',
-    pt: showBadge ? '6' : '3',
+    boxShadow: 'base',
+    pt: !showBadge ? '3' : '6',
     px: '3',
-    pb: '5',
+    pb: !showIcon ? '3' : '5',
     pr: '8',
     zIndex: '1',
     ...(skill.theme ? theme(skill.theme) : defaultOrangeTheme),
@@ -173,7 +186,7 @@ export const SkillsCard = ({
     gridColumn: 'c1-start / c3-end',
     gridRow: 'r1-start / r2-end',
 
-    transition: 'all .3s ease-in',
+    transition: 'all .15s ease-in',
     _groupHover: {
       ...(skill.theme ? themeHover(skill.theme) : defaultOrangeTheme),
     },
@@ -193,7 +206,7 @@ export const SkillsCard = ({
 
     zIndex: '2',
 
-    transition: 'all .3s ease-in',
+    transition: 'all .15s ease-in',
   }
 
   const cardLinkStyles: SystemStyleObject = {
@@ -242,13 +255,18 @@ export const SkillsCard = ({
           <BadgeItem isActive={!!skill.active} />
         </GridItem>
       )}
-      <GridItem gridColumn="c3-start/c3-end" gridRow="r1-start/r1-end">
-        <CardLink pageLink={skill.homePage} cardLinkStyles={cardLinkStyles} />
-      </GridItem>
+
+      {showLink && (
+        <GridItem gridColumn="c3-start/c3-end" gridRow="r1-start/r1-end">
+          <CardLink pageLink={skill.homePage} cardLinkStyles={cardLinkStyles} />
+        </GridItem>
+      )}
+
       <GridItem as="p" sx={cardTitleStyles}>
         {skill.name}
       </GridItem>
-      <GridItem as={CardIcon} />
+
+      {showIcon && <GridItem as={CardIcon} />}
     </Grid>
   )
 }
