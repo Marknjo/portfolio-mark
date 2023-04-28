@@ -9,6 +9,7 @@ import AboutSection from '@src/components/about/AboutSection'
 import ProjectsSection from '@src/components/projects/ProjectsSection'
 import FavProjectSection from '@src/components/fav-project/FavProjectSection'
 import SkillsSection from '@src/components/skills-section/SkillsSection'
+import ContactSection from '@src/components/contact-section/ContactSection'
 
 const HomePage = () => (
   <>
@@ -38,7 +39,7 @@ const HomePage = () => (
       <SkillsSection />
 
       {/* Contact Section */}
-
+      <ContactSection />
       {/* Page CTA */}
     </Box>
     {/* Footer */}
