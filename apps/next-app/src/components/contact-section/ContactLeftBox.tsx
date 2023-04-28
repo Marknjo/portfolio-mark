@@ -4,7 +4,6 @@ import {
   Grid,
   GridItem,
   HStack,
-  Heading,
   Icon,
   SystemStyleObject,
   Text,
@@ -14,6 +13,7 @@ import {
 
 import { IoIosPhonePortrait } from 'react-icons/io'
 import { BsLinkedin, BsTwitter, BsYoutube, BsGithub } from 'react-icons/bs'
+import { SubHeading } from 'ui'
 import { SocialIcon } from '../next-ui'
 
 const ContactLeftBox = () => {
@@ -31,25 +31,26 @@ const ContactLeftBox = () => {
     alignItems: 'top',
   }
 
-  const headingStyles: SystemStyleObject = {
-    // Visual
-    borderBottom: '2px solid',
+  const topHeadingStyles: SystemStyleObject = {
     borderColor: 'teal.200',
-    pb: '2',
-    fontSize: '2xl',
     color: 'teal.900',
-    mb: '4',
+  }
 
-    // Overrides
-    // ...headingStylesOverrides,
+  const socialHeadingStyles: SystemStyleObject = {
+    borderColor: 'teal.200',
+    color: 'teal.900',
+    textAlign: 'left',
+    display: 'inline-block',
+    pr: '4',
   }
 
   return (
     <Grid sx={mainStyles}>
       <GridItem gridColumn="1 / span 5" mr="4">
-        <Heading as="h3" sx={headingStyles} width="100%" textAlign="left">
-          Here is How To Reach Me
-        </Heading>
+        <SubHeading
+          text="Here is How To Reach Me"
+          overrides={topHeadingStyles}
+        />
       </GridItem>
 
       <GridItem
@@ -111,15 +112,7 @@ const ContactLeftBox = () => {
       </GridItem>
 
       <GridItem gridColumn="1 / span 5" mr="4">
-        <Heading
-          as="h3"
-          sx={headingStyles}
-          textAlign="left"
-          display="inline-block"
-          pr="4"
-        >
-          Follow Me
-        </Heading>
+        <SubHeading overrides={socialHeadingStyles} text="Follow Me" />
 
         <HStack justifyContent="flex-start" gap="2">
           <SocialIcon
@@ -143,8 +136,10 @@ const ContactLeftBox = () => {
           <SocialIcon
             link="https://youtube.com/@thetalkingdev"
             icon={BsYoutube}
-            themeColor={{ color: 'teal.400' }}
-            themeHoverColor={{ color: 'teal.500' }}
+            themeColor={{ color: 'teal.400', width: '24px' }}
+            themeHoverColor={{
+              color: 'teal.500',
+            }}
           />
         </HStack>
       </GridItem>

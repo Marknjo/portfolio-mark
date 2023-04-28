@@ -9,6 +9,7 @@ export * from './components/DetailsItemsTitle'
 export * from './components/ProjectCards'
 export * from './components/GalleryImageCard'
 export * from './components/SkillsCard'
+export * from './components/SubHeading'
 
 /// Types
 
