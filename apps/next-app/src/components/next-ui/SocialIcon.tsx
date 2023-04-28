@@ -7,9 +7,11 @@ export const SocialIcon = ({
   icon,
   themeColor,
   themeHoverColor,
+  title,
 }: {
   link: string
   icon: IconType
+  title: string
   themeColor?: SystemStyleObject
   themeHoverColor?: SystemStyleObject
 }) => {
@@ -31,6 +33,7 @@ export const SocialIcon = ({
       width="5"
       height="5"
       sx={themeColor}
+      title={title}
     >
       <Icon width="100%" height="100%" as={icon} />
     </Link>
