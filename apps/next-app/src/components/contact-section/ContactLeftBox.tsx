@@ -1,21 +1,10 @@
-import NextLink from 'next/link'
-import {
-  Box,
-  Grid,
-  GridItem,
-  HStack,
-  Icon,
-  SystemStyleObject,
-  Text,
-  Link,
-  Badge,
-} from '@chakra-ui/react'
+import { Grid, GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
 
-import { IoIosPhonePortrait } from 'react-icons/io'
 import { BsLinkedin, BsTwitter, BsYoutube, BsGithub } from 'react-icons/bs'
 import { SubHeading } from 'ui'
 import { SocialIcon } from '../next-ui'
-import LeftSubHeading from './leftbox/LeftSubHeading'
+import LeftSubHeading from './left-box/LeftSubHeading'
+import LeftContent from './left-box/LeftContent'
 
 const ContactLeftBox = () => {
   const mainStyles: SystemStyleObject = {
@@ -45,63 +34,8 @@ const ContactLeftBox = () => {
       {/* Subsection Section Title  */}
       <LeftSubHeading />
 
-      <GridItem
-        gridColumn="1 / span 5"
-        display="flex"
-        flexDirection="column"
-        gap="3"
-        color="blackAlpha.800"
-        mb="6"
-        mr="4"
-      >
-        <Text as="p">
-          Visit My Blog here{' '}
-          <Box as="span" color="teal.400">
-            (coming soon)
-          </Box>
-        </Text>
-        <Text as="p">If you would like to reach me, kindly call me using:</Text>
-        <Link
-          href="tel:+254727366216"
-          as={NextLink}
-          color="teal.500"
-          fontWeight="bold"
-          _hover={{ color: 'teal.600' }}
-          display="flex"
-          flexWrap="nowrap"
-          gap="2"
-          alignItems="center"
-          role="group"
-        >
-          <Icon
-            as={IoIosPhonePortrait}
-            color="orange.400"
-            width="auto"
-            height="20px"
-            _groupHover={{
-              color: 'orange.600',
-            }}
-          />{' '}
-          +(254)727-366-216
-        </Link>{' '}
-        <Text as="p">
-          You may also want to reach me and follow me on social media accounts.
-        </Text>
-        <Text as="p">
-          <Text as="strong" color="teal.400">
-            Below are the links.
-          </Text>
-        </Text>
-        <Text as="p">
-          <Box as="span" color="teal.500">
-            Hint!
-          </Box>{' '}
-          <Badge as="span" colorScheme="orange">
-            LinkedIn
-          </Badge>{' '}
-          is my favorite Hangout.
-        </Text>
-      </GridItem>
+      {/* Content */}
+      <LeftContent />
 
       <GridItem gridColumn="1 / span 5" mr="4">
         <SubHeading overrides={socialHeadingStyles} text="Follow Me" />
