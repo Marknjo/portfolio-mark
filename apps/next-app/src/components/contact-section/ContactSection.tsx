@@ -1,5 +1,6 @@
 import { GridItem, GridProps } from '@chakra-ui/react'
 import { DotsBottomRight, DotsTopRight, MainGrid } from 'ui'
+import ContactTitle from './ContactTitle'
 
 const ContactSection = () => {
   const gridStyles: GridProps = {
@@ -7,6 +8,14 @@ const ContactSection = () => {
     pt: '16',
     position: 'relative',
     overflow: 'hidden',
+
+    gridTemplateRows: `
+      [r1-start] 
+      auto  [r1-end r2-start]
+      16rem [r2-end r3-start]
+      auto  [r3-end r4-start]
+      16rem [r4-end r5-start]
+    `,
   }
   return (
     <MainGrid options={gridStyles} as="section">
@@ -14,9 +23,9 @@ const ContactSection = () => {
       <DotsTopRight width={30} />
 
       {/* Section Title (subtitle component as h2) */}
-      <GridItem gridColumn="content-start/content-end">Content</GridItem>
-
+      <ContactTitle />
       {/* Component Text */}
+      <GridItem gridColumn="content-start/content-end">Content</GridItem>
 
       {/* Contact Form component */}
 
