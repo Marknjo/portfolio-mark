@@ -355,7 +355,7 @@ const SkillsCategoryContainer = ({
     px: '2',
     borderRadius: 'md',
     backgroundColor: 'orange.50',
-
+    zIndex: '1',
     // Overrides
     ...mainStylesOverrides,
   }

@@ -1,5 +1,5 @@
 import { GridItemProps } from '@chakra-ui/react'
-import { MainGrid } from 'ui'
+import { DotsTopRight, MainGrid } from 'ui'
 import SkillsTitle from './SkillsTittle'
 import SkillsSub from './SkillsSub'
 import SkillsPrLangs from './SkillsPrLangs'
@@ -28,6 +28,8 @@ const SkillsSection = () => {
 
   return (
     <MainGrid as="section" options={gridRows}>
+      <DotsTopRight fill="#ED8936" width={30} />
+
       {/* Main Heading */}
       <SkillsTitle />
 
