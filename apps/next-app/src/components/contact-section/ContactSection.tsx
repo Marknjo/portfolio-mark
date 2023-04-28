@@ -1,6 +1,7 @@
-import { GridItem, GridProps } from '@chakra-ui/react'
+import { GridProps } from '@chakra-ui/react'
 import { DotsBottomRight, DotsTopRight, MainGrid } from 'ui'
 import ContactTitle from './ContactTitle'
+import ContactLeftBox from './ContactLeftBox'
 
 const ContactSection = () => {
   const gridStyles: GridProps = {
@@ -24,8 +25,9 @@ const ContactSection = () => {
 
       {/* Section Title (subtitle component as h2) */}
       <ContactTitle />
+
       {/* Component Text */}
-      <GridItem gridColumn="content-start/content-end">Content</GridItem>
+      <ContactLeftBox />
 
       {/* Contact Form component */}
 
