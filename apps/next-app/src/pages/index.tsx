@@ -2,14 +2,14 @@ import React from 'react'
 
 // eslint-disable-next-line import/no-unresolved
 import Head from 'next/head'
-import HomePageNav from '@src/components/navigation/HomePageNav'
+import HomePageNav from '@components/navigation/HomePageNav'
 import { Box } from '@chakra-ui/react'
-import HomePageHero from '@src/components/hero/HomePageHero'
-import AboutSection from '@src/components/about/AboutSection'
-import ProjectsSection from '@src/components/projects/ProjectsSection'
-import FavProjectSection from '@src/components/fav-project/FavProjectSection'
-import SkillsSection from '@src/components/skills-section/SkillsSection'
-import ContactSection from '@src/components/contact-section/ContactSection'
+import HomePageHero from '@components/hero/HomePageHero'
+import AboutSection from '@components/about/AboutSection'
+import ProjectsSection from '@components/projects/ProjectsSection'
+import FavProjectSection from '@components/fav-project/FavProjectSection'
+import SkillsSection from '@components/skills-section/SkillsSection'
+import ContactSection from '@components/contact-section/ContactSection'
 
 const HomePage = () => (
   <>

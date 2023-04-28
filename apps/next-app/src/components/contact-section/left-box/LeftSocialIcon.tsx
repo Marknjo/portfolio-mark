@@ -1,8 +1,8 @@
-import { GridItem, HStack, SystemStyleObject, Text } from '@chakra-ui/react'
+import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 
 import { SubHeading } from 'ui'
-import { socials } from '@src/data/social'
-import { SocialIcon } from '../../next-ui'
+import { socials } from '@data/social'
+import { HSocialIcons } from '@next-ui/.'
 
 const LeftSocialIcons = () => {
   const socialHeadingStyles: SystemStyleObject = {
@@ -16,24 +16,11 @@ const LeftSocialIcons = () => {
   return (
     <GridItem gridColumn="1 / span 5" mr="4">
       <SubHeading overrides={socialHeadingStyles} text="Follow Me" />
-
-      <HStack justifyContent="flex-start" gap="2">
-        {socials.map(social => {
-          if (!social.isHidden) {
-            return (
-              <SocialIcon
-                key={social.title}
-                link={social.link}
-                icon={social.icon}
-                title={social.title}
-                themeColor={{ color: 'teal.400', width: '24px' }}
-                themeHoverColor={{ color: 'teal.500' }}
-              />
-            )
-          }
-          return <Text as="p">Coming Soon</Text>
-        })}
-      </HStack>
+      <HSocialIcons
+        socialDetails={socials}
+        themeColor={{ color: 'teal.400', width: '24px' }}
+        themeHoverColor={{ color: 'teal.500' }}
+      />
     </GridItem>
   )
 }

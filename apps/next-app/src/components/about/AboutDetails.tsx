@@ -1,7 +1,7 @@
-import { Box, GridItem, HStack, Heading, VStack, Text } from '@chakra-ui/react'
-import { BsLinkedin, BsTwitter, BsYoutube, BsGithub } from 'react-icons/bs'
+import { Box, GridItem, Heading, VStack, Text } from '@chakra-ui/react'
 import { DetailsItemsTitle } from 'ui'
-import { SocialIcon } from '../next-ui'
+import { socialWithPick } from '@data/social'
+import { HSocialIcons } from '@next-ui/.'
 
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
@@ -64,18 +64,13 @@ const AboutDetails = () => (
             align={{ textAlign: 'center', marginBottom: '3' }}
             title="Social"
           />
-          <HStack justifyContent="space-evenly">
-            <SocialIcon
-              link="https://linkedin.com/in/mark-njoroge/"
-              icon={BsLinkedin}
-            />
-            <SocialIcon link="https://twitter.com/marknjo7" icon={BsTwitter} />
-            <SocialIcon link="https://github.com/Marknjo" icon={BsGithub} />
-            <SocialIcon
-              link="https://youtube.com/@thetalkingdev"
-              icon={BsYoutube}
-            />
-          </HStack>
+
+          <HSocialIcons
+            socialDetails={socialWithPick(3)}
+            sx={{ justifyContent: 'space-evenly' }}
+            themeColor={{ color: 'orange.400', width: '24px' }}
+            themeHoverColor={{ color: 'orange.500' }}
+          />
         </Box>
       </VStack>
     </GridItem>

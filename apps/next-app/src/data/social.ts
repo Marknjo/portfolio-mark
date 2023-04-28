@@ -8,6 +8,8 @@ export interface ISocialLinks {
   isHidden: boolean
 }
 
+export type SocialWithPick = (pick: number) => Array<ISocialLinks>
+
 export const socials: Array<ISocialLinks> = [
   {
     title: 'LinkedIn',
@@ -37,4 +39,5 @@ export const socials: Array<ISocialLinks> = [
   },
 ]
 
-export const SocialWithPick = (pick: number) => socials.slice(0, pick)
+export const socialWithPick: SocialWithPick = (pick: number) =>
+  socials.slice(0, pick)
