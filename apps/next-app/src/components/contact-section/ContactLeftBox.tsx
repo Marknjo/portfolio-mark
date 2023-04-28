@@ -15,6 +15,7 @@ import { IoIosPhonePortrait } from 'react-icons/io'
 import { BsLinkedin, BsTwitter, BsYoutube, BsGithub } from 'react-icons/bs'
 import { SubHeading } from 'ui'
 import { SocialIcon } from '../next-ui'
+import LeftSubHeading from './leftbox/LeftSubHeading'
 
 const ContactLeftBox = () => {
   const mainStyles: SystemStyleObject = {
@@ -31,11 +32,6 @@ const ContactLeftBox = () => {
     alignItems: 'top',
   }
 
-  const topHeadingStyles: SystemStyleObject = {
-    borderColor: 'teal.200',
-    color: 'teal.900',
-  }
-
   const socialHeadingStyles: SystemStyleObject = {
     borderColor: 'teal.200',
     color: 'teal.900',
@@ -46,12 +42,8 @@ const ContactLeftBox = () => {
 
   return (
     <Grid sx={mainStyles}>
-      <GridItem gridColumn="1 / span 5" mr="4">
-        <SubHeading
-          text="Here is How To Reach Me"
-          overrides={topHeadingStyles}
-        />
-      </GridItem>
+      {/* Subsection Section Title  */}
+      <LeftSubHeading />
 
       <GridItem
         gridColumn="1 / span 5"
