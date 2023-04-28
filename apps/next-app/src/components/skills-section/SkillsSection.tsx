@@ -33,7 +33,7 @@ const SkillsSection = () => {
       {/* Main Heading */}
       <SkillsTitle />
 
-      {/* Section Title */}
+      {/* Section Title @TODO: Update title to read something like fullstack skills */}
       <SkillsSub />
 
       {/* Programming Languages */}
