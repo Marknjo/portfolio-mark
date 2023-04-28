@@ -2,6 +2,7 @@ import { GridProps } from '@chakra-ui/react'
 import { DotsBottomRight, DotsTopRight, MainGrid } from 'ui'
 import ContactTitle from './ContactTitle'
 import ContactLeftBox from './ContactLeftBox'
+import ContactRightBox from './ContactRightBox'
 
 const ContactSection = () => {
   const gridStyles: GridProps = {
@@ -15,7 +16,7 @@ const ContactSection = () => {
       auto  [r1-end r2-start]
       16rem [r2-end r3-start]
       auto  [r3-end r4-start]
-      16rem [r4-end r5-start]
+      16rem [r4-end]
     `,
   }
   return (
@@ -30,6 +31,7 @@ const ContactSection = () => {
       <ContactLeftBox />
 
       {/* Contact Form component */}
+      <ContactRightBox />
 
       {/* Dotted Bottom */}
       <DotsBottomRight width={30} />
