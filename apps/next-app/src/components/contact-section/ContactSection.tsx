@@ -14,9 +14,9 @@ const ContactSection = () => {
     gridTemplateRows: `
       [r1-start] 
       auto  [r1-end r2-start]
-      16rem [r2-end r3-start]
+      4rem [r2-end r3-start]
       auto  [r3-end r4-start]
-      16rem [r4-end]
+      4rem [r4-end]
     `,
   }
   return (
