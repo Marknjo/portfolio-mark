@@ -30,7 +30,7 @@ const Footer = () => {
     transition: `all .25s ${easeIn(2)}`,
 
     _hover: {
-      color: 'orange.50',
+      color: 'teal.50',
       textDecoration: 'none',
       transform: 'skew(2deg) scale(1.02) rotate(-5deg)',
     },
@@ -40,7 +40,18 @@ const Footer = () => {
     <MainGrid options={mainStyles} as="footer">
       <GridItem gridColumn="content-start/content-end">
         <VStack gap="2">
-          <Box fontSize="4xl" fontWeight="bold" textTransform="uppercase">
+          <Box
+            href="/"
+            as={NextLink}
+            fontSize="4xl"
+            fontWeight="bold"
+            textTransform="uppercase"
+            transition={`all .25s ${easeIn(2)}`}
+            _hover={{
+              color: 'teal.50',
+              textDecoration: 'none',
+            }}
+          >
             Mark Njoroge
           </Box>
 
