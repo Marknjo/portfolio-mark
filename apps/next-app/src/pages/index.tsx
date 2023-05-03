@@ -10,6 +10,7 @@ import ProjectsSection from '@components/projects/ProjectsSection'
 import FavProjectSection from '@components/fav-project/FavProjectSection'
 import SkillsSection from '@components/skills-section/SkillsSection'
 import ContactSection from '@components/contact-section/ContactSection'
+import CtaSection from '@components/cta/CtaSection'
 
 const HomePage = () => (
   <>
@@ -40,7 +41,9 @@ const HomePage = () => (
 
       {/* Contact Section */}
       <ContactSection />
+
       {/* Page CTA */}
+      <CtaSection />
     </Box>
     {/* Footer */}
   </>
