@@ -16,7 +16,7 @@ const SkillsSub = () => (
       mb: '6',
     }}
   >
-    Skills
+    Fullstack Engineer
   </SectionTitle>
 )
 
