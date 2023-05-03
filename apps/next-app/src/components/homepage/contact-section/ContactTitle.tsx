@@ -16,6 +16,7 @@ const ContactTitle = () => (
       mb: '6',
     }}
     type="h2"
+    withBoarders
   >
     Contact Me
   </SectionTitle>
