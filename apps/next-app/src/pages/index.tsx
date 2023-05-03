@@ -13,6 +13,7 @@ import FavProjectSection from '@components/homepage/fav-project/FavProjectSectio
 import SkillsSection from '@components/homepage/skills-section/SkillsSection'
 import ContactSection from '@components/homepage/contact-section/ContactSection'
 import CtaSection from '@components/layouts/cta/CtaSection'
+import Footer from '@components/layouts/footer/Footer'
 
 const HomePage = () => (
   <>
@@ -47,7 +48,9 @@ const HomePage = () => (
       {/* Page CTA */}
       <CtaSection />
     </Box>
+
     {/* Footer */}
+    <Footer />
   </>
 )
 
