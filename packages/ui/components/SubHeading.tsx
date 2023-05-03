@@ -9,8 +9,6 @@ export const SubHeading = ({
   as?: As
   overrides?: SystemStyleObject
 }) => {
-  console.log(overrides)
-
   const headingStyles: SystemStyleObject = {
     // Visual
     borderBottom: '2px solid',

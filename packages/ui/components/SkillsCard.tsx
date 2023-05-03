@@ -289,8 +289,6 @@ export const SkillsCard = ({
  * @returns Icon component
  */
 function customIcon(cardIconStyles: SystemStyleObject, iconName?: string) {
-  // console.log(iconName)
-
   return () => (
     <Icon as={FiDribbble} width="100%" height="100%" sx={cardIconStyles} />
   )
