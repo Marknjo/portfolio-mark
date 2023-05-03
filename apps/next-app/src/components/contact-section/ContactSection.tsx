@@ -10,6 +10,7 @@ const ContactSection = () => {
     pt: '16',
     position: 'relative',
     overflow: 'hidden',
+    zIndex: 0,
 
     gridTemplateRows: `
       [r1-start] 

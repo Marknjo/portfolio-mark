@@ -1,9 +1,11 @@
 export const DotsBottomLeft = ({
   width = 64,
+  zIndex = 1,
   fill,
 }: {
   width?: number
   fill?: string
+  zIndex?: number
 }) => (
   <svg
     width={`${width}%`}
@@ -11,6 +13,7 @@ export const DotsBottomLeft = ({
       position: 'absolute',
       bottom: 0,
       left: 0,
+      zIndex,
     }}
     viewBox="0 0 424 376"
     fill="none"

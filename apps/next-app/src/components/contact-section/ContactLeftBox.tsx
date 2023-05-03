@@ -17,6 +17,7 @@ const ContactLeftBox = () => {
 
     gridTemplateColumns: 'repeat(6, minmax(20px, 1fr))',
     alignItems: 'top',
+    zIndex: '2',
   }
 
   return (

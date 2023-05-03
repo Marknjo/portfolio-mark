@@ -2,21 +2,24 @@ import React from 'react'
 
 export const DotsBottomRight = ({
   width = 64,
+  zIndex = 1,
   fill,
 }: {
   width?: number
   fill?: string
+  zIndex?: number
 }) => (
   <svg
     width={`${width}%`}
-    viewBox="0 0 424 375"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
     style={{
       position: 'absolute',
       bottom: 0,
       right: 0,
+      zIndex,
     }}
+    viewBox="0 0 424 375"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <g opacity="0.4">
       <circle cx="292" cy="83" r="4" fill={fill ? fill : '#FFFAF0'} />
