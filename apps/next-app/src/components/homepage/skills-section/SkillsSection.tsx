@@ -28,7 +28,7 @@ const SkillsSection = () => {
 
   return (
     <MainGrid as="section" options={gridRows}>
-      <DotsTopRight fill="#ED8936" width={30} />
+      <DotsTopRight fill="#ED8936" width={25} />
 
       {/* Main Heading */}
       <SkillsTitle />

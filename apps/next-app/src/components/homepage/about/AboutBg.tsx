@@ -13,7 +13,7 @@ const AboutBg = () => (
     position="relative"
     zIndex="0"
   >
-    <DotsBottomRight />
+    <DotsBottomRight width={50} />
   </GridItem>
 )
 

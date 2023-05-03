@@ -59,8 +59,8 @@ const HeroRightGrid = () => (
       sx={rightStyles}
       position="relative"
     >
-      <DotsBottomRight />
-      <DotsTopRight />
+      <DotsBottomRight width={56} />
+      <DotsTopRight width={56} />
     </GridItem>
   </>
 )
