@@ -2,7 +2,7 @@ import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 
 import { SubHeading } from 'ui'
 import { socials } from '@data/social'
-import { HSocialIcons } from '@next-ui/.'
+import { HSocialIcons } from '@components/homepage/next-ui'
 
 const LeftSocialIcons = () => {
   const socialHeadingStyles: SystemStyleObject = {
