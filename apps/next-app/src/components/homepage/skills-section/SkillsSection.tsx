@@ -22,8 +22,8 @@ const SkillsSection = () => {
     position: 'relative',
     backgroundColor: 'orange.50',
     py: '16',
-    borderTop: '2px solid',
-    borderTopColor: 'blackAlpha.200',
+    borderTop: '6px solid',
+    borderTopColor: 'blackAlpha.50',
   }
 
   return (
