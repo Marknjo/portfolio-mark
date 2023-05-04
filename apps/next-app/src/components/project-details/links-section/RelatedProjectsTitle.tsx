@@ -18,7 +18,7 @@ const RelatedProjectsTitle = () => (
     type="h2"
     withBoarders
   >
-    Sneak Preview of Existing Projects
+    View Similar Projects
   </SectionTitle>
 )
 
