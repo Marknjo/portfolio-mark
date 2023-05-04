@@ -1,5 +1,5 @@
 import { StyleProps } from '@chakra-ui/react'
-import { MainGrid } from 'ui'
+import { DotsBottomRight, MainGrid } from 'ui'
 import FavTitle from './FavTittle'
 import FavBg from './FavBg'
 import FavContent from './FavContent'
@@ -38,6 +38,8 @@ const FavProjectSection = () => {
 
       {/* Content */}
       <FavContent />
+
+      <DotsBottomRight width={25} fill="#ED8936" />
     </MainGrid>
   )
 }
