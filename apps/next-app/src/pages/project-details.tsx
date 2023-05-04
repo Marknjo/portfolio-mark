@@ -21,7 +21,7 @@ const ProjectDetailsPage: NextPage = () => (
     <HomePageHero />
 
     {/* Main Content */}
-    <Box as="main">
+    <Box as="main" backgroundColor="orange.50">
       {/* The Challenge Section */}
 
       {/* The Gallery Section */}
