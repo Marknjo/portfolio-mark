@@ -1,5 +1,6 @@
 import { GridProps } from '@chakra-ui/react'
 import { DotsTopRight, MainGrid } from 'ui'
+import { sampleProjects } from '@data/sampleProjects'
 import ProjectTitle from './ProjectTitle'
 import ProjectSub from './ProjectSub'
 import ProjectHeroImg from './ProjectHeroImg'
@@ -41,7 +42,7 @@ const ProjectsSection = () => {
       <ProjectHeroImg />
 
       {/* Cards Section */}
-      <ProjectCards />
+      <ProjectCards projectsInfo={sampleProjects} />
 
       {/* @TODO: Implement a view all projects sub-section */}
     </MainGrid>
