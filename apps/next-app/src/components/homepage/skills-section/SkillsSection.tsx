@@ -27,7 +27,7 @@ const SkillsSection = () => {
   }
 
   return (
-    <MainGrid as="section" options={gridRows}>
+    <MainGrid id="skills-section" as="section" options={gridRows}>
       <DotsTopRight fill="#ED8936" width={25} />
 
       {/* Main Heading */}

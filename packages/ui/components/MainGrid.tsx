@@ -5,6 +5,7 @@ interface GenericProps {
   children: ReactNode
   as?: As
   options?: GridProps
+  id?: string
 }
 
 interface GridSizes {
@@ -75,9 +76,10 @@ const flexGaps = {
   sm: innerGaps.base,
 }
 
-export const MainGrid = ({ children, options = {}, as }: GenericProps) => {
+export const MainGrid = ({ children, options = {}, as, id }: GenericProps) => {
   return (
     <Grid
+      {...(id ? { id } : {})}
       templateColumns={flexGrids}
       columnGap={flexGaps}
       {...(as ? { as: as } : {})}

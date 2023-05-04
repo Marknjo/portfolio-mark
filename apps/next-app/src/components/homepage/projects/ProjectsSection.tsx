@@ -27,7 +27,7 @@ const ProjectsSection = () => {
   }
 
   return (
-    <MainGrid as="section" options={mainGridStyles}>
+    <MainGrid id="projects-section" as="section" options={mainGridStyles}>
       {/* Dots */}
       <DotsTopRight width={25} />
 

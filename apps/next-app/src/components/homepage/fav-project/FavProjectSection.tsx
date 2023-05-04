@@ -26,7 +26,7 @@ const FavProjectSection = () => {
   }
 
   return (
-    <MainGrid as="section" options={defaultStyles}>
+    <MainGrid id="fav-section" as="section" options={defaultStyles}>
       {/* Main Title */}
       <FavTitle />
 

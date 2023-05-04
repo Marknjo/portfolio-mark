@@ -105,7 +105,7 @@ const ContactRightBox = () => {
         </Box>
 
         <FormControl isRequired>
-          <FormLabel>Drop You Message</FormLabel>
+          <FormLabel>Your Message</FormLabel>
           <Textarea
             placeholder="Write your message here..."
             variant="flushed"

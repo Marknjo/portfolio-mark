@@ -22,6 +22,7 @@ const AboutSection = () => {
 
   return (
     <MainGrid
+      id="about-section"
       as="section"
       options={{
         backgroundColor: 'orange.50',

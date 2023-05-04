@@ -21,7 +21,7 @@ const ContactSection = () => {
     `,
   }
   return (
-    <MainGrid options={gridStyles} as="section">
+    <MainGrid options={gridStyles} as="section" id="contact-section">
       {/* Dotted Top */}
       <DotsTopRight width={25} />
 

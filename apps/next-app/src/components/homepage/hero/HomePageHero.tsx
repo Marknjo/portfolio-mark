@@ -5,6 +5,7 @@ import HeroRightGrid from './HeroRightGrid'
 
 const HomePageHero = () => (
   <MainGrid
+    id="hero-section"
     as="header"
     options={{
       backgroundColor: 'orange.500',
