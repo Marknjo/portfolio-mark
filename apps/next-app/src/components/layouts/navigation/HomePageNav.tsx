@@ -35,6 +35,7 @@ const navItems: Array<NavItem> = [
 
 const HomePageNav = () => (
   <MainGrid
+    id="main-nav"
     options={{
       backgroundColor: 'orange.600',
     }}

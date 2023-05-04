@@ -14,6 +14,7 @@ import SkillsSection from '@components/homepage/skills-section/SkillsSection'
 import ContactSection from '@components/homepage/contact-section/ContactSection'
 import CtaSection from '@components/layouts/cta/CtaSection'
 import Footer from '@components/layouts/footer/Footer'
+import ToTop from '@components/layouts/to-top/ToTop'
 
 const HomePage = () => (
   <>
@@ -51,6 +52,9 @@ const HomePage = () => (
 
     {/* Footer */}
     <Footer />
+
+    {/* to top component */}
+    <ToTop toUrl="/" />
   </>
 )
 
