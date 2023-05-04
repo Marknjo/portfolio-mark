@@ -9,9 +9,20 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import NavLink from 'next/link'
+import { ReactNode } from 'react'
 import { MainGrid } from 'ui'
 
-const CtaSection = () => {
+const CtaSection = ({
+  children,
+  gridOptions = {},
+  ctaGridRow,
+  footerGridRow,
+}: {
+  children?: ReactNode
+  gridOptions?: GridProps
+  ctaGridRow?: string
+  footerGridRow?: string
+}) => {
   const mainStyles: GridProps = {
     color: 'orange.50',
     backgroundColor: 'orange.500',
@@ -22,11 +33,12 @@ const CtaSection = () => {
     `,
     pt: '16',
     zIndex: 0,
+    ...gridOptions,
   }
 
   const ctaStyles: SystemStyleObject = {
     backgroundColor: 'orange.900',
-    gridColumn: 'col-start 2 / col-end 11',
+    gridColumn: ctaGridRow || 'col-start 2 / col-end 11',
     gridRow: 'r1-start/r2-end',
     py: '4',
     px: '12',
@@ -43,6 +55,10 @@ const CtaSection = () => {
 
   return (
     <MainGrid as="section" options={mainStyles}>
+      {/* Optional Content - Mainly Project Details */}
+      {children && children}
+
+      {/* CTA */}
       <GridItem sx={ctaStyles}>
         <HStack justifyContent="center" gap="6" wrap={['wrap', 'nowrap']}>
           <Heading as="h2" fontWeight="medium" fontSize="2xl">
@@ -87,7 +103,7 @@ const CtaSection = () => {
       </GridItem>
       <GridItem
         gridColumn="outer-left-start/outer-right-end"
-        gridRow="r2-start/r3-end"
+        gridRow={footerGridRow || 'r2-start/r3-end'}
         backgroundColor="orange.700"
         height="100%"
         zIndex="1"
