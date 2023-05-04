@@ -1,12 +1,11 @@
 import { GridItem } from '@chakra-ui/react'
 import RelatedProjectsTitle from './RelatedProjectsTitle'
+import CTALinks from './CTALinks'
 
 const LinksSection = () => (
   <>
     {/* Pagination Links */}
-    <GridItem gridRow="r1-start/r1-end" gridColumn="content-start/content-end">
-      pagination
-    </GridItem>
+    <CTALinks />
 
     {/* Sub-Heading */}
     <RelatedProjectsTitle />

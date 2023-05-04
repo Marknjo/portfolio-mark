@@ -5,8 +5,6 @@ import { GradientVariants, defaultGradients } from 'ui'
 import LinksSection from './LinksSection'
 
 const ProjectDetailsCTA = () => {
-  console.log(defaultGradients(GradientVariants.Orange500to800))
-
   const mainGridStyles: GridProps = {
     gridTemplateRows: `[r1-start]
       auto [r1-end r2-start]
