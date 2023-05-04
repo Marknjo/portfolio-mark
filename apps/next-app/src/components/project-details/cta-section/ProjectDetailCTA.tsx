@@ -2,7 +2,7 @@ import { GridProps } from '@chakra-ui/react'
 import CtaSection from '@components/layouts/cta/CtaSection'
 import { GradientVariants, defaultGradients } from 'ui'
 
-import LinksSection from './LinksSection'
+import LinksSection from './CTASection'
 
 const ProjectDetailsCTA = () => {
   const mainGridStyles: GridProps = {

@@ -2,7 +2,7 @@ import { GridItem } from '@chakra-ui/react'
 import RelatedProjectsTitle from './RelatedProjectsTitle'
 import CTALinks from './CTALinks'
 
-const LinksSection = () => (
+const CTASection = () => (
   <>
     {/* Pagination Links */}
     <CTALinks />
@@ -18,4 +18,4 @@ const LinksSection = () => (
   </>
 )
 
-export default LinksSection
+export default CTASection

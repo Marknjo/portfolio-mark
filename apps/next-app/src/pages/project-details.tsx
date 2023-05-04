@@ -3,7 +3,7 @@ import HomePageHero from '@components/homepage/hero/HomePageHero'
 import Footer from '@components/layouts/footer/Footer'
 import HomePageNav from '@components/layouts/navigation/HomePageNav'
 import ToTop from '@components/layouts/to-top/ToTop'
-import ProjectDetailsCTA from '@components/project-details/links-section/ProjectDetailCTA'
+import ProjectDetailsCTA from '@components/project-details/cta-section/ProjectDetailCTA'
 import { NextPage } from 'next'
 import Head from 'next/head'
 
