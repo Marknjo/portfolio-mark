@@ -15,3 +15,6 @@ export * from './components/SubHeading'
 
 /// ICONS
 export * from './components/LinkIcon'
+
+/// utils
+export * from './utils/gradient'

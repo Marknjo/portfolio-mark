@@ -1,8 +1,12 @@
 import { GridProps } from '@chakra-ui/react'
 import CtaSection from '@components/layouts/cta/CtaSection'
+import { GradientVariants, defaultGradients } from 'ui'
+
 import LinksSection from './LinksSection'
 
 const ProjectDetailsCTA = () => {
+  console.log(defaultGradients(GradientVariants.Orange500to800))
+
   const mainGridStyles: GridProps = {
     gridTemplateRows: `[r1-start]
       auto [r1-end r2-start]
@@ -12,6 +16,9 @@ const ProjectDetailsCTA = () => {
       auto [r5-end r6-start]
       2rem [r6-end]
     `,
+
+    borderRightRadius: '3rem',
+    backgroundImage: defaultGradients(GradientVariants.Orange500to800),
   }
 
   return (
