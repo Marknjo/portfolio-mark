@@ -5,7 +5,7 @@
     "paths": {
       "@data/*": ["src/data/*"],
       "@components/*": ["src/components/*"],
-      "@next-ui/*": ["src/components/homepage/next-ui/*"]
+      "@next-ui/*": ["src/components/next-ui/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

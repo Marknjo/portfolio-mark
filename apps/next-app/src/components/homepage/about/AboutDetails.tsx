@@ -1,7 +1,7 @@
 import { Box, GridItem, Heading, VStack, Text } from '@chakra-ui/react'
 import { DetailsItemsTitle } from 'ui'
 import { socialWithPick } from '@data/social'
-import { HSocialIcons } from '@components/homepage/next-ui'
+import { HSocialIcons } from '@components/next-ui'
 
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
