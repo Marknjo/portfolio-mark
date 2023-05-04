@@ -1,9 +1,9 @@
 import { Box } from '@chakra-ui/react'
 import HomePageHero from '@components/homepage/hero/HomePageHero'
-import CtaSection from '@components/layouts/cta/CtaSection'
 import Footer from '@components/layouts/footer/Footer'
 import HomePageNav from '@components/layouts/navigation/HomePageNav'
 import ToTop from '@components/layouts/to-top/ToTop'
+import ProjectDetailsCTA from '@components/project-details/links-section/ProjectDetailCTA'
 import { NextPage } from 'next'
 import Head from 'next/head'
 
@@ -28,10 +28,8 @@ const ProjectDetailsPage: NextPage = () => (
 
       {/* Project Summary Section */}
 
-      {/* Project Links & related projects */}
-
-      {/* Page CTA */}
-      <CtaSection />
+      {/* Project Links & related projects & Page CTA */}
+      <ProjectDetailsCTA />
     </Box>
 
     {/* Footer */}

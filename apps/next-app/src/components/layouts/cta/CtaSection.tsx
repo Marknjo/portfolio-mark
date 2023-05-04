@@ -17,11 +17,13 @@ const CtaSection = ({
   gridOptions = {},
   ctaGridRow,
   footerGridRow,
+  ctaStylesOverrides = {},
 }: {
   children?: ReactNode
   gridOptions?: GridProps
   ctaGridRow?: string
   footerGridRow?: string
+  ctaStylesOverrides?: GridProps
 }) => {
   const mainStyles: GridProps = {
     color: 'orange.50',
@@ -38,8 +40,8 @@ const CtaSection = ({
 
   const ctaStyles: SystemStyleObject = {
     backgroundColor: 'orange.900',
-    gridColumn: ctaGridRow || 'col-start 2 / col-end 11',
-    gridRow: 'r1-start/r2-end',
+    gridColumn: 'col-start 2 / col-end 11',
+    gridRow: ctaGridRow || 'r1-start/r2-end',
     py: '4',
     px: '12',
     borderRadius: 'md',
@@ -51,6 +53,8 @@ const CtaSection = ({
       boxShadow: 'lg',
       transform: 'translateY(-3px)',
     },
+
+    ...ctaStylesOverrides,
   }
 
   return (

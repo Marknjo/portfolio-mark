@@ -11,6 +11,7 @@ import React, { ReactNode, useCallback } from 'react'
 export enum SectionTitleVariants {
   Orange600to50 = 'orange600to50',
   Orange600to500 = 'orange600to500',
+  Orange800to500 = 'orange800to500',
   Teal600to50 = 'teal600to50',
   Teal600to500 = 'teal600to50',
 }
@@ -84,7 +85,9 @@ export const SectionTitle = React.memo(
           }
 
           const hasBoarder =
-            boarders && SectionTitleVariants.Orange600to500
+            boarders &&
+            (SectionTitleVariants.Orange600to500 ||
+              SectionTitleVariants.Orange800to500)
               ? orange500Border
               : boarders && SectionTitleVariants.Orange600to500
               ? teal500Border
@@ -94,10 +97,21 @@ export const SectionTitle = React.memo(
           let headingDefaults: SystemStyleObject = {}
 
           switch (variant) {
+            case SectionTitleVariants.Orange800to500:
+              bgDefaults = {
+                ...bgDefaults,
+                bgGradient: `linear(${gradientDirection}, orange.800 0, orange.800 60%, orange.500 90%, orange.500)`,
+              }
+              headingDefaults = {
+                color: 'orange.50',
+                ...headingDefaultConfigs,
+              }
+              break
+
             case SectionTitleVariants.Orange600to500:
               bgDefaults = {
                 ...bgDefaults,
-                bgGradient: `linear(${gradientDirection}, orange.600 0, orange.600 64%, orange.500)`,
+                bgGradient: `linear(${gradientDirection}, orange.600 0, orange.600 60%, orange.500 90%, orange.500)`,
               }
               headingDefaults = {
                 color: 'orange.50',
@@ -108,7 +122,7 @@ export const SectionTitle = React.memo(
             case SectionTitleVariants.Teal600to50:
               bgDefaults = {
                 ...bgDefaults,
-                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 64%, teal.500)`,
+                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 60%, teal.500 90%, teal.500)`,
               }
               headingDefaults = {
                 color: 'teal.50',
@@ -119,7 +133,7 @@ export const SectionTitle = React.memo(
             case SectionTitleVariants.Teal600to50:
               bgDefaults = {
                 ...bgDefaults,
-                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 64%, teal.500)`,
+                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 60%, teal.500 90%, teal.500)`,
               }
               headingDefaults = {
                 color: 'teal.50',
@@ -131,7 +145,7 @@ export const SectionTitle = React.memo(
             default:
               bgDefaults = {
                 ...bgDefaults,
-                bgGradient: `linear(${gradientDirection}, orange.600 0, orange.600 64%, orange.50)`,
+                bgGradient: `linear(${gradientDirection}, orange.600 0, orange.600 60%, orange.50 90%, orange.50)`,
               }
               headingDefaults = {
                 color: 'orange.50',
