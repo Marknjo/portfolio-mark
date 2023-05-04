@@ -5,7 +5,7 @@ import { CardsInfoInterface, ProjectCard } from 'ui'
 const cardsInfo: Array<CardsInfoInterface> = [
   {
     title: 'Natours App',
-    url: '#',
+    url: '/project-details',
     tags: [
       { tagName: 'Nodejs', colorTheme: 'blue' },
       { tagName: 'GraphQL', colorTheme: 'pink' },
@@ -14,7 +14,7 @@ const cardsInfo: Array<CardsInfoInterface> = [
   },
   {
     title: 'Spar',
-    url: '#',
+    url: '/project-details',
     tags: [
       { tagName: 'Nodejs', colorTheme: 'blue' },
       { tagName: 'GraphQL', colorTheme: 'pink' },
@@ -23,7 +23,7 @@ const cardsInfo: Array<CardsInfoInterface> = [
   },
   {
     title: 'Cyclist',
-    url: '#',
+    url: '/project-details',
     tags: [
       { tagName: 'Nodejs', colorTheme: 'blue' },
       { tagName: 'GraphQL', colorTheme: 'pink' },
