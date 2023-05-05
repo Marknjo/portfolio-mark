@@ -4,6 +4,7 @@ import SummaryTitle from './SummaryTitle'
 import SummarySubLeft from './SummarySubLeft'
 import SummarySubRight from './SummarySubRight'
 import SummaryContentLeft from './SummaryContentLeft'
+import SummaryContentRight from './SummaryContentRight'
 
 const SummarySection = () => {
   const mainStyles: GridProps = {
@@ -28,6 +29,7 @@ const SummarySection = () => {
 
       {/* Content Left | Right */}
       <SummaryContentLeft />
+      <SummaryContentRight />
 
       {/* Project Challenges */}
 

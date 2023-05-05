@@ -9,10 +9,10 @@ import {
 } from '@chakra-ui/react'
 import { IoMdCheckmarkCircle } from 'react-icons/io'
 
-const SummaryContentLeft = () => {
+const SummaryContentRight = () => {
   const mainStyles: SystemStyleObject = {
     gridRow: 'r3-start/r3-end',
-    gridColumn: 'content-start / span 6',
+    gridColumn: 'col-start 7 / content-end',
     gap: '2',
     px: '5',
   }
@@ -57,4 +57,4 @@ const SummaryContentLeft = () => {
     </GridItem>
   )
 }
-export default SummaryContentLeft
+export default SummaryContentRight
