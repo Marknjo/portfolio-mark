@@ -10,7 +10,7 @@ const SummaryImage = () => {
 
   return (
     <GridItem sx={mainStyles}>
-      <OsxImageWindow url="./images/top-3-projects-section.jpg" />
+      <OsxImageWindow url="./images/project-summary-img.jpg" />
     </GridItem>
   )
 }

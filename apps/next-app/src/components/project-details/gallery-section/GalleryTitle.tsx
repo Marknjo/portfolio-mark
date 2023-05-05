@@ -7,7 +7,7 @@ const GalleryTitle = () => (
       title="Gallery"
       subTitle="A Collection Of the Project Sections Screenshots"
       subTitleConfig={{ color: 'orange.100' }}
-      titleConfig={{ color: 'orange.50' }}
+      titleConfig={{ color: 'orange.50', mb: '0' }}
       alignTitle={{ alignItems: 'left' }}
     />
   </GridItem>
