@@ -13,7 +13,7 @@ const SummarySubLeft = () => (
       gridRow: 'r2-start/r2-end',
       gridColumn: 'outer-left-start / span 7',
       zIndex: '1',
-      mb: '6',
+      mb: '8',
     }}
   >
     Project Challenges

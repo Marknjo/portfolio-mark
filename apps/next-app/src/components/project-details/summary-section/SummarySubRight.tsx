@@ -13,7 +13,7 @@ const SummarySubRight = () => (
       gridRow: 'r2-start/r2-end',
       gridColumn: 'col-start 7 / outer-right-end',
       zIndex: '1',
-      mb: '6',
+      mb: '8',
     }}
     headingOverrides={{ textAlign: 'right' }}
     isRightAligned
