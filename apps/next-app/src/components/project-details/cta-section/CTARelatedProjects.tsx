@@ -25,7 +25,7 @@ const CTARelatedProjects = ({
         gridColumn="outer-left-start/outer-right-end"
         mb="12"
       >
-        <DotsBottomRight width={25} />
+        <DotsBottomRight width={24} />
       </GridItem>
 
       <GridItem sx={mainStyles}>

@@ -36,7 +36,7 @@ const ProjectDetailsPage: NextPage = () => (
     <Footer />
 
     {/* to top component */}
-    <ToTop toUrl="/" />
+    <ToTop toUrl="/project-details" />
   </>
 )
 
