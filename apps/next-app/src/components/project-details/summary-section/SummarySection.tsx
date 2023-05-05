@@ -6,6 +6,7 @@ import SummarySubRight from './SummarySubRight'
 import SummaryContentLeft from './SummaryContentLeft'
 import SummaryContentRight from './SummaryContentRight'
 import SummarySeparator from './SummarySeparator'
+import SummaryImage from './SummaryImage'
 
 const SummarySection = () => {
   const mainStyles: GridProps = {
@@ -37,6 +38,7 @@ const SummarySection = () => {
       <SummarySeparator />
 
       {/* Summary Section Image */}
+      <SummaryImage />
 
       {/* Project Challenges */}
 
