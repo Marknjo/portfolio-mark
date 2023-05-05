@@ -1,18 +1,28 @@
 import { GridProps } from '@chakra-ui/react'
-import { GradientVariants, MainGrid, defaultGradients } from 'ui'
+import {
+  DotsBottomLeft,
+  DotsTopRight,
+  GradientVariants,
+  MainGrid,
+  defaultGradients,
+} from 'ui'
 
 const GallerySection = () => {
   const mainStyles: GridProps = {
     pb: '16',
     backgroundImage: defaultGradients(GradientVariants.Orange500to800),
+    position: 'relative',
+    zIndex: 'base',
   }
 
   return (
     <MainGrid options={mainStyles} as="section" id="gallery-section">
       {/* Top Dots */}
+      <DotsTopRight width={24} />
       {/* Main Title */}
       {/* Gallery Collection */}
       {/* Bottom Left Dots */}
+      <DotsBottomLeft width={24} />
     </MainGrid>
   )
 }
