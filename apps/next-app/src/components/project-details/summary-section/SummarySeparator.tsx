@@ -7,7 +7,6 @@ const SummarySeparator = () => (
     gridRow="r4-start/r4-end"
     gridColumn="outer-left-start/outer-right-end"
     backgroundColor="blackAlpha.50"
-    my="16"
   />
 )
 

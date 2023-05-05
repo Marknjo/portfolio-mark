@@ -15,6 +15,7 @@ const SummaryContentRight = () => {
     gridColumn: 'col-start 7 / content-end',
     gap: '2',
     px: '5',
+    pb: '16',
   }
 
   return (
