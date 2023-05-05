@@ -10,7 +10,7 @@ export * from './components/ProjectCards'
 export * from './components/GalleryImageCard'
 export * from './components/SkillsCard'
 export * from './components/SubHeading'
-
+export * from './components/OsxImageWindow'
 /// Types
 
 /// ICONS
