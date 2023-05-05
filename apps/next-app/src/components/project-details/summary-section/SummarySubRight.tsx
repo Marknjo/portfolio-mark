@@ -7,7 +7,7 @@ const SummarySubRight = () => (
       gridColumn: 'col-start 7 / content-end',
       gridRow: 'r2-start/r2-end',
       zIndex: '1',
-      mb: '6',
+      mb: '8',
     }}
     bgGridSetting={{
       gridRow: 'r2-start/r2-end',
