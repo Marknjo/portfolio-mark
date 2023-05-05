@@ -122,7 +122,7 @@ export const SectionTitle = React.memo(
             case SectionTitleVariants.Teal600to50:
               bgDefaults = {
                 ...bgDefaults,
-                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 60%, teal.500 90%, teal.500)`,
+                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 60%, teal.50 90%)`,
               }
               headingDefaults = {
                 color: 'teal.50',
@@ -130,10 +130,10 @@ export const SectionTitle = React.memo(
               }
               break
 
-            case SectionTitleVariants.Teal600to50:
+            case SectionTitleVariants.Teal600to500:
               bgDefaults = {
                 ...bgDefaults,
-                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 60%, teal.500 90%, teal.500)`,
+                bgGradient: `linear(${gradientDirection}, teal.600 0, teal.600 60%, teal.500 90%)`,
               }
               headingDefaults = {
                 color: 'teal.50',
