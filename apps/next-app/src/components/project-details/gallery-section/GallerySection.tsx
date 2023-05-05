@@ -6,6 +6,7 @@ import {
   MainGrid,
   defaultGradients,
 } from 'ui'
+import GalleryTitle from './GalleryTitle'
 
 const GallerySection = () => {
   const mainStyles: GridProps = {
@@ -19,7 +20,10 @@ const GallerySection = () => {
     <MainGrid options={mainStyles} as="section" id="gallery-section">
       {/* Top Dots */}
       <DotsTopRight width={24} />
+
       {/* Main Title */}
+      <GalleryTitle />
+
       {/* Gallery Collection */}
       {/* Bottom Left Dots */}
       <DotsBottomLeft width={24} />
