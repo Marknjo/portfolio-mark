@@ -2,6 +2,7 @@ import { GridProps } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
 import SummaryTitle from './SummaryTitle'
 import SummarySubLeft from './SummarySubLeft'
+import SummarySubRight from './SummarySubRight'
 
 const SummarySection = () => {
   const mainStyles: GridProps = {
@@ -22,6 +23,7 @@ const SummarySection = () => {
 
       {/* Subtitles (Left & Right) */}
       <SummarySubLeft />
+      <SummarySubRight />
 
       {/* Project Challenges */}
 
