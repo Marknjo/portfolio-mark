@@ -10,7 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.5.4",
+    "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "framer-motion": "^10.9.4",
