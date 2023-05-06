@@ -3,6 +3,7 @@ import CtaSection from '@components/layouts/cta/CtaSection'
 import { GradientVariants, defaultGradients } from 'ui'
 
 import LinksSection from './CTASection'
+import { BorderRadiusSize } from '../general-gallery-config'
 
 const ProjectDetailsCTA = () => {
   const mainGridStyles: GridProps = {
@@ -15,7 +16,7 @@ const ProjectDetailsCTA = () => {
       2rem [r6-end]
     `,
 
-    borderRightRadius: '3rem',
+    borderTopRightRadius: `${BorderRadiusSize.LG}rem`,
     backgroundImage: defaultGradients(GradientVariants.Orange500to800),
   }
 

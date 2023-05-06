@@ -8,6 +8,7 @@ import {
 } from 'ui'
 import GalleryTitle from './GalleryTitle'
 import GalleryImages from './GalleryImages'
+import { BorderRadiusSize } from '../general-gallery-config'
 
 const GallerySection = () => {
   const mainStyles: GridProps = {
@@ -15,6 +16,9 @@ const GallerySection = () => {
     backgroundImage: defaultGradients(GradientVariants.Orange500to800),
     position: 'relative',
     zIndex: 'base',
+    overflow: 'hidden',
+    borderBottomLeftRadius: `${BorderRadiusSize.LG}rem`,
+    borderTopRightRadius: `${BorderRadiusSize.LG}rem`,
   }
 
   return (
