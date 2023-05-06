@@ -34,7 +34,7 @@ importers:
       eslint: ^8.40.0
       eslint-config-custom: workspace:*
       framer-motion: ^10.12.8
-      next: latest
+      next: ^13.4.1
       postcss: ^8.4.23
       react: ^18.2.0
       react-dom: ^18.2.0
