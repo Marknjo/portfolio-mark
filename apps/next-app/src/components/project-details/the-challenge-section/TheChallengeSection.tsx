@@ -1,5 +1,5 @@
 import { GridProps } from '@chakra-ui/react'
-import { MainGrid } from 'ui'
+import { MainGrid, SectionSeparator } from 'ui'
 import TheChallengeTitle from './TheChallengeTitle'
 import ProjectGoalSub from './ProjectGoalSub'
 import ProjectGoalContent from './ProjectGoalContent'
@@ -26,6 +26,9 @@ const TheChallengeSection = () => {
       {/* Project Goals (Title | Content) */}
       <ProjectGoalSub />
       <ProjectGoalContent />
+
+      {/* Add section separator */}
+      <SectionSeparator />
 
       {/* Project stack title */}
       {/* Project stack icons */}
