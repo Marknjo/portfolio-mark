@@ -1,6 +1,7 @@
 import { GridProps } from '@chakra-ui/react'
 import { MainGrid } from 'ui'
 import TheChallengeTitle from './TheChallengeTitle'
+import ProjectGoalSub from './ProjectGoalSub'
 
 const TheChallengeSection = () => {
   const mainStyles: GridProps = {
@@ -12,6 +13,7 @@ const TheChallengeSection = () => {
       auto [r6-end r7-start]
       auto [r7-end]
     `,
+    backgroundColor: 'orange.50',
   }
 
   return (
@@ -20,6 +22,7 @@ const TheChallengeSection = () => {
       <TheChallengeTitle />
 
       {/* Project Goals (Title | Content) */}
+      <ProjectGoalSub />
 
       {/* Project stack title */}
       {/* Project stack icons */}
