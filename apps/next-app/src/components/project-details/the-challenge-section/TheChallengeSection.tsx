@@ -4,6 +4,7 @@ import TheChallengeTitle from './TheChallengeTitle'
 import ProjectGoalSub from './ProjectGoalSub'
 import ProjectGoalContent from './ProjectGoalContent'
 import TheStackSub from './TheStackSub'
+import TheStackContent from './TheStackContent'
 
 const TheChallengeSection = () => {
   const mainStyles: GridProps = {
@@ -35,6 +36,7 @@ const TheChallengeSection = () => {
       <TheStackSub />
       {/* Project stack icons */}
       {/* Project stack content */}
+      <TheStackContent />
     </MainGrid>
   )
 }
