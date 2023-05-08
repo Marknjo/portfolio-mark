@@ -34,6 +34,14 @@ export interface ISkillsCard {
   theme?: SkillThemes // allows customization of card colors: font color, border color and background color
 }
 
+export interface ISkillsCardProps<T extends object> {
+  skill: T
+  showBadge?: boolean
+  showLink?: boolean
+  showIcon?: boolean
+  showAllEls?: boolean
+}
+
 /**
  *  Theme Styles for different card
  */
@@ -143,19 +151,13 @@ const CardLink = ({
   </Link>
 )
 
-export const SkillsCard = ({
+export function SkillsCard<T extends { [key: string]: any }>({
   skill,
   showBadge = true,
   showLink = true,
   showIcon = true,
   showAllEls = true,
-}: {
-  skill: ISkillsCard
-  showBadge?: boolean
-  showLink?: boolean
-  showIcon?: boolean
-  showAllEls?: boolean
-}) => {
+}: ISkillsCardProps<T>) {
   // Allow disable all attached components with one setting
   if (!showAllEls) {
     showIcon = false
