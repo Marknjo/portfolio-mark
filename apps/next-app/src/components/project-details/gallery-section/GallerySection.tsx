@@ -17,8 +17,8 @@ const GallerySection = () => {
     position: 'relative',
     zIndex: 'base',
     overflow: 'hidden',
-    borderBottomLeftRadius: `${BorderRadiusSize.LG}rem`,
-    borderTopRightRadius: `${BorderRadiusSize.LG}rem`,
+    borderBottomLeftRadius: `${BorderRadiusSize.MD}rem`,
+    borderTopRightRadius: `${BorderRadiusSize.MD}rem`,
   }
 
   return (

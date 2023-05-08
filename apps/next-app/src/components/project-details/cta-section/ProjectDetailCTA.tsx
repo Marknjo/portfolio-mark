@@ -16,7 +16,7 @@ const ProjectDetailsCTA = () => {
       2rem [r6-end]
     `,
 
-    borderTopRightRadius: `${BorderRadiusSize.LG}rem`,
+    borderTopRightRadius: `${BorderRadiusSize.MD}rem`,
     backgroundImage: defaultGradients(GradientVariants.Orange500to800),
   }
 
