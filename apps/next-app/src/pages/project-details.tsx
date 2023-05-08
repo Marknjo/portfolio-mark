@@ -3,6 +3,7 @@ import HomePageHero from '@components/homepage/hero/HomePageHero'
 import Footer from '@components/layouts/footer/Footer'
 import HomePageNav from '@components/layouts/navigation/HomePageNav'
 import ToTop from '@components/layouts/to-top/ToTop'
+import TheChallengeSection from '@components/project-details/the-challenge-section/TheChallengeSection'
 import ProjectDetailsCTA from '@components/project-details/cta-section/ProjectDetailCTA'
 import GallerySection from '@components/project-details/gallery-section/GallerySection'
 import SummarySection from '@components/project-details/summary-section/SummarySection'
@@ -25,6 +26,7 @@ const ProjectDetailsPage: NextPage = () => (
     {/* Main Content */}
     <Box as="main" backgroundColor="orange.50">
       {/* The Challenge Section */}
+      <TheChallengeSection />
 
       {/* The Gallery Section */}
       <GallerySection />
