@@ -1,11 +1,10 @@
 import { GridProps } from '@chakra-ui/react'
-import { MainGrid } from 'ui'
+import { MainGrid, SectionSeparator } from 'ui'
 import SummaryTitle from './SummaryTitle'
 import SummarySubLeft from './SummarySubLeft'
 import SummarySubRight from './SummarySubRight'
 import SummaryContentLeft from './SummaryContentLeft'
 import SummaryContentRight from './SummaryContentRight'
-import SummarySeparator from './SummarySeparator'
 import SummaryImage from './SummaryImage'
 
 const SummarySection = () => {
@@ -35,7 +34,7 @@ const SummarySection = () => {
       <SummaryContentRight />
 
       {/* Summary Separator */}
-      <SummarySeparator />
+      <SectionSeparator />
 
       {/* Summary Section Image */}
       <SummaryImage />

@@ -1,6 +1,5 @@
 import { GridItem } from '@chakra-ui/react'
-
-const SummarySeparator = () => (
+export const SectionSeparator = () => (
   <GridItem
     width="100%"
     height="100%"
@@ -9,5 +8,3 @@ const SummarySeparator = () => (
     backgroundColor="blackAlpha.50"
   />
 )
-
-export default SummarySeparator

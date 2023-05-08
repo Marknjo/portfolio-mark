@@ -13,6 +13,8 @@ export * from './components/SkillsCard'
 export * from './components/SubHeading'
 export * from './components/OsxImageWindow'
 export * from './components/ContentGenerator'
+
+export * from './components/SectionSeparator'
 /// Types
 
 /// ICONS
