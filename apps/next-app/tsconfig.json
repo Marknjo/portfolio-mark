@@ -8,6 +8,11 @@
       "@next-ui/*": ["src/components/next-ui/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../../packages/ui/components/ContentGenerator.tsx"
+  ],
   "exclude": ["node_modules"]
 }

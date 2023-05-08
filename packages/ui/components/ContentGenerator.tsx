@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react'
 import { useMemo } from 'react'
 
-const ContentGenerator = ({ content }: { content: string }) => {
+export const ContentGenerator = ({ content }: { content: string }) => {
   const contentArr = useMemo(
     () => [...new Set(content.trim().split('\n'))],
     [content],

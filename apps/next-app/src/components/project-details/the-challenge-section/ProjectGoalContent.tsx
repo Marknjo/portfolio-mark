@@ -1,7 +1,6 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
-import { DotsBottomRight, MainGrid } from 'ui'
+import { DotsBottomRight, MainGrid, ContentGenerator } from 'ui'
 import { sampContent } from '@data/sampleContent'
-import ContentGenerator from './ContentGenerator'
 
 const ProjectGoalContent = () => {
   const mainStyles: SystemStyleObject = {

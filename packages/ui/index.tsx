@@ -12,6 +12,7 @@ export * from './components/CardDetailsGallery'
 export * from './components/SkillsCard'
 export * from './components/SubHeading'
 export * from './components/OsxImageWindow'
+export * from './components/ContentGenerator'
 /// Types
 
 /// ICONS
