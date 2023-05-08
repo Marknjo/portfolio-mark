@@ -3,6 +3,7 @@ import { MainGrid, SectionSeparator } from 'ui'
 import TheChallengeTitle from './TheChallengeTitle'
 import ProjectGoalSub from './ProjectGoalSub'
 import ProjectGoalContent from './ProjectGoalContent'
+import TheStackSub from './TheStackSub'
 
 const TheChallengeSection = () => {
   const mainStyles: GridProps = {
@@ -31,6 +32,7 @@ const TheChallengeSection = () => {
       <SectionSeparator />
 
       {/* Project stack title */}
+      <TheStackSub />
       {/* Project stack icons */}
       {/* Project stack content */}
     </MainGrid>
