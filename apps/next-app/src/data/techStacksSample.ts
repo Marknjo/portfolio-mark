@@ -487,7 +487,7 @@ export const stacksSamp = new Map([
   ],
 ])
 
-export const getStacksByCategory = (
+export const pickStacksByCategory = (
   stacksNames: Array<StackNames>,
   stacks: Map<StackNames, IStack>,
 ) => {
@@ -498,15 +498,13 @@ export const getStacksByCategory = (
       const foundStack = stacks.get(stackName)!
 
       if (foundStacks.has(foundStack.category)) {
-        foundStacks.set(
-          foundStack.category,
-          foundStacks.get(foundStack.category).push(foundStack),
-        )
+        foundStacks.set(foundStack.category, [
+          ...foundStacks.get(foundStack.category),
+          foundStack,
+        ])
+      } else {
+        foundStacks.set(foundStack.category, [foundStack])
       }
-
-      foundStacks.set(foundStack.category, [
-        foundStacks.get(foundStack.category),
-      ])
     }
   })
 
