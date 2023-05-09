@@ -518,3 +518,8 @@ export const getStacks = (stacks: Map<StackNames, IStack>) => [
 export const getStacksNames = (stacks: Map<StackNames, IStack>) => [
   ...stacks.keys(),
 ]
+
+export const getStacksByCategory = (
+  stackCategory: StackCategory,
+  stacks: Map<StackCategory, [IStack]>,
+) => stacks.get(stackCategory) || []
