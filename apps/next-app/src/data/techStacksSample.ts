@@ -487,7 +487,7 @@ export const stacksSamp = new Map([
   ],
 ])
 
-export const pickStacksByCategory = (
+export const groupStacksByCategory = (
   stacksNames: Array<StackNames>,
   stacks: Map<StackNames, IStack>,
 ) => {
