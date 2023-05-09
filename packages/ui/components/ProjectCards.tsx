@@ -86,7 +86,7 @@ export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
 
           <Button
             {...(as ? { as } : {})}
-            href={`/${url}`}
+            href={`${url}`}
             variant="outline"
             colorScheme="orange"
             rightIcon={<LinkIcon />}
