@@ -1,14 +1,6 @@
-import {
-  Box,
-  HStack,
-  StackProps,
-  SystemStyleObject,
-  Text,
-  VStack,
-} from '@chakra-ui/react'
+import { HStack, StackProps, SystemStyleObject, VStack } from '@chakra-ui/react'
 import { SubHeading } from './SubHeading'
 import { ReactNode } from 'react'
-import { SkillsCard } from './SkillsCard'
 import {
   AlignPosition,
   IStack,
@@ -16,6 +8,7 @@ import {
   StackingWrapperMode,
   TitleStyles,
 } from './tech-stacks/tech-stacks-types'
+import { StacksCard } from './tech-stacks/stacking/StackCard'
 
 const alignCardItem = (flexAlignPosition: AlignPosition) => {
   let alignItemsStyles: SystemStyleObject = {
@@ -125,29 +118,6 @@ const titleStyleOverrides = (
   }
 
   return styles
-}
-
-const StacksCard = ({
-  stacks,
-  showBadge,
-  stylesOverrides = {},
-}: {
-  stacks: [IStack]
-  showBadge?: boolean
-  stylesOverrides?: SystemStyleObject
-}) => {
-  return (
-    <>
-      {stacks.map(stack => (
-        <SkillsCard
-          key={stack.name}
-          skill={stack}
-          showBadge={showBadge}
-          stylesOverrides={stylesOverrides}
-        />
-      ))}
-    </>
-  )
 }
 
 const StackingWrapper = ({
