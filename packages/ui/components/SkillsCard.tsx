@@ -40,6 +40,7 @@ export interface ISkillsCardProps<T extends object> {
   showLink?: boolean
   showIcon?: boolean
   showAllEls?: boolean
+  stylesOverrides?: SystemStyleObject
 }
 
 /**
@@ -157,6 +158,7 @@ export function SkillsCard<T extends { [key: string]: any }>({
   showLink = true,
   showIcon = true,
   showAllEls = true,
+  stylesOverrides = {},
 }: ISkillsCardProps<T>) {
   // Allow disable all attached components with one setting
   if (!showAllEls) {
@@ -173,6 +175,7 @@ export function SkillsCard<T extends { [key: string]: any }>({
     gridTemplateRows:
       '[r1-start] auto [r1-end r2-start] 16px [r2-end r3-start] auto [r3-end]',
     cursor: 'pointer',
+    ...stylesOverrides,
   }
 
   const badgeStyles: SystemStyleObject = {

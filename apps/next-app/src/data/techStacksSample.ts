@@ -6,7 +6,7 @@ export enum StackThemes {
 }
 
 export enum StackCategory {
-  PROGRAMMING_LANGS = 'programming languages',
+  PROGRAMMING_LANGS = 'programming langs',
   FRONTEND = 'frontend',
   BACKEND = 'backend',
   TOOLS = 'tools',
@@ -25,6 +25,7 @@ export interface IStack {
 }
 
 export enum StackNames {
+  ELECTRON = 'Electron',
   JAVASCRIPT = 'JavaScript',
   TYPESCRIPT = 'TypeScript',
   PYTHON = 'Python',
@@ -63,6 +64,18 @@ export enum StackNames {
 }
 
 export const stacksSamp = new Map([
+  [
+    StackNames.ELECTRON,
+    {
+      name: StackNames.ELECTRON,
+      homePage: 'https://www.electronjs.org/',
+      category: StackCategory.DESKTOP,
+      active: true,
+      icon: 'electron',
+      theme: StackThemes.DEFAULT,
+      isHidden: false,
+    },
+  ],
   [
     StackNames.JAVASCRIPT,
     {
@@ -490,7 +503,7 @@ export const stacksSamp = new Map([
 export const groupStacksByCategory = (
   stacksNames: Array<StackNames>,
   stacks: Map<StackNames, IStack>,
-) => {
+): Map<StackCategory, [IStack]> => {
   const foundStacks = new Map()
 
   stacksNames.forEach(stackName => {

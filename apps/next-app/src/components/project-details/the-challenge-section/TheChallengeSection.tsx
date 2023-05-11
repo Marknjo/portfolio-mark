@@ -35,8 +35,10 @@ const TheChallengeSection = () => {
 
       {/* Project stack title */}
       <TheStackSub />
+
       {/* Project stack icons */}
       <TheStackIcons />
+
       {/* Project stack content */}
       <TheStackContent />
     </MainGrid>
