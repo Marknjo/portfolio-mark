@@ -1,10 +1,10 @@
-import { SkillsCategory } from 'ui'
+import { StackCategory } from 'ui'
 import SkillsCategoryContainer from './SkillsCategoryContainer'
 
 const SkillsBackend = () => (
   <SkillsCategoryContainer
     headingText="Backend"
-    category={SkillsCategory.BACKEND}
+    category={StackCategory.BACKEND}
     mainStylesOverrides={{
       gridRow: 'r1-start/-1',
       gridColumn: '2 / span 1',

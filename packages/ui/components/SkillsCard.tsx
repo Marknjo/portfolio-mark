@@ -7,32 +7,7 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/react'
 import { FiDribbble, FiExternalLink } from 'react-icons/fi'
-
-export enum SkillThemes {
-  DEFAULT = 'default',
-  DEFAULT_TEAL = 'default_teal',
-  DEFAULT_ORANGE = 'default_orange',
-  PASSIVE = 'passive',
-}
-
-export enum SkillsCategory {
-  PROGRAMMING_LANGS = 'programming languages',
-  FRONTEND = 'frontend',
-  BACKEND = 'backend',
-  TOOLS = 'tools',
-  MOBILE = 'mobile apps',
-  DESKTOP = 'desktop apps',
-}
-
-export interface ISkillsCard {
-  name: string
-  homePage: string
-  icon: string
-  category: SkillsCategory
-  isHidden: boolean // allows to a skill to be hidden from displaying on the UI
-  active?: boolean // a config to show if I am still using the skill/I have used the skill in the past but not actively using it
-  theme?: SkillThemes // allows customization of card colors: font color, border color and background color
-}
+import { StackThemes } from './tech-stacks/tech-stacks-types'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -91,29 +66,29 @@ const passiveThemeHover: SystemStyleObject = {
  *   - Default theme styles (theme() function based on the SkillThemes enum)
  *  Add more styles in the two function below
  */
-const themeHover = (theme: SkillThemes) => {
+const themeHover = (theme: StackThemes) => {
   switch (theme) {
-    case SkillThemes.PASSIVE:
+    case StackThemes.PASSIVE:
       return passiveThemeHover
 
-    case SkillThemes.DEFAULT_TEAL:
+    case StackThemes.DEFAULT_TEAL:
       return defaultTealThemeHover
 
-    case SkillThemes.DEFAULT || SkillThemes.DEFAULT_ORANGE:
+    case StackThemes.DEFAULT || StackThemes.DEFAULT_ORANGE:
     default:
       return defaultOrangeThemeHover
   }
 }
 
-const theme = (theme: SkillThemes) => {
+const theme = (theme: StackThemes) => {
   switch (theme) {
-    case SkillThemes.PASSIVE:
+    case StackThemes.PASSIVE:
       return passiveTheme
 
-    case SkillThemes.DEFAULT_TEAL:
+    case StackThemes.DEFAULT_TEAL:
       return defaultTealTheme
 
-    case SkillThemes.DEFAULT || SkillThemes.DEFAULT_ORANGE:
+    case StackThemes.DEFAULT || StackThemes.DEFAULT_ORANGE:
     default:
       return defaultOrangeTheme
   }

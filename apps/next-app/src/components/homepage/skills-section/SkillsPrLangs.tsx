@@ -1,4 +1,4 @@
-import { SkillsCategory } from 'ui'
+import { StackCategory } from 'ui'
 import SkillsCategoryContainer from './SkillsCategoryContainer'
 /**
  * Card for programming languages I have worked with
@@ -6,7 +6,7 @@ import SkillsCategoryContainer from './SkillsCategoryContainer'
 const SkillsPrLangs = () => (
   <SkillsCategoryContainer
     headingText="General Programming Languages"
-    category={SkillsCategory.PROGRAMMING_LANGS}
+    category={StackCategory.PROGRAMMING_LANGS}
     mainStylesOverrides={{
       gridRow: 'r3-start/r5-end',
       pb: '10rem',
