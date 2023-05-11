@@ -1,6 +1,5 @@
 import { HStack, StackProps, SystemStyleObject, VStack } from '@chakra-ui/react'
 import { SubHeading } from './SubHeading'
-import { ReactNode } from 'react'
 import {
   AlignPosition,
   IStack,
@@ -9,6 +8,7 @@ import {
   TitleStyles,
 } from './tech-stacks/tech-stacks-types'
 import { StacksCard } from './tech-stacks/stacking/StackCard'
+import { StackingWrapper } from './tech-stacks/stacking/StackingWrapper'
 
 const alignCardItem = (flexAlignPosition: AlignPosition) => {
   let alignItemsStyles: SystemStyleObject = {
@@ -118,22 +118,6 @@ const titleStyleOverrides = (
   }
 
   return styles
-}
-
-const StackingWrapper = ({
-  mode,
-  children,
-  stackProps,
-}: {
-  mode?: StackingWrapperMode
-  children: ReactNode
-  stackProps?: StackProps
-}) => {
-  return mode === StackingWrapperMode.H ? (
-    <HStack {...stackProps}>{children}</HStack>
-  ) : (
-    <VStack {...stackProps}>{children}</VStack>
-  )
 }
 
 const TechStack = ({
