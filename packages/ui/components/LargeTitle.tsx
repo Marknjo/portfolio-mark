@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import {
+  As,
   Box,
   GridProps,
   Heading,
@@ -17,6 +18,7 @@ export const LargeTitle = ({
   titleConfig,
   subTitleConfig,
   alignTitle,
+  as = 'h2',
 }: {
   title: string
   subTitle?: string
@@ -25,6 +27,7 @@ export const LargeTitle = ({
   titleConfig?: SystemStyleObject
   subTitleConfig?: SystemStyleObject
   alignTitle?: SystemStyleObject
+  as?: As
 }) => {
   const subTitleDefaultConfig: SystemStyleObject = useMemo(() => {
     return {
@@ -63,8 +66,8 @@ export const LargeTitle = ({
   )
 
   return (
-    <Heading as="h2" {...options} sx={titleDefaultConfig}>
-      <VStack sx={alignTitleDefault}>
+    <Heading as={as} {...options} sx={titleDefaultConfig}>
+      <VStack sx={alignTitleDefault} as="span">
         <Box as="span">{title}</Box>
         {hasSubtitle && (
           <Box as="span" sx={subTitleDefaultConfig}>
