@@ -1,14 +1,5 @@
-import {
-  Badge,
-  Grid,
-  GridItem,
-  Icon,
-  Link,
-  SystemStyleObject,
-} from '@chakra-ui/react'
-import { FiExternalLink } from 'react-icons/fi'
-import { StackThemes, iconPicker } from './tech-stacks'
-import { CardBadge } from './tech-stacks/card/CardBadge'
+import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { CardLink, StackThemes, iconPicker, CardBadge } from './tech-stacks'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -94,24 +85,6 @@ const theme = (theme: StackThemes) => {
       return defaultOrangeTheme
   }
 }
-
-/**
- * A Helper component for displaying link Icon
- * @param PageLink a href link to the home page of a skill
- * @param cardLinkStyles CSS styles for the link icon
- * @returns link component
- */
-const CardLink = ({
-  pageLink,
-  cardLinkStyles,
-}: {
-  pageLink: string
-  cardLinkStyles: SystemStyleObject
-}) => (
-  <Link href={pageLink} target="_blank" position="absolute" sx={cardLinkStyles}>
-    <Icon as={FiExternalLink} width="16px" height="16px" />
-  </Link>
-)
 
 export function SkillsCard<T extends { [key: string]: any }>({
   skill,
