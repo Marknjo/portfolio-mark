@@ -6,8 +6,8 @@ import {
   Link,
   SystemStyleObject,
 } from '@chakra-ui/react'
-import { FiDribbble, FiExternalLink } from 'react-icons/fi'
-import { StackThemes } from './tech-stacks'
+import { FiExternalLink } from 'react-icons/fi'
+import { StackThemes, iconPicker } from './tech-stacks'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -236,7 +236,7 @@ export function SkillsCard<T extends { [key: string]: any }>({
     },
   }
 
-  const CardIcon = customIcon(cardIconStyles, skill.icon)
+  const CardIcon = iconPicker(cardIconStyles, skill.icon)
 
   return (
     <Grid sx={cardDefaultStyles} role="group">
@@ -258,18 +258,5 @@ export function SkillsCard<T extends { [key: string]: any }>({
 
       {showIcon && <GridItem as={CardIcon} />}
     </Grid>
-  )
-}
-
-/**
- * A helper function that defines different skills icons
- * @TODO: create different icons for different skills
- * @param cardIconStyles Styles passed down to the icon
- * @param iconName Custom skill icon
- * @returns Icon component
- */
-function customIcon(cardIconStyles: SystemStyleObject, iconName?: string) {
-  return () => (
-    <Icon as={FiDribbble} width="100%" height="100%" sx={cardIconStyles} />
   )
 }
