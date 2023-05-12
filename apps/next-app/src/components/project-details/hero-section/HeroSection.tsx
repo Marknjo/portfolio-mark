@@ -3,6 +3,7 @@ import { GradientVariants, MainGrid, customGradientWithImg } from 'ui'
 import { BorderRadiusSize } from '../general-gallery-config'
 import HeroTitle from './HeroTitle'
 import HeroIntro from './HeroIntro'
+import HeroImg from './HeroImg'
 
 const HeroSection = () => {
   const mainStyles: GridProps = {
@@ -21,9 +22,9 @@ const HeroSection = () => {
     gridTemplateRows: `[nav-start]
       100px [nav-end title-start]
       auto [title-end r1-start]
-      auto [r1-end r2-start]
+      1fr [r1-end r2-start]
       18rem [r2-end r3-start]
-      auto [r3-end]
+      1fr [r3-end]
     `,
     pb: '16',
   }
@@ -35,7 +36,9 @@ const HeroSection = () => {
 
       {/* Introduction */}
       <HeroIntro />
+
       {/* Top Image */}
+      <HeroImg />
     </MainGrid>
   )
 }

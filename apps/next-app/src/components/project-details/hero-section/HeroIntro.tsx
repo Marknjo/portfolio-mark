@@ -6,8 +6,8 @@ const HeroIntro = () => {
     gridColumn: 'col-start 2 / col-end 11',
     gridRow: 'r1-start/r2-end',
 
-    backgroundColor: 'orange.50',
-    boxShadow: 'base',
+    backgroundColor: 'orange.100',
+    boxShadow: 'md',
     borderRadius: 'lg',
     p: '12',
   }
@@ -23,12 +23,14 @@ const HeroIntro = () => {
     <GridItem sx={mainStyles}>
       <Grid sx={contentStyles}>
         {/* Tech Stacks */}
-        <GridItem sx={contentSectionStyles}>{/*  */}</GridItem>
+        <GridItem sx={contentSectionStyles}>
+          <p>Tech</p>
+        </GridItem>
 
         {/* Text & Button */}
         <GridItem sx={contentSectionStyles}>
           {/* Plain Header */}
-
+          <p>Tech</p>
           {/* Paragraphs */}
 
           {/* Button */}
