@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { FiExternalLink } from 'react-icons/fi'
 import { StackThemes, iconPicker } from './tech-stacks'
+import { CardBadge } from './tech-stacks/card/CardBadge'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -93,21 +94,6 @@ const theme = (theme: StackThemes) => {
       return defaultOrangeTheme
   }
 }
-
-/**
- * Helper Component to display active or passive status of a skill
- * @param isActive show muted green badge or muted gray
- * @returns Badge component
- */
-const BadgeItem = ({ isActive }: { isActive: boolean }) => (
-  <Badge
-    colorScheme={isActive ? 'green' : 'gray'}
-    variant="subtle"
-    fontSize="xx-small"
-  >
-    {isActive ? 'Active' : 'Passive'}
-  </Badge>
-)
 
 /**
  * A Helper component for displaying link Icon
@@ -242,7 +228,7 @@ export function SkillsCard<T extends { [key: string]: any }>({
     <Grid sx={cardDefaultStyles} role="group">
       {showBadge && (
         <GridItem sx={badgeStyles}>
-          <BadgeItem isActive={!!skill.active} />
+          <CardBadge isActive={!!skill.active} />
         </GridItem>
       )}
 
