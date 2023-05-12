@@ -9,8 +9,10 @@ import { TechStack } from './TechStack'
 
 export const CardsTwoColumns = ({
   stacks,
+  hasDivider,
 }: {
   stacks: Map<StackCategory, [IStack]>
+  hasDivider?: boolean
 }) => {
   const showBadge = false
   const titlePosition = AlignPosition.LEFT
@@ -26,6 +28,7 @@ export const CardsTwoColumns = ({
             showBadge={showBadge}
             titlePosition={titlePosition}
             titleStyle={titleStyle}
+            hasDivider={hasDivider}
           />
         )}
 
@@ -36,6 +39,7 @@ export const CardsTwoColumns = ({
             showBadge={showBadge && true}
             titlePosition={titlePosition}
             titleStyle={titleStyle}
+            hasDivider={hasDivider}
           />
         )}
 
@@ -46,6 +50,7 @@ export const CardsTwoColumns = ({
             showBadge={showBadge && true}
             titlePosition={titlePosition}
             titleStyle={titleStyle}
+            hasDivider={hasDivider}
           />
         )}
       </VStack>
@@ -58,6 +63,7 @@ export const CardsTwoColumns = ({
             categoryStacks={stacks.get(StackCategory.FRONTEND)!}
             showBadge={showBadge && true}
             titleStyle={titleStyle}
+            hasDivider={hasDivider}
           />
         )}
 
@@ -68,6 +74,7 @@ export const CardsTwoColumns = ({
             categoryStacks={stacks.get(StackCategory.BACKEND)!}
             showBadge={showBadge && true}
             titleStyle={titleStyle}
+            hasDivider={hasDivider}
           />
         )}
 
@@ -78,6 +85,7 @@ export const CardsTwoColumns = ({
             categoryStacks={stacks.get(StackCategory.TOOLS)!}
             showBadge={showBadge && true}
             titleStyle={titleStyle}
+            hasDivider={hasDivider}
           />
         )}
       </VStack>

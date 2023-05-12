@@ -100,7 +100,7 @@ export const TechStack = ({
   categoryStacks,
   title,
   showBadge,
-  hasDivider = true,
+  hasDivider,
   titleStyle,
   titlePosition,
 }: {

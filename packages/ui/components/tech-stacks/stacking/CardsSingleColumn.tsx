@@ -37,12 +37,14 @@ export const CardsSingleColumn = ({
   titlePosition,
   titleStyle,
   wrapperAlign,
+  hasDivider,
 }: {
   stacks: Map<StackCategory, [IStack]> | [[StackCategory, [IStack]]]
   showBadge?: boolean
   titlePosition: AlignPosition
   titleStyle: TitleStyles
   wrapperAlign: AlignPosition
+  hasDivider?: boolean
 }) => {
   const stackArrays = Array.isArray(stacks)
     ? (stacks as unknown as [[StackCategory, [IStack]]])
@@ -63,6 +65,7 @@ export const CardsSingleColumn = ({
           showBadge={showBadge}
           titlePosition={titlePosition}
           titleStyle={titleStyle}
+          hasDivider={hasDivider}
         />
       ))}
     </VStack>

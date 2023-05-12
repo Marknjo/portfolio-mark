@@ -1,4 +1,5 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
   const mainStyles: SystemStyleObject = {
@@ -24,7 +25,7 @@ const HeroIntro = () => {
       <Grid sx={contentStyles}>
         {/* Tech Stacks */}
         <GridItem sx={contentSectionStyles}>
-          <p>Tech</p>
+          <IntroStackCards />
         </GridItem>
 
         {/* Text & Button */}

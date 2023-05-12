@@ -11,6 +11,7 @@ export const TechStacksCard = ({
   stacks,
   isCustom = false,
   showBadge = false,
+  hasDivider = true,
   titlePosition = AlignPosition.LEFT,
   titleStyle = TitleStyles.SM_BADGE,
   wrapperAlign = AlignPosition.LEFT,
@@ -21,11 +22,16 @@ export const TechStacksCard = ({
   titleStyle?: TitleStyles
   wrapperAlign?: AlignPosition
   isCustom?: boolean
+  hasDivider?: boolean
 }) => {
   return isCustom ? (
-    <CardsTwoColumns stacks={stacks as Map<StackCategory, [IStack]>} />
+    <CardsTwoColumns
+      hasDivider={hasDivider}
+      stacks={stacks as Map<StackCategory, [IStack]>}
+    />
   ) : (
     <CardsSingleColumn
+      hasDivider={hasDivider}
       titlePosition={titlePosition}
       titleStyle={titleStyle}
       stacks={stacks}
