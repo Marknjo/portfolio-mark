@@ -7,7 +7,7 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/react'
 import { FiDribbble, FiExternalLink } from 'react-icons/fi'
-import { StackThemes } from './tech-stacks/tech-stacks-types'
+import { StackThemes } from './tech-stacks'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T

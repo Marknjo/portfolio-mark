@@ -4,7 +4,7 @@ import {
   IStack,
   StackCategory,
   TitleStyles,
-} from '../tech-stacks-types'
+} from '../types/tech-stacks-types'
 import { TechStack } from './TechStack'
 
 export const CardsTwoColumns = ({

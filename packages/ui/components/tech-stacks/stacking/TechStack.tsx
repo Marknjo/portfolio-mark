@@ -5,7 +5,7 @@ import {
   StackCategory,
   StackingWrapperMode,
   TitleStyles,
-} from '../tech-stacks-types'
+} from '../types/tech-stacks-types'
 import { StackingWrapper } from './StackingWrapper'
 import { SubHeading } from '../../SubHeading'
 import { StacksCard } from './StackCard'

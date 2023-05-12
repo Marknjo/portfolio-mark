@@ -1,6 +1,6 @@
 import { SystemStyleObject } from '@chakra-ui/react'
 import { SkillsCard } from '../../SkillsCard'
-import { IStack } from '../tech-stacks-types'
+import { IStack } from '../types/tech-stacks-types'
 
 export const StacksCard = ({
   stacks,

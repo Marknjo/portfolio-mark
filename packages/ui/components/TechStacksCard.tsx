@@ -1,11 +1,11 @@
 import {
   AlignPosition,
+  CardsSingleColumn,
+  CardsTwoColumns,
   IStack,
   StackCategory,
   TitleStyles,
-} from './tech-stacks/tech-stacks-types'
-import { CardsSingleColumn } from './tech-stacks/stacking/CardsSingleColumn'
-import { CardsTwoColumns } from './tech-stacks/stacking/CardsTwoColumns'
+} from './tech-stacks'
 
 export const TechStacksCard = ({
   stacks,

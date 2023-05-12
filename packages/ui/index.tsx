@@ -17,7 +17,7 @@ export * from './components/ContentGenerator'
 
 export * from './components/SectionSeparator'
 /// Types
-export * from './components/tech-stacks/tech-stacks-types'
+export * from './components/tech-stacks/types/tech-stacks-types'
 
 /// ICONS
 export * from './components/LinkIcon'

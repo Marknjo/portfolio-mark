@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { StackingWrapperMode } from '../tech-stacks-types'
+import { StackingWrapperMode } from '../types/tech-stacks-types'
 import { HStack, StackProps, VStack } from '@chakra-ui/react'
 
 export const StackingWrapper = ({
