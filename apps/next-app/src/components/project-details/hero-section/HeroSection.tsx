@@ -2,6 +2,7 @@ import { GridProps } from '@chakra-ui/react'
 import { GradientVariants, MainGrid, customGradientWithImg } from 'ui'
 import { BorderRadiusSize } from '../general-gallery-config'
 import HeroTitle from './HeroTitle'
+import HeroIntro from './HeroIntro'
 
 const HeroSection = () => {
   const mainStyles: GridProps = {
@@ -21,7 +22,7 @@ const HeroSection = () => {
       100px [nav-end title-start]
       auto [title-end r1-start]
       auto [r1-end r2-start]
-      12rem [r2-end r3-start]
+      18rem [r2-end r3-start]
       auto [r3-end]
     `,
     pb: '16',
@@ -33,6 +34,7 @@ const HeroSection = () => {
       <HeroTitle />
 
       {/* Introduction */}
+      <HeroIntro />
       {/* Top Image */}
     </MainGrid>
   )
