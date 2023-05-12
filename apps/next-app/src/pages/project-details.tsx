@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react'
-import HomePageHero from '@components/homepage/hero/HomePageHero'
 import Footer from '@components/layouts/footer/Footer'
 import HomePageNav from '@components/layouts/navigation/HomePageNav'
 import ToTop from '@components/layouts/to-top/ToTop'
@@ -9,6 +8,7 @@ import GallerySection from '@components/project-details/gallery-section/GalleryS
 import SummarySection from '@components/project-details/summary-section/SummarySection'
 import { NextPage } from 'next'
 import Head from 'next/head'
+import HeroSection from '@components/project-details/hero-section/HeroSection'
 
 const ProjectDetailsPage: NextPage = () => (
   <>
@@ -20,11 +20,11 @@ const ProjectDetailsPage: NextPage = () => (
     {/* HomePage Navigation */}
     <HomePageNav />
 
-    {/* Page Hero Section */}
-    <HomePageHero />
-
     {/* Main Content */}
     <Box as="main" backgroundColor="orange.50">
+      {/* Page Hero Section */}
+      <HeroSection />
+
       {/* The Challenge Section */}
       <TheChallengeSection />
 

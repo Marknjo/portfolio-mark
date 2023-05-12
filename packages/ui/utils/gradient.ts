@@ -14,6 +14,9 @@ export enum GradientVariants {
   /* 50to600 */
   Orange50to600 = 'Orange50to600',
   Teal50to600 = 'Teal50to600',
+
+  /* Custom 800to800 */
+  OrangeCustom500To800 = 'orangeCustom',
 }
 
 export const defaultGradients = (
@@ -21,6 +24,9 @@ export const defaultGradients = (
   deg: number = 215,
 ) => {
   switch (variant) {
+    case GradientVariants.OrangeCustom500To800:
+      return `${deg}deg, rgba(221, 107, 32, 0.8) 35.9%, rgba(123, 52, 30, 0.88) 71.67%`
+
     case GradientVariants.Teal500to800:
       return `linear-gradient(${deg}deg, teal.500 45%, teal.800 88%)`
 
@@ -46,4 +52,15 @@ export const defaultGradients = (
     default:
       return `linear-gradient(${deg}deg, orange.500 45%, orange.800 88%)`
   }
+}
+
+export const customGradientWithImg = (
+  variant: GradientVariants,
+  url: string,
+  deg: number = 221.67,
+) => {
+  return `linear-gradient(${defaultGradients(
+    variant,
+    deg,
+  )}), url(images/${url})`
 }
