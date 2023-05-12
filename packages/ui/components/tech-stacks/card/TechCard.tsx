@@ -1,5 +1,5 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
-import { CardLink, StackThemes, iconPicker, CardBadge } from './tech-stacks'
+import { CardLink, StackThemes, iconPicker, CardBadge } from '..'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -86,7 +86,7 @@ const theme = (theme: StackThemes) => {
   }
 }
 
-export function SkillsCard<T extends { [key: string]: any }>({
+export function TechCard<T extends { [key: string]: any }>({
   skill,
   showBadge = true,
   showLink = true,

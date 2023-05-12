@@ -9,6 +9,7 @@ export * from './stacking/TechStack'
 export * from './card/IconPicker'
 export * from './card/CardBadge'
 export * from './card/CardLink'
+export * from './card/TechCard'
 
 // export types
 export * from './types/tech-stacks-types'

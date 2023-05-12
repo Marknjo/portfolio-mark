@@ -1,5 +1,5 @@
 import { SystemStyleObject } from '@chakra-ui/react'
-import { SkillsCard } from '../../SkillsCard'
+import { TechCard } from '../card/TechCard'
 import { IStack } from '../types/tech-stacks-types'
 
 export const StacksCard = ({
@@ -14,7 +14,7 @@ export const StacksCard = ({
   return (
     <>
       {stacks.map(stack => (
-        <SkillsCard
+        <TechCard
           key={stack.name}
           skill={stack}
           showBadge={showBadge}
