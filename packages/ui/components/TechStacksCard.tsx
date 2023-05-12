@@ -4,10 +4,8 @@ import {
   StackCategory,
   TitleStyles,
 } from './tech-stacks/tech-stacks-types'
-import {
-  CardsSingleColumn,
-  CardsTwoColumns,
-} from './tech-stacks/stacking/CardsOptions'
+import { CardsSingleColumn } from './tech-stacks/stacking/CardsSingleColumn'
+import { CardsTwoColumns } from './tech-stacks/stacking/CardsTwoColumns'
 
 export const TechStacksCard = ({
   stacks,
