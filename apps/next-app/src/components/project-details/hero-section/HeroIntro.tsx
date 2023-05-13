@@ -1,5 +1,5 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
-import { SectionSeparator } from 'ui'
+import { SectionSeparator, SubHeading } from 'ui'
 import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
@@ -37,6 +37,11 @@ const HeroIntro = () => {
       <Grid sx={contentStyles}>
         {/* Tech Stacks */}
         <GridItem sx={contentSectionStyles}>
+          <SubHeading
+            text="Tech Stack"
+            as="h2"
+            overrides={{ borderBottom: 'none' }}
+          />
           <IntroStackCards />
         </GridItem>
 
