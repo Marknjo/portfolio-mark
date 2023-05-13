@@ -5,9 +5,9 @@ const HeroTitle = () => (
     as="h1"
     title="Afri-Hickr"
     subTitle="Outdoor Activities"
-    subTitleConfig={{ color: 'orange.50', fontSize: '4xl' }}
+    subTitleConfig={{ color: 'orange.100', fontSize: '4xl' }}
     titleConfig={{
-      color: 'orange.100',
+      color: 'orange.50',
       height: '100%',
       display: 'flex',
       justifyContent: 'center',
