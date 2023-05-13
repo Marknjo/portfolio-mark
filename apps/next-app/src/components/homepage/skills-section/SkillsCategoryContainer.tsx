@@ -1,11 +1,6 @@
 import { GridItem, HStack, Heading, SystemStyleObject } from '@chakra-ui/react'
-import {
-  IStack,
-  StackCategory,
-  getStacks,
-  stacksSamp,
-} from '@data/techStacksSample'
-import { SkillsCard } from 'ui'
+import { getStacks, stacksSamp } from '@data/techStacksSample'
+import { StackCategory, TechCard, IStack } from 'ui'
 
 const progLangs = getStacks(stacksSamp)
 
@@ -73,7 +68,7 @@ const SkillsCategoryContainer = ({
           lang =>
             !lang.isHidden &&
             lang.category === category && (
-              <SkillsCard<IStack>
+              <TechCard<IStack>
                 key={lang.name}
                 skill={lang as IStack}
                 showBadge
