@@ -1,14 +1,8 @@
 import NextLink from 'next/link'
-import {
-  Box,
-  Button,
-  Grid,
-  GridItem,
-  SystemStyleObject,
-  VStack,
-} from '@chakra-ui/react'
-import { FiArrowDown } from 'react-icons/fi'
-import { SectionSeparator, SubHeading } from 'ui'
+import { Box, Button, Grid, SystemStyleObject, VStack } from '@chakra-ui/react'
+import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi'
+import { ContentGenerator, SectionSeparator, SubHeading } from 'ui'
+import { introSampContent } from '@data/sampleContent'
 import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
@@ -68,13 +62,32 @@ const HeroIntro = () => {
         </VStack>
 
         {/* Text & Button */}
-        <GridItem sx={contentSectionStyles}>
-          {/* Plain Header */}
-          <p>Tech</p>
-          {/* Paragraphs */}
-
+        <VStack
+          sx={contentSectionStyles}
+          alignItems="flex-start"
+          justifyContent="space-between"
+        >
+          <Box>
+            {/* Plain Header */}
+            <SubHeading
+              text="Introducing Afri-Hickr"
+              as="h2"
+              overrides={{ borderBottom: 'none' }}
+            />
+            {/* Paragraphs */}
+            <ContentGenerator content={introSampContent} />
+          </Box>
           {/* Button */}
-        </GridItem>
+          <Button
+            as={NextLink}
+            href="/" /* @TODO: use github link */
+            rightIcon={<FiArrowUpRight />}
+            variant="outline"
+            colorScheme="orange"
+          >
+            View All Stacks
+          </Button>
+        </VStack>
       </Grid>
       <SectionSeparator
         sxOverrides={{

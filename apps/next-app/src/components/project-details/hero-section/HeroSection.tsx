@@ -22,9 +22,9 @@ const HeroSection = () => {
     gridTemplateRows: `[nav-start]
       100px [nav-end title-start]
       auto [title-end r1-start]
-      1fr [r1-end r2-start]
+      auto [r1-end r2-start]
       18rem [r2-end r3-start]
-      1fr [r3-end]
+      auto [r3-end]
     `,
     pb: '16',
   }

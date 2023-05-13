@@ -3,3 +3,10 @@ Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi.
 Nisi pulvinar fermentum tristique tristique maecenas eget ornare amet. Nulla orci nisl non metus tellus. Sed purus auctor libero etiam a. Quam velit eget lectus ullamcorper duis amet in. Eget mi at dolor tempor augue eget tempor tellus. Accumsan porta aliquam nisl felis elit.
 Ullamcorper pulvinar duis at egestas. Gravida velit lorem pellentesque ut dolor volutpat at vulputate. Volutpat fermentum dui ullamcorper at ac donec sit et vulputate. Bibendum vitae congue enim pulvinar ut. Turpis arcu vitae fringilla et.
 `
+export const introSampContent = `
+Lorem ipsum dolor sit amet consectetur. Vitae non ac pellentesque accumsan lacinia. Risus pharetra a velit et. 
+
+Sagittis justo sagittis scelerisque cras arcu eu velit praesent. Gravida a vulputate odio ullamcorper diam accumsan.
+
+Dui vitae sit arcu nisi lectus amet et. Lacus molestie leo.
+`
