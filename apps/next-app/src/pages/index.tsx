@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 
 // Components
-import HomePageNav from '@components/layouts/navigation/HomePageNav'
+import MainTopNav from '@components/layouts/navigation/MainTopNav'
 import HomePageHero from '@components/homepage/hero/HomePageHero'
 import AboutSection from '@components/homepage/about/AboutSection'
 import ProjectsSection from '@components/homepage/projects/ProjectsSection'
@@ -15,6 +15,7 @@ import ContactSection from '@components/homepage/contact-section/ContactSection'
 import CtaSection from '@components/layouts/cta/CtaSection'
 import Footer from '@components/layouts/footer/Footer'
 import ToTop from '@components/layouts/to-top/ToTop'
+import { homePageNavLinks } from '@data/navLinks'
 
 const HomePage = () => (
   <>
@@ -24,7 +25,7 @@ const HomePage = () => (
     </Head>
 
     {/* HomePage Navigation */}
-    <HomePageNav />
+    <MainTopNav navLinks={homePageNavLinks} />
 
     {/* Page Hero Section */}
     <HomePageHero />

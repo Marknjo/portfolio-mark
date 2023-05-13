@@ -2,38 +2,11 @@ import React from 'react'
 import { Flex, GridItem } from '@chakra-ui/react'
 
 import { MainGrid } from 'ui'
+import { INavLink } from '@data/navLinks'
 import LogoText from './LogoText'
 import NavLink from './NavLink'
-import { NavItem } from './NavItem.interface'
 
-const navItems: Array<NavItem> = [
-  {
-    title: 'Home',
-    link: '/',
-  },
-  {
-    title: 'About',
-    link: '#about-section',
-  },
-  {
-    title: 'Projects',
-    link: '#projects-section',
-  },
-  {
-    title: 'Fav',
-    link: '#fav-section',
-  },
-  {
-    title: 'Skills',
-    link: '#skills-section',
-  },
-  {
-    title: 'Contact',
-    link: '#contact-section',
-  },
-]
-
-const HomePageNav = () => (
+const MainTopNav = ({ navLinks }: { navLinks: Array<INavLink> }) => (
   <MainGrid
     id="main-nav"
     options={{
@@ -55,7 +28,7 @@ const HomePageNav = () => (
         columnGap="2.5"
         flexDirection="row"
       >
-        {navItems.map(item => (
+        {navLinks.map(item => (
           <NavLink key={item.title} title={item.title} link={item.link} />
         ))}
       </Flex>
@@ -63,4 +36,4 @@ const HomePageNav = () => (
   </MainGrid>
 )
 
-export default HomePageNav
+export default MainTopNav
