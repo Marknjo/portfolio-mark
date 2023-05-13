@@ -9,7 +9,7 @@ const TheStackContent = () => {
     alignSelf: 'center',
     borderLeft: '1px solid',
     borderLeftColor: 'orange.300',
-    pl: '4',
+    pl: '12',
   }
 
   return (
