@@ -28,7 +28,7 @@ const TheStackIcons = () => {
   }
 
   return (
-    <GridItem sx={mainStyles}>
+    <GridItem sx={mainStyles} id="stacks">
       <TechStacksCard stacks={stacks} isCustom />
     </GridItem>
   )

@@ -1,4 +1,13 @@
-import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+import NextLink from 'next/link'
+import {
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  SystemStyleObject,
+  VStack,
+} from '@chakra-ui/react'
+import { FiArrowDown } from 'react-icons/fi'
 import { SectionSeparator, SubHeading } from 'ui'
 import IntroStackCards from './IntroStackCards'
 
@@ -36,14 +45,27 @@ const HeroIntro = () => {
     <Grid sx={mainStyles}>
       <Grid sx={contentStyles}>
         {/* Tech Stacks */}
-        <GridItem sx={contentSectionStyles}>
-          <SubHeading
-            text="Tech Stack"
-            as="h2"
-            overrides={{ borderBottom: 'none' }}
-          />
-          <IntroStackCards />
-        </GridItem>
+        <VStack sx={contentSectionStyles} alignItems="flex-start" gap="8">
+          <Box>
+            <SubHeading
+              text="Tech Stack"
+              as="h2"
+              overrides={{ borderBottom: 'none' }}
+            />
+
+            <IntroStackCards />
+          </Box>
+
+          <Button
+            as={NextLink}
+            href="/project-details/#stacks" /* @TODO: Use dynamic link */
+            rightIcon={<FiArrowDown />}
+            variant="link"
+            colorScheme="teal"
+          >
+            View All Stacks
+          </Button>
+        </VStack>
 
         {/* Text & Button */}
         <GridItem sx={contentSectionStyles}>
