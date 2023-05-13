@@ -1,4 +1,3 @@
-import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 import {
   StackNames,
   groupStacksByCategory,
@@ -16,20 +15,11 @@ const stacks = groupStacksByCategory(
   stacksSamp,
 )
 
-const IntroStackCards = () => {
-  const mainStyles: SystemStyleObject = {
-    gridRow: 'r6-start / r6-end',
-    gridColumn: 'content-start / col-end 7',
-  }
-
-  return (
-    <GridItem sx={mainStyles}>
-      <TechStacksCard
-        stacks={stacks}
-        titleStyle={TitleStyles.SM}
-        hasDivider={false}
-      />
-    </GridItem>
-  )
-}
+const IntroStackCards = () => (
+  <TechStacksCard
+    stacks={stacks}
+    titleStyle={TitleStyles.SM}
+    hasDivider={false}
+  />
+)
 export default IntroStackCards

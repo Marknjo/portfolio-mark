@@ -1,4 +1,5 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { SectionSeparator } from 'ui'
 import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
@@ -7,21 +8,32 @@ const HeroIntro = () => {
     gridColumn: 'col-start 2 / col-end 11',
     gridRow: 'r1-start/r2-end',
 
+    gridTemplateRows: `[content-start]
+      auto[content-end separator-start] 
+      auto [separator-end spacer-start] 
+      18rem [spacer-end] 
+    `,
+
     backgroundColor: 'orange.100',
     boxShadow: 'md',
     borderRadius: 'lg',
-    p: '12',
+    px: '12',
+    pt: '12',
   }
 
   const contentStyles: SystemStyleObject = {
     pb: '12',
-    borderBottom: '1px solid',
-    borderBottomColor: 'orange.400',
+    width: '100%',
+    gridRow: 'content-start / content-end',
+    gap: '12',
+
+    /* Grid settings */
+    gridTemplateColumns: 'repeat(auto-fit, minmax(18rem, 1fr))',
   }
   const contentSectionStyles: SystemStyleObject = {}
 
   return (
-    <GridItem sx={mainStyles}>
+    <Grid sx={mainStyles}>
       <Grid sx={contentStyles}>
         {/* Tech Stacks */}
         <GridItem sx={contentSectionStyles}>
@@ -37,7 +49,15 @@ const HeroIntro = () => {
           {/* Button */}
         </GridItem>
       </Grid>
-    </GridItem>
+      <SectionSeparator
+        sxOverrides={{
+          gridRow: 'separator-start/separator-end',
+          gridColumn: '1/-1',
+          minHeight: '1px',
+          backgroundColor: 'orange.300',
+        }}
+      />
+    </Grid>
   )
 }
 
