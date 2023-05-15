@@ -39,7 +39,7 @@ const FavProjectSection = () => {
       {/* Content */}
       <FavContent />
 
-      <DotsBottomRight width={25} fill="#ED8936" />
+      <DotsBottomRight width={22} fill="#ED8936" />
     </MainGrid>
   )
 }

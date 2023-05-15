@@ -23,7 +23,7 @@ const ContactSection = () => {
   return (
     <MainGrid options={gridStyles} as="section" id="contact-section">
       {/* Dotted Top */}
-      <DotsTopRight width={25} />
+      <DotsTopRight width={22} />
 
       {/* Section Title (subtitle component as h2) */}
       <ContactTitle />
@@ -35,7 +35,7 @@ const ContactSection = () => {
       <ContactRightBox />
 
       {/* Dotted Bottom */}
-      <DotsBottomRight width={25} />
+      <DotsBottomRight width={22} />
     </MainGrid>
   )
 }
