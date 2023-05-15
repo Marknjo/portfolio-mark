@@ -1,24 +1,71 @@
 import React from 'react'
-import { Box, GridItem, Link } from '@chakra-ui/react'
+import {
+  Box,
+  GridItem,
+  Link,
+  SystemStyleObject,
+  keyframes,
+} from '@chakra-ui/react'
 import NextLink from 'next/link'
+import { motion } from 'framer-motion'
 
-const LogoText = () => (
-  <GridItem gridColumn="content-start/col-end 4">
-    <Box fontSize="3xl" fontWeight="bold" color="teal.50" marginY="2">
-      <Link
-        as={NextLink}
-        href="/"
-        colorScheme="teal"
-        transition="all 150ms ease"
-        _hover={{
-          color: 'teal.100',
-          transform: 'scaleX(1.05)',
-        }}
+const animationKeyFrames = keyframes`
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(100px);
+    opacity: .6;
+  }
+  90% {
+    transform: translateX(-50px);
+    opacity: .8;
+  }
+
+  99% {
+    transform: translateX(20px);
+    opacity: .9;
+  }
+  100%{
+  transform: translateX(0);
+  opacity: 1;
+  }
+`
+const LogoText = ({
+  sxOverrides = {},
+  asHamburger = false,
+}: {
+  sxOverrides?: SystemStyleObject
+  asHamburger: boolean
+}) => {
+  const animation = `${animationKeyFrames} .45s .1s ease-out backwards`
+
+  return (
+    <GridItem sx={{ gridColumn: 'content-start/col-end 4', ...sxOverrides }}>
+      <Box
+        as={motion.div}
+        animation={asHamburger ? animation : undefined}
+        fontSize="3xl"
+        fontWeight="bold"
+        color="teal.50"
+        marginY="2"
       >
-        Mark Njoroge
-      </Link>
-    </Box>
-  </GridItem>
-)
+        <Link
+          as={NextLink}
+          href="/"
+          colorScheme="teal"
+          transition="all 150ms ease"
+          _hover={{
+            color: 'teal.100',
+            transform: 'scaleX(1.05)',
+          }}
+        >
+          Mark Njoroge
+        </Link>
+      </Box>
+    </GridItem>
+  )
+}
 
 export default LogoText

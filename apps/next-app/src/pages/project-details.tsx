@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import Footer from '@components/layouts/footer/Footer'
-import MainTopNav from '@components/layouts/navigation/MainTopNav'
+import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
 import ToTop from '@components/layouts/to-top/ToTop'
 import TheChallengeSection from '@components/project-details/the-challenge-section/TheChallengeSection'
 import ProjectDetailsCTA from '@components/project-details/cta-section/ProjectDetailCTA'
@@ -19,7 +19,7 @@ const ProjectDetailsPage: NextPage = () => (
     </Head>
 
     {/* HomePage Navigation */}
-    <MainTopNav navLinks={pDNavLinks} />
+    <MainTopNav navLinks={pDNavLinks} displayMode={MenuMode.HAMBURGER} />
 
     {/* Main Content */}
     <Box as="main" backgroundColor="orange.50">
