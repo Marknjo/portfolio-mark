@@ -25,7 +25,6 @@ const NavList = ({
   const navAnimation = `${animationKeyframes} .2s .4s ease-in backwards`
   const hamburgerListStyles: SystemStyleObject = {
     flexDirection: 'column',
-
     borderTop: '2px solid ',
     borderTopColor: 'blackAlpha.100',
     animation: navAnimation,
@@ -36,6 +35,7 @@ const NavList = ({
     justifyContent: 'end',
     columnGap: '2.5',
     flexDirection: 'row',
+    listStyle: 'none',
     ...(asHamburger ? hamburgerListStyles : {}),
   }
 
