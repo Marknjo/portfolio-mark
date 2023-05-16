@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useCallback, useState } from 'react'
 import { GridItem, GridProps, SystemStyleObject } from '@chakra-ui/react'
 import { motion } from 'framer-motion'

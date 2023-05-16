@@ -3,16 +3,31 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@data/*": ["src/data/*"],
-      "@components/*": ["src/components/*"],
-      "@next-ui/*": ["src/components/next-ui/*"]
-    }
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@next-ui/*": [
+        "src/components/next-ui/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "../../packages/ui/components/ContentGenerator.tsx"
+    "../../packages/ui/components/ContentGenerator.tsx",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,9 +1,8 @@
 import { Box, Icon, SystemStyleObject } from '@chakra-ui/react'
-import { Url } from 'next/dist/shared/lib/router/router'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { FaChevronUp } from 'react-icons/fa'
 
-const ToTop = ({ toUrl }: { toUrl: Url }) => {
+const ToTop = ({ toUrl }: { toUrl: string }) => {
   const router = useRouter()
 
   const mainStyles: SystemStyleObject = {

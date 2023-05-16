@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 
 // Components
-import MainTopNav from '@components/layouts/navigation/MainTopNav'
+import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
 import HomePageHero from '@components/homepage/hero/HomePageHero'
 import AboutSection from '@components/homepage/about/AboutSection'
 import ProjectsSection from '@components/homepage/projects/ProjectsSection'
@@ -25,7 +25,7 @@ const HomePage = () => (
     </Head>
 
     {/* HomePage Navigation */}
-    <MainTopNav navLinks={homePageNavLinks} />
+    <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
 
     {/* Page Hero Section */}
     <HomePageHero />

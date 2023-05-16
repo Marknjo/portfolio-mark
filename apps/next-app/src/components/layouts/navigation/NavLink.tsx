@@ -1,6 +1,6 @@
 import React from 'react'
 import NextLink from 'next/link'
-import { useRouter } from 'next/router'
+import { useParams } from 'next/navigation'
 
 import { Link, Box, SystemStyleObject } from '@chakra-ui/react'
 import { INavLink } from '@data/navLinks'
@@ -29,7 +29,10 @@ const NavLink = ({
   sxOverrides = {},
   asHamburgerMenu = false,
 }: INav) => {
-  const params = useRouter()
+  const params = useParams()
+
+  console.log({ params })
+
   /* NavLink Overrides */
   const linkWithHamburger: SystemStyleObject = {
     py: '3',
@@ -70,8 +73,8 @@ const NavLink = ({
         as={NextLink}
         sx={linkStyles}
         aria-selected={
-          `/${link}` === params.asPath ||
-          (title.toLowerCase() === 'home' && params.asPath === '/')
+          `/${link}` === params?.asPath ||
+          (title.toLowerCase() === 'home' && params?.asPath === '/')
         }
       >
         {title}
