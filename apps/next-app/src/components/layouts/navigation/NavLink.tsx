@@ -23,6 +23,7 @@ interface INav extends INavLink {
   asHamburgerMenu?: boolean
 }
 
+// @TODO: fix nav link
 const NavLink = ({
   title,
   link,
@@ -30,8 +31,6 @@ const NavLink = ({
   asHamburgerMenu = false,
 }: INav) => {
   const params = useParams()
-
-  console.log({ params })
 
   /* NavLink Overrides */
   const linkWithHamburger: SystemStyleObject = {
