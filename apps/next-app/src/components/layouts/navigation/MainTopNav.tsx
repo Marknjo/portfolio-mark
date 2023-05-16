@@ -63,16 +63,6 @@ const MainTopNav = ({
     id: 'main-nav',
   }
 
-  /* Logo Styles */
-  const logoStylesWithHamburger: SystemStyleObject = {
-    gridColumn: 'content-start/content-end',
-    gridRow: 'icon-start/icon-end',
-    alignSelf: 'center',
-  }
-  const logoTextStyles: SystemStyleObject = {
-    ...(showHamburger ? logoStylesWithHamburger : {}),
-  }
-
   /* Nav Styles */
   const navStylesWithHamburger: SystemStyleObject = {
     gridColumn: 'content-start/content-end',
@@ -121,7 +111,7 @@ const MainTopNav = ({
   return (
     <MainGrid options={mainStyles}>
       {/* Logo */}
-      <LogoText sxOverrides={logoTextStyles} asHamburger={showHamburger} />
+      <LogoText asHamburger={showHamburger} />
 
       {/* Navigation */}
       {displayMode === MenuMode.HAMBURGER && (

@@ -41,8 +41,20 @@ const LogoText = ({
 }) => {
   const animation = `${animationKeyFrames} .45s .1s ease-out backwards`
 
+  /* Logo Styles */
+  const logoStylesWithHamburger: SystemStyleObject = {
+    gridColumn: 'content-start/content-end',
+    gridRow: 'icon-start/icon-end',
+    alignSelf: 'center',
+  }
+  const logoTextStyles: SystemStyleObject = {
+    gridColumn: 'content-start/col-end 4',
+    ...(asHamburger ? logoStylesWithHamburger : {}),
+    ...sxOverrides,
+  }
+
   return (
-    <GridItem sx={{ gridColumn: 'content-start/col-end 4', ...sxOverrides }}>
+    <GridItem sx={logoTextStyles}>
       <Box
         as={motion.div}
         animation={asHamburger ? animation : undefined}
