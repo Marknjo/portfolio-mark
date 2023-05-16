@@ -105,6 +105,19 @@ const MainTopNav = ({
     setShowHamburger(isToggled)
   }
 
+  const menuItems = (
+    <Flex as={motion.ul} sx={ulStyles}>
+      {navLinks.map(item => (
+        <NavLink
+          key={item.title}
+          title={item.title}
+          link={item.link}
+          asHamburgerMenu={showHamburger}
+        />
+      ))}
+    </Flex>
+  )
+
   return (
     <MainGrid options={mainStyles}>
       {/* Logo */}
@@ -116,32 +129,9 @@ const MainTopNav = ({
       )}
 
       <GridItem as={motion.nav} sx={navStyles}>
-        {showHamburger ||
-          (displayMode !== MenuMode.HAMBURGER && (
-            <Flex as={motion.ul} sx={ulStyles}>
-              {navLinks.map(item => (
-                <NavLink
-                  key={item.title}
-                  title={item.title}
-                  link={item.link}
-                  asHamburgerMenu={showHamburger}
-                />
-              ))}
-            </Flex>
-          ))}
+        {showHamburger || (displayMode !== MenuMode.HAMBURGER && menuItems)}
 
-        {showHamburger && displayMode === MenuMode.HAMBURGER && (
-          <Flex as={motion.ul} sx={ulStyles}>
-            {navLinks.map(item => (
-              <NavLink
-                key={item.title}
-                title={item.title}
-                link={item.link}
-                asHamburgerMenu={showHamburger}
-              />
-            ))}
-          </Flex>
-        )}
+        {showHamburger && displayMode === MenuMode.HAMBURGER && menuItems}
       </GridItem>
     </MainGrid>
   )
