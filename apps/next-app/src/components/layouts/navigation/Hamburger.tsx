@@ -1,5 +1,5 @@
 import { Box, Flex, SystemStyleObject } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MenuOverlay from './MenuOverlay'
 
 const toggleTopStyles: SystemStyleObject = {
@@ -32,18 +32,22 @@ const toggleBottomStyles: SystemStyleObject = {
 }
 
 const Hamburger = ({
-  onToggle,
+  onShow,
+  closeOverlay,
 }: {
-  onToggle: (isToggled: boolean) => void
+  onShow: (isShown: boolean) => void
+  closeOverlay: boolean
 }) => {
   const [isToggled, setIsToggle] = useState(false)
 
   const toggleHandler = () => {
-    setIsToggle(prevState => {
-      onToggle(!prevState)
-      return !prevState
-    })
+    setIsToggle(prevState => !prevState)
+    onShow(!isToggled)
   }
+
+  useEffect(() => {
+    setIsToggle(closeOverlay)
+  }, [closeOverlay])
 
   const hamburgerStyles: SystemStyleObject = {
     height: '4px',

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useState } from 'react'
+import React, { SyntheticEvent, useCallback, useState } from 'react'
 import { GridItem, GridProps, SystemStyleObject } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
@@ -74,6 +74,15 @@ const MainTopNav = ({
     setShowHamburger(isToggled)
   }
 
+  const hamburgerCloseHandler = (event: SyntheticEvent) => {
+    const targetEl = event.target as HTMLElement
+    const linkEl = targetEl!.closest('.main__nav-link')
+
+    if (!linkEl) return
+
+    setShowHamburger(!showHamburger)
+  }
+
   return (
     <MainGrid
       options={useCallback(navContainerStyles, [showHamburger])(showHamburger)}
@@ -83,13 +92,17 @@ const MainTopNav = ({
 
       {/* Nav Hamburger */}
       {displayMode === MenuMode.HAMBURGER && (
-        <Hamburger onToggle={handleToggleHamburger} />
+        <Hamburger
+          onShow={handleToggleHamburger}
+          closeOverlay={showHamburger}
+        />
       )}
 
       {/* Nav  */}
       <GridItem
         as={motion.nav}
         sx={useCallback(navElStyles, [showHamburger])(showHamburger)}
+        onClick={hamburgerCloseHandler}
       >
         {/* Normal Navigation */}
         {showHamburger ||

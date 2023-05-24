@@ -22,7 +22,6 @@ interface INav extends INavLink {
   isSelected?: boolean
 }
 
-// @TODO: fix nav link
 const NavLink = ({
   title,
   link,
@@ -30,10 +29,6 @@ const NavLink = ({
   asHamburgerMenu = false,
   isSelected,
 }: INav) => {
-  // const params = useParams()
-  // window.location
-  // console.log(params)
-
   /* NavLink Overrides */
   const linkWithHamburger: SystemStyleObject = {
     py: '3',
