@@ -75,7 +75,7 @@ const NavLink = ({
         as={NextLink}
         sx={linkStyles}
         aria-selected={isSelected}
-        // ref={currentLinkEl}
+        onClick={e => e.preventDefault()}
       >
         {title}
       </Link>

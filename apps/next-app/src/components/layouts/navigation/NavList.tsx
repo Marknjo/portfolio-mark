@@ -1,5 +1,5 @@
 import { SyntheticEvent, useLayoutEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { Flex, SystemStyleObject, keyframes } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
@@ -27,6 +27,7 @@ const NavList = ({
   navLinks: Array<INavLink>
   asHamburger: boolean
 }) => {
+  const router = useRouter()
   const currentRoute = usePathname()
   const isLoading = useIsLoading()
   const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
@@ -62,8 +63,6 @@ const NavList = ({
   }
 
   const selectedLinkHandler = (event: SyntheticEvent) => {
-    event.preventDefault()
-
     const selectedItemItem = event.target as HTMLElement
     const selectedEl = selectedItemItem.closest(
       '.main__nav-link',
@@ -74,7 +73,12 @@ const NavList = ({
     const urlHash = selectedEl.getAttribute('href')
     setSelectedLinkEl(urlHash)
 
-    selectedEl.scrollIntoView({
+    if (urlHash?.includes('/')) {
+      router.push(urlHash)
+      return
+    }
+
+    document.querySelector(urlHash!)?.scrollIntoView({
       behavior: 'smooth',
     })
   }
