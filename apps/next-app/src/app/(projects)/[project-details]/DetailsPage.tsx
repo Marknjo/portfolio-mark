@@ -50,7 +50,7 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
       <Footer />
 
       {/* to top component */}
-      <ToTop toUrl="/project-details" />
+      <ToTop />
     </>
   )
 }

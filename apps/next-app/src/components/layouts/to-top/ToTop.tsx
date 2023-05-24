@@ -1,10 +1,8 @@
 import { Box, Icon, SystemStyleObject } from '@chakra-ui/react'
-import { useRouter } from 'next/navigation'
+import { SyntheticEvent } from 'react'
 import { FaChevronUp } from 'react-icons/fa'
 
-const ToTop = ({ toUrl }: { toUrl: string }) => {
-  const router = useRouter()
-
+const ToTop = () => {
   const mainStyles: SystemStyleObject = {
     width: '3rem',
     height: '3rem',
@@ -42,8 +40,15 @@ const ToTop = ({ toUrl }: { toUrl: string }) => {
     pointer: 'cursor',
   }
 
+  const moveToTopHandler = (event: SyntheticEvent) => {
+    event.preventDefault()
+    document.documentElement.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+
   return (
-    <Box sx={mainStyles} onClick={() => router.push(toUrl)} role="group">
+    <Box sx={mainStyles} onClick={moveToTopHandler} role="group">
       <Icon as={FaChevronUp} sx={chevronStyles} />
     </Box>
   )

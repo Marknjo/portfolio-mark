@@ -60,7 +60,7 @@ const HomePage = () => {
       <Footer />
 
       {/* to top component */}
-      <ToTop toUrl="/" />
+      <ToTop />
     </>
   )
 }
