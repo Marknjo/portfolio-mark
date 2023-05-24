@@ -1,7 +1,12 @@
 'use client'
 
-import React, { SyntheticEvent, useCallback, useState } from 'react'
-import { GridItem, GridProps, SystemStyleObject } from '@chakra-ui/react'
+import React, { SyntheticEvent, useCallback, useEffect, useState } from 'react'
+import {
+  GridItem,
+  GridProps,
+  SystemStyleObject,
+  useBreakpoint,
+} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 import { MainGrid } from 'ui'
@@ -59,7 +64,6 @@ const navContainerStyles = (showHamburger: boolean) => {
 }
 
 /// Component
-// @TODO: monitor screen sizes to enable hamburger menu
 // @TODO: use global state useContext to manage menu state - is complex
 const MainTopNav = ({
   navLinks,
@@ -68,7 +72,22 @@ const MainTopNav = ({
   navLinks: Array<INavLink>
   displayMode: MenuMode
 }) => {
+  const [isHamburgerMode, setIsHamburgerMode] = useState(displayMode)
   const [showHamburger, setShowHamburger] = useState(false)
+  const breakPoint = useBreakpoint({ ssr: false })
+
+  /// monitor screen sizes to enable hamburger menu
+  useEffect(() => {
+    const isSmallScreen = breakPoint === 'md' || breakPoint === 'sm'
+
+    if (isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
+      setIsHamburgerMode(MenuMode.HAMBURGER)
+    }
+
+    if (!isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
+      setIsHamburgerMode(displayMode)
+    }
+  }, [breakPoint, displayMode])
 
   const handleToggleHamburger = (isToggled: boolean) => {
     setShowHamburger(isToggled)
@@ -91,7 +110,7 @@ const MainTopNav = ({
       <LogoText asHamburger={showHamburger} />
 
       {/* Nav Hamburger */}
-      {displayMode === MenuMode.HAMBURGER && (
+      {isHamburgerMode === MenuMode.HAMBURGER && (
         <Hamburger
           onShow={handleToggleHamburger}
           closeOverlay={showHamburger}
@@ -106,12 +125,12 @@ const MainTopNav = ({
       >
         {/* Normal Navigation */}
         {showHamburger ||
-          (displayMode !== MenuMode.HAMBURGER && (
+          (isHamburgerMode !== MenuMode.HAMBURGER && (
             <NavList navLinks={navLinks} asHamburger={showHamburger} />
           ))}
 
         {/* Derived Hamburger Navigation  */}
-        {showHamburger && displayMode === MenuMode.HAMBURGER && (
+        {showHamburger && isHamburgerMode === MenuMode.HAMBURGER && (
           <NavList navLinks={navLinks} asHamburger={showHamburger} />
         )}
       </GridItem>
