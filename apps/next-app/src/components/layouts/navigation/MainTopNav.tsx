@@ -79,14 +79,17 @@ const MainTopNav = ({
 
   /// monitor screen sizes to enable hamburger menu
   useEffect(() => {
-    const isSmallScreen = breakPoint === 'md' || breakPoint === 'sm'
+    const isSmallScreen =
+      breakPoint === 'md' || breakPoint === 'sm' || breakPoint === 'base'
 
     if (isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
       setIsHamburgerMode(MenuMode.HAMBURGER)
+      setHideHamburger(false)
     }
 
     if (!isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
       setIsHamburgerMode(displayMode)
+      setHideHamburger(true)
     }
   }, [breakPoint, displayMode])
 
