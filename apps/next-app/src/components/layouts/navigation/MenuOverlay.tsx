@@ -23,7 +23,7 @@ const MenuOverlay = () => {
     transformOrigin: 'center',
     backgroundColor: 'blackAlpha.900',
     backfaceVisibility: 'hidden',
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     right: 0,
     zIndex: 1000,

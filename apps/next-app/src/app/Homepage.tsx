@@ -30,7 +30,10 @@ const HomePage = () => {
   return (
     <>
       {/* HomePage Navigation */}
-      <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
+      <MainTopNav
+        displayMode={MenuMode.HAMBURGER}
+        navLinks={homePageNavLinks}
+      />
 
       {/* Page Hero Section */}
       <HomePageHero />
