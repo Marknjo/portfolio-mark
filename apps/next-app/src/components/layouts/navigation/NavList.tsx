@@ -1,9 +1,10 @@
-import { SyntheticEvent, useEffect, useLayoutEffect, useState } from 'react'
+import { SyntheticEvent, useLayoutEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Flex, SystemStyleObject, keyframes } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 import { INavLink } from '@data/navLinks'
+import { useIsLoading } from '@hooks/is-loading'
 
 import NavLink from './NavLink'
 
@@ -27,28 +28,11 @@ const NavList = ({
   asHamburger: boolean
 }) => {
   const currentRoute = usePathname()
-  const [isLoading, setIsLoading] = useState(true)
+  const isLoading = useIsLoading()
   const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
 
   useLayoutEffect(() => {
     setSelectedLinkEl(window.location.hash)
-  }, [])
-
-  useEffect(() => {
-    const onPageLoad = () => {
-      setIsLoading(false)
-    }
-
-    // Check if the page has already loaded
-    if (document.readyState === 'complete') {
-      onPageLoad()
-    } else {
-      window.addEventListener('load', onPageLoad)
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener('load', onPageLoad)
-    }
-
-    return () => {}
   }, [])
 
   const isSelectedLinkItem = (link: string) => {

@@ -3,15 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@data/*": [
-        "src/data/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@next-ui/*": [
-        "src/components/next-ui/*"
-      ]
+      "@data/*": ["src/data/*"],
+      "@components/*": ["src/components/*"],
+      "@next-ui/*": ["src/components/next-ui/*"],
+      "@hooks/*": ["src/hooks/*"]
     },
     "plugins": [
       {
@@ -27,7 +22,5 @@
     "../../packages/ui/components/ContentGenerator.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
