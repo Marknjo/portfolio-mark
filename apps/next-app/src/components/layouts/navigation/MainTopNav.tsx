@@ -73,6 +73,7 @@ const MainTopNav = ({
   displayMode: MenuMode
 }) => {
   const [isHamburgerMode, setIsHamburgerMode] = useState(displayMode)
+  const [hideHamburger, setHideHamburger] = useState(false)
   const [showHamburger, setShowHamburger] = useState(false)
   const breakPoint = useBreakpoint({ ssr: false })
 
@@ -99,7 +100,7 @@ const MainTopNav = ({
 
     if (!linkEl) return
 
-    setShowHamburger(!showHamburger)
+    setHideHamburger(!showHamburger)
   }
 
   return (
@@ -113,7 +114,7 @@ const MainTopNav = ({
       {isHamburgerMode === MenuMode.HAMBURGER && (
         <Hamburger
           onShow={handleToggleHamburger}
-          closeOverlay={showHamburger}
+          closeOverlay={hideHamburger}
         />
       )}
 
