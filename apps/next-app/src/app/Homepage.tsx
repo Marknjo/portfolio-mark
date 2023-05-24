@@ -3,7 +3,7 @@
 import React from 'react'
 
 // eslint-disable-next-line import/no-unresolved
-import { Box } from '@chakra-ui/react'
+import { Box, Center } from '@chakra-ui/react'
 
 // Components
 import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
@@ -17,42 +17,52 @@ import CtaSection from '@components/layouts/cta/CtaSection'
 import Footer from '@components/layouts/footer/Footer'
 import ToTop from '@components/layouts/to-top/ToTop'
 import { homePageNavLinks } from '@data/navLinks'
+import { useIsLoading } from '@hooks/is-loading'
 
-const HomePage = () => (
-  <>
-    {/* HomePage Navigation */}
-    <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
+const HomePage = () => {
+  const isLoading = useIsLoading()
 
-    {/* Page Hero Section */}
-    <HomePageHero />
+  if (isLoading) {
+    // @TODO: implement loading ui component
+    return <Center>Loading...</Center>
+  }
 
-    {/* Main Content */}
-    <Box as="main">
-      {/* About Section */}
-      <AboutSection />
+  return (
+    <>
+      {/* HomePage Navigation */}
+      <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
 
-      {/* Projects Section */}
-      <ProjectsSection />
+      {/* Page Hero Section */}
+      <HomePageHero />
 
-      {/* Favorite Project Section */}
-      <FavProjectSection />
+      {/* Main Content */}
+      <Box as="main">
+        {/* About Section */}
+        <AboutSection />
 
-      {/* Skills Section */}
-      <SkillsSection />
+        {/* Projects Section */}
+        <ProjectsSection />
 
-      {/* Contact Section */}
-      <ContactSection />
+        {/* Favorite Project Section */}
+        <FavProjectSection />
 
-      {/* Page CTA */}
-      <CtaSection />
-    </Box>
+        {/* Skills Section */}
+        <SkillsSection />
 
-    {/* Footer */}
-    <Footer />
+        {/* Contact Section */}
+        <ContactSection />
 
-    {/* to top component */}
-    <ToTop toUrl="/" />
-  </>
-)
+        {/* Page CTA */}
+        <CtaSection />
+      </Box>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* to top component */}
+      <ToTop toUrl="/" />
+    </>
+  )
+}
 
 export default HomePage
