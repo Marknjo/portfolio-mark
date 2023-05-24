@@ -43,6 +43,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/no-unescaped-entities': 'off',
 
+    'react/function-component-definition': 'off',
+
     // next
     '@next/next/no-html-link-for-pages': 'off',
   },
