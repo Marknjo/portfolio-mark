@@ -1,6 +1,4 @@
-import React from 'react'
 import NextLink from 'next/link'
-import { useParams } from 'next/navigation'
 
 import { Link, Box, SystemStyleObject } from '@chakra-ui/react'
 import { INavLink } from '@data/navLinks'
@@ -21,6 +19,7 @@ const linkActive: SystemStyleObject = {
 interface INav extends INavLink {
   sxOverrides?: SystemStyleObject
   asHamburgerMenu?: boolean
+  isSelected?: boolean
 }
 
 // @TODO: fix nav link
@@ -29,8 +28,11 @@ const NavLink = ({
   link,
   sxOverrides = {},
   asHamburgerMenu = false,
+  isSelected,
 }: INav) => {
-  const params = useParams()
+  // const params = useParams()
+  // window.location
+  // console.log(params)
 
   /* NavLink Overrides */
   const linkWithHamburger: SystemStyleObject = {
@@ -68,13 +70,12 @@ const NavLink = ({
   return (
     <Box as="li">
       <Link
+        className="main__nav-link"
         href={link}
         as={NextLink}
         sx={linkStyles}
-        aria-selected={
-          `/${link}` === params?.asPath ||
-          (title.toLowerCase() === 'home' && params?.asPath === '/')
-        }
+        aria-selected={isSelected}
+        // ref={currentLinkEl}
       >
         {title}
       </Link>

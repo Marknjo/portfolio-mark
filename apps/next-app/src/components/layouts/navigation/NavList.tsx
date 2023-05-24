@@ -1,6 +1,10 @@
+import { SyntheticEvent, useEffect, useLayoutEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Flex, SystemStyleObject, keyframes } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+
 import { INavLink } from '@data/navLinks'
+
 import NavLink from './NavLink'
 
 const animationKeyframes = keyframes`
@@ -22,6 +26,40 @@ const NavList = ({
   navLinks: Array<INavLink>
   asHamburger: boolean
 }) => {
+  const currentRoute = usePathname()
+  const [isLoading, setIsLoading] = useState(true)
+  const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
+
+  useLayoutEffect(() => {
+    setSelectedLinkEl(window.location.hash)
+  }, [])
+
+  useEffect(() => {
+    const onPageLoad = () => {
+      setIsLoading(false)
+    }
+
+    // Check if the page has already loaded
+    if (document.readyState === 'complete') {
+      onPageLoad()
+    } else {
+      window.addEventListener('load', onPageLoad)
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', onPageLoad)
+    }
+
+    return () => {}
+  }, [])
+
+  const isSelectedLinkItem = (link: string) => {
+    const isSelected = isLoading
+      ? false
+      : `${currentRoute}${selectedLinkEl || ''}` === `${currentRoute}${link}` ||
+        (link === '/' && selectedLinkEl === '')
+
+    return isSelected
+  }
+
   const navAnimation = `${animationKeyframes} .2s .4s ease-in backwards`
   const hamburgerListStyles: SystemStyleObject = {
     flexDirection: 'column',
@@ -39,14 +77,33 @@ const NavList = ({
     ...(asHamburger ? hamburgerListStyles : {}),
   }
 
+  const selectedLinkHandler = (event: SyntheticEvent) => {
+    event.preventDefault()
+
+    const selectedItemItem = event.target as HTMLElement
+    const selectedEl = selectedItemItem.closest(
+      '.main__nav-link',
+    ) as HTMLInputElement
+
+    if (!selectedEl) return
+
+    const urlHash = selectedEl.getAttribute('href')
+    setSelectedLinkEl(urlHash)
+
+    selectedEl.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+
   return (
-    <Flex as={motion.ul} sx={listStyles}>
+    <Flex as={motion.ul} sx={listStyles} onClick={selectedLinkHandler}>
       {navLinks.map(item => (
         <NavLink
           key={item.title}
           title={item.title}
           link={item.link}
           asHamburgerMenu={asHamburger}
+          isSelected={isSelectedLinkItem(item.link)}
         />
       ))}
     </Flex>
