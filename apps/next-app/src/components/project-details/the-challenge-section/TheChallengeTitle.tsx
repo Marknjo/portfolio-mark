@@ -7,12 +7,7 @@ const TheChallengeTitle = () => (
     gridRow="r1-start/r1-end"
     zIndex="1"
   >
-    <LargeTitle
-      title="The Challenge"
-      subTitle="Thought Process Walkthrough"
-      subTitleConfig={{ color: 'orange.800' }}
-      titleConfig={{ color: 'orange.900' }}
-    />
+    <LargeTitle title="The Challenge" subTitle="Thought Process Walkthrough" />
   </GridItem>
 )
 

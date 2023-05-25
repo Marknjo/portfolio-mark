@@ -1,3 +1,5 @@
+import { ThemeOverride } from '@chakra-ui/react'
+
 function scrollBarsStyles(selector: string, color: string) {
   return {
     [`${selector}::-webkit-scrollbar`]: {
@@ -18,7 +20,7 @@ function scrollBarsStyles(selector: string, color: string) {
   }
 }
 
-export const styles = {
+export const styles: ThemeOverride['styles'] = {
   global: {
     body: {
       bg: 'orange.50',
@@ -38,5 +40,21 @@ export const styles = {
     ...scrollBarsStyles('body', 'orange'),
     ...scrollBarsStyles('.scroll-accent', 'teal'),
     ...scrollBarsStyles('.scroll-primary', 'orange'),
+
+    h1: {
+      lineHeight: 'none',
+    },
+    h2: {
+      lineHeight: 'none',
+    },
+    h3: {
+      lineHeight: 'none',
+    },
+    h4: {
+      lineHeight: 'none',
+    },
+    h5: {
+      lineHeight: 'none',
+    },
   },
 }

@@ -5,14 +5,13 @@ const HeroTitle = () => (
     as="h1"
     title="Afri-Hickr"
     subTitle="Outdoor Activities"
-    subTitleConfig={{ color: 'orange.100', fontSize: '4xl' }}
+    subTitleConfig={{ color: 'orange.100' }}
     titleConfig={{
       color: 'orange.50',
       height: '100%',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      fontSize: '7xl',
       gridColumn: 'content-start/content-end',
       gridRow: 'title-start/title-end',
       zIndex: '1',

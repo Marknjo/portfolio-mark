@@ -1,4 +1,5 @@
 import { GridItem } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { LargeTitle } from 'ui'
 
 const FavTitle = () => (
@@ -7,9 +8,8 @@ const FavTitle = () => (
       title="I Build Expressive Websites,
       Awesome, and Catchy."
       subTitle="Here's Quick Peak of My Favorite Project"
-      subTitleConfig={{ color: 'orange.900' }}
-      titleConfig={{ color: 'orange.700', mt: '0' }}
-      alignTitle={{ alignItems: 'left' }}
+      subTitleConfig={{ textAlign: 'left' }}
+      alignTitle={{ alignItems: 'left', pl: sizes['lg-sm'] }}
     />
   </GridItem>
 )

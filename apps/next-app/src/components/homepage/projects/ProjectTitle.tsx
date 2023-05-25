@@ -10,8 +10,7 @@ const ProjectTitle = () => (
     <LargeTitle
       title="Projects"
       subTitle="Here is MY Latest Selection"
-      subTitleConfig={{ color: 'orange.100' }}
-      titleConfig={{ color: 'orange.50' }}
+      isLighter
     />
   </GridItem>
 )
