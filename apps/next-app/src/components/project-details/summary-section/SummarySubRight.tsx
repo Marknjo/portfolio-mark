@@ -1,8 +1,8 @@
-import { SectionTitle, SectionTitleVariants } from 'ui'
+import { GradientLayerStyles } from '@theme/foundations'
+import { SectionTitle } from 'ui'
 
 const SummarySubRight = () => (
   <SectionTitle
-    variant={SectionTitleVariants.Orange600to50}
     headingGridSetting={{
       gridColumn: 'col-start 7 / content-end',
       gridRow: 'r2-start/r2-end',
@@ -15,8 +15,8 @@ const SummarySubRight = () => (
       zIndex: '1',
       mb: '8',
     }}
-    headingOverrides={{ textAlign: 'right' }}
     isRightAligned
+    layerStyle={GradientLayerStyles.GrdLOrange600to50WithoutBorders}
   >
     Lessons Learnt
   </SectionTitle>

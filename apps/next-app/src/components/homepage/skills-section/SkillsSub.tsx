@@ -1,8 +1,8 @@
-import { SectionTitle, SectionTitleVariants } from 'ui'
+import { GradientLayerStyles } from '@theme/foundations'
+import { SectionTitle } from 'ui'
 
 const SkillsSub = () => (
   <SectionTitle
-    variant={SectionTitleVariants.Orange600to50}
     headingGridSetting={{
       gridColumn: 'content-start / span 6',
       gridRow: 'r2-start/r2-end',
@@ -15,6 +15,7 @@ const SkillsSub = () => (
       zIndex: '1',
       mb: '6',
     }}
+    layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
   >
     Fullstack Engineer
   </SectionTitle>

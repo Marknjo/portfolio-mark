@@ -1,8 +1,8 @@
-import { SectionTitle, SectionTitleVariants } from 'ui'
+import { GradientLayerStyles } from '@theme/foundations'
+import { SectionTitle } from 'ui'
 
 const SummarySubLeft = () => (
   <SectionTitle
-    variant={SectionTitleVariants.Orange600to50}
     headingGridSetting={{
       gridColumn: 'content-start / span 7',
       gridRow: 'r2-start/r2-end',
@@ -15,6 +15,7 @@ const SummarySubLeft = () => (
       zIndex: '1',
       mb: '8',
     }}
+    layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
   >
     Project Challenges
   </SectionTitle>

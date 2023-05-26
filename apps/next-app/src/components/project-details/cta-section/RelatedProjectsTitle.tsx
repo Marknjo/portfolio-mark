@@ -1,8 +1,8 @@
-import { SectionTitle, SectionTitleVariants } from 'ui'
+import { GradientLayerStyles } from '@theme/foundations'
+import { SectionTitle } from 'ui'
 
 const RelatedProjectsTitle = () => (
   <SectionTitle
-    variant={SectionTitleVariants.Orange800to500}
     headingGridSetting={{
       gridColumn: 'content-start / span 8',
       gridRow: 'r2-start/r2-end',
@@ -16,7 +16,7 @@ const RelatedProjectsTitle = () => (
       mb: '6',
     }}
     type="h2"
-    withBoarders
+    layerStyle={GradientLayerStyles.GrdROrange800to500WithBorders}
   >
     View Similar Projects
   </SectionTitle>

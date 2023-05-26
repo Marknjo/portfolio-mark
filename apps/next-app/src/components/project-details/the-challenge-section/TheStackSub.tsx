@@ -1,9 +1,9 @@
 import { sizes } from '@components/next-ui'
-import { SectionTitle, SectionTitleVariants } from 'ui'
+import { GradientLayerStyles } from '@theme/foundations'
+import { SectionTitle } from 'ui'
 
 const TheStackSub = () => (
   <SectionTitle
-    variant={SectionTitleVariants.Orange600to50}
     headingGridSetting={{
       gridColumn: 'col-start 5 / content-end',
       gridRow: 'r5-start/r5-end',
@@ -18,8 +18,8 @@ const TheStackSub = () => (
       mb: '8',
       mt: sizes.lg,
     }}
-    headingOverrides={{ textAlign: 'right' }}
     isRightAligned
+    layerStyle={GradientLayerStyles.GrdLOrange600to50WithoutBorders}
   >
     Why The Stack?
   </SectionTitle>

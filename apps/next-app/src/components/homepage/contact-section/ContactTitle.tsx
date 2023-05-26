@@ -1,8 +1,8 @@
-import { SectionTitle, SectionTitleVariants } from 'ui'
+import { GradientLayerStyles } from '@theme/foundations'
+import { SectionTitle } from 'ui'
 
 const ContactTitle = () => (
   <SectionTitle
-    variant={SectionTitleVariants.Orange600to500}
     headingGridSetting={{
       gridColumn: 'content-start / span 7',
       gridRow: 'r1-start/r1-end',
@@ -16,7 +16,7 @@ const ContactTitle = () => (
       mb: '6',
     }}
     type="h2"
-    withBoarders
+    layerStyle={GradientLayerStyles.GrdROrange600to500WithBorders}
   >
     Contact Me
   </SectionTitle>

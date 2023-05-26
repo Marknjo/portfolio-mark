@@ -39,5 +39,11 @@ export const textStyles: ThemeOverride['textStyles'] = {
   'para-default': {
     fontSize: ['md', 'lg'],
   },
+  'sec-title': {
+    paddingY: ['2', '3', '4'],
+    fontSize: ['lg', '2xl', '3xl'],
+    letterSpacing: ['tight', 'wide'],
+    fontWeight: 'medium',
+  },
   caption: {},
 }

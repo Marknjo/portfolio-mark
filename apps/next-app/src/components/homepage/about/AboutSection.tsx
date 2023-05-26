@@ -1,5 +1,6 @@
-import { MainGrid, SectionTitle, SectionTitleVariants } from 'ui'
+import { MainGrid, SectionTitle } from 'ui'
 import { sizes } from '@components/next-ui'
+import { GradientLayerStyles } from '@theme/foundations'
 
 import AboutDetails from './AboutDetails'
 import AboutTitle from './AboutTitle'
@@ -37,7 +38,6 @@ const AboutSection = () => {
 
       {/*  Row 3/4 - Heading only (start/end), Detail Background Start - contains dots bottom-right */}
       <SectionTitle
-        variant={SectionTitleVariants.Orange600to50}
         headingGridSetting={{
           gridColumn: 'content-start / span 5',
           gridRow: 'section-title-start/section-title-end',
@@ -48,6 +48,7 @@ const AboutSection = () => {
           gridColumn: 'outer-left-start / span 6',
           zIndex: '1',
         }}
+        layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
       >
         My Short Story
       </SectionTitle>

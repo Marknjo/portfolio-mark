@@ -1,8 +1,8 @@
-import { SectionTitle, SectionTitleVariants } from 'ui'
+import { GradientLayerStyles } from '@theme/foundations'
+import { SectionTitle } from 'ui'
 
 const ProjectSub = () => (
   <SectionTitle
-    variant={SectionTitleVariants.Orange600to500}
     headingGridSetting={{
       gridColumn: 'content-start / span 5',
       gridRow: 'sub-start/sub-end',
@@ -15,7 +15,7 @@ const ProjectSub = () => (
       zIndex: '1',
       mb: '6',
     }}
-    withBoarders
+    layerStyle={GradientLayerStyles.GrdROrange600to500WithBorders}
   >
     Top 3 Projects
   </SectionTitle>
