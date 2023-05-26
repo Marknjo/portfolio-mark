@@ -36,8 +36,8 @@ export const textStyles: ThemeOverride['textStyles'] = {
   'h4-sm': {
     fontSize: ['lg', 'xl', '2xl'],
   },
-  paragraph: {
-    fontSize: ['md', 'lg', 'xl'],
+  'para-default': {
+    fontSize: ['md', 'lg'],
   },
   caption: {},
 }

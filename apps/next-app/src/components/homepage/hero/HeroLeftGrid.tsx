@@ -96,13 +96,15 @@ const HeroLeftGrid = () => {
           color="whiteAlpha.800"
           paddingTop="5"
         >
-          <Text>
+          <Text textStyle="para-default">
             I'am a self-taught software engineer focused on web applications. I
             use all my energy tinkering with JavaScript and it's ecosystem of
             libraries and frameworks.
           </Text>
-          <Text>I have a lot to share with you</Text>
-          <Text>Let me walk you through my world.</Text>
+          <Text textStyle="para-default">I have a lot to share with you</Text>
+          <Text textStyle="para-default">
+            Let me walk you through my world.
+          </Text>
 
           <Box>
             <Button variant="solid" colorScheme="teal" marginTop="4" size="md">

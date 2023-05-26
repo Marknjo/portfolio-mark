@@ -12,21 +12,25 @@ const FavContent = () => (
     zIndex="2"
   >
     <VStack alignItems="flex-start" rowGap="8">
-      <VStack alignItems="flex-start" rowGap="4">
-        <Text>Hey, This project is actually this template.</Text>
-        <Text>
+      <VStack alignItems="flex-start" rowGap={{ md: '1', lg: '3' }}>
+        <Text textStyle="para-default" layerStyle="para-default">
+          Hey, This project is actually this template.
+        </Text>
+        <Text textStyle="para-default" layerStyle="para-default">
           It is supposed to be catchy, modern, expressive, and packed with a lot
           of concepts on UI/UX and Front-end design principles.
         </Text>
-        <Text>
+        <Text textStyle="para-default" layerStyle="para-default">
           With this project I want to express my love for design. Handcraft
           every piece of it to give it my personality.
         </Text>
-        <Text>
+        <Text textStyle="para-default" layerStyle="para-default">
           I hope by looking at it and exploring it, you will get in love with
           how I approach software engineering. In this case, front-end design.
         </Text>
-        <Text>Do you want to dive deep?</Text>
+        <Text textStyle="para-default" layerStyle="para-default">
+          Do you want to dive deep?
+        </Text>
       </VStack>
 
       <Button

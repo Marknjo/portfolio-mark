@@ -28,4 +28,10 @@ export const layerStyles: ThemeOverride['layerStyles'] = {
   ...tittleStyles('h1-teal', 'teal', true),
   ...tittleStyles('h2-teal', 'teal'),
   ...tittleStyles('h2-teal', 'teal', true),
+  'para-default': {
+    color: 'orange.900',
+  },
+  'para-default-inverted': {
+    color: 'orange.50',
+  },
 }
