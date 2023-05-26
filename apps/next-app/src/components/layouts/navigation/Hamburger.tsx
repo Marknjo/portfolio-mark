@@ -1,5 +1,5 @@
 import { Box, Flex, SystemStyleObject } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { SyntheticEvent, useEffect, useState } from 'react'
 import MenuOverlay from './MenuOverlay'
 
 const toggleTopStyles: SystemStyleObject = {
@@ -38,15 +38,28 @@ const Hamburger = ({
   onShow: (isShown: boolean) => void
   closeOverlay: boolean
 }) => {
-  const [isToggled, setIsToggle] = useState(false)
+  const [isShown, setIsShown] = useState(false)
 
-  const toggleHandler = () => {
-    setIsToggle(prevState => !prevState)
-    onShow(!isToggled)
+  const showHandler = () => {
+    setIsShown(preStatus => !preStatus)
+
+    const bodyEl = document?.body
+    bodyEl && (bodyEl.style.overflow = 'hidden')
+
+    isShown && bodyEl && (bodyEl.style.overflow = 'inherit')
   }
 
   useEffect(() => {
-    setIsToggle(closeOverlay)
+    onShow(isShown)
+  }, [isShown, onShow])
+
+  useEffect(() => {
+    setIsShown(closeOverlay)
+
+    if (closeOverlay) {
+      const bodyEl = document?.body
+      bodyEl && (bodyEl.style.overflow = 'inherit')
+    }
   }, [closeOverlay])
 
   const hamburgerStyles: SystemStyleObject = {
@@ -60,7 +73,7 @@ const Hamburger = ({
     transformOrigin: 'center',
     backfaceVisibility: 'hidden',
     transition: 'all .15s ease-out',
-    _groupHover: isToggled
+    _groupHover: isShown
       ? {
           backgroundColor: 'teal.100',
         }
@@ -74,15 +87,15 @@ const Hamburger = ({
 
   const hamburgerTopStyles: SystemStyleObject = {
     ...hamburgerStyles,
-    ...(isToggled ? toggleTopStyles : {}),
+    ...(isShown ? toggleTopStyles : {}),
   }
   const hamburgerMiddleStyles: SystemStyleObject = {
     ...hamburgerStyles,
-    ...(isToggled ? toggleMiddleStyles : {}),
+    ...(isShown ? toggleMiddleStyles : {}),
   }
   const hamburgerBottomStyles: SystemStyleObject = {
     ...hamburgerStyles,
-    ...(isToggled ? toggleBottomStyles : {}),
+    ...(isShown ? toggleBottomStyles : {}),
   }
 
   const hamburgerBoxStyles: SystemStyleObject = {
@@ -98,17 +111,17 @@ const Hamburger = ({
     _groupActive: {
       top: '100px',
     },
-    columnGap: isToggled ? '6' : '3',
+    columnGap: isShown ? '6' : '3',
   }
 
   return (
     <>
-      {isToggled && <MenuOverlay />}
+      {isShown && <MenuOverlay />}
       <Flex
         width="80px"
         sx={hamburgerBoxStyles}
         role="group"
-        onClick={toggleHandler}
+        onClick={showHandler}
       >
         <Box as="span" sx={hamburgerTopStyles} />
         <Box as="span" sx={hamburgerMiddleStyles} />

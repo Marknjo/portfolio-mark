@@ -95,6 +95,7 @@ const MainTopNav = ({
 
   const handleToggleHamburger = (isToggled: boolean) => {
     setShowHamburger(isToggled)
+    setHideHamburger(false)
   }
 
   const hamburgerCloseHandler = (event: SyntheticEvent) => {
@@ -103,7 +104,7 @@ const MainTopNav = ({
 
     if (!linkEl) return
 
-    setHideHamburger(!showHamburger)
+    setHideHamburger(true)
   }
 
   return (
