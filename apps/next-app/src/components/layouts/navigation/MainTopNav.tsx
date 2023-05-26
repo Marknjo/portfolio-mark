@@ -85,11 +85,13 @@ const MainTopNav = ({
     if (isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
       setIsHamburgerMode(MenuMode.HAMBURGER)
       setHideHamburger(false)
+      setShowHamburger(true)
     }
 
     if (!isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
       setIsHamburgerMode(displayMode)
       setHideHamburger(true)
+      setShowHamburger(false)
     }
   }, [breakPoint, displayMode])
 
