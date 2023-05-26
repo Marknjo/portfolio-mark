@@ -15,8 +15,8 @@ const SummaryContentRight = () => {
     gridRow: 'r3-start/r3-end',
     gridColumn: 'col-start 7 / content-end',
     gap: '2',
-    px: '5',
-    pb: sizes.lg,
+    px: sizes.xs,
+    pb: sizes.xl,
   }
 
   return (

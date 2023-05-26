@@ -1,11 +1,12 @@
 import { AspectRatio, GridItem } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 
 const AboutVideo = () => (
   <GridItem
     gridColumn="col-start 6/span 5"
     gridRow="content-start/content-end"
     marginY="auto"
-    paddingRight="8"
+    pr={sizes.md}
     zIndex="1"
   >
     <AspectRatio

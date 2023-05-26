@@ -1,4 +1,5 @@
 import { StackCategory } from 'ui'
+import { sizes } from '@components/next-ui'
 import SkillsCategoryContainer from './SkillsCategoryContainer'
 /**
  * Card for programming languages I have worked with
@@ -12,7 +13,7 @@ const SkillsPrLangs = () => (
       pb: '10rem',
     }}
     headingStylesOverrides={{
-      mb: '6',
+      mb: sizes.sm,
     }}
   />
 )

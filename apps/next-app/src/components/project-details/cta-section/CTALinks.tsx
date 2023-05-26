@@ -5,6 +5,7 @@ import {
   HStack,
   SystemStyleObject,
 } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import NextLink from 'next/link'
 import { BiHome } from 'react-icons/bi'
 import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
@@ -22,7 +23,7 @@ const CTALinks = ({
   const mainStyles: SystemStyleObject = {
     gridRow: 'r1-start/r1-end',
     gridColumn: 'content-start/content-end',
-    pb: '12',
+    pb: sizes.lg,
   }
 
   const projectLinkStyles: SystemStyleObject = {
@@ -52,7 +53,7 @@ const CTALinks = ({
 
   return (
     <GridItem sx={mainStyles}>
-      <HStack justifyContent="space-between" width="100%" px="8">
+      <HStack justifyContent="space-between" width="100%" px={sizes.md}>
         <Button
           as={NextLink}
           href="/"

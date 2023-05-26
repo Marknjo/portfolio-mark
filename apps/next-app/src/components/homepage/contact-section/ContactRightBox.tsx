@@ -14,6 +14,7 @@ import {
   Textarea,
   VStack,
 } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 
 import { BiMailSend } from 'react-icons/bi'
 
@@ -23,8 +24,8 @@ const ContactRightBox = () => {
   const mainStyles: SystemStyleObject = {
     gridColumn: 'col-start 6/content-end',
     gridRow: 'r3-start/r3-end',
-    my: '12',
-    padding: '12',
+    my: sizes.lg,
+    padding: sizes.lg,
     backgroundColor: 'orange.50',
     borderRadius: 'lg',
     boxShadow: 'md',
@@ -33,8 +34,8 @@ const ContactRightBox = () => {
 
   return (
     <GridItem sx={mainStyles}>
-      <VStack as="form" gap="8" alignItems="flex-start">
-        <HStack gap="6" justifyContent="space-around" width="100%">
+      <VStack as="form" gap={sizes.md} alignItems="flex-start">
+        <HStack gap={sizes.sm} justifyContent="space-around" width="100%">
           <FormControl isRequired>
             <FormLabel>Full Name</FormLabel>
             <Input

@@ -20,7 +20,7 @@ const TheChallengeSection = () => {
       auto [r6-end]
     `,
     backgroundColor: 'orange.50',
-    pb: sizes.lg,
+    pb: sizes.xl,
   }
 
   return (

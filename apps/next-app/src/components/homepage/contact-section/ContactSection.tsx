@@ -33,7 +33,7 @@ const ContactSection = () => {
 
   const gridStyles: GridProps = {
     backgroundColor: 'orange.500',
-    pt: sizes.lg,
+    pt: sizes.xl,
     position: 'relative',
     overflow: 'hidden',
     zIndex: 0,

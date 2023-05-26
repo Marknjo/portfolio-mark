@@ -14,7 +14,7 @@ import { fontSizes, sizes } from '@components/next-ui'
 const HeroLeftGrid = () => {
   const leftStyles: SystemStyleObject = {
     backgroundColor: 'orange.500',
-    pt: sizes.lg,
+    pt: sizes.xl,
   }
   return (
     <>
@@ -27,7 +27,7 @@ const HeroLeftGrid = () => {
         <Box
           letterSpacing="widest"
           fontSize="2xl"
-          marginLeft={sizes.lg}
+          marginLeft={sizes.xl}
           marginBottom="2"
           position="relative"
           _after={{
@@ -47,8 +47,8 @@ const HeroLeftGrid = () => {
             as="span"
             backgroundColor="orange.600"
             borderRadius="4px"
-            paddingX="6"
-            paddingY="2"
+            px={sizes.xs}
+            py="2"
             position="relative"
             zIndex="3"
           >
@@ -88,13 +88,13 @@ const HeroLeftGrid = () => {
       </GridItem>
 
       {/*  */}
-      <GridItem gridColumn="col-start 2/span 4" gridRow="2 / 3" pb={sizes.lg}>
+      <GridItem gridColumn="col-start 2/span 4" gridRow="2 / 3" pb={sizes.xl}>
         <VStack
           alignItems="flex-start"
           gap="2"
           fontSize="md"
           color="whiteAlpha.800"
-          paddingTop="5"
+          pt={sizes.sm}
         >
           <Text textStyle="para-default">
             I'am a self-taught software engineer focused on web applications. I
@@ -107,7 +107,7 @@ const HeroLeftGrid = () => {
           </Text>
 
           <Box>
-            <Button variant="solid" colorScheme="teal" marginTop="4" size="md">
+            <Button variant="solid" colorScheme="teal" mt={sizes.xs} size="md">
               More About Me
             </Button>
           </Box>

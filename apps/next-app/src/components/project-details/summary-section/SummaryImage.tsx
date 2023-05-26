@@ -6,7 +6,7 @@ const SummaryImage = () => {
   const mainStyles: SystemStyleObject = {
     gridRow: 'r5-start/r5-end',
     gridColumn: 'col-start 2/span 10',
-    pt: sizes.lg,
+    pt: sizes.xl,
   }
 
   return (

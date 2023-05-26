@@ -1,4 +1,5 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { CardDetailsGallery, ExpandIconSize, ICardDetailsGallery } from 'ui'
 
 type GalleryImgInterface = Pick<ICardDetailsGallery, 'imgName' | 'alt' | 'id'>
@@ -37,12 +38,12 @@ const gridImages: Array<GalleryImgInterface> = [
 const GalleryImages = () => {
   const mainStyles: SystemStyleObject = {
     gridColumn: 'content-start / content-end',
-    py: '12',
+    py: sizes.lg,
     zIndex: '2',
 
     gridTemplateColumns: 'repeat(auto-fit, 50%)',
     gridTemplateRows: `[r1-start] 1fr [r1-end]`,
-    gap: '12',
+    gap: sizes.lg,
   }
 
   const leftImagesStyles: SystemStyleObject = {

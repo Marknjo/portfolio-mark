@@ -25,7 +25,7 @@ const ProjectsSection = () => {
     backgroundColor: 'orange.500',
     color: 'orange.50',
     gridTemplateRows: templateRows,
-    pb: sizes.lg,
+    pb: sizes.xl,
     position: 'relative',
   }
 

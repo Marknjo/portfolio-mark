@@ -2,6 +2,7 @@ import NextLink from 'next/link'
 import { Box, GridItem, Icon, Text, Link, Badge } from '@chakra-ui/react'
 
 import { IoIosPhonePortrait } from 'react-icons/io'
+import { sizes } from '@components/next-ui'
 
 const LeftContent = () => (
   <GridItem
@@ -10,8 +11,8 @@ const LeftContent = () => (
     flexDirection="column"
     gap="3"
     color="blackAlpha.800"
-    mb="6"
-    mr="4"
+    mb={sizes.sm}
+    mr={sizes.xs}
   >
     <Text as="p">
       Visit My Blog here{' '}

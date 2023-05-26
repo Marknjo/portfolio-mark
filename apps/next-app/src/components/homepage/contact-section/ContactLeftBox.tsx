@@ -1,4 +1,5 @@
 import { Grid, SystemStyleObject } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 
 import LeftSubHeading from './left-box/LeftSubHeading'
 import LeftContent from './left-box/LeftContent'
@@ -8,9 +9,9 @@ const ContactLeftBox = () => {
   const mainStyles: SystemStyleObject = {
     gridColumn: 'content-start/span 7',
     gridRow: 'r2-start / r4-end',
-    my: '12',
-    padding: '12',
-    pr: '24',
+    my: sizes.lg,
+    p: sizes.lg,
+    pr: '24', // @TODO: flex this
     backgroundColor: 'teal.50',
     borderRadius: 'lg',
     boxShadow: 'base',

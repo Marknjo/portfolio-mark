@@ -1,11 +1,12 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { OsxImageWindow } from 'ui'
 
 const HeroImg = () => {
   const mainStyles: SystemStyleObject = {
     gridRow: 'r2-start/r3-end',
     gridColumn: 'col-start 3/span 8',
-    pt: '12',
+    pt: sizes.lg,
   }
 
   return (

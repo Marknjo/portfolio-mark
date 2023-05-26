@@ -14,7 +14,7 @@ import { BorderRadiusSize } from '../general-gallery-config'
 
 const GallerySection = () => {
   const mainStyles: GridProps = {
-    pb: sizes.lg,
+    pb: sizes.xl,
     backgroundImage: defaultGradients(GradientVariants.Orange500to800),
     position: 'relative',
     zIndex: 'base',

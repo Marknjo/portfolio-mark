@@ -1,4 +1,5 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { SubHeading } from 'ui'
 
 const LeftSubHeading = () => {
@@ -8,7 +9,7 @@ const LeftSubHeading = () => {
   }
 
   return (
-    <GridItem gridColumn="1 / span 5" mr="4">
+    <GridItem gridColumn="1 / span 5" mr={sizes.xs}>
       <SubHeading text="Here is How To Reach Me" overrides={topHeadingStyles} />
     </GridItem>
   )

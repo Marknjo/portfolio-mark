@@ -28,7 +28,7 @@ const HeroSection = () => {
       18rem [r2-end r3-start]
       auto [r3-end]
     `,
-    pb: sizes.lg,
+    pb: sizes.xl,
   }
 
   return (

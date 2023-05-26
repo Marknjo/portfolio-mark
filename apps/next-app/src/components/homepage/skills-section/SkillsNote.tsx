@@ -1,15 +1,16 @@
 import { Badge, GridItem, Heading, Text } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 
 const SkillsNote = () => (
   <GridItem
     gridColumn="col-start 2 / col-end 11"
     gridRow="r8-start / r8-end"
-    py="4"
-    px="8"
-    mx="4"
+    py={sizes.xs}
+    px={sizes.md}
+    mx={sizes.xs}
     boxShadow="base"
-    borderRadius="6"
-    mt="12"
+    borderRadius={sizes.sm}
+    mt={sizes.lg}
     backgroundColor="orange.600"
     color="orange.100"
   >

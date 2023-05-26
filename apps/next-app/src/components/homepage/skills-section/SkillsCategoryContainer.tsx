@@ -1,4 +1,5 @@
 import { GridItem, HStack, Heading, SystemStyleObject } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { getStacks, stacksSamp } from '@data/techStacksSample'
 import { StackCategory, TechCard, IStack } from 'ui'
 
@@ -24,7 +25,7 @@ const SkillsCategoryContainer = ({
     gridRow: 'r3-start/r3-end',
     gridColumn: 'content-start/content-end',
     justifyContent: 'start',
-    gap: '4',
+    gap: sizes.xs,
 
     display: 'flex',
     flexDirection: 'column',
@@ -34,7 +35,7 @@ const SkillsCategoryContainer = ({
     border: '1px solid',
     borderColor: 'blackAlpha.100',
     boxShadow: 'base',
-    py: '8',
+    py: sizes.md,
     px: '2',
     borderRadius: 'md',
     backgroundColor: 'orange.50',
@@ -51,7 +52,7 @@ const SkillsCategoryContainer = ({
     textAlign: 'center',
     fontSize: '2xl',
     color: 'orange.900',
-    mb: '4',
+    mb: sizes.xs,
 
     // Overrides
     ...headingStylesOverrides,
@@ -63,7 +64,7 @@ const SkillsCategoryContainer = ({
         {headingText}
       </Heading>
 
-      <HStack gap="4" flexWrap="wrap">
+      <HStack gap={sizes.xs} flexWrap="wrap">
         {progLangs.map(
           lang =>
             !lang.isHidden &&

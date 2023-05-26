@@ -1,7 +1,7 @@
 import { Box, GridItem, Heading, VStack, Text } from '@chakra-ui/react'
 import { DetailsItemsTitle } from 'ui'
 import { socialWithPick } from '@data/social'
-import { HSocialIcons } from '@components/next-ui'
+import { HSocialIcons, sizes } from '@components/next-ui'
 
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
@@ -27,8 +27,8 @@ const AboutDetails = () => (
       gridRow="section-title/content-end"
       justifySelf="center"
       alignSelf="center"
-      paddingX="2"
-      paddingY="8"
+      px="2"
+      py={sizes.md}
       zIndex="2"
     >
       <VStack alignItems="flex-start">
@@ -39,13 +39,13 @@ const AboutDetails = () => (
           borderBottom="2px solid"
           borderBottomColor="orange.200"
           lineHeight="1.5"
-          marginBottom="4"
+          mb={sizes.xs}
           width="100%"
         >
           Details
         </Heading>
 
-        <VStack alignItems="flex-start" gap="4" paddingBottom="6">
+        <VStack alignItems="flex-start" gap={sizes.xs} pb={sizes.sm}>
           <DetailsItem title="Name" text="Mark Njoroge" />
           <DetailsItem title="Work Availability" text="Open For Long-Term" />
           <DetailsItem title="Location" text="Kenya" />
@@ -53,8 +53,8 @@ const AboutDetails = () => (
 
         <Box
           width="100%"
-          marginTop="4"
-          paddingY="4"
+          mt={sizes.xs}
+          py={sizes.xs}
           borderTop="2px solid"
           borderTopColor="orange.100"
           borderBottom="2px solid"

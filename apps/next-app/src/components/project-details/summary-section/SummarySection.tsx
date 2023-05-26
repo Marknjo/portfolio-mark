@@ -12,7 +12,7 @@ import SummaryImage from './SummaryImage'
 const SummarySection = () => {
   const mainStyles: GridProps = {
     backgroundColor: 'orange.50',
-    pb: sizes.lg,
+    pb: sizes.xl,
     gridTemplateRows: `[r1-start]
       auto [r1-end r2-start]
       auto [r2-end r3-start]

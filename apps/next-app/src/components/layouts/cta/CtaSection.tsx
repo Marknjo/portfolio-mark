@@ -34,7 +34,7 @@ const CtaSection = ({
       auto [r2-end r3-start]
       2rem [r3-end]
     `,
-    pt: sizes.lg,
+    pt: sizes.xl,
     zIndex: 0,
     ...gridOptions,
   }

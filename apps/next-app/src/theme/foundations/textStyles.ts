@@ -3,8 +3,8 @@ import { sizes } from '@components/next-ui'
 
 export const textStyles: ThemeOverride['textStyles'] = {
   'h-lg': {
-    pt: sizes.lg,
-    pb: sizes.lg,
+    pt: sizes.xl,
+    pb: sizes.xl,
   },
   'h1-lg': {
     fontSize: ['xl', '2xl', '4xl', '5xl', '7xl'],

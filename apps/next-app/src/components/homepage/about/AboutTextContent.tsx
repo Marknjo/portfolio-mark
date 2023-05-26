@@ -1,17 +1,18 @@
 import { Button, GridItem, Text, VStack } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 
 const AboutTextContent = () => (
   <GridItem
     gridColumn="content-start/span 5"
     gridRow="content-start/content-end"
-    marginY="8"
+    my={sizes.md}
     zIndex="1"
   >
     <VStack
       fontSize="md"
       alignItems="flex-start"
       rowGap="2"
-      marginBottom="12"
+      marginBottom={sizes.lg}
       color="blackAlpha.800"
     >
       <Text textStyle="para-default" layerStyle="para-default">

@@ -2,7 +2,9 @@ import NextLink from 'next/link'
 import { Box, Button, Grid, SystemStyleObject, VStack } from '@chakra-ui/react'
 import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi'
 import { ContentGenerator, SectionSeparator, SubHeading } from 'ui'
+import { sizes } from '@components/next-ui'
 import { introSampContent } from '@data/sampleContent'
+
 import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
@@ -20,15 +22,15 @@ const HeroIntro = () => {
     backgroundColor: 'orange.100',
     boxShadow: 'md',
     borderRadius: 'lg',
-    px: '12',
-    pt: '12',
+    px: sizes.lg,
+    pt: sizes.lg,
   }
 
   const contentStyles: SystemStyleObject = {
-    pb: '12',
+    pb: sizes.lg,
     width: '100%',
     gridRow: 'content-start / content-end',
-    gap: '12',
+    gap: sizes.lg,
 
     /* Grid settings */
     gridTemplateColumns: 'repeat(auto-fit, minmax(18rem, 1fr))',
@@ -39,7 +41,11 @@ const HeroIntro = () => {
     <Grid sx={mainStyles}>
       <Grid sx={contentStyles}>
         {/* Tech Stacks */}
-        <VStack sx={contentSectionStyles} alignItems="flex-start" gap="8">
+        <VStack
+          sx={contentSectionStyles}
+          alignItems="flex-start"
+          gap={sizes.md}
+        >
           <Box>
             <SubHeading
               text="Tech Stack"

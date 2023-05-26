@@ -8,10 +8,10 @@ const FavContent = () => (
   <GridItem
     gridRow="r5-start / r5-end"
     gridColumn="col-start 2 / col-end 10"
-    mt={sizes.lg}
+    mt={sizes.xl}
     zIndex="2"
   >
-    <VStack alignItems="flex-start" rowGap="8">
+    <VStack alignItems="flex-start" rowGap={sizes.md}>
       <VStack alignItems="flex-start" rowGap={{ md: '1', lg: '3' }}>
         <Text textStyle="para-default" layerStyle="para-default">
           Hey, This project is actually this template.

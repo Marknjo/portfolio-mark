@@ -1,6 +1,7 @@
 import NextLink from 'next/link'
 import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
 import { CardsInfoInterface, DotsBottomRight, ProjectCard } from 'ui'
+import { sizes } from '@components/next-ui'
 
 const CTARelatedProjects = ({
   projectInfo,
@@ -12,8 +13,8 @@ const CTARelatedProjects = ({
     gridColumn: 'col-start 2/col-end 11',
     position: 'relative',
     zIndex: '3',
-    py: '12',
-    mb: '12',
+    py: sizes.lg,
+    mb: sizes.lg,
   }
 
   return (
@@ -29,7 +30,12 @@ const CTARelatedProjects = ({
       </GridItem>
 
       <GridItem sx={mainStyles}>
-        <HStack justifyContent="center" gap="6" zIndex="4" position="relative">
+        <HStack
+          justifyContent="center"
+          gap={sizes.sm}
+          zIndex="4"
+          position="relative"
+        >
           {projectInfo.map(info => (
             <ProjectCard key={info.title} {...info} as={NextLink} />
           ))}

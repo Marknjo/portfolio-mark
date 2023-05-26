@@ -28,7 +28,7 @@ export const Spacer = ({
   opt?: { pos: SpacerPosition; size: ChakraTheme['sizes'] }
 }) => {
   const pos = opt?.pos || SpacerPosition.B
-  const size = opt?.pos || sizes.lg
+  const size = opt?.pos || sizes.xl
 
   return <Box sx={{ [pos]: size }}>{children}</Box>
 }

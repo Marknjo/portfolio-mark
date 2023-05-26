@@ -23,7 +23,7 @@ const HeroRightGrid = () => (
       position="relative"
       alignSelf="center"
     >
-      <Box py={sizes.lg}>
+      <Box py={sizes.xl}>
         <Box
           maxW="80"
           _after={{

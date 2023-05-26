@@ -1,4 +1,5 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { sampContent } from '@data/sampleContent'
 import { ContentGenerator } from 'ui'
 
@@ -9,7 +10,7 @@ const TheStackContent = () => {
     alignSelf: 'center',
     borderLeft: '1px solid',
     borderLeftColor: 'orange.300',
-    pl: '12',
+    pl: sizes.lg,
   }
 
   return (

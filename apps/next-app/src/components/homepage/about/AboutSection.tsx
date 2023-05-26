@@ -30,7 +30,7 @@ const AboutSection = () => {
       options={{
         backgroundColor: 'orange.50',
         gridTemplateRows: templateRows,
-        pb: sizes.lg,
+        pb: sizes.xl,
       }}
     >
       {/* Title */}

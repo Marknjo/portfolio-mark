@@ -23,7 +23,7 @@ const SkillsSection = () => {
     `,
     position: 'relative',
     backgroundColor: 'orange.50',
-    pb: sizes.lg,
+    pb: sizes.xl,
     borderTop: '6px solid',
     borderTopColor: 'blackAlpha.50',
   }

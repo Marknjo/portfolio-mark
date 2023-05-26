@@ -22,7 +22,7 @@ const FavProjectSection = () => {
   const defaultStyles: StyleProps = {
     gridTemplateRows: gridRows,
     backgroundColor: 'orange.50',
-    py: sizes.lg,
+    py: sizes.xl,
     position: 'relative',
     zIndex: '0',
   }

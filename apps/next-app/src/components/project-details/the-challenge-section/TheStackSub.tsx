@@ -8,15 +8,15 @@ const TheStackSub = () => (
       gridColumn: 'col-start 5 / content-end',
       gridRow: 'r5-start/r5-end',
       zIndex: '1',
-      mb: '8',
-      mt: sizes.lg,
+      mb: sizes.md,
+      mt: sizes.xl,
     }}
     bgGridSetting={{
       gridRow: 'r5-start/r5-end',
       gridColumn: 'col-start 5 / outer-right-end',
       zIndex: '1',
-      mb: '8',
-      mt: sizes.lg,
+      mb: sizes.md,
+      mt: sizes.xl,
     }}
     isRightAligned
     layerStyle={GradientLayerStyles.GrdLOrange600to50WithoutBorders}

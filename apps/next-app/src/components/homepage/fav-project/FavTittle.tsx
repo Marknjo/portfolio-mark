@@ -9,7 +9,7 @@ const FavTitle = () => (
       Awesome, and Catchy."
       subTitle="Here's Quick Peak of My Favorite Project"
       subTitleConfig={{ textAlign: 'left' }}
-      alignTitle={{ alignItems: 'left', pl: sizes['lg-sm'] }}
+      alignTitle={{ alignItems: 'left', pl: sizes['xl-sm'] }}
     />
   </GridItem>
 )
