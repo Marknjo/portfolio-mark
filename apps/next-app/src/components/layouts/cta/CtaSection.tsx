@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import NavLink from 'next/link'
 import { ReactNode } from 'react'
 import { MainGrid } from 'ui'
@@ -33,7 +34,7 @@ const CtaSection = ({
       auto [r2-end r3-start]
       2rem [r3-end]
     `,
-    pt: '16',
+    pt: sizes.lg,
     zIndex: 0,
     ...gridOptions,
   }

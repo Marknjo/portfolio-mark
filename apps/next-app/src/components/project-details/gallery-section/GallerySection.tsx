@@ -6,13 +6,15 @@ import {
   MainGrid,
   defaultGradients,
 } from 'ui'
+import { sizes } from '@components/next-ui'
+
 import GalleryTitle from './GalleryTitle'
 import GalleryImages from './GalleryImages'
 import { BorderRadiusSize } from '../general-gallery-config'
 
 const GallerySection = () => {
   const mainStyles: GridProps = {
-    pb: '16',
+    pb: sizes.lg,
     backgroundImage: defaultGradients(GradientVariants.Orange500to800),
     position: 'relative',
     zIndex: 'base',

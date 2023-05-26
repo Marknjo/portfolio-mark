@@ -1,5 +1,7 @@
 import { StyleProps } from '@chakra-ui/react'
 import { DotsBottomRight, MainGrid } from 'ui'
+import { sizes } from '@components/next-ui'
+
 import FavTitle from './FavTittle'
 import FavBg from './FavBg'
 import FavContent from './FavContent'
@@ -20,7 +22,7 @@ const FavProjectSection = () => {
   const defaultStyles: StyleProps = {
     gridTemplateRows: gridRows,
     backgroundColor: 'orange.50',
-    paddingY: '16',
+    py: sizes.lg,
     position: 'relative',
     zIndex: '0',
   }

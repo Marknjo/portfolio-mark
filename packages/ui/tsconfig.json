@@ -1,5 +1,5 @@
 {
   "extends": "tsconfig/nextjs.json",
-  "include": ["."],
+  "include": [".", "../../apps/next-app/src/components/next-ui/Spacer.tsx"],
   "exclude": ["dist", "build", "node_modules"]
 }

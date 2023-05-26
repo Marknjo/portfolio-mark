@@ -1,5 +1,7 @@
 import { GridItemProps } from '@chakra-ui/react'
 import { DotsTopRight, MainGrid } from 'ui'
+import { sizes } from '@components/next-ui'
+
 import SkillsTitle from './SkillsTittle'
 import SkillsSub from './SkillsSub'
 import SkillsPrLangs from './SkillsPrLangs'
@@ -21,7 +23,7 @@ const SkillsSection = () => {
     `,
     position: 'relative',
     backgroundColor: 'orange.50',
-    py: '16',
+    pb: sizes.lg,
     borderTop: '6px solid',
     borderTopColor: 'blackAlpha.50',
   }

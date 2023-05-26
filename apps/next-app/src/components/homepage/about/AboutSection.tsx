@@ -1,4 +1,6 @@
 import { MainGrid, SectionTitle, SectionTitleVariants } from 'ui'
+import { sizes } from '@components/next-ui'
+
 import AboutDetails from './AboutDetails'
 import AboutTitle from './AboutTitle'
 import AboutTextContent from './AboutTextContent'
@@ -26,8 +28,8 @@ const AboutSection = () => {
       as="section"
       options={{
         backgroundColor: 'orange.50',
-        paddingBottom: '12',
         gridTemplateRows: templateRows,
+        pb: sizes.lg,
       }}
     >
       {/* Title */}

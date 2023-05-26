@@ -1,5 +1,7 @@
 import { GridProps } from '@chakra-ui/react'
 import { MainGrid, SectionSeparator } from 'ui'
+import { sizes } from '@components/next-ui'
+
 import SummaryTitle from './SummaryTitle'
 import SummarySubLeft from './SummarySubLeft'
 import SummarySubRight from './SummarySubRight'
@@ -10,7 +12,7 @@ import SummaryImage from './SummaryImage'
 const SummarySection = () => {
   const mainStyles: GridProps = {
     backgroundColor: 'orange.50',
-    pb: '16',
+    pb: sizes.lg,
     gridTemplateRows: `[r1-start]
       auto [r1-end r2-start]
       auto [r2-end r3-start]

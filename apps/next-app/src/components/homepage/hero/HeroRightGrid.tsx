@@ -1,6 +1,7 @@
 import React from 'react'
 import { GridItem, SystemStyleObject, Image, Box } from '@chakra-ui/react'
 import { DotsBottomRight, DotsTopRight } from 'ui'
+import { sizes } from '@components/next-ui'
 
 const rightStyles: SystemStyleObject = {
   backgroundColor: 'orange.600',
@@ -22,7 +23,7 @@ const HeroRightGrid = () => (
       position="relative"
       alignSelf="center"
     >
-      <Box paddingBottom="20" paddingTop="16">
+      <Box py={sizes.lg}>
         <Box
           maxW="80"
           _after={{

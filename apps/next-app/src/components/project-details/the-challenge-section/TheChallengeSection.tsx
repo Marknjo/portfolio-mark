@@ -1,5 +1,7 @@
 import { GridProps } from '@chakra-ui/react'
 import { MainGrid, SectionSeparator } from 'ui'
+import { sizes } from '@components/next-ui'
+
 import TheChallengeTitle from './TheChallengeTitle'
 import ProjectGoalSub from './ProjectGoalSub'
 import ProjectGoalContent from './ProjectGoalContent'
@@ -18,7 +20,7 @@ const TheChallengeSection = () => {
       auto [r6-end]
     `,
     backgroundColor: 'orange.50',
-    pb: '16',
+    pb: sizes.lg,
   }
 
   return (

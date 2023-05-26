@@ -1,4 +1,5 @@
 import { GridItem, Text, VStack, Button, Icon } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { FiArrowRight } from 'react-icons/fi'
 
 const LinkIconRight = () => <Icon as={FiArrowRight} />
@@ -7,7 +8,7 @@ const FavContent = () => (
   <GridItem
     gridRow="r5-start / r5-end"
     gridColumn="col-start 2 / col-end 10"
-    mt="16"
+    mt={sizes.lg}
     zIndex="2"
   >
     <VStack alignItems="flex-start" rowGap="8">

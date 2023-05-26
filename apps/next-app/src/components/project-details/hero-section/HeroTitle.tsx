@@ -17,7 +17,6 @@ const HeroTitle = () => (
       zIndex: '1',
       minH: 'calc(100vh / 3)',
       margin: '0',
-      py: '16',
     }}
   />
 )

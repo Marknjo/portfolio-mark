@@ -9,11 +9,12 @@ import {
   Text,
   Button,
 } from '@chakra-ui/react'
+import { fontSizes, sizes } from '@components/next-ui'
 
 const HeroLeftGrid = () => {
   const leftStyles: SystemStyleObject = {
     backgroundColor: 'orange.500',
-    paddingTop: '16',
+    pt: sizes.lg,
   }
   return (
     <>
@@ -26,7 +27,7 @@ const HeroLeftGrid = () => {
         <Box
           letterSpacing="widest"
           fontSize="2xl"
-          marginLeft="16"
+          marginLeft={sizes.lg}
           marginBottom="2"
           position="relative"
           _after={{
@@ -60,7 +61,7 @@ const HeroLeftGrid = () => {
           <Box
             as="span"
             color="whiteAlpha.800"
-            fontSize="6xl"
+            fontSize={fontSizes.lg}
             fontWeight="light"
             marginBottom="1"
             display="block"
@@ -71,7 +72,7 @@ const HeroLeftGrid = () => {
             as="span"
             justifyContent="start"
             alignItems="flex-start"
-            fontSize="6xl"
+            fontSize={fontSizes.lg}
             lineHeight="none"
             letterSpacing="wider"
             color="teal.50"
@@ -87,11 +88,7 @@ const HeroLeftGrid = () => {
       </GridItem>
 
       {/*  */}
-      <GridItem
-        gridColumn="col-start 2/span 4"
-        gridRow="2 / 3"
-        paddingBottom="16"
-      >
+      <GridItem gridColumn="col-start 2/span 4" gridRow="2 / 3" pb={sizes.lg}>
         <VStack
           alignItems="flex-start"
           gap="2"

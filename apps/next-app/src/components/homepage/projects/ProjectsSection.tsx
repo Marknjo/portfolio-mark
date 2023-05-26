@@ -1,6 +1,8 @@
 import { GridProps } from '@chakra-ui/react'
 import { DotsTopRight, MainGrid } from 'ui'
 import { sampleProjects } from '@data/sampleProjects'
+import { sizes } from '@components/next-ui'
+
 import ProjectTitle from './ProjectTitle'
 import ProjectSub from './ProjectSub'
 import ProjectHeroImg from './ProjectHeroImg'
@@ -23,7 +25,7 @@ const ProjectsSection = () => {
     backgroundColor: 'orange.500',
     color: 'orange.50',
     gridTemplateRows: templateRows,
-    pb: '16',
+    pb: sizes.lg,
     position: 'relative',
   }
 

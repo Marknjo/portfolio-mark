@@ -7,6 +7,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
+import { sizes } from '@components/next-ui'
 import { IoMdCheckmarkCircle } from 'react-icons/io'
 
 const SummaryContentRight = () => {
@@ -15,7 +16,7 @@ const SummaryContentRight = () => {
     gridColumn: 'col-start 7 / content-end',
     gap: '2',
     px: '5',
-    pb: '16',
+    pb: sizes.lg,
   }
 
   return (

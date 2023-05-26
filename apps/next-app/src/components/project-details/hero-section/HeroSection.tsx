@@ -1,5 +1,7 @@
 import { GridProps } from '@chakra-ui/react'
 import { GradientVariants, MainGrid, customGradientWithImg } from 'ui'
+import { sizes } from '@components/next-ui'
+
 import { BorderRadiusSize } from '../general-gallery-config'
 import HeroTitle from './HeroTitle'
 import HeroIntro from './HeroIntro'
@@ -26,7 +28,7 @@ const HeroSection = () => {
       18rem [r2-end r3-start]
       auto [r3-end]
     `,
-    pb: '16',
+    pb: sizes.lg,
   }
 
   return (
