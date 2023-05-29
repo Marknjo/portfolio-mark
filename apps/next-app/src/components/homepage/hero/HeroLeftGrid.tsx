@@ -19,14 +19,21 @@ const HeroLeftGrid = () => {
   return (
     <>
       <GridItem
-        gridColumn="content-start/span 7"
-        gridRow="1 / 2"
+        gridColumn={{
+          base: 'content-start/content-end',
+          md: 'content-start/span 7',
+        }}
+        gridRow={{
+          base: '2 / 3',
+          md: '1 / 2',
+        }}
         sx={leftStyles}
+        alignItems={{ base: 'center', md: 'start' }}
       >
         {/* Heading Box */}
         <Box
           letterSpacing="widest"
-          fontSize="2xl"
+          fontSize={['md', 'lg', 'xl', '2xl']}
           marginLeft={sizes.xl}
           marginBottom="2"
           position="relative"
@@ -34,11 +41,11 @@ const HeroLeftGrid = () => {
             backgroundColor: 'orange.600',
             content: '""',
             display: 'block',
-            width: '6',
-            height: '6',
+            width: ['4', '6'],
+            height: ['4', '6'],
             position: 'absolute',
             bottom: '0',
-            left: '1',
+            left: { base: '40%', md: '1' },
             transform: 'translate(50%, 50%) rotate(.12turn)',
             zIndex: '0',
           }}
@@ -48,16 +55,21 @@ const HeroLeftGrid = () => {
             backgroundColor="orange.600"
             borderRadius="4px"
             px={sizes.xs}
-            py="2"
+            py={['1', '2']}
             position="relative"
             zIndex="3"
+            left={{ base: '40%', md: 0 }}
           >
             Hello
           </Box>
         </Box>
 
         {/* Heading Main */}
-        <Heading as="h1" fontFamily="heading">
+        <Heading
+          as="h1"
+          fontFamily="heading"
+          textAlign={{ base: 'center', md: 'left' }}
+        >
           <Box
             as="span"
             color="whiteAlpha.800"
@@ -70,8 +82,7 @@ const HeroLeftGrid = () => {
           </Box>
           <VStack
             as="span"
-            justifyContent="start"
-            alignItems="flex-start"
+            alignItems={{ base: 'center', md: 'flex-start' }}
             fontSize={fontSizes.lg}
             lineHeight="none"
             letterSpacing="wider"
@@ -88,21 +99,43 @@ const HeroLeftGrid = () => {
       </GridItem>
 
       {/*  */}
-      <GridItem gridColumn="col-start 2/span 4" gridRow="2 / 3" pb={sizes.xl}>
+      <GridItem
+        gridColumn={{
+          base: 'content-start/content-end',
+          sm: 'col-start 2/ span 10',
+          md: 'content-start /span 5',
+          lg: 'col-start 2/span 4',
+        }}
+        gridRow={{
+          md: '2 / 3',
+        }}
+        pb={sizes.xl}
+      >
         <VStack
-          alignItems="flex-start"
+          alignItems={{ base: 'center', md: 'flex-start' }}
           gap="2"
           fontSize="md"
           color="whiteAlpha.800"
           pt={sizes.sm}
         >
-          <Text textStyle="para-default">
+          <Text
+            textAlign={{ base: 'center', md: 'left' }}
+            textStyle="para-default"
+          >
             I'am a self-taught software engineer focused on web applications. I
             use all my energy tinkering with JavaScript and it's ecosystem of
             libraries and frameworks.
           </Text>
-          <Text textStyle="para-default">I have a lot to share with you</Text>
-          <Text textStyle="para-default">
+          <Text
+            textAlign={{ base: 'center', md: 'left' }}
+            textStyle="para-default"
+          >
+            I have a lot to share with you
+          </Text>
+          <Text
+            textAlign={{ base: 'center', md: 'left' }}
+            textStyle="para-default"
+          >
             Let me walk you through my world.
           </Text>
 
