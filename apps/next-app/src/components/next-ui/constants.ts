@@ -4,7 +4,7 @@ export const sizes = {
   lg: ['4', '6', '8', '10', '12'],
   md: ['3', '4', '6', '8'],
   sm: ['3', '4', '6'],
-  xs: ['2', '4'],
+  xs: { sm: '2', lg: '4' },
 }
 
 export const fontSizes = {

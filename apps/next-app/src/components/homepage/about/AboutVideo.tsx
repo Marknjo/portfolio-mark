@@ -1,22 +1,32 @@
 import { AspectRatio, GridItem } from '@chakra-ui/react'
-import { sizes } from '@components/next-ui'
 
 const AboutVideo = () => (
   <GridItem
-    gridColumn="col-start 6/span 5"
-    gridRow="content-start/content-end"
-    marginY="auto"
-    pr={sizes.md}
+    gridColumn={{
+      base: 'content-start / content-end',
+      md: 'col-start 6 / content-end',
+      lg: 'col-start 6 / span 5',
+    }}
+    gridRow={{
+      base: 'r4-start / r4-end',
+      md: 'r3-start / r4-end',
+      lg: 'r4-start / r4-end',
+    }}
+    my="auto"
+    pr={{ base: 0, md: '4', lg: '6', xl: '8' }}
+    pb={{ base: '6', md: '0' }}
+    pt={{ base: '6', md: '0' }}
     zIndex="1"
   >
     <AspectRatio
       maxW="560px"
       ratio={16 / 9}
-      borderRadius="8px"
+      borderRadius="md"
       overflow="hidden"
       border="2px solid"
       borderColor="orange.100"
       shadow="lg"
+      mx={{ base: 'auto', md: 0 }}
     >
       <iframe
         src="https://www.youtube.com/embed/SREpK81HHJQ?controls=0"

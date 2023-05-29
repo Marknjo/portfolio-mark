@@ -39,7 +39,6 @@ export const SectionTitle = React.memo(
   }) => {
     const headingDefaults: SystemStyleObject = {
       textAlign: isRightAligned ? 'right' : 'left',
-      lineHeight: 'none',
       color: 'orange.50',
       ...headingOverrides,
     }

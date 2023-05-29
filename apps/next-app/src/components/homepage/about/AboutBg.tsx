@@ -3,13 +3,22 @@ import { DotsBottomRight } from 'ui'
 
 const AboutBg = () => (
   <GridItem
-    gridColumn="col-start 7/outer-right-end"
-    gridRow="section-title-start / content-end"
+    gridColumn={{
+      base: '1/-1',
+      sm: 'content-start/content-end',
+      md: 'col-start 7/outer-right-end',
+    }}
+    gridRow={{
+      base: 'r4-start / r5-end',
+      md: 'r2-start / r5-end',
+      lg: 'r3-start / r5-end',
+    }}
     backgroundColor="orange.600"
     shadow="md"
-    border="2px solid"
-    borderColor="orange.100"
-    borderLeftRadius="8px"
+    border={{ base: 'none', sm: '2px solid' }}
+    borderColor={{ base: 'none', sm: 'orange.100' }}
+    borderLeftRadius={{ base: 'inherit', sm: 'md' }}
+    borderRightRadius={{ base: 'inherit', sm: 'md', md: 'inherit' }}
     position="relative"
     zIndex="0"
   >

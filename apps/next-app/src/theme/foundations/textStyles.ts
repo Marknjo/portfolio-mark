@@ -41,8 +41,9 @@ export const textStyles: ThemeOverride['textStyles'] = {
   },
   'sec-title': {
     paddingY: ['2', '3', '4'],
-    fontSize: ['lg', '2xl', '3xl'],
+    fontSize: ['md', 'lg', '2xl', '3xl'],
     letterSpacing: ['tight', 'wide'],
+    lineHeight: 'none',
     fontWeight: 'medium',
   },
   caption: {},
