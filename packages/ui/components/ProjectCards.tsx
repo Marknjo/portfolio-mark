@@ -25,22 +25,28 @@ export interface CardsInfoInterface {
 }
 
 export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
-  const gridRowsTemplate = {
-    sm: `
-      [r1-start] 
-      24px [r1-end r2-start] 
-      auto [r2-end r3-start] 
-      48px [r3-end r4-start]  
-      48px [r4-end r5-start] 
-      1fr [r5-end]
-    `,
+  const gridRowsBreakpoint = {
+    base: `
+    [r1-start] 
+    24px [r1-end r2-start] 
+    auto [r2-end r3-start] 
+    48px [r3-end r4-start]  
+    48px [r4-end r5-start] 
+    1fr [r5-end]
+  `,
+  }
+
+  const gridColumnsBreakpoint = {
+    base: '8px repeat(4, 1fr) 8px',
+    md: '12px repeat(4, 1fr) 12px',
+    lg: '24px repeat(4, 1fr) 24px',
   }
 
   return (
     <Grid
       as="article"
-      gridTemplateColumns="24px repeat(4, 1fr) 24px"
-      gridTemplateRows={gridRowsTemplate}
+      gridTemplateColumns={gridColumnsBreakpoint}
+      gridTemplateRows={gridRowsBreakpoint}
     >
       <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
@@ -56,18 +62,18 @@ export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
       <GridItem
         gridColumn="2/span 4"
         gridRow="r3-start/r5-end"
-        backgroundColor="orange.50"
-        paddingY="4"
-        paddingX="3"
+        bgColor="orange.50"
+        py={{ base: '3', md: '4', lg: '6' }}
+        px={{ base: '2', md: '3', lg: '4' }}
         borderRadius="md"
         shadow="lg"
         borderColor="orange.100"
       >
-        <VStack rowGap="3">
+        <VStack rowGap={{ base: '1', md: '3' }}>
           <Heading
             as="h3"
             color="orange.800"
-            fontSize="3xl"
+            fontSize={{ base: 'xl', md: '2xl', xl: '3xl' }}
             textAlign="center"
             lineHeight="none"
           >
@@ -77,7 +83,14 @@ export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
           <Wrap justifyContent="space-around">
             {tags.map(tag => (
               <WrapItem key={`${tag.tagName}-${title}`}>
-                <Tag colorScheme={tag.colorTheme} size="sm">
+                <Tag
+                  colorScheme={tag.colorTheme}
+                  size="sm"
+                  fontSize={{
+                    base: 'xx-small',
+                    lg: 'x-small',
+                  }}
+                >
                   {tag.tagName}
                 </Tag>
               </WrapItem>

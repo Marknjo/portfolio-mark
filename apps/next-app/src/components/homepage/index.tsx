@@ -30,10 +30,10 @@ const HomePageV1 = () => (
     {/* Main Content */}
     <Box as="main">
       {/* About Section */}
-      <AboutSection />
+      {/* <AboutSection /> */}
 
       {/* Projects Section */}
-      {/* <ProjectsSection /> */}
+      <ProjectsSection />
 
       {/* Favorite Project Section */}
       {/* <FavProjectSection /> */}
