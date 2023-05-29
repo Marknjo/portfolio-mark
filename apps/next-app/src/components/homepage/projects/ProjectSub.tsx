@@ -5,14 +5,20 @@ import { SectionTitle } from 'ui'
 const ProjectSub = () => (
   <SectionTitle
     headingGridSetting={{
-      gridColumn: 'content-start / span 5',
+      gridColumn: {
+        base: 'content-start / span 11',
+        md: 'content-start / span 5',
+      },
       gridRow: 'sub-start/sub-end',
       zIndex: '1',
       mb: sizes.sm,
     }}
     bgGridSetting={{
       gridRow: 'sub-start/sub-end',
-      gridColumn: 'outer-left-start / span 6',
+      gridColumn: {
+        base: 'outer-left-start / span 11',
+        md: 'outer-left-start / span 6',
+      },
       zIndex: '1',
       mb: sizes.sm,
     }}

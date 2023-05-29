@@ -6,9 +6,15 @@ const ProjectHeroImg = () => {
     height: 'auto',
   }
 
+  const columnBreakpoint = {
+    base: 'content-start/content-end',
+    sm: 'col-start 2/span 10',
+    lg: 'col-start 2/span 8',
+  }
+
   return (
     <GridItem
-      gridColumn="col-start 2/span 8"
+      gridColumn={columnBreakpoint}
       gridRow="img-start/img-r3-end"
       backgroundColor="orange.200"
       shadow="md"

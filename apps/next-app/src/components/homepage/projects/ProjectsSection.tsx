@@ -10,15 +10,25 @@ import ProjectCards from './ProjectCards'
 
 const ProjectsSection = () => {
   const templateRows = {
-    // sm: "", // 480px
-    // md: "", // 768px
-    // lg: "", // 992px
-    // xl: "", // 1280px
-    md: `[title-start] auto [title-end sub-start]
-         auto [sub-end img-start]
-         repeat(2, auto) [img-end img-r3-start]
-         8rem [img-r3-end cards-start]
-         auto [cards-end]`, // 992px
+    base: `[title-start] 
+        auto [title-end sub-start]
+        auto [sub-end img-start]
+        repeat(2, auto) [img-end img-r3-start]
+        4rem [img-r3-end cards-start]
+        auto [cards-end]`,
+
+    sm: `[title-start] 
+      auto [title-end sub-start]
+      auto [sub-end img-start]
+      repeat(2, auto) [img-end img-r3-start]
+      6rem [img-r3-end cards-start]
+      auto [cards-end]`,
+
+    lg: `[title-start] auto [title-end sub-start]
+      auto [sub-end img-start]
+      repeat(2, auto) [img-end img-r3-start]
+      8rem [img-r3-end cards-start]
+      auto [cards-end]`,
   }
 
   const mainGridStyles: GridProps = {
