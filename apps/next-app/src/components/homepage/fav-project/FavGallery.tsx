@@ -47,27 +47,36 @@ const gridImages: Array<FavGalleryImgInterface> = [
 
 const FavGallery = () => {
   const gridColumnDef = {
-    sm: 'repeat(auto-fit, minmax(18rem, 1fr))',
+    base: 'repeat(auto-fit, minmax(18rem, 1fr))',
+  }
+
+  const rowBreakpoint = {
+    base: 'col-start 1 / content-end',
+    sm: 'col-start 2 / content-end',
+    lg: 'col-start 4 / content-end',
   }
 
   return (
     <GridItem
-      gridColumn="col-start 4 / content-end"
+      gridColumn={rowBreakpoint}
       gridRow="r3-start/r4-end"
       zIndex="2"
       id="fav-gallery"
+      /* // */
+      justifyContent="space-between"
+      gridTemplateColumns={gridColumnDef}
+      gap="4"
+      as={Grid}
     >
-      <Grid gridTemplateColumns={gridColumnDef} gap="3">
-        {gridImages.map(img => (
-          <GalleryImageCard
-            key={img.id}
-            imgName={img.imgName}
-            title={img.title}
-            alt={img.alt}
-            asNavLink={NextLink}
-          />
-        ))}
-      </Grid>
+      {gridImages.map(img => (
+        <GalleryImageCard
+          key={img.id}
+          imgName={img.imgName}
+          title={img.title}
+          alt={img.alt}
+          asNavLink={NextLink}
+        />
+      ))}
     </GridItem>
   )
 }

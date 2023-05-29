@@ -9,7 +9,7 @@ import FavGallery from './FavGallery'
 
 const FavProjectSection = () => {
   const gridRows = {
-    md: `
+    base: `
         [r1-start]
         auto [r1-end r2-start]
         auto [r2-end r3-start]

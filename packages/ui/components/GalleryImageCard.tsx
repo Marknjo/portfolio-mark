@@ -98,8 +98,8 @@ export const GalleryImageCard = ({
   }
 
   return (
-    <GridItem as="article" role="group" sx={cardStyles}>
-      <Image src={`./images/${imgName}.jpg`} alt={alt} />
+    <GridItem justifySelf="center" as="article" role="group" sx={cardStyles}>
+      <Image src={`./images/${imgName}.jpg`} alt={alt} objectFit="cover" />
       <Box sx={imageDetailsStyles}>
         {/* @TODO: Implement Gallery */}
         <Link

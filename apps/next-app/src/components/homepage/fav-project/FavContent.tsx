@@ -7,7 +7,10 @@ const LinkIconRight = () => <Icon as={FiArrowRight} />
 const FavContent = () => (
   <GridItem
     gridRow="r5-start / r5-end"
-    gridColumn="col-start 2 / col-end 10"
+    gridColumn={{
+      base: 'content-start / content-end',
+      sm: 'col-start 2 / col-end 10',
+    }}
     mt={sizes.xl}
     zIndex="2"
   >
