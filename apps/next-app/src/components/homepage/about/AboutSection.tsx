@@ -1,9 +1,9 @@
-import { MainGrid, SectionTitle } from 'ui'
+import { MainGrid } from 'ui'
 import { sizes } from '@components/next-ui'
-import { GradientLayerStyles } from '@theme/foundations'
 
-import AboutDetails from './AboutDetails'
 import AboutTitle from './AboutTitle'
+import SubTitle from './SubTitle'
+import AboutDetails from './AboutDetails'
 import AboutTextContent from './AboutTextContent'
 import AboutVideo from './AboutVideo'
 import AboutBg from './AboutBg'
@@ -37,21 +37,7 @@ const AboutSection = () => {
       <AboutTitle />
 
       {/*  Row 3/4 - Heading only (start/end), Detail Background Start - contains dots bottom-right */}
-      <SectionTitle
-        headingGridSetting={{
-          gridColumn: 'content-start / span 5',
-          gridRow: 'section-title-start/section-title-end',
-          zIndex: '1',
-        }}
-        bgGridSetting={{
-          gridRow: 'section-title-start/section-title-end',
-          gridColumn: 'outer-left-start / span 6',
-          zIndex: '1',
-        }}
-        layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
-      >
-        My Short Story
-      </SectionTitle>
+      <SubTitle />
 
       {/*  Row 4/5 - content only (start/end), video (start/end) */}
       <AboutTextContent />
