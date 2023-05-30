@@ -11,6 +11,7 @@ import {
   WrapItem,
 } from '@chakra-ui/react'
 import { LinkIcon } from './LinkIcon'
+import { SubHeading } from './SubHeading'
 
 export interface ProjectTagsInterface {
   tagName: string
@@ -80,7 +81,7 @@ export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
           <Heading
             as="h3"
             color="orange.800"
-            fontSize={{ base: '2xl', xl: '3xl' }}
+            fontSize={{ base: 'xl', md: '2xl', xl: '3xl' }}
             textAlign="center"
             lineHeight="none"
           >

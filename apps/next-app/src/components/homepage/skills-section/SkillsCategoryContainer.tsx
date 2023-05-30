@@ -1,7 +1,7 @@
-import { GridItem, HStack, Heading, SystemStyleObject } from '@chakra-ui/react'
+import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import { getStacks, stacksSamp } from '@data/techStacksSample'
-import { StackCategory, TechCard, IStack } from 'ui'
+import { StackCategory, TechCard, IStack, SubHeading } from 'ui'
 
 const progLangs = getStacks(stacksSamp)
 
@@ -46,13 +46,9 @@ const SkillsCategoryContainer = ({
     ...mainStylesOverrides,
   }
   const h4HeadingStyles: SystemStyleObject = {
-    // Visual
-    borderBottom: '2px solid',
     borderColor: 'orange.200',
-    pb: '2',
     width: '100%',
     textAlign: 'center',
-    fontSize: '2xl',
     color: 'orange.900',
     mb: '4',
 
@@ -62,9 +58,7 @@ const SkillsCategoryContainer = ({
 
   return (
     <GridItem sx={mainStyles}>
-      <Heading as="h4" sx={h4HeadingStyles}>
-        {headingText}
-      </Heading>
+      <SubHeading as="h4" overrides={h4HeadingStyles} text={headingText} />
 
       <HStack gap="4" flexWrap="wrap" mb={sizes.sm} sx={cardsWrapperOverrides}>
         {progLangs.map(

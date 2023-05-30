@@ -13,12 +13,12 @@ const SubTitle = () => {
       headingGridSetting={{
         gridColumn: subHeadingsBr.noBr.text,
         gridRow: rowBreakingPoints,
-        zIndex: '1',
+        zIndex: '0',
       }}
       bgGridSetting={{
         gridRow: rowBreakingPoints,
         gridColumn: subHeadingsBr.noBr.bg,
-        zIndex: '1',
+        zIndex: '0',
       }}
       layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
     >

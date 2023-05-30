@@ -22,37 +22,37 @@ import ContactSection from './contact-section/ContactSection'
 const HomePageV1 = () => (
   <>
     {/* HomePage Navigation */}
-    {/* <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} /> */}
+    <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
 
     {/* Page Hero Section */}
-    {/* <HomePageHero /> */}
+    <HomePageHero />
 
     {/* Main Content */}
     <Box as="main">
       {/* About Section */}
-      {/* <AboutSection /> */}
+      <AboutSection />
 
       {/* Projects Section */}
-      {/* <ProjectsSection /> */}
+      <ProjectsSection />
 
       {/* Favorite Project Section */}
-      {/* <FavProjectSection /> */}
+      <FavProjectSection />
 
       {/* Skills Section */}
-      {/* <SkillsSection /> */}
+      <SkillsSection />
 
       {/* Contact Section */}
-      {/* <ContactSection /> */}
+      <ContactSection />
 
       {/* Page CTA */}
-      {/* <CtaSection /> */}
+      <CtaSection />
     </Box>
 
     {/* Footer */}
     <Footer />
 
     {/* to top component */}
-    {/* <ToTop /> */}
+    <ToTop />
   </>
 )
 

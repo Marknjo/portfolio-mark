@@ -1,12 +1,16 @@
-import { Box, GridItem, Heading, VStack, Text } from '@chakra-ui/react'
-import { DetailsItemsTitle } from 'ui'
+import { Box, GridItem, VStack, Text } from '@chakra-ui/react'
+import { DetailsItemsTitle, SubHeading } from 'ui'
 import { socialWithPick } from '@data/social'
 import { HSocialIcons, sizes } from '@components/next-ui'
 
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
-    <DetailsItemsTitle align={{ textAlign: 'left' }} title={title} />
-    <Text fontSize="sm" color="orange.800">
+    <DetailsItemsTitle sx={{ textAlign: 'left' }} title={title} />
+    <Text
+      fontSize="sm"
+      alignItems={{ base: 'center', sm: 'left' }}
+      color="orange.800"
+    >
       {text}
     </Text>
   </Box>
@@ -23,7 +27,7 @@ const AboutDetails = () => {
     sm: 'col-start 2/col-end 11',
     lg: 'col-start 11 / span 2',
   }
-  const mxBreakpoint = { base: '6', lg: 0 }
+  const mxBreakpoint = { base: '4', lg: 0 }
   return (
     <>
       <GridItem
@@ -50,19 +54,18 @@ const AboutDetails = () => {
         mt={{ base: '4', lg: '0' }}
         mx={mxBreakpoint}
       >
-        <Heading
+        <SubHeading
           as="h3"
-          fontSize="2xl"
-          textAlign={{ base: 'center', lg: 'left' }}
-          color="orange.900"
-          borderBottom="2px solid"
-          borderBottomColor="orange.200"
-          lineHeight="1.5"
-          mb={{ base: '3', sm: '2', lg: '4' }}
-          width="100%"
-        >
-          Details
-        </Heading>
+          overrides={{
+            textAlign: { base: 'center', lg: 'left' },
+            color: 'orange.900',
+            borderBottomColor: 'orange.200',
+            mb: { base: '3', sm: '2', lg: '4' },
+            width: '100%',
+          }}
+          text="
+          Details"
+        />
 
         <VStack
           alignItems={{ base: 'center', lg: 'flex-start' }}
@@ -86,7 +89,7 @@ const AboutDetails = () => {
           borderBottomColor={{ lg: 'orange.100' }}
         >
           <DetailsItemsTitle
-            align={{ textAlign: 'center', marginBottom: '3' }}
+            sx={{ textAlign: 'center', marginBottom: '3' }}
             title="Social"
           />
 
