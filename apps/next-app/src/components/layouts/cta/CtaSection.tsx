@@ -41,11 +41,16 @@ const CtaSection = ({
 
   const ctaStyles: SystemStyleObject = {
     backgroundColor: 'orange.900',
-    gridColumn: 'col-start 2 / col-end 11',
+    gridColumn: {
+      base: 'content-start / content-end',
+      sm: 'col-start 2 / col-end 11',
+      lg: 'content-start / content-end',
+      xl: 'col-start 2 / col-end 11',
+    },
     gridRow: ctaGridRow || 'r1-start/r2-end',
-    py: '4',
-    px: '12',
-    borderRadius: 'md',
+    py: { base: '6', lg: '4' },
+    px: sizes.lg,
+    borderRadius: { base: 'md', lg: 'lg' },
     zIndex: 2,
     boxShadow: 'md',
     transition: 'all .1s ease-in',
@@ -65,8 +70,16 @@ const CtaSection = ({
 
       {/* CTA */}
       <GridItem sx={ctaStyles}>
-        <HStack justifyContent="center" gap="6" wrap={['wrap', 'nowrap']}>
-          <Heading as="h2" fontWeight="medium" fontSize="2xl">
+        <HStack
+          justifyContent={{ base: 'center', lg: 'space-between', xl: 'center' }}
+          gap={{ base: '4', lg: '3', xl: '4' }}
+          wrap={{ base: 'wrap', lg: 'nowrap' }}
+        >
+          <Heading
+            as="h2"
+            fontWeight="medium"
+            fontSize={{ base: '2xl', lg: 'lg', xl: '2xl' }}
+          >
             Having a project?
           </Heading>
 

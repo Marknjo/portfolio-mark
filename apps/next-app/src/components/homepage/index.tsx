@@ -42,10 +42,10 @@ const HomePageV1 = () => (
       {/* <SkillsSection /> */}
 
       {/* Contact Section */}
-      <ContactSection />
+      {/* <ContactSection /> */}
 
       {/* Page CTA */}
-      {/* <CtaSection /> */}
+      <CtaSection />
     </Box>
 
     {/* Footer */}
