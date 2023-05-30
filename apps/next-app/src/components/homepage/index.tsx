@@ -45,11 +45,11 @@ const HomePageV1 = () => (
       {/* <ContactSection /> */}
 
       {/* Page CTA */}
-      <CtaSection />
+      {/* <CtaSection /> */}
     </Box>
 
     {/* Footer */}
-    {/* <Footer /> */}
+    <Footer />
 
     {/* to top component */}
     {/* <ToTop /> */}

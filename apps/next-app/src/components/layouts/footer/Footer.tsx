@@ -16,18 +16,18 @@ const Footer = () => {
   const mainStyles: GridProps = {
     backgroundColor: 'orange.700',
     color: 'orange.50',
-    pt: '4',
-    pb: '3',
+    py: { base: '2', md: '4' },
     borderBottom: '0.8rem solid',
     borderBottomColor: 'orange.900',
   }
 
   const linkStyles: SystemStyleObject = {
-    py: '3',
+    py: { base: '2', md: '3' },
     px: '2',
     textDecoration: 'none',
     color: 'orange.100',
     transition: `all .25s ${easeIn(2)}`,
+    fontSize: { base: 'small', sm: 'md' },
 
     _hover: {
       color: 'teal.50',
@@ -43,7 +43,7 @@ const Footer = () => {
           <Box
             href="/"
             as={NextLink}
-            fontSize="4xl"
+            fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
             fontWeight="bold"
             textTransform="uppercase"
             transition={`all .25s ${easeIn(2)}`}
@@ -56,7 +56,7 @@ const Footer = () => {
           </Box>
 
           <HStack
-            gap="3"
+            gap={{ base: '2', sm: '3' }}
             borderTop="1px solid"
             borderTopColor="blackAlpha.400"
             borderBottom="1px solid"
