@@ -11,7 +11,7 @@ const LeftContent = () => (
     flexDirection="column"
     gap="3"
     color="blackAlpha.800"
-    mb={sizes.sm}
+    mb={sizes.md}
     mr={sizes.xs}
   >
     <Text as="p">

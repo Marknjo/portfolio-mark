@@ -13,7 +13,7 @@ export const SubHeading = ({
     // Visual
     borderBottom: '2px solid',
     pb: '2',
-    fontSize: '2xl',
+    fontSize: { base: 'sm', md: 'lg', lg: 'xl' },
     mb: '4',
     textAlign: 'left',
     borderColor: 'orange.200',

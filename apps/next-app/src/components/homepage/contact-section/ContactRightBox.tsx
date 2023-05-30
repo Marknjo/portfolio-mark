@@ -3,11 +3,11 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
   GridItem,
-  HStack,
   Input,
   SystemStyleObject,
   Text,
@@ -22,12 +22,15 @@ import { BiMailSend } from 'react-icons/bi'
 
 const ContactRightBox = () => {
   const mainStyles: SystemStyleObject = {
-    gridColumn: 'col-start 6/content-end',
-    gridRow: 'r3-start/r3-end',
+    gridColumn: {
+      base: 'content-start/content-end',
+      md: 'col-start 6/content-end',
+    },
+    gridRow: { base: 'r3-start/r3-end' },
     my: sizes.lg,
     padding: sizes.lg,
     backgroundColor: 'orange.50',
-    borderRadius: 'lg',
+    borderRadius: { base: 'md', md: 'lg' },
     boxShadow: 'md',
     zIndex: '2',
   }
@@ -35,7 +38,13 @@ const ContactRightBox = () => {
   return (
     <GridItem sx={mainStyles}>
       <VStack as="form" gap={sizes.md} alignItems="flex-start">
-        <HStack gap={sizes.sm} justifyContent="space-around" width="100%">
+        <Flex
+          gap={sizes.sm}
+          justifyContent="space-around"
+          width="100%"
+          flexWrap={{ base: 'wrap', sm: 'nowrap' }}
+          rowGap={{ base: 0, md: '2' }}
+        >
           <FormControl isRequired>
             <FormLabel>Full Name</FormLabel>
             <Input
@@ -67,7 +76,7 @@ const ContactRightBox = () => {
               Please add a valid email address
             </FormErrorMessage>
           </FormControl>
-        </HStack>
+        </Flex>
 
         <Box as="fieldset" width="100%">
           <Text

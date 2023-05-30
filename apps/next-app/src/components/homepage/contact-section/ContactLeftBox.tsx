@@ -7,18 +7,22 @@ import LeftSocialIcons from './left-box/LeftSocialIcon'
 
 const ContactLeftBox = () => {
   const mainStyles: SystemStyleObject = {
-    gridColumn: 'content-start/span 7',
-    gridRow: 'r2-start / r4-end',
-    my: sizes.lg,
+    gridColumn: {
+      base: 'content-start/content-end',
+      md: 'content-start/span 6',
+    },
+    gridRow: { base: 'r2-start/r2-end', md: 'r2-start / r4-end' },
+    mb: { base: '0', md: '10', lg: '12' },
     p: sizes.lg,
-    pr: '24', // @TODO: flex this
+
     backgroundColor: 'teal.50',
-    borderRadius: 'lg',
+    borderRadius: { base: 'md', md: 'lg' },
     boxShadow: 'base',
 
     gridTemplateColumns: 'repeat(6, minmax(20px, 1fr))',
     alignItems: 'top',
     zIndex: '2',
+    gridAutoRows: 'min-content',
   }
 
   return (

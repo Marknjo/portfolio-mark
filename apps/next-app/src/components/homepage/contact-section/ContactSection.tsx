@@ -7,13 +7,12 @@ import ContactLeftBox from './ContactLeftBox'
 import ContactRightBox from './ContactRightBox'
 
 const ContactSection = () => {
-  const breakPoints = {
-    sm: `
+  const rowBrP = {
+    base: `
       [r1-start] 
       auto  [r1-end r2-start]
-      2rem [r2-end r3-start]
-      auto  [r3-end r4-start]
-      2rem [r4-end]
+      auto [r2-end r3-start]
+      auto  [r3-end]
     `,
     md: `
       [r1-start] 
@@ -23,12 +22,12 @@ const ContactSection = () => {
       3rem [r4-end]
     `,
     lg: `
-      [r1-start] 
+    [r1-start] 
       auto  [r1-end r2-start]
       4rem [r2-end r3-start]
       auto  [r3-end r4-start]
       4rem [r4-end]
-    `,
+  `,
   }
 
   const gridStyles: GridProps = {
@@ -38,7 +37,7 @@ const ContactSection = () => {
     overflow: 'hidden',
     zIndex: 0,
 
-    gridTemplateRows: breakPoints,
+    gridTemplateRows: rowBrP,
   }
   return (
     <MainGrid options={gridStyles} as="section" id="contact-section">

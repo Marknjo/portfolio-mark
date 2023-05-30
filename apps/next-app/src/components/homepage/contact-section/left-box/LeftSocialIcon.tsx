@@ -14,7 +14,7 @@ const LeftSocialIcons = () => {
   }
 
   return (
-    <GridItem gridColumn="1 / span 5" mr={sizes.xs}>
+    <GridItem alignSelf="end" gridColumn="1 / span 5" mr={sizes.xs}>
       <SubHeading overrides={socialHeadingStyles} text="Follow Me" />
       <HSocialIcons
         socialDetails={socials}
