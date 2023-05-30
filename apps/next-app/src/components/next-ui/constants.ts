@@ -15,24 +15,24 @@ export const subHeadingsBr = {
   withBr: {
     text: {
       base: 'content-start / span 10',
-      md: 'content-start / span 6',
-      lg: 'content-start / span 5',
-    },
-    bg: {
-      base: 'outer-left-start / outer-right-end',
-      sm: 'outer-left-start / span 10',
-      md: 'outer-left-start / span 7',
-      lg: 'outer-left-start / span 6',
-    },
-  },
-  noBr: {
-    text: {
-      base: 'content-start / span 12',
       md: 'content-start / span 7',
       lg: 'content-start / span 6',
     },
     bg: {
-      base: 'outer-left-start / span 12',
+      base: 'outer-left-start / outer-right-end',
+      sm: 'outer-left-start / span 10',
+      md: 'outer-left-start / span 8',
+      lg: 'outer-left-start / span 7',
+    },
+  },
+  noBr: {
+    text: {
+      base: 'content-start / span 10',
+      md: 'content-start / span 7',
+      lg: 'content-start / span 6',
+    },
+    bg: {
+      base: 'outer-left-start / span 11',
       md: 'outer-left-start / span 8',
       lg: 'outer-left-start / span 7',
     },
