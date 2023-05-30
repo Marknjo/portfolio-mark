@@ -85,35 +85,6 @@ export const LargeTitle = ({
 }) => {
   const { sub, lg, hLg } = titleStyles(as, isLighter)
 
-  // const {layerStyleSm} =
-  // const subTitleDefaultConfig: SystemStyleObject = useMemo(() => {
-  //   return {
-  //     fontSize: subTitleConfig?.fontSize ? subTitleConfig.fontSize : '2xl',
-  //     fontWeight: subTitleConfig?.fontWeight
-  //       ? subTitleConfig.fontWeight
-  //       : 'light',
-  //     textTransform: subTitleConfig?.textTransform
-  //       ? subTitleConfig.textTransform
-  //       : 'uppercase',
-  //     color: subTitleConfig?.color ? subTitleConfig.color : 'blackAlpha.800',
-  //     lineHeight: subTitleConfig?.lineHeight
-  //       ? subTitleConfig.lineHeight
-  //       : 'none',
-  //     ...subTitleConfig,
-  //   }
-  // }, [subTitleConfig])
-
-  // const titleDefaultConfig: SystemStyleObject = useMemo(
-  //   () => ({
-  //     lineHeight: titleConfig?.lineHeight ? titleConfig.lineHeight : 'none',
-  //     color: titleConfig?.color ? titleConfig.color : 'orange.900',
-  //     fontSize: titleConfig?.fontSize ? titleConfig.fontSize : '6xl',
-  //     marginY: titleConfig?.marginY ? titleConfig.marginY : '16',
-  //     ...titleConfig,
-  //   }),
-  //   [titleConfig],
-  // )
-
   const alignTitleDefault: SystemStyleObject = useMemo(
     () => ({
       alignItems: alignTitle?.alignItems ? alignTitle.alignItems : 'center',

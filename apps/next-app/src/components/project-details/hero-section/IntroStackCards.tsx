@@ -1,9 +1,10 @@
+import { useBreakpoint } from '@chakra-ui/react'
 import {
   StackNames,
   groupStacksByCategory,
   stacksSamp,
 } from '@data/techStacksSample'
-import { TechStacksCard, TitleStyles } from 'ui'
+import { AlignPosition, TechStacksCard, TitleStyles } from 'ui'
 
 const stacks = groupStacksByCategory(
   [
@@ -15,11 +16,20 @@ const stacks = groupStacksByCategory(
   stacksSamp,
 )
 
-const IntroStackCards = () => (
-  <TechStacksCard
-    stacks={stacks}
-    titleStyle={TitleStyles.SM}
-    hasDivider={false}
-  />
-)
+const IntroStackCards = () => {
+  const brP = useBreakpoint()
+
+  const calBrp =
+    brP !== 'md' && brP !== 'sm' && brP !== 'base'
+      ? undefined
+      : AlignPosition.CENTER
+  return (
+    <TechStacksCard
+      stacks={stacks}
+      titleStyle={TitleStyles.SM}
+      hasDivider={false}
+      titlePosition={calBrp}
+    />
+  )
+}
 export default IntroStackCards

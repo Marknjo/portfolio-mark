@@ -8,16 +8,37 @@ import { introSampContent } from '@data/sampleContent'
 import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
-  const mainStyles: SystemStyleObject = {
-    /* Grid template */
-    gridColumn: 'col-start 2 / col-end 11',
-    gridRow: 'r1-start/r2-end',
-
-    gridTemplateRows: `[content-start]
+  const rowBrP = {
+    base: `[content-start]
+      auto[content-end separator-start] 
+      auto [separator-end spacer-start] 
+      8rem [spacer-end] 
+  `,
+    sm: `[content-start]
+      auto[content-end separator-start] 
+      auto [separator-end spacer-start] 
+      12rem [spacer-end] 
+    `,
+    md: `[content-start]
+      auto[content-end separator-start] 
+      auto [separator-end spacer-start] 
+      16rem [spacer-end] 
+    `,
+    lg: `[content-start]
       auto[content-end separator-start] 
       auto [separator-end spacer-start] 
       18rem [spacer-end] 
     `,
+  }
+  const mainStyles: SystemStyleObject = {
+    /* Grid template */
+    gridColumn: {
+      base: 'content-start/content-end',
+      md: 'col-start 2 / col-end 11',
+    },
+    gridRow: 'r1-start/r2-end',
+
+    gridTemplateRows: rowBrP,
 
     backgroundColor: 'orange.100',
     boxShadow: 'md',
@@ -33,24 +54,30 @@ const HeroIntro = () => {
     gap: sizes.lg,
 
     /* Grid settings */
-    gridTemplateColumns: 'repeat(auto-fit, minmax(18rem, 1fr))',
+    gridTemplateColumns: {
+      base: 'repeat(auto-fit, minmax(15rem, 1fr))',
+      sm: 'repeat(auto-fit, minmax(20.3rem, 1fr))',
+    },
   }
-  const contentSectionStyles: SystemStyleObject = {}
+  const contentSectionStyles: SystemStyleObject = {
+    alignItems: { base: 'center', lg: 'flex-start' },
+    textAlign: { base: 'center', lg: 'start' },
+  }
 
   return (
     <Grid sx={mainStyles}>
       <Grid sx={contentStyles}>
         {/* Tech Stacks */}
-        <VStack
-          sx={contentSectionStyles}
-          alignItems="flex-start"
-          gap={sizes.md}
-        >
+        <VStack sx={contentSectionStyles} gap={sizes.md}>
           <Box>
             <SubHeading
               text="Tech Stack"
               as="h2"
-              overrides={{ borderBottom: 'none' }}
+              overrides={{
+                borderBottom: 'none',
+                textAlign: { base: 'center', lg: 'inherit' },
+                fontSize: { base: '2xl', lg: 'lg' },
+              }}
             />
 
             <IntroStackCards />
@@ -78,7 +105,11 @@ const HeroIntro = () => {
             <SubHeading
               text="Introducing Afri-Hickr"
               as="h2"
-              overrides={{ borderBottom: 'none' }}
+              overrides={{
+                borderBottom: 'none',
+                textAlign: { base: 'center', lg: 'inherit' },
+                fontSize: { base: '2xl', lg: 'lg' },
+              }}
             />
             {/* Paragraphs */}
             <ContentGenerator content={introSampContent} />

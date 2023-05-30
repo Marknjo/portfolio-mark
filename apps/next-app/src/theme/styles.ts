@@ -24,7 +24,6 @@ export const styles: ThemeOverride['styles'] = {
   global: {
     body: {
       bg: 'orange.50',
-      overflowX: 'hidden',
       scrollBehavior: 'smooth',
     },
     '::-moz-selection': {
@@ -55,6 +54,10 @@ export const styles: ThemeOverride['styles'] = {
     },
     h5: {
       lineHeight: 'none',
+    },
+
+    '.no-scroll': {
+      overflowX: 'hidden',
     },
   },
 }

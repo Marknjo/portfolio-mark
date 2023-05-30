@@ -113,6 +113,7 @@ export const TechStack = ({
 }) => {
   const cardsWrapperStyles: StackProps = {
     gap: '4',
+    flexWrap: 'wrap',
   }
   const dividerLeftStyles: StackProps = {
     borderLeft: '1px solid',

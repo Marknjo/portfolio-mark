@@ -1,3 +1,11 @@
+export enum LargeBorderRadiusSize {
+  XL = 12,
+  LG = 7,
+  MD = 5,
+  SM = 3,
+  XSM = 1.5,
+}
+
 export const sizes = {
   xl: ['6', '8', '10', '12', '16'],
   'xl-sm': ['0', '10', '12', '16'],
@@ -38,4 +46,9 @@ export const subHeadingsBr = {
       lg: 'outer-left-start / span 7',
     },
   },
+}
+
+export const largeBorderBrP = {
+  base: `${LargeBorderRadiusSize.SM}rem`,
+  lg: `${LargeBorderRadiusSize.MD}rem`,
 }

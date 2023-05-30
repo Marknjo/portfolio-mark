@@ -5,7 +5,7 @@ import { OsxImageWindow } from 'ui'
 const HeroImg = () => {
   const mainStyles: SystemStyleObject = {
     gridRow: 'r2-start/r3-end',
-    gridColumn: 'col-start 3/span 8',
+    gridColumn: { base: 'col-start 2/span 10', md: 'col-start 3/span 8' },
     pt: sizes.lg,
   }
 

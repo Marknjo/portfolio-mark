@@ -7,7 +7,7 @@ import {
 } from '../types/tech-stacks-types'
 import { TechStack } from './TechStack'
 
-const alignCardItem = (flexAlignPosition: AlignPosition) => {
+const alignCardItem = (flexAlignPosition: AlignPosition): SystemStyleObject => {
   let alignItemsStyles: SystemStyleObject = {
     alignItems: 'flex-start',
   }
@@ -51,7 +51,7 @@ export const CardsSingleColumn = ({
     : [...stacks.entries()]
 
   const mainStyles: SystemStyleObject = {
-    gap: '5',
+    gap: { base: '3', md: '5' },
     ...alignCardItem(wrapperAlign),
   }
 

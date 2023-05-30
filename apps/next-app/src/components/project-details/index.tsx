@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Center } from '@chakra-ui/react'
+import { Box, Center, baseTheme, useBreakpoint } from '@chakra-ui/react'
 
 import Footer from '@components/layouts/footer/Footer'
 import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
@@ -13,11 +13,24 @@ import HeroSection from '@components/project-details/hero-section/HeroSection'
 import { pDNavLinks } from '@data/navLinks'
 
 import { useIsLoading } from '@hooks/is-loading'
+import { useEffect } from 'react'
 
 const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
   console.log(pageDetails)
-
+  const brP = useBreakpoint()
   const isLoading = useIsLoading()
+
+  useEffect(() => {
+    const bodyEl = document.body as HTMLBodyElement
+
+    if (brP === 'base') {
+      bodyEl.classList.remove('no-scroll')
+    }
+
+    if (brP !== 'base' && !bodyEl.classList.contains('no-scroll')) {
+      bodyEl.classList.add('no-scroll')
+    }
+  }, [brP])
 
   if (isLoading) {
     // @TODO: implement loading ui component
@@ -35,23 +48,23 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
         <HeroSection />
 
         {/* The Challenge Section */}
-        <TheChallengeSection />
+        {/* <TheChallengeSection /> */}
 
         {/* The Gallery Section */}
-        <GallerySection />
+        {/* <GallerySection /> */}
 
         {/* Project Summary Section */}
-        <SummarySection />
+        {/* <SummarySection /> */}
 
         {/* Project Links & related projects & Page CTA */}
-        <ProjectDetailsCTA />
+        {/* <ProjectDetailsCTA /> */}
       </Box>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
 
       {/* to top component */}
-      <ToTop />
+      {/* <ToTop /> */}
     </>
   )
 }
