@@ -11,6 +11,7 @@ import GallerySection from '@components/project-details/gallery-section/GalleryS
 import SummarySection from '@components/project-details/summary-section/SummarySection'
 import HeroSection from '@components/project-details/hero-section/HeroSection'
 import { pDNavLinks } from '@data/navLinks'
+
 import { useIsLoading } from '@hooks/is-loading'
 
 const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {

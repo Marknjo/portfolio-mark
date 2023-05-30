@@ -1,6 +1,6 @@
 import React from 'react'
 import { Metadata, ResolvingMetadata } from 'next'
-import DetailsPage from './DetailsPage'
+import DetailsPage from '@components/project-details'
 
 interface MetaProps {
   params: { ['project-details']: string }
