@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { motion } from 'framer-motion'
+import { fontSizes } from '@components/next-ui'
 
 const animationKeyFrames = keyframes`
   0% {
@@ -48,7 +49,7 @@ const LogoText = ({
     alignSelf: 'center',
   }
   const logoTextStyles: SystemStyleObject = {
-    gridColumn: 'content-start/col-end 4',
+    gridColumn: { base: 'content-start/span 8', md: 'content-start/col-end 4' },
     ...(asHamburger ? logoStylesWithHamburger : {}),
     ...sxOverrides,
   }
@@ -58,7 +59,7 @@ const LogoText = ({
       <Box
         as={motion.div}
         animation={asHamburger ? animation : undefined}
-        fontSize="3xl"
+        fontSize={fontSizes.md}
         fontWeight="bold"
         color="teal.50"
         marginY="2"

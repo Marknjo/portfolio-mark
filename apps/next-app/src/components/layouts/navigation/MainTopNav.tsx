@@ -42,6 +42,7 @@ const navContainerStyles = (showHamburger: boolean) => {
     alignItems: 'start',
     width: '100%',
     height: '100%',
+    minH: '55px',
     position: 'fixed',
     zIndex: 'sticky',
     gridTemplateRows: `[icon-start]

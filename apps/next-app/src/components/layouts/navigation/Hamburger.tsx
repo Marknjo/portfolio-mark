@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { Box, Flex, SystemStyleObject } from '@chakra-ui/react'
-import { SyntheticEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import MenuOverlay from './MenuOverlay'
 
 const toggleTopStyles: SystemStyleObject = {
@@ -106,7 +107,7 @@ const Hamburger = ({
     py: '1',
     position: 'absolute',
     zIndex: 'banner',
-    top: '4',
+    top: { base: '1', sm: '2' },
     right: '1',
     _groupActive: {
       top: '100px',

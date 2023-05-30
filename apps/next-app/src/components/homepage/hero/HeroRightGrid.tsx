@@ -19,7 +19,7 @@ const rightStyles: SystemStyleObject = {
 const imageCommonStyles: SystemStyleObject = {
   borderRadius: ['4px', '8px'],
   border: ['3px solid', '4px solid'],
-  borderColor: 'orange.200',
+  borderColor: { base: 'orange.100', sm: 'orange.100' },
 }
 // #TODO:  Image @TODO: Animate Image:hover & border rotate
 const HeroRightGrid = () => {

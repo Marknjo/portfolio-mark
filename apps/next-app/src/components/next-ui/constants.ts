@@ -9,6 +9,7 @@ export const sizes = {
 
 export const fontSizes = {
   lg: ['2xl', '4xl', '5xl', '6xl', '7xl'],
+  md: { base: 'xl', md: '2xl', xl: '3xl' },
 }
 
 export const subHeadingsBr = {
