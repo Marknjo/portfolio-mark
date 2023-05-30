@@ -11,7 +11,7 @@ export const ContentGenerator = ({ content }: { content: string }) => {
     <>
       {contentArr.map((cnt, idx) => (
         <Text
-          mb="5"
+          mb={{ base: '3', md: '5' }}
           key={`${idx + 1}+${cnt.slice(8)}`}
           textStyle="para-default"
           layerStyle="para-default"

@@ -5,12 +5,15 @@ import { ContentGenerator } from 'ui'
 
 const TheStackContent = () => {
   const mainStyles: SystemStyleObject = {
-    gridRow: 'r6-start / r6-end',
-    gridColumn: 'col-start 8 / content-end',
+    gridRow: { base: 'r7-start / r7-end', md: 'r6-start / r6-end' },
+    gridColumn: {
+      base: 'content-start / content-end',
+      md: 'col-start 8 / content-end',
+    },
     alignSelf: 'center',
-    borderLeft: '1px solid',
-    borderLeftColor: 'orange.300',
-    pl: sizes.lg,
+    borderLeft: { base: 'none', md: '1px solid' },
+    borderLeftColor: { base: 'none', md: 'orange.300' },
+    pl: { base: '0', md: sizes.lg },
   }
 
   return (

@@ -45,10 +45,10 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
       {/* Main Content */}
       <Box as="main" backgroundColor="orange.50">
         {/* Page Hero Section */}
-        <HeroSection />
+        {/* <HeroSection /> */}
 
         {/* The Challenge Section */}
-        {/* <TheChallengeSection /> */}
+        <TheChallengeSection />
 
         {/* The Gallery Section */}
         {/* <GallerySection /> */}

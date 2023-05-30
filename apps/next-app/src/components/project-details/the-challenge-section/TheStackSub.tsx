@@ -5,7 +5,12 @@ import { SectionTitle } from 'ui'
 const TheStackSub = () => (
   <SectionTitle
     headingGridSetting={{
-      gridColumn: 'col-start 5 / content-end',
+      gridColumn: {
+        base: 'col-start 3 / content-end',
+        sm: 'col-start 5 / content-end',
+        md: 'col-start 7 / content-end',
+        lg: 'col-start 8 / content-end',
+      },
       gridRow: 'r5-start/r5-end',
       zIndex: '1',
       mb: sizes.md,
@@ -13,7 +18,12 @@ const TheStackSub = () => (
     }}
     bgGridSetting={{
       gridRow: 'r5-start/r5-end',
-      gridColumn: 'col-start 5 / outer-right-end',
+      gridColumn: {
+        base: 'col-start 2 / outer-right-end',
+        sm: 'col-start 4 / outer-right-end',
+        md: 'col-start 6 / outer-right-end',
+        lg: 'col-start 7 / outer-right-end',
+      },
       zIndex: '1',
       mb: sizes.md,
       mt: sizes.xl,

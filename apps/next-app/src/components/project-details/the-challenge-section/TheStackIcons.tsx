@@ -24,7 +24,12 @@ const stacks = groupStacksByCategory(
 const TheStackIcons = () => {
   const mainStyles: SystemStyleObject = {
     gridRow: 'r6-start / r6-end',
-    gridColumn: 'content-start / col-end 7',
+    gridColumn: {
+      base: 'content-start / content-end',
+      md: 'content-start / col-end 7',
+    },
+    pb: { base: '6', md: '0' },
+    pt: { base: '4', md: '0' },
   }
 
   return (
