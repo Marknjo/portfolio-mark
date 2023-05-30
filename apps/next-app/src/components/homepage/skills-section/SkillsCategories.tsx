@@ -1,18 +1,42 @@
 import { Grid } from '@chakra-ui/react'
-import { sizes } from '@components/next-ui'
 
 import SkillsBackend from './SkillsBackend'
 import SkillsFrontend from './SkillsFrontend'
 import SkillsTools from './SkillsTools'
 
+const rowBreakpoint = {
+  base: `
+  [r1-start]
+    auto [r1-end r2-start]
+    auto [r2-end r3-start] 
+    auto [r3-end]  
+  `,
+  lg: `
+    [r1-start]
+    2.5rem [r1-end r2-start]
+    auto [r2-end r3-start] 
+    auto [r3-end]  
+  `,
+  xl: `
+    [r1-start] 
+    2.5rem [r1-end r2-start] 
+    1rem [r2-end r3-start] 
+    auto [r3-end]  
+  `,
+}
+
 const SkillsCategories = () => (
   <Grid
-    gap={sizes.xs}
+    gap="4"
     gridColumn="col-start 1 / col-end 12"
-    gridRow="r5-start / r6-end"
-    gridTemplateColumns="repeat(3, minmax(200px, 1fr))"
-    gridTemplateRows="[r1-start] 3rem [r1-end r2-start] auto [r2-end r3-start] 3rem [r3-end]"
-    px={sizes.xs}
+    gridRow="r4-start / r5-end"
+    gridTemplateColumns={{
+      base: '100%',
+      lg: 'repeat(2, minmax(200px, 1fr))',
+      xl: 'repeat(3, minmax(200px, 1fr))',
+    }}
+    gridTemplateRows={rowBreakpoint}
+    px="4"
   >
     <SkillsFrontend />
 

@@ -6,8 +6,11 @@ const SkillsTools = () => (
     headingText="Tools & Other Skills"
     category={StackCategory.TOOLS}
     mainStylesOverrides={{
-      gridRow: 'r2-start/-1',
-      gridColumn: '3 / span 1',
+      gridRow: { base: 'r3-start/-1', xl: 'r2-start/-1' },
+      gridColumn: { base: '1 / -1', xl: '3 / span 1' },
+    }}
+    cardsWrapperOverrides={{
+      justifyContent: { base: 'center', xl: 'left' },
     }}
   />
 )

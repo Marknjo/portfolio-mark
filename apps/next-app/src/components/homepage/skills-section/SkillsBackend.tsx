@@ -6,8 +6,16 @@ const SkillsBackend = () => (
     headingText="Backend"
     category={StackCategory.BACKEND}
     mainStylesOverrides={{
-      gridRow: 'r1-start/-1',
-      gridColumn: '2 / span 1',
+      gridRow: {
+        base: 'r2-start/r2-end',
+        lg: 'r1-start/r2-end',
+        xl: 'r1-start/-1',
+      },
+      gridColumn: { base: '1 / span 1', lg: '2 / span 1' },
+      alignItems: 'center',
+    }}
+    cardsWrapperOverrides={{
+      justifyContent: { base: 'center', lg: 'left' },
     }}
   />
 )

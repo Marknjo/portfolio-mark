@@ -6,8 +6,16 @@ const SkillsFrontend = () => (
     headingText="Frontend & UI/UX"
     category={StackCategory.FRONTEND}
     mainStylesOverrides={{
-      gridRow: 'r2-start/-1',
+      gridRow: {
+        base: 'r1-start/r1-end',
+        lg: 'r1-start/r2-end',
+        xl: 'r2-start/-1',
+      },
       gridColumn: '1 / span 1',
+      alignItems: 'center',
+    }}
+    cardsWrapperOverrides={{
+      justifyContent: { base: 'center', lg: 'left' },
     }}
   />
 )

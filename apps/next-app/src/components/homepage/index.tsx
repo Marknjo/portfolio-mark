@@ -36,10 +36,10 @@ const HomePageV1 = () => (
       {/* <ProjectsSection /> */}
 
       {/* Favorite Project Section */}
-      <FavProjectSection />
+      {/* <FavProjectSection /> */}
 
       {/* Skills Section */}
-      {/* <SkillsSection /> */}
+      <SkillsSection />
 
       {/* Contact Section */}
       {/* <ContactSection /> */}

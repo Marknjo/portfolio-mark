@@ -1,3 +1,4 @@
+import { subHeadingsBr } from '@components/next-ui'
 import { GradientLayerStyles } from '@theme/foundations'
 import { SectionTitle } from 'ui'
 
@@ -10,22 +11,13 @@ const SubTitle = () => {
   return (
     <SectionTitle
       headingGridSetting={{
-        gridColumn: {
-          base: 'content-start / span 10',
-          md: 'content-start / span 6',
-          lg: 'content-start / span 5',
-        },
+        gridColumn: subHeadingsBr.noBr.text,
         gridRow: rowBreakingPoints,
         zIndex: '1',
       }}
       bgGridSetting={{
         gridRow: rowBreakingPoints,
-        gridColumn: {
-          base: 'outer-left-start / outer-right-end',
-          sm: 'outer-left-start / span 10',
-          md: 'outer-left-start / span 7',
-          lg: 'outer-left-start / span 6',
-        },
+        gridColumn: subHeadingsBr.noBr.bg,
         zIndex: '1',
       }}
       layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}

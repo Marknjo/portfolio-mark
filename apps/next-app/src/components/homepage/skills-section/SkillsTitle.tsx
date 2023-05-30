@@ -7,12 +7,7 @@ const SkillsTitle = () => (
     gridRow="r1-start/r1-end"
     zIndex="1"
   >
-    <LargeTitle
-      title="My Arsenal"
-      subTitle="Programming Tools In My Toolbox"
-      subTitleConfig={{ color: 'orange.900' }}
-      titleConfig={{ color: 'orange.700', mt: '0' }}
-    />
+    <LargeTitle title="My Arsenal" subTitle="Programming Tools In My Toolbox" />
   </GridItem>
 )
 

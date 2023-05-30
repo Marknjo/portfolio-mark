@@ -10,6 +10,7 @@ interface IProps {
   headingText: string
   mainStylesOverrides?: SystemStyleObject
   headingStylesOverrides?: SystemStyleObject
+  cardsWrapperOverrides?: SystemStyleObject
 }
 
 /**
@@ -20,6 +21,7 @@ const SkillsCategoryContainer = ({
   category,
   mainStylesOverrides = {},
   headingStylesOverrides = {},
+  cardsWrapperOverrides = {},
 }: IProps) => {
   const mainStyles: SystemStyleObject = {
     gridRow: 'r3-start/r3-end',
@@ -35,7 +37,7 @@ const SkillsCategoryContainer = ({
     border: '1px solid',
     borderColor: 'blackAlpha.100',
     boxShadow: 'base',
-    py: sizes.md,
+    pt: sizes.md,
     px: '2',
     borderRadius: 'md',
     backgroundColor: 'orange.50',
@@ -52,7 +54,7 @@ const SkillsCategoryContainer = ({
     textAlign: 'center',
     fontSize: '2xl',
     color: 'orange.900',
-    mb: sizes.xs,
+    mb: '4',
 
     // Overrides
     ...headingStylesOverrides,
@@ -64,7 +66,7 @@ const SkillsCategoryContainer = ({
         {headingText}
       </Heading>
 
-      <HStack gap={sizes.xs} flexWrap="wrap">
+      <HStack gap="4" flexWrap="wrap" mb={sizes.sm} sx={cardsWrapperOverrides}>
         {progLangs.map(
           lang =>
             !lang.isHidden &&
