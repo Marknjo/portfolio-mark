@@ -1,62 +1,21 @@
-import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+/* eslint-disable @typescript-eslint/no-use-before-define */
+import {
+  Grid,
+  GridItem,
+  SystemStyleObject,
+  useBreakpoint,
+} from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import { CardDetailsGallery, ExpandIconSize, ICardDetailsGallery } from 'ui'
-
-type GalleryImgInterface = Pick<ICardDetailsGallery, 'imgName' | 'alt' | 'id'>
-
-/* 
- overlayColor?: string
-  largeImg?: string // @TODO: link to the main gallery image
-  onExpandClick?: (imgName: string) => void
-  iconSize?: ExpandIconSize
-
-*/
-
-const gridImages: Array<GalleryImgInterface> = [
-  {
-    id: 1,
-    imgName: 'gallery-skills-section',
-    alt: 'A screenshot of project a gallery section',
-  },
-  {
-    id: 2,
-    imgName: 'gallery-contact-section',
-    alt: 'A screenshot of project contact section',
-  },
-  {
-    id: 3,
-    imgName: 'gallery-projects-section',
-    alt: 'A screenshot of projects section design',
-  },
-  {
-    id: 4,
-    imgName: 'gallery-fav-section',
-    alt: 'A screenshot of project favorite section design',
-  },
-]
+import { gridImages } from '@data/gridImages'
+import { CardDetailsGallery, ExpandIconSize } from 'ui'
 
 const GalleryImages = () => {
-  const mainStyles: SystemStyleObject = {
-    gridColumn: 'content-start / content-end',
-    py: sizes.lg,
-    zIndex: '2',
-
-    gridTemplateColumns: 'repeat(auto-fit, 50%)',
-    gridTemplateRows: `[r1-start] 1fr [r1-end]`,
-    gap: sizes.lg,
-  }
-
-  const leftImagesStyles: SystemStyleObject = {
-    gridTemplateColumns: 'repeat(2, [col-start]minmax(200px, 340px)[col-end])',
-    gridRow: 'r1-start/r1-end',
-    gridColumn: '2 / span 1',
-    gap: '4',
-  }
+  const { mainStyles, leftImagesStyles } = useStyles()
 
   return (
     <Grid sx={mainStyles}>
       {/* Main Image */}
-      <GridItem gridRow="r1-start/r1-end" gridColumn="1 / span 1">
+      <GridItem>
         <CardDetailsGallery
           alt="A screenshot of project profile section design"
           imgName="gallery-profile-lg-img"
@@ -79,3 +38,37 @@ const GalleryImages = () => {
 }
 
 export default GalleryImages
+
+/* Component styles */
+const useStyles = (): {
+  mainStyles: SystemStyleObject
+  leftImagesStyles: SystemStyleObject
+} => {
+  const brkP = useBreakpoint()
+
+  return {
+    mainStyles: {
+      gridColumn: 'content-start / content-end',
+      py: sizes.lg,
+      zIndex: '2',
+      ...(brkP === 'base' ? { justifyItems: 'center' } : {}),
+      gridTemplateColumns: {
+        base: 'repeat(auto-fit, minmax(1fr, 1fr))',
+        md: 'repeat(auto-fit, minmax(calc(48em/2), 1fr))',
+      },
+      gridTemplateRows: `[r1-start] 1fr [r1-end]`,
+      gap: { base: '6', md: '4' },
+    },
+
+    leftImagesStyles: {
+      gridTemplateColumns: {
+        base: 'repeat(auto-fit, minmax(160px, 1fr))',
+        sm: 'repeat(auto-fit, minmax(80px, 1fr))',
+        md: 'repeat(auto-fit, minmax(150px, 1fr))',
+        lg: 'repeat(auto-fit, minmax(200px, 1fr))',
+        xl: 'repeat(auto-fit, minmax(256px, 1fr))',
+      },
+      gap: { base: '6', md: '4' },
+    },
+  }
+}

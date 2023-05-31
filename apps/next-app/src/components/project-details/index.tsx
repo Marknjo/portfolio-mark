@@ -48,10 +48,10 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
         {/* <HeroSection /> */}
 
         {/* The Challenge Section */}
-        <TheChallengeSection />
+        {/* <TheChallengeSection /> */}
 
         {/* The Gallery Section */}
-        {/* <GallerySection /> */}
+        <GallerySection />
 
         {/* Project Summary Section */}
         {/* <SummarySection /> */}
