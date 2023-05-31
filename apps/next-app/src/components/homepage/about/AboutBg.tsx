@@ -11,7 +11,7 @@ const AboutBg = () => (
     gridRow={{
       base: 'r4-start / r5-end',
       md: 'r2-start / r5-end',
-      lg: 'r3-start / r5-end',
+      lg: 'r3-start / r4-end',
     }}
     backgroundColor="orange.600"
     shadow="md"
