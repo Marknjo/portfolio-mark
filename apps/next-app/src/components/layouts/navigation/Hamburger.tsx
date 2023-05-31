@@ -3,32 +3,23 @@ import { Box, Flex, SystemStyleObject } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import MenuOverlay from './MenuOverlay'
 
+const toggleStyles: SystemStyleObject = {
+  position: 'absolute',
+  width: '100%',
+  // top: '90%',
+}
+
 const toggleTopStyles: SystemStyleObject = {
-  // _groupActive: {
-  //   m: '0',
-  //   mt: '3',
-  //   transform: 'rotate(135deg)',
-  // },
-  m: '0',
-  mt: '3',
+  ...toggleStyles,
   transform: 'rotate(135deg)',
 }
 
 const toggleMiddleStyles: SystemStyleObject = {
-  // _groupActive: {
-  //   m: '0',
-  //   mt: '-5px',
-  //   transform: 'rotate(-135deg)',
-  // },
-  m: '0',
-  mt: '-5px',
+  ...toggleStyles,
   transform: 'rotate(-135deg)',
 }
 
 const toggleBottomStyles: SystemStyleObject = {
-  // _groupActive: {
-  //   display: 'none',
-  // },
   display: 'none',
 }
 
@@ -64,25 +55,23 @@ const Hamburger = ({
   }, [closeOverlay])
 
   const hamburgerStyles: SystemStyleObject = {
-    height: '4px',
-    width: '12',
-    display: 'block',
+    height: { base: '3px', lg: '4px' },
+    display: 'flex',
     backgroundColor: 'whiteAlpha.900',
     borderRadius: 'md',
     boxShadow: 'md',
-    mb: '2',
+    mb: { base: '6px', md: '8px', lg: '10px' },
     transformOrigin: 'center',
     backfaceVisibility: 'hidden',
     transition: 'all .15s ease-out',
     _groupHover: isShown
       ? {
-          backgroundColor: 'teal.100',
+          backgroundColor: 'orange.100',
         }
       : {
           boxShadow: 'lg',
-          mb: '10.5px',
           transform: 'scale(1.04)',
-          backgroundColor: 'teal.100',
+          backgroundColor: 'orange.100',
         },
   }
 
@@ -100,18 +89,20 @@ const Hamburger = ({
   }
 
   const hamburgerBoxStyles: SystemStyleObject = {
+    maxW: { base: '36px', md: '48px' },
+    maxH: { base: '36px', md: '48px' },
     userSelect: 'none',
     flexDirection: 'column',
     cursor: 'pointer',
     justifySelf: 'center',
-    py: '1',
     position: 'absolute',
     zIndex: 'banner',
-    top: { base: '1', sm: '2' },
-    right: '1',
+    top: { base: '1rem', sm: '0.8rem', lg: '0.6rem', xl: '0.8rem' },
+    right: { base: '1rem', sm: '2rem' },
     _groupActive: {
       top: '100px',
     },
+    ...(isShown ? { top: { base: '1.4rem', md: '1.7rem' } } : {}),
     columnGap: isShown ? '6' : '3',
   }
 

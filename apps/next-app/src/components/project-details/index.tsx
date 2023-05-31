@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Center, baseTheme, useBreakpoint } from '@chakra-ui/react'
+import { Box, Center, useBreakpoint } from '@chakra-ui/react'
 
 import Footer from '@components/layouts/footer/Footer'
 import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
@@ -45,26 +45,26 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
       {/* Main Content */}
       <Box as="main" backgroundColor="orange.50">
         {/* Page Hero Section */}
-        {/* <HeroSection /> */}
+        <HeroSection />
 
         {/* The Challenge Section */}
-        {/* <TheChallengeSection /> */}
+        <TheChallengeSection />
 
         {/* The Gallery Section */}
-        {/* <GallerySection /> */}
+        <GallerySection />
 
         {/* Project Summary Section */}
-        {/* <SummarySection /> */}
+        <SummarySection />
 
         {/* Project Links & related projects & Page CTA */}
         <ProjectDetailsCTA />
       </Box>
 
       {/* Footer */}
-      {/* <Footer /> */}
+      <Footer />
 
       {/* to top component */}
-      {/* <ToTop /> */}
+      <ToTop />
     </>
   )
 }
