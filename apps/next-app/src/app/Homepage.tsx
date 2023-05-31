@@ -3,9 +3,9 @@
 import React from 'react'
 
 // eslint-disable-next-line import/no-unresolved
-import { Center } from '@chakra-ui/react'
 import { useIsLoading } from '@hooks/is-loading'
 import HomePageV1 from '@components/homepage'
+import UiLoader from '@components/layouts/loaders/UiLoader'
 
 // Components
 
@@ -14,7 +14,7 @@ const HomePage = () => {
 
   if (isLoading) {
     // @TODO: implement loading ui component
-    return <Center>Loading...</Center>
+    return <UiLoader />
   }
 
   return <HomePageV1 />

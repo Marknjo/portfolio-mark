@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Center, useBreakpoint } from '@chakra-ui/react'
+import { Box, useBreakpoint } from '@chakra-ui/react'
 
 import Footer from '@components/layouts/footer/Footer'
 import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
@@ -14,6 +14,7 @@ import { pDNavLinks } from '@data/navLinks'
 
 import { useIsLoading } from '@hooks/is-loading'
 import { useEffect } from 'react'
+import UiLoader from '@components/layouts/loaders/UiLoader'
 
 const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
   console.log(pageDetails)
@@ -34,7 +35,7 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
 
   if (isLoading) {
     // @TODO: implement loading ui component
-    return <Center>Loading...</Center>
+    return <UiLoader />
   }
 
   return (
