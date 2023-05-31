@@ -28,7 +28,7 @@ export const subHeadingsBr = {
       lg: 'content-start / span 6',
     },
     bg: {
-      base: 'outer-left-start / outer-right-end',
+      base: 'outer-left-start / span 11',
       sm: 'outer-left-start / span 10',
       md: 'outer-left-start / span 8',
       lg: 'outer-left-start / span 7',

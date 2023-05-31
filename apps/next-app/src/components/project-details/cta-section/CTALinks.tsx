@@ -4,6 +4,7 @@ import {
   GridItem,
   HStack,
   SystemStyleObject,
+  useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import NextLink from 'next/link'
@@ -19,41 +20,15 @@ const CTALinks = ({
   nextProjectUrl?: string
   prevProjectUrl?: string
 }) => {
+  const brkP = useBreakpoint()
   /* Styles */
-  const mainStyles: SystemStyleObject = {
-    gridRow: 'r1-start/r1-end',
-    gridColumn: 'content-start/content-end',
-    pb: sizes.lg,
-  }
 
-  const projectLinkStyles: SystemStyleObject = {
-    color: 'teal.100',
-    borderColor: 'teal.100',
-    colorScheme: 'teal',
-    _active: {
-      color: 'teal.800',
-      backgroundColor: 'teal.300',
-    },
-    _hover: {
-      color: 'teal.50',
-    },
-  }
-
-  const paginationStyles: SystemStyleObject = {
-    color: 'teal.50',
-    borderColor: 'teal.50',
-    colorScheme: 'teal',
-    transition: 'all .15s ease-in',
-
-    _active: {
-      color: 'teal.800',
-      backgroundColor: 'teal.300',
-    },
-  }
+  const { mainStyles, paginationStyles, projectLinkStyles, btnWrapperStyles } =
+    useStyles()
 
   return (
     <GridItem sx={mainStyles}>
-      <HStack justifyContent="space-between" width="100%" px={sizes.md}>
+      <HStack sx={btnWrapperStyles}>
         <Button
           as={NextLink}
           href="/"
@@ -61,8 +36,9 @@ const CTALinks = ({
           rightIcon={<BiHome />}
           variant="solid"
           colorScheme="teal"
+          size={{ base: 'sm', md: 'md' }}
         >
-          Back To Home
+          {brkP === 'base' || brkP === 'sm' ? 'Home' : 'Back To Home'}
         </Button>
 
         <Button
@@ -72,12 +48,17 @@ const CTALinks = ({
           rightIcon={<FiArrowUpRight />}
           colorScheme="teal"
           variant="outline"
+          size={{ base: 'sm', md: 'md' }}
         >
-          Visit Live Project
+          {brkP === 'base' || brkP === 'sm' ? 'Visit' : 'Visit Live Project'}
         </Button>
 
         {/* Pagination Links */}
-        <HStack justify="flex-end" gap="2">
+        <HStack
+          width={{ base: '100%', sm: 'auto' }}
+          justifyContent={{ base: 'center', sm: 'auto' }}
+          gap={{ base: '4', sm: '2' }}
+        >
           <Button
             as={NextLink}
             href={prevProjectUrl}
@@ -115,3 +96,49 @@ const CTALinks = ({
   )
 }
 export default CTALinks
+
+interface Styles {
+  mainStyles: SystemStyleObject
+  projectLinkStyles: SystemStyleObject
+  paginationStyles: SystemStyleObject
+  btnWrapperStyles: SystemStyleObject
+}
+
+const useStyles = (): Styles => ({
+  mainStyles: {
+    gridRow: 'r1-start/r1-end',
+    gridColumn: 'content-start/content-end',
+    pb: sizes.lg,
+  },
+  projectLinkStyles: {
+    color: 'teal.100',
+    borderColor: 'teal.100',
+    colorScheme: 'teal',
+    _active: {
+      color: 'teal.800',
+      backgroundColor: 'teal.300',
+    },
+    _hover: {
+      color: 'teal.50',
+    },
+  },
+  btnWrapperStyles: {
+    justifyContent: { base: 'space-between' },
+    alignContent: { base: 'center', md: 'space-between' },
+    width: '100%',
+    px: { base: '4', sm: '6' },
+    flexWrap: { base: 'wrap', sm: 'nowrap' },
+    gap: '4',
+  },
+  paginationStyles: {
+    color: 'teal.50',
+    borderColor: 'teal.50',
+    colorScheme: 'teal',
+    transition: 'all .15s ease-in',
+
+    _active: {
+      color: 'teal.800',
+      backgroundColor: 'teal.300',
+    },
+  },
+})

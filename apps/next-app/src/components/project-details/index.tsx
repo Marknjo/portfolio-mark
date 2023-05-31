@@ -54,10 +54,10 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
         {/* <GallerySection /> */}
 
         {/* Project Summary Section */}
-        <SummarySection />
+        {/* <SummarySection /> */}
 
         {/* Project Links & related projects & Page CTA */}
-        {/* <ProjectDetailsCTA /> */}
+        <ProjectDetailsCTA />
       </Box>
 
       {/* Footer */}

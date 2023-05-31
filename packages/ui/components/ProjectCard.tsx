@@ -5,13 +5,14 @@ import {
   GridItem,
   Heading,
   Image,
+  SystemStyleObject,
   Tag,
   VStack,
   Wrap,
   WrapItem,
+  useBreakpoint,
 } from '@chakra-ui/react'
 import { LinkIcon } from './LinkIcon'
-import { SubHeading } from './SubHeading'
 
 export interface ProjectTagsInterface {
   tagName: string
@@ -23,9 +24,22 @@ export interface CardsInfoInterface {
   url: string
   as?: As
   tags: Array<ProjectTagsInterface>
+  maxW?: string | { [key: string]: string }
+  wrapperSx?: SystemStyleObject
 }
 
-export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
+export const ProjectCard = ({
+  title,
+  url,
+  tags,
+  as,
+  maxW = '64',
+  wrapperSx,
+}: CardsInfoInterface) => {
+  const brkP = useBreakpoint()
+
+  const breakBtnText = brkP === 'base' || brkP === 'sm' || brkP === 'md'
+
   const gridRowsBreakpoint = {
     base: `
       [r1-start] 
@@ -50,12 +64,16 @@ export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
     lg: '24px repeat(4, 1fr) 24px',
   }
 
+  const wrapperStyles: SystemStyleObject = {
+    gridTemplateColumns: gridColumnsBreakpoint,
+    gridTemplateRows: gridRowsBreakpoint,
+    maxW: maxW,
+    minW: '56',
+    ...wrapperSx,
+  }
+
   return (
-    <Grid
-      as="article"
-      gridTemplateColumns={gridColumnsBreakpoint}
-      gridTemplateRows={gridRowsBreakpoint}
-    >
+    <Grid as="article" sx={wrapperStyles}>
       <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
           src="./images/card-image.jpg"
@@ -81,7 +99,7 @@ export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
           <Heading
             as="h3"
             color="orange.800"
-            fontSize={{ base: 'xl', md: '2xl', xl: '3xl' }}
+            fontSize={{ base: 'xl', md: '2xl' }}
             textAlign="center"
             lineHeight="none"
           >
@@ -113,7 +131,7 @@ export const ProjectCard = ({ title, url, tags, as }: CardsInfoInterface) => {
             rightIcon={<LinkIcon />}
             size="sm"
           >
-            Explore Project
+            {breakBtnText ? 'Explore' : 'Explore Project'}
           </Button>
         </VStack>
       </GridItem>

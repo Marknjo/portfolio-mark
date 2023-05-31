@@ -1,11 +1,16 @@
 import NextLink from 'next/link'
-import { GridItem, HStack } from '@chakra-ui/react'
+import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
 import { CardsInfoInterface, ProjectCard } from 'ui'
 
 const columnBreakpoint = {
   base: 'col-start 2/col-end 11',
   md: 'col-start 2/col-end 12',
   lg: 'col-start 3/col-end 11',
+}
+
+const wrapperOverridesStyles: SystemStyleObject = {
+  maxW: 'auto',
+  minW: 'auto',
 }
 
 const ProjectCards = ({
@@ -26,7 +31,12 @@ const ProjectCards = ({
       px={{ md: '4', lg: 0 }}
     >
       {projectsInfo.map(info => (
-        <ProjectCard key={info.title} {...info} as={NextLink} />
+        <ProjectCard
+          wrapperSx={wrapperOverridesStyles}
+          key={info.title}
+          {...info}
+          as={NextLink}
+        />
       ))}
     </HStack>
   </GridItem>

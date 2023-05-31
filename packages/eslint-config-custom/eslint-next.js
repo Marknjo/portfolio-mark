@@ -47,6 +47,8 @@ module.exports = {
 
     // next
     '@next/next/no-html-link-for-pages': 'off',
+
+    '@typescript-eslint/no-use-before-define': 'off',
   },
   overrides: [
     {
