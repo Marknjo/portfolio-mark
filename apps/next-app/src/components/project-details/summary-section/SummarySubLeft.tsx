@@ -1,25 +1,36 @@
-import { sizes } from '@components/next-ui'
+import { useBreakpoint } from '@chakra-ui/react'
+import { sizes, subHeadingsBr } from '@components/next-ui'
 import { GradientLayerStyles } from '@theme/foundations'
 import { SectionTitle } from 'ui'
 
-const SummarySubLeft = () => (
-  <SectionTitle
-    headingGridSetting={{
-      gridColumn: 'content-start / span 7',
-      gridRow: 'r2-start/r2-end',
-      zIndex: '1',
-      mb: sizes.md,
-    }}
-    bgGridSetting={{
-      gridRow: 'r2-start/r2-end',
-      gridColumn: 'outer-left-start / span 7',
-      zIndex: '1',
-      mb: sizes.md,
-    }}
-    layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
-  >
-    Project Challenges
-  </SectionTitle>
-)
+const SummarySubLeft = () => {
+  const brkP = useBreakpoint()
+
+  const mb = brkP === 'sm' || brkP === 'base' ? 0 : sizes.md
+  const rowBrkP = {
+    base: '2/span 1',
+    md: 'r2-start/r2-end',
+  }
+
+  return (
+    <SectionTitle
+      headingGridSetting={{
+        gridColumn: subHeadingsBr.noBr.text,
+        gridRow: rowBrkP,
+        zIndex: '1',
+        mb,
+      }}
+      bgGridSetting={{
+        gridRow: rowBrkP,
+        gridColumn: subHeadingsBr.noBr.bg,
+        zIndex: '1',
+        mb,
+      }}
+      layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
+    >
+      Project Challenges
+    </SectionTitle>
+  )
+}
 
 export default SummarySubLeft

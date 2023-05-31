@@ -15,7 +15,7 @@ export const OsxImageWindow = ({
         <HStack
           gap={{ base: '1', md: '2', lg: '3' }}
           px={circlesBrP}
-          py={{ base: '1', md: '2' }}
+          py={{ base: '4px', sm: '6px', md: '2' }}
         >
           <Box sx={circleRedStyles}>&nbsp;</Box>
           <Box sx={circleYellowStyles}>&nbsp;</Box>
@@ -89,5 +89,6 @@ const imageStyles = (
   height: 'auto',
   objectFit: 'cover',
   borderBottomRadius: 'md',
+  mt: '0 !important',
   ...imageSxOverrides,
 })

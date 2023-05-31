@@ -12,11 +12,18 @@ import { IoMdCheckmarkCircle } from 'react-icons/io'
 
 const SummaryContentLeft = () => {
   const mainStyles: SystemStyleObject = {
-    gridRow: 'r3-start/r3-end',
-    gridColumn: 'content-start / span 6',
+    gridRow: {
+      base: '3/span 1',
+      md: 'r3-start/r3-end',
+    },
+    gridColumn: {
+      base: 'content-start / content-end',
+      md: 'content-start / span 6',
+    },
     gap: '2',
     px: sizes.xs,
     pb: sizes.xl,
+    pt: { base: '4', md: 0 },
   }
 
   return (
@@ -37,7 +44,7 @@ const SummaryContentLeft = () => {
       </Text>
 
       {/* List content */}
-      <List spacing={3}>
+      <List spacing={3} pl={{ base: '4', md: '6', xl: 0 }}>
         <ListItem>
           <ListIcon as={IoMdCheckmarkCircle} color="teal.500" />
           Lorem ipsum dolor sit amet, consectetur adipisicing elit

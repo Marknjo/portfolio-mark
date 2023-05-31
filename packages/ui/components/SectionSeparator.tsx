@@ -7,7 +7,7 @@ export const SectionSeparator = ({
   const styles: SystemStyleObject = {
     width: '100%',
     height: '100%',
-    minHeight: '6px',
+    minHeight: { base: '4px', md: '6px' },
     gridRow: 'r4-start/r4-end',
     gridColumn: 'outer-left-start/outer-right-end',
     backgroundColor: 'blackAlpha.50',

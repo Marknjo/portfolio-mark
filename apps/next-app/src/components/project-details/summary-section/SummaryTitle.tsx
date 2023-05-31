@@ -4,7 +4,10 @@ import { LargeTitle } from 'ui'
 const SummaryTitle = () => (
   <GridItem
     gridColumn="content-start/content-end"
-    gridRow="r1-start/r1-end"
+    gridRow={{
+      base: '1/span 1',
+      md: 'r1-start/r1-end',
+    }}
     zIndex="1"
   >
     <LargeTitle

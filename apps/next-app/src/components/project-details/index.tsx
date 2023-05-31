@@ -51,10 +51,10 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
         {/* <TheChallengeSection /> */}
 
         {/* The Gallery Section */}
-        <GallerySection />
+        {/* <GallerySection /> */}
 
         {/* Project Summary Section */}
-        {/* <SummarySection /> */}
+        <SummarySection />
 
         {/* Project Links & related projects & Page CTA */}
         {/* <ProjectDetailsCTA /> */}

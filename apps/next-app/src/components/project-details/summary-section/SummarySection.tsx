@@ -13,13 +13,16 @@ const SummarySection = () => {
   const mainStyles: GridProps = {
     backgroundColor: 'orange.50',
     pb: sizes.xl,
-    gridTemplateRows: `[r1-start]
-      auto [r1-end r2-start]
-      auto [r2-end r3-start]
-      auto [r3-end r4-start]
-      6px [r4-end r5-start]
-      auto [r5-end]
+    gridTemplateRows: {
+      base: 'auto',
+      md: `[r1-start]
+        auto [r1-end r2-start]
+        auto [r2-end r3-start]
+        auto [r3-end r4-start]
+        6px [r4-end r5-start]
+        auto [r5-end]
     `,
+    },
   }
 
   return (
@@ -36,7 +39,9 @@ const SummarySection = () => {
       <SummaryContentRight />
 
       {/* Summary Separator */}
-      <SectionSeparator />
+      <SectionSeparator
+        sxOverrides={{ gridRow: { base: '6/span 1', md: 'r4-start/r4-end' } }}
+      />
 
       {/* Summary Section Image */}
       <SummaryImage />
