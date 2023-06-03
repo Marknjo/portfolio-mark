@@ -2,50 +2,17 @@ import NextLink from 'next/link'
 
 import { Grid, GridItem } from '@chakra-ui/react'
 
-import { GalleryImageCard, GalleryImageCardInterface } from 'ui'
-
-type FavGalleryImgInterface = Omit<GalleryImageCardInterface, 'asNavLink'>
-
-const gridImages: Array<FavGalleryImgInterface> = [
-  {
-    id: 1,
-    imgName: 'hero-section-img',
-    alt: 'Favorite Project Hero image',
-    title: 'Hero Section',
-  },
-  {
-    id: 2,
-    imgName: 'hero-section-img',
-    alt: 'Favorite Project Hero image',
-    title: 'Hero Section',
-  },
-  {
-    id: 3,
-    imgName: 'hero-section-img',
-    alt: 'Favorite Project Hero image',
-    title: 'Hero Section',
-  },
-  {
-    id: 4,
-    imgName: 'hero-section-img',
-    alt: 'Favorite Project Hero image',
-    title: 'Hero Section',
-  },
-  {
-    id: 5,
-    imgName: 'hero-section-img',
-    alt: 'Favorite Project Hero image',
-    title: 'Hero Section',
-  },
-  {
-    id: 6,
-    imgName: 'hero-section-img',
-    alt: 'Favorite Project Hero image',
-    title: 'Hero Section',
-  },
-]
+import { GalleryImageCard } from 'ui'
+import { useSlider } from '@store/context/slider'
+import { IFavGallery } from '@data/favProjectImgs'
 
 const FavGallery = () => {
+  const {
+    sliderItems,
+    setCurActiveSlide: setCurSlide,
+    openSlider,
+  } = useSlider<IFavGallery>()
+
   const gridColumnDef = {
     base: 'repeat(auto-fit, minmax(18rem, 1fr))',
   }
@@ -54,6 +21,12 @@ const FavGallery = () => {
     base: 'col-start 1 / content-end',
     sm: 'col-start 2 / content-end',
     lg: 'col-start 4 / content-end',
+  }
+
+  /// Open slider and set the current selected slide
+  const openGalleryHandler = (selectedSlide: number) => {
+    setCurSlide(selectedSlide)
+    openSlider()
   }
 
   return (
@@ -68,13 +41,17 @@ const FavGallery = () => {
       gap="4"
       as={Grid}
     >
-      {gridImages.map(img => (
+      {sliderItems.map((img, i) => (
         <GalleryImageCard
           key={img.id}
           imgName={img.imgName}
           title={img.title}
           alt={img.alt}
           asNavLink={NextLink}
+          onClick={event => {
+            event.preventDefault()
+            openGalleryHandler(i)
+          }}
         />
       ))}
     </GridItem>

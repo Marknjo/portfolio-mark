@@ -11,7 +11,10 @@ import CtaSection from '@components/layouts/cta/CtaSection'
 import Footer from '@components/layouts/footer/Footer'
 import ToTop from '@components/layouts/to-top/ToTop'
 import { homePageNavLinks } from '@data/navLinks'
+import { useIsLoading } from '@hooks/is-loading'
+import UiLoader from '@components/layouts/loaders/UiLoader'
 
+/// Local components
 import HomePageHero from './hero/HomePageHero'
 import AboutSection from './about/AboutSection'
 import ProjectsSection from './projects/ProjectsSection'
@@ -19,41 +22,49 @@ import FavProjectSection from './fav-project/FavProjectSection'
 import SkillsSection from './skills-section/SkillsSection'
 import ContactSection from './contact-section/ContactSection'
 
-const HomePageV1 = () => (
-  <>
-    {/* HomePage Navigation */}
-    <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
+const HomePage = () => {
+  const isLoading = useIsLoading()
 
-    {/* Page Hero Section */}
-    <HomePageHero />
+  if (isLoading) {
+    return <UiLoader />
+  }
 
-    {/* Main Content */}
-    <Box as="main">
-      {/* About Section */}
-      <AboutSection />
+  return (
+    <>
+      {/* HomePage Navigation */}
+      <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
 
-      {/* Projects Section */}
-      <ProjectsSection />
+      {/* Page Hero Section */}
+      <HomePageHero />
 
-      {/* Favorite Project Section */}
-      <FavProjectSection />
+      {/* Main Content */}
+      <Box as="main">
+        {/* About Section */}
+        <AboutSection />
 
-      {/* Skills Section */}
-      <SkillsSection />
+        {/* Projects Section */}
+        <ProjectsSection />
 
-      {/* Contact Section */}
-      <ContactSection />
+        {/* Favorite Project Section */}
+        <FavProjectSection />
 
-      {/* Page CTA */}
-      <CtaSection />
-    </Box>
+        {/* Skills Section */}
+        <SkillsSection />
 
-    {/* Footer */}
-    <Footer />
+        {/* Contact Section */}
+        <ContactSection />
 
-    {/* to top component */}
-    <ToTop />
-  </>
-)
+        {/* Page CTA */}
+        <CtaSection />
+      </Box>
 
-export default HomePageV1
+      {/* Footer */}
+      <Footer />
+
+      {/* to top component */}
+      <ToTop />
+    </>
+  )
+}
+
+export default HomePage

@@ -8,15 +8,17 @@ import {
   Link,
   SystemStyleObject,
 } from '@chakra-ui/react'
+import { SyntheticEvent } from 'react'
 import { FiArrowUpRight } from 'react-icons/fi'
 
-export interface GalleryImageCardInterface {
+export interface IGalleryImageCard {
   id: number
   imgName: string
   alt: string
   title: string
   largeImg?: string // @TODO: link to the main gallery image
   asNavLink: As
+  onClick?: (event: SyntheticEvent) => void
 }
 
 export const GalleryImageCard = ({
@@ -24,7 +26,8 @@ export const GalleryImageCard = ({
   alt,
   title,
   asNavLink,
-}: Omit<GalleryImageCardInterface, 'id'>) => {
+  onClick,
+}: Omit<IGalleryImageCard, 'id'>) => {
   const sharedStyles: SystemStyleObject = {
     width: '100%',
     height: '100%',
@@ -107,6 +110,7 @@ export const GalleryImageCard = ({
           as={asNavLink}
           sx={expandImageStyles}
           role="group"
+          onClick={onClick}
         >
           <Icon as={FiArrowUpRight} width={5} height={5} sx={iconStyles} />
         </Link>

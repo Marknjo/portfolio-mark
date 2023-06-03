@@ -13,7 +13,7 @@ import { sizes } from '@components/next-ui'
 
 const rightStyles: SystemStyleObject = {
   backgroundColor: 'orange.600',
-  pb: '16',
+  pb: ['8', '12', '16'],
 }
 
 const imageCommonStyles: SystemStyleObject = {
@@ -58,8 +58,11 @@ const HeroRightGrid = () => {
         position="relative"
         alignSelf="center"
       >
-        {/* '6', '8', '10', '12', '16' */}
-        <Flex pt={sizes.xl} pb={['8', '12', '16']} sx={imgContainerBreakpoint}>
+        <Flex
+          pt={sizes.xl_TT}
+          pb={['8', '12', '16']}
+          sx={imgContainerBreakpoint}
+        >
           <Box
             maxW={{ base: '70%', sm: '60%', xl: '80' }}
             _after={{

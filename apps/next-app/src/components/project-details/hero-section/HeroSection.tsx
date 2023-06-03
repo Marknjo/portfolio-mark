@@ -51,6 +51,7 @@ const HeroSection = () => {
     // Define grid
     gridTemplateRows: rowBrp,
     pb: sizes.xl,
+    pt: sizes.nav_pd,
   }
 
   return (

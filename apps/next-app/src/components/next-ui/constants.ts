@@ -13,6 +13,15 @@ export const sizes = {
   md: ['3', '4', '6', '8'],
   sm: ['3', '4', '6'],
   xs: { sm: '2', lg: '4' },
+  xl_TB: [`${24}px`, `${32}px`, `${40 + 48}px`, `${48 + 56}px`, `${64 + 58}px`], // suitable for hero section that neighbors TopNav but on small screen goes below another component
+  xl_TT: [
+    `${24 + 40}px`,
+    `${32 + 36}px`,
+    `${40 + 48}px`,
+    `${48 + 56}px`,
+    `${64 + 58}px`,
+  ], // suitable for hero section that neighbors TopNav but on small screen still remains on top of the screen - XL - x-tra-large, TT - top
+  nav_pd: ['40px', '36px', '48px', '56px', '58px'], // fixes top nav padding top
 }
 
 export const fontSizes = {

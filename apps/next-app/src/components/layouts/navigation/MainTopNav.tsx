@@ -54,6 +54,13 @@ const navContainerStyles = (showHamburger: boolean) => {
 
   const menuWithoutHamburgerStyles: SystemStyleObject = {
     backgroundColor: 'orange.600',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    zIndex: 10,
+    boxShadow: 'base',
+    maxH: '58px',
   }
 
   const mainStyles: GridProps = {

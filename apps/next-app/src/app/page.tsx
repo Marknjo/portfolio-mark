@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
-import HomePage from './Homepage'
+
+import HomePage from '@components/homepage'
 
 /* 
     <Head>

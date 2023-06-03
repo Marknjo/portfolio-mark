@@ -11,7 +11,7 @@ const HeroTitle = () => (
       gridColumn: 'content-start/content-end',
       gridRow: 'title-start/title-end',
       zIndex: '1',
-      pb: { base: '12', lg: '20' },
+      pb: { base: '12', lg: '28' },
       pt: '0',
     }}
   />

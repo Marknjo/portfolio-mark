@@ -16,8 +16,12 @@ import { useIsLoading } from '@hooks/is-loading'
 import { useEffect } from 'react'
 import UiLoader from '@components/layouts/loaders/UiLoader'
 
-const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
-  console.log(pageDetails)
+// @TODO: Implement the details page context to share page data
+// interface DetailsPageProps {
+//   pageDetails?: any
+// }
+
+const DetailsPage = () => {
   const brP = useBreakpoint()
   const isLoading = useIsLoading()
 
@@ -34,7 +38,6 @@ const DetailsPage = ({ pageDetails = {} }: { pageDetails?: any }) => {
   }, [brP])
 
   if (isLoading) {
-    // @TODO: implement loading ui component
     return <UiLoader />
   }
 

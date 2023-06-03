@@ -14,7 +14,7 @@ import { fontSizes, sizes } from '@components/next-ui'
 const HeroLeftGrid = () => {
   const leftStyles: SystemStyleObject = {
     backgroundColor: 'orange.500',
-    pt: sizes.xl,
+    pt: sizes.xl_TB,
   }
   return (
     <>
