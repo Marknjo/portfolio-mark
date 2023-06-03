@@ -11,6 +11,7 @@ export interface ICardDetailsGallery {
   largeImg?: string // @TODO: link to the main gallery image
   onExpandClick?: (imgName: string) => void
   iconSize?: ExpandIconSize
+  openGallery: () => void
 }
 
 export enum ExpandIconSize {
@@ -25,6 +26,7 @@ export const CardDetailsGallery = ({
   overlayColor,
   largeImg,
   onExpandClick,
+  openGallery,
   iconSize,
 }: Omit<ICardDetailsGallery, 'id'>) => {
   const expandSize = useCallback(
@@ -129,11 +131,12 @@ export const CardDetailsGallery = ({
           width={5}
           height={5}
           sx={iconStyles}
-          onClick={() =>
+          onClick={() => {
+            openGallery()
             onExpandClick && largeImg
               ? onExpandClick(`./images/${largeImg}.jpg`)
               : () => {}
-          }
+          }}
         />
       </Box>
     </GridItem>

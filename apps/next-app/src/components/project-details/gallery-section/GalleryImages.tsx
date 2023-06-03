@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import {
   Grid,
   GridItem,
@@ -6,11 +5,14 @@ import {
   useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import { gridImages } from '@data/gridImages'
+import { IGalleryImg } from '@data/gridImages'
+import { useSlider } from '@store/context/slider'
 import { CardDetailsGallery, ExpandIconSize } from 'ui'
 
 const GalleryImages = () => {
   const { mainStyles, leftImagesStyles } = useStyles()
+  const { sliderItems, openSlider, setCurActiveSlide } =
+    useSlider<IGalleryImg>()
 
   return (
     <Grid sx={mainStyles}>
@@ -19,17 +21,25 @@ const GalleryImages = () => {
         <CardDetailsGallery
           alt="A screenshot of project profile section design"
           imgName="gallery-profile-lg-img"
+          openGallery={() => {
+            setCurActiveSlide(0)
+            openSlider()
+          }}
         />
       </GridItem>
 
       {/* Images Container */}
       <Grid sx={leftImagesStyles}>
-        {gridImages.map(img => (
+        {sliderItems.slice(1, 5).map((img, i) => (
           <CardDetailsGallery
             key={`${img.imgName}${img.id}`}
             alt={img.alt}
             imgName={img.imgName}
             iconSize={ExpandIconSize.md}
+            openGallery={() => {
+              setCurActiveSlide(i + 1)
+              openSlider()
+            }}
           />
         ))}
       </Grid>

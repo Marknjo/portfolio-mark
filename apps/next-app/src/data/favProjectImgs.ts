@@ -1,6 +1,9 @@
 import { IGalleryImageCard } from 'ui'
 
-export type IFavGallery = Omit<IGalleryImageCard, 'asNavLink' | 'onClick'>
+export type IFavGallery = Omit<
+  IGalleryImageCard,
+  'asNavLink' | 'onClick' | 'openGallery'
+>
 
 export type FavProjectGalleryImgs = Array<IFavGallery>
 
