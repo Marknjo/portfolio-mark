@@ -1,7 +1,7 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import { sampContent } from '@data/sampleContent'
-import { ContentGenerator } from 'ui'
+import { ParagraphGenerator } from 'ui'
 
 const TheStackContent = () => {
   const mainStyles: SystemStyleObject = {
@@ -18,7 +18,7 @@ const TheStackContent = () => {
 
   return (
     <GridItem sx={mainStyles}>
-      <ContentGenerator content={sampContent} />
+      <ParagraphGenerator content={sampContent} />
     </GridItem>
   )
 }

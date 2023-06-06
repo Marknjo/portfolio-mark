@@ -1,5 +1,5 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
-import { DotsBottomRight, MainGrid, ContentGenerator } from 'ui'
+import { DotsBottomRight, MainGrid, ParagraphGenerator } from 'ui'
 import { sampContent } from '@data/sampleContent'
 import { sizes } from '@components/next-ui'
 
@@ -30,7 +30,7 @@ const ProjectGoalContent = () => (
         px={sizes.md}
         pb={sizes.md}
       >
-        <ContentGenerator content={sampContent} />
+        <ParagraphGenerator content={sampContent} />
       </GridItem>
     </MainGrid>
     <DotsBottomRight width={24} fill="#ED8936" />

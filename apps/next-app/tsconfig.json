@@ -21,7 +21,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "../../packages/ui/components/ContentGenerator.tsx",
+    "../../packages/ui/components/ParagraphGenerator.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]

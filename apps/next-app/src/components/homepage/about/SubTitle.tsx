@@ -1,8 +1,15 @@
 import { subHeadingsBr } from '@components/next-ui'
+import { useHomePageData } from '@store/context/homepage-context'
 import { GradientLayerStyles } from '@theme/foundations'
 import { SectionTitle } from 'ui'
 
 const SubTitle = () => {
+  const {
+    content: {
+      about: { subTitle },
+    },
+  } = useHomePageData()
+
   const rowBreakingPoints = {
     base: 'r2-start/r2-end',
     lg: 'r3-start/r3-end',
@@ -22,7 +29,7 @@ const SubTitle = () => {
       }}
       layerStyle={GradientLayerStyles.GrdROrange600to50WithoutBorders}
     >
-      My Short Story
+      {subTitle}
     </SectionTitle>
   )
 }

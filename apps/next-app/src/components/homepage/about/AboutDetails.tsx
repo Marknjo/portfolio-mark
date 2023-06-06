@@ -1,7 +1,8 @@
 import { Box, GridItem, VStack, Text } from '@chakra-ui/react'
 import { DetailsItemsTitle, SubHeading } from 'ui'
-import { socialWithPick } from '@data/social'
 import { HSocialIcons, sizes } from '@components/next-ui'
+import { useHomePageData } from '@store/context/homepage-context'
+import { ISocialLink } from '@data/types'
 
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
@@ -17,6 +18,22 @@ const DetailsItem = ({ title, text }: { title: string; text: string }) => (
 )
 
 const AboutDetails = () => {
+  const {
+    data: { aboutSocialIcons },
+    content: {
+      about: {
+        detailsLocationText,
+        detailsLocationTitle,
+        detailsNameText,
+        detailsNameTitle,
+        detailsSocialTitle,
+        detailsTitle,
+        detailsWorkAvailabilityText,
+        detailsWorkAvailabilityTitle,
+      },
+    },
+  } = useHomePageData()
+
   const rowBreakingPoint = {
     base: 'r5-start/r6-end',
     lg: 'r2-start / r5-end',
@@ -63,8 +80,7 @@ const AboutDetails = () => {
             mb: { base: '3', sm: '2', lg: '4' },
             width: '100%',
           }}
-          text="
-          Details"
+          text={detailsTitle}
         />
 
         <VStack
@@ -74,9 +90,15 @@ const AboutDetails = () => {
           flexDirection={{ base: 'column', sm: 'row', lg: 'column' }}
           justifyContent={{ base: 'space-around', lg: 'center' }}
         >
-          <DetailsItem title="Name" text="Mark Njoroge" />
-          <DetailsItem title="Work Availability" text="Open For Long-Term" />
-          <DetailsItem title="Location" text="Kenya" />
+          <DetailsItem title={detailsNameTitle} text={detailsNameText} />
+          <DetailsItem
+            title={detailsWorkAvailabilityTitle}
+            text={detailsWorkAvailabilityText}
+          />
+          <DetailsItem
+            title={detailsLocationTitle}
+            text={detailsLocationText}
+          />
         </VStack>
 
         <Box
@@ -90,11 +112,11 @@ const AboutDetails = () => {
         >
           <DetailsItemsTitle
             sx={{ textAlign: 'center', marginBottom: '3' }}
-            title="Social"
+            title={detailsSocialTitle}
           />
 
           <HSocialIcons
-            socialDetails={socialWithPick(3)}
+            socialDetails={aboutSocialIcons as ISocialLink[]}
             sx={{
               justifyContent: {
                 base: 'space-evenly',

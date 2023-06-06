@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import { Box, Button, Grid, SystemStyleObject, VStack } from '@chakra-ui/react'
 import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi'
-import { ContentGenerator, SectionSeparator, SubHeading } from 'ui'
+import { ParagraphGenerator, SectionSeparator, SubHeading } from 'ui'
 import { sizes } from '@components/next-ui'
 import { introSampContent } from '@data/sampleContent'
 
@@ -112,7 +112,7 @@ const HeroIntro = () => {
               }}
             />
             {/* Paragraphs */}
-            <ContentGenerator content={introSampContent} />
+            <ParagraphGenerator content={introSampContent} />
           </Box>
           {/* Button */}
           <Button

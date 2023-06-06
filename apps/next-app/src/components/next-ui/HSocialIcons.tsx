@@ -1,6 +1,8 @@
 import { HStack, SystemStyleObject, Text } from '@chakra-ui/react'
 
-import { ISocialLinks } from '@data/social'
+import { ISocialLink } from '@data/types'
+import { appIcons } from '@data/generalData/icons/dataAppIcons'
+import { IconType } from 'react-icons'
 import { SocialIcon } from './SocialIcon'
 
 export const HSocialIcons = ({
@@ -9,7 +11,7 @@ export const HSocialIcons = ({
   themeColor,
   themeHoverColor,
 }: {
-  socialDetails: Array<ISocialLinks>
+  socialDetails: Array<ISocialLink>
   sx?: SystemStyleObject
   themeColor?: SystemStyleObject
   themeHoverColor?: SystemStyleObject
@@ -28,7 +30,7 @@ export const HSocialIcons = ({
             <SocialIcon
               key={social.title}
               link={social.link}
-              icon={social.icon}
+              icon={appIcons.socialIcons[social.icon] as IconType}
               title={social.title}
               themeColor={themeColor}
               themeHoverColor={themeHoverColor}
