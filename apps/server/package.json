@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
-    "@types/node": "^18.16.16",
+    "@types/node": "^20.2.5",
     "eslint": "^8.42.0",
     "eslint-config-custom": "workspace:*",
     "ts-node-dev": "^2.0.0",
