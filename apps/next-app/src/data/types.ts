@@ -331,6 +331,31 @@ export interface IAppSetting extends IGenericComponentData {
     darkThemeColor?: string
   }
   content: {
+    tools?: {
+      import: any
+      export: any
+      redirects: any
+    }
+    media?: {
+      allowSizing: boolean
+      thumbnailSize: { width: number; height: number; allowCrop: boolean }
+      mediumSize: { maxW: number; maxH: number }
+      largeSize: { maxW: number; maxH: number }
+      imageUploadDefaultDir: string
+      filesUploadDefaultDir: string
+      organizeFiles: 'month-year' | 'fileType'
+    }
+    mailingServices: {
+      mainServer?: string
+      port: string
+      login: string
+      password: string
+    }
+    generalSettings?: {
+      siteTitle: string
+      tagLine: string
+      adminEmail: string
+    }
     google?: {
       googleId: string
       searchConsoleConfig: string
