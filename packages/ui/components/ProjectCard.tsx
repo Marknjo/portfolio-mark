@@ -21,7 +21,7 @@ export interface ProjectTagsInterface {
 
 export interface CardsInfoInterface {
   title: string
-  url: string
+  slug: string
   as?: As
   tags: Array<ProjectTagsInterface>
   maxW?: string | { [key: string]: string }
@@ -30,7 +30,7 @@ export interface CardsInfoInterface {
 
 export const ProjectCard = ({
   title,
-  url,
+  slug,
   tags,
   as,
   maxW = '64',
@@ -125,7 +125,7 @@ export const ProjectCard = ({
 
           <Button
             {...(as ? { as } : {})}
-            href={`${url}`}
+            href={`${slug}`}
             variant="outline"
             colorScheme="orange"
             rightIcon={<LinkIcon />}

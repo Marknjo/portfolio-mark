@@ -179,6 +179,12 @@ export interface IGallery {
 }
 
 /// Setup of the stack
+export interface IProjectTag {
+  id: string
+  tagName: string
+  colorTheme: string
+}
+
 export interface IStackThemes {
   id: string
   name: EStackThemes
@@ -218,8 +224,10 @@ export interface IStack {
 //   description?: string
 // }
 
-export type TPickedProjects =
-  | Pick<IProject, 'id' | 'title' | 'slug'> & Pick<IGallery, 'fileName' | 'alt'>
+export type TCardSlimGalleryData = Pick<IGallery, 'fileName' | 'alt'>
+
+export type TPickedProjectsCard =
+  | Pick<IProject, 'id' | 'title' | 'slug' | 'tags'> & TCardSlimGalleryData
 
 export type TProjectStackData =
   | Array<Pick<IStack, 'id'>>
@@ -243,6 +251,7 @@ export interface IProject {
     | string
     | Array<Pick<IProjectsCategory, 'id'>>
     | Pick<IProjectsCategory, 'id'> // rep subTitle text
+  isPicked?: boolean
   liveLink: string
 
   /// Text content
@@ -254,12 +263,14 @@ export interface IProject {
   lessonsText: IProjectText
 
   /// Images
-  introLgImg: Pick<IGallery, 'id'> | string // relationship
-  footerLgImg: Pick<IGallery, 'id'> | string // relationship
+  cardImgId: Pick<IGallery, 'id'> | string
+  introLgImg: TCardSlimGalleryData
+  footerLgImg: TCardSlimGalleryData
 
   /// Relations to other data types
   introStacks: TProjectStackData // dropdown - ref to stacks
   stacks: TProjectStackData // dropdown - ref to stacks
+  tags: Array<IProjectTag>
   gallery: Array<Pick<IGallery, 'id'>> | Array<string> // dropdown - ref to stacks
   galleryPrevPrefix?: string // a gallery preview image prefix
 }
@@ -412,7 +423,7 @@ export interface IAppSetting extends IGenericComponentData {
 /// Home Page Global Settings
 export interface IHomePageData extends IGenericPageData {
   data: {
-    pickedProjects: Array<TPickedProjects>
+    pickedProjects: Array<TPickedProjectsCard>
     favProject: Array<IGallery>
     navData: Array<INavLink> | []
     aboutSocialIcons: Array<ISocialLink> | Array<Pick<ISocialLink, 'id'>>

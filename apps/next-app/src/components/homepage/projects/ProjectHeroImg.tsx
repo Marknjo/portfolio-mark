@@ -1,6 +1,13 @@
 import { GridItem, Image, StyleProps } from '@chakra-ui/react'
+import { useHomePageData } from '@store/context/homepage-context'
 
 const ProjectHeroImg = () => {
+  const {
+    content: {
+      projects: { mainImgAlt, mainImg },
+    },
+  } = useHomePageData()
+
   const commonStyles: StyleProps = {
     borderRadius: 'md',
     height: 'auto',
@@ -24,8 +31,9 @@ const ProjectHeroImg = () => {
       {...commonStyles}
     >
       <Image
-        src="./images/project-hero-img.jpg"
+        src={`./images/${mainImg}.jpg`}
         width="100%"
+        alt={mainImgAlt}
         {...commonStyles}
       />
     </GridItem>

@@ -3,7 +3,7 @@ import { CardsInfoInterface } from 'ui'
 export const sampleProjects: Array<CardsInfoInterface> = [
   {
     title: 'Natours App',
-    url: '/project-details',
+    slug: '/project-details',
     tags: [
       { tagName: 'Nodejs', colorTheme: 'blue' },
       { tagName: 'GraphQL', colorTheme: 'pink' },
@@ -12,7 +12,7 @@ export const sampleProjects: Array<CardsInfoInterface> = [
   },
   {
     title: 'Spar',
-    url: '/project-details',
+    slug: '/project-details',
     tags: [
       { tagName: 'Nodejs', colorTheme: 'blue' },
       { tagName: 'GraphQL', colorTheme: 'pink' },
@@ -21,7 +21,7 @@ export const sampleProjects: Array<CardsInfoInterface> = [
   },
   {
     title: 'Cyclist',
-    url: '/project-details',
+    slug: '/project-details',
     tags: [
       { tagName: 'Nodejs', colorTheme: 'blue' },
       { tagName: 'GraphQL', colorTheme: 'pink' },

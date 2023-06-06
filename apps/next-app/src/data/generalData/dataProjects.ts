@@ -1,4 +1,6 @@
-import { IProject } from '@data/types'
+import { IProject, TCardSlimGalleryData } from '@data/types'
+
+import { imagePicker } from '@data/utils/galleryHelpers'
 import { projectCategories } from './projects/projectCategories'
 import {
   afriHickr,
@@ -7,17 +9,18 @@ import {
   optiPlanner,
   pesaSync,
 } from './projects/textData'
-import { appFiles } from './dataFiles'
+
 import { galleryImgs } from './projects/projectGalleries'
 import { projectStacks } from './projects/projectStacks'
 
 export const projectsData: Array<IProject> = [
   {
     id: 'p1',
-    slug: 'afri-hickr',
-    title: 'AfriHickr',
+    slug: 'afri-hiqar',
+    title: 'AfriHiqar',
     category: projectCategories[0].id,
     liveLink: 'coming soon',
+    isPicked: true,
 
     /// Text content
     excerpt: afriHickr.excerpt,
@@ -28,13 +31,15 @@ export const projectsData: Array<IProject> = [
     lessonsText: afriHickr.lessonsText,
 
     /// Images
-    introLgImg: appFiles[10].id, // relationship
-    footerLgImg: appFiles[13].id, // relationship
+    cardImgId: 'g2',
+    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
-    introStacks: projectStacks.afriHicker.intro, // dropdown - ref to stacks
-    stacks: projectStacks.afriHicker.allStacks, // dropdown - ref to stacks
-    gallery: galleryImgs.afriHicker, // dropdown - ref to stacks
+    introStacks: projectStacks.afriHicker.intro,
+    tags: projectStacks.afriHicker.tags,
+    stacks: projectStacks.afriHicker.allStacks,
+    gallery: galleryImgs.afriHicker,
   },
   {
     id: 'p2',
@@ -42,6 +47,7 @@ export const projectsData: Array<IProject> = [
     title: 'OptiPlanner',
     category: projectCategories[3].id,
     liveLink: 'coming soon',
+    isPicked: true,
 
     /// Text content
     excerpt: optiPlanner.excerpt,
@@ -52,18 +58,20 @@ export const projectsData: Array<IProject> = [
     lessonsText: optiPlanner.lessonsText,
 
     /// Images
-    introLgImg: appFiles[10].id, // relationship
-    footerLgImg: appFiles[13].id, // relationship
+    cardImgId: 'g2',
+    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
-    introStacks: projectStacks.optiPlanner.intro, // dropdown - ref to stacks
-    stacks: projectStacks.optiPlanner.allStacks, // dropdown - ref to stacks
-    gallery: galleryImgs.optiPlanner, // dropdown - ref to stacks
+    introStacks: projectStacks.optiPlanner.intro,
+    tags: projectStacks.optiPlanner.tags,
+    stacks: projectStacks.optiPlanner.allStacks,
+    gallery: galleryImgs.optiPlanner,
   },
   {
     id: 'p3',
-    slug: 'fit-hustle',
-    title: 'fitHustle',
+    slug: 'luku-fiti',
+    title: 'LukuFiti',
     category: projectCategories[2].id,
     liveLink: 'coming soon',
 
@@ -76,13 +84,15 @@ export const projectsData: Array<IProject> = [
     lessonsText: fitHustle.lessonsText,
 
     /// Images
-    introLgImg: appFiles[10].id, // relationship
-    footerLgImg: appFiles[13].id, // relationship
+    cardImgId: 'g2',
+    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
-    introStacks: projectStacks.fitHustle.intro, // dropdown - ref to stacks
-    stacks: projectStacks.fitHustle.allStacks, // dropdown - ref to stacks
-    gallery: galleryImgs.fitHustle, // dropdown - ref to stacks
+    introStacks: projectStacks.fitHustle.intro,
+    tags: projectStacks.fitHustle.tags,
+    stacks: projectStacks.fitHustle.allStacks,
+    gallery: galleryImgs.fitHustle,
   },
   {
     id: 'p4',
@@ -90,6 +100,7 @@ export const projectsData: Array<IProject> = [
     title: 'PesaSync',
     category: projectCategories[1].id,
     liveLink: 'coming soon',
+    isPicked: true,
 
     /// Text content
     excerpt: pesaSync.excerpt,
@@ -100,13 +111,15 @@ export const projectsData: Array<IProject> = [
     lessonsText: pesaSync.lessonsText,
 
     /// Images
-    introLgImg: appFiles[10].id, // relationship
-    footerLgImg: appFiles[13].id, // relationship
+    cardImgId: 'g2',
+    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
-    introStacks: projectStacks.pesaSync.intro, // dropdown - ref to stacks
-    stacks: projectStacks.pesaSync.allStacks, // dropdown - ref to stacks
-    gallery: galleryImgs.pesaSync, // dropdown - ref to stacks
+    introStacks: projectStacks.pesaSync.intro,
+    stacks: projectStacks.pesaSync.allStacks,
+    tags: projectStacks.pesaSync.tags,
+    gallery: galleryImgs.pesaSync,
   },
   {
     id: 'p5',
@@ -124,12 +137,14 @@ export const projectsData: Array<IProject> = [
     lessonsText: markProfile.lessonsText,
 
     /// Images
-    introLgImg: appFiles[10].id, // relationship
-    footerLgImg: appFiles[13].id, // relationship
+    cardImgId: 'g2',
+    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
-    introStacks: projectStacks.markProfile.intro, // dropdown - ref to stacks
-    stacks: projectStacks.markProfile.allStacks, // dropdown - ref to stacks
-    gallery: galleryImgs.markProfile, // dropdown - ref to stacks
+    introStacks: projectStacks.markProfile.intro,
+    tags: projectStacks.markProfile.tags,
+    stacks: projectStacks.markProfile.allStacks,
+    gallery: galleryImgs.markProfile,
   },
 ]

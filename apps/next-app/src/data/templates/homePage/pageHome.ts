@@ -1,13 +1,14 @@
 import { ESiteNavNames, EWorkAvailability, IHomePageData } from '@data/types'
+import { findPickedProjects } from '@data/utils/projectsHelpers'
 import { appFiles } from '@data/generalData/dataFiles'
 import { aboutText, headerText, summaryText } from './dataHomepageText'
-import { pickedProjects } from './dataPickedProjects'
+
 import { favProject } from './dataFavProject'
 import { aboutSocialIcons, contactSocialIcons } from './dataSocialIcons'
 
 export const homePageData: IHomePageData = {
   data: {
-    pickedProjects,
+    pickedProjects: findPickedProjects(),
     favProject,
     navData: [],
     aboutSocialIcons,

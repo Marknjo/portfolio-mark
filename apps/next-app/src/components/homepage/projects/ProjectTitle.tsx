@@ -1,18 +1,23 @@
 import { GridItem } from '@chakra-ui/react'
+import { useHomePageData } from '@store/context/homepage-context'
 import { LargeTitle } from 'ui'
 
-const ProjectTitle = () => (
-  <GridItem
-    gridColumn="content-start/content-end"
-    gridRow="title-start/title-end"
-    zIndex="1"
-  >
-    <LargeTitle
-      title="Projects"
-      subTitle="Here is MY Latest Selection"
-      isLighter
-    />
-  </GridItem>
-)
+const ProjectTitle = () => {
+  const {
+    content: {
+      projects: { titleMain, titleSub },
+    },
+  } = useHomePageData()
+
+  return (
+    <GridItem
+      gridColumn="content-start/content-end"
+      gridRow="title-start/title-end"
+      zIndex="1"
+    >
+      <LargeTitle title={titleMain} subTitle={titleSub} isLighter />
+    </GridItem>
+  )
+}
 
 export default ProjectTitle

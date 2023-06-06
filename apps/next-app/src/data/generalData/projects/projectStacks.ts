@@ -1,6 +1,7 @@
 import { EStackFullNames } from '@data/types'
 import {
   getGroupedStacksByName,
+  getStackTags,
   mapStacksByCategory,
 } from '@data/utils/stacksHelpers'
 
@@ -22,9 +23,16 @@ const afriHickerAllMappedStacks = [
   ]),
 ]
 
+const cardTags = [
+  EStackFullNames.NODE_JS,
+  EStackFullNames.CHAKRA,
+  EStackFullNames.NEXT_JS,
+]
+
 const afriHicker = {
   intro: mapStacksByCategory(afriHickerIntroMappedStacks),
   allStacks: mapStacksByCategory(afriHickerAllMappedStacks),
+  tags: getStackTags(cardTags),
 }
 
 /// @TODO: Below points

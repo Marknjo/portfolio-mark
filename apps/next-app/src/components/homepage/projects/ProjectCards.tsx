@@ -1,6 +1,7 @@
-import NextLink from 'next/link'
 import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
-import { CardsInfoInterface, ProjectCard } from 'ui'
+import NextLink from 'next/link'
+import { ProjectCard } from 'ui'
+import { useHomePageData } from '@store/context/homepage-context'
 
 const columnBreakpoint = {
   base: 'col-start 2/col-end 11',
@@ -13,33 +14,35 @@ const wrapperOverridesStyles: SystemStyleObject = {
   minW: 'auto',
 }
 
-const ProjectCards = ({
-  projectsInfo,
-}: {
-  projectsInfo: Array<CardsInfoInterface>
-}) => (
-  <GridItem
-    gridColumn={columnBreakpoint}
-    gridRow="img-r3-start/ span 2"
-    px={{ base: '4' }}
-  >
-    <HStack
-      columnGap={{ md: '2', lg: '4' }}
-      rowGap={{ base: '6' }}
-      alignItems={{ base: 'center', md: 'flex-start' }}
-      flexDirection={{ base: 'column', md: 'inherit' }}
-      px={{ md: '4', lg: 0 }}
+const ProjectCards = () => {
+  const {
+    data: { pickedProjects },
+  } = useHomePageData()
+
+  return (
+    <GridItem
+      gridColumn={columnBreakpoint}
+      gridRow="img-r3-start/ span 2"
+      px={{ base: '4' }}
     >
-      {projectsInfo.map(info => (
-        <ProjectCard
-          wrapperSx={wrapperOverridesStyles}
-          key={info.title}
-          {...info}
-          as={NextLink}
-        />
-      ))}
-    </HStack>
-  </GridItem>
-)
+      <HStack
+        columnGap={{ md: '2', lg: '4' }}
+        rowGap={{ base: '6' }}
+        alignItems={{ base: 'center', md: 'flex-start' }}
+        flexDirection={{ base: 'column', md: 'inherit' }}
+        px={{ md: '4', lg: 0 }}
+      >
+        {pickedProjects.map(info => (
+          <ProjectCard
+            wrapperSx={wrapperOverridesStyles}
+            key={info.title}
+            {...info}
+            as={NextLink}
+          />
+        ))}
+      </HStack>
+    </GridItem>
+  )
+}
 
 export default ProjectCards

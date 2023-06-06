@@ -11,8 +11,6 @@ export const ParagraphGenerator = ({ content }: { content: string }) => {
     [content],
   )
 
-  console.log(content)
-
   return (
     <>
       {contentArr.map((text, idx) => (

@@ -17,7 +17,7 @@ export const stacks: Array<IStack> = [
     icon: 'electron',
     theme: EStackThemes.DEFAULT,
     tagName: EStackShortNames.ELECTRON,
-    tagColorTheme: 'blue.100',
+    tagColorTheme: 'blue',
   },
   {
     id: 's2',
@@ -29,7 +29,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.JAVASCRIPT,
-    tagColorTheme: 'yellow.100',
+    tagColorTheme: 'yellow',
   },
   {
     id: 's3',
@@ -41,7 +41,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.TYPESCRIPT,
-    tagColorTheme: 'purple.200',
+    tagColorTheme: 'purple',
   },
   {
     id: 's4',
@@ -53,7 +53,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.PYTHON,
-    tagColorTheme: 'blue.200',
+    tagColorTheme: 'blue',
   },
   {
     id: 's5',
@@ -65,7 +65,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.CSHARP,
-    tagColorTheme: 'blue.100',
+    tagColorTheme: 'blue',
   },
   {
     id: 's6',
@@ -77,7 +77,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: true,
     tagName: EStackShortNames.RUST,
-    tagColorTheme: 'red.200',
+    tagColorTheme: 'red',
   },
 
   {
@@ -90,7 +90,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.GO,
-    tagColorTheme: 'purple.200',
+    tagColorTheme: 'purple',
   },
   {
     id: 's8',
@@ -102,7 +102,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.PASSIVE,
     isHidden: false,
     tagName: EStackShortNames.PHP,
-    tagColorTheme: 'green.100',
+    tagColorTheme: 'green',
   },
   {
     id: 's9',
@@ -114,7 +114,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.HTML,
-    tagColorTheme: 'cyan.100',
+    tagColorTheme: 'cyan',
   },
   {
     id: 's10',
@@ -126,7 +126,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.CSS,
-    tagColorTheme: 'blue.200',
+    tagColorTheme: 'blue',
   },
   {
     id: 's11',
@@ -138,7 +138,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.REACT,
-    tagColorTheme: 'purple.200',
+    tagColorTheme: 'purple',
   },
   {
     id: 's12',
@@ -150,7 +150,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.VUE,
-    tagColorTheme: 'teal.200',
+    tagColorTheme: 'teal',
   },
   {
     id: 's13',
@@ -162,7 +162,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.SOLID_JS,
-    tagColorTheme: 'gray.200',
+    tagColorTheme: 'gray',
   },
   {
     id: 's14',
@@ -174,7 +174,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.TAILWIND,
-    tagColorTheme: 'cyan.200',
+    tagColorTheme: 'cyan',
   },
   {
     id: 's15',
@@ -186,7 +186,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.CHAKRA,
-    tagColorTheme: 'purple.200',
+    tagColorTheme: 'purple',
   },
   {
     id: 's16',
@@ -198,7 +198,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.FIGMA,
-    tagColorTheme: 'red.200',
+    tagColorTheme: 'red',
   },
   {
     id: 's17',
@@ -210,7 +210,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.NODE_JS,
-    tagColorTheme: 'green.200',
+    tagColorTheme: 'green',
   },
   {
     id: 's18',
@@ -222,7 +222,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.EXPRESS,
-    tagColorTheme: 'pink.100',
+    tagColorTheme: 'pink',
   },
   {
     id: 's19',
@@ -234,7 +234,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.TYPESCRIPT,
-    tagColorTheme: 'orange.100',
+    tagColorTheme: 'orange',
   },
   {
     id: 's20',
@@ -246,7 +246,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.TYPESCRIPT,
-    tagColorTheme: 'purple.100',
+    tagColorTheme: 'purple',
   },
   {
     id: 's21',
@@ -258,7 +258,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.REMIX,
-    tagColorTheme: 'pink.100',
+    tagColorTheme: 'pink',
   },
   {
     id: 's22',
@@ -270,7 +270,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.TYPESCRIPT,
-    tagColorTheme: 'red.100',
+    tagColorTheme: 'red',
   },
   {
     id: 's23',
@@ -282,7 +282,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.NUXT,
-    tagColorTheme: 'blue.100',
+    tagColorTheme: 'blue',
   },
   {
     id: 's24',
@@ -294,7 +294,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.GRAPHQL,
-    tagColorTheme: 'cyan.100',
+    tagColorTheme: 'cyan',
   },
   {
     id: 's25',
@@ -306,7 +306,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.APOLLO,
-    tagColorTheme: 'blue.100',
+    tagColorTheme: 'blue',
   },
   {
     id: 's26',
@@ -318,7 +318,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.MONGODB,
-    tagColorTheme: 'yellow.200',
+    tagColorTheme: 'yellow',
   },
   {
     id: 's27',
@@ -330,7 +330,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.POSTGRES,
-    tagColorTheme: 'gray.200',
+    tagColorTheme: 'gray',
   },
   {
     id: 's28',
@@ -342,7 +342,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.DOCKER,
-    tagColorTheme: 'green.200',
+    tagColorTheme: 'green',
   },
   {
     id: 's29',
@@ -354,7 +354,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.VITE,
-    tagColorTheme: 'pink.100',
+    tagColorTheme: 'pink',
   },
   {
     id: 's30',
@@ -366,7 +366,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.DOCKER_SWARM,
-    tagColorTheme: 'yellow.200',
+    tagColorTheme: 'yellow',
   },
   {
     id: 's31',
@@ -378,7 +378,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.VITEST,
-    tagColorTheme: 'cyan.200',
+    tagColorTheme: 'cyan',
   },
   {
     id: 's32',
@@ -390,7 +390,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: true,
     tagName: EStackShortNames.KUBERNETES,
-    tagColorTheme: 'blue.50',
+    tagColorTheme: 'blue',
   },
   {
     id: 's33',
@@ -402,7 +402,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.GIT,
-    tagColorTheme: 'teal.200',
+    tagColorTheme: 'teal',
   },
 
   {
@@ -415,7 +415,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.MVC,
-    tagColorTheme: 'blue.50',
+    tagColorTheme: 'blue',
   },
 
   {
@@ -428,7 +428,7 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.REST,
-    tagColorTheme: 'gray.50',
+    tagColorTheme: 'gray',
   },
   {
     id: 's36',
@@ -440,6 +440,6 @@ export const stacks: Array<IStack> = [
     theme: EStackThemes.DEFAULT,
     isHidden: false,
     tagName: EStackShortNames.CI_CD,
-    tagColorTheme: 'orange.300',
+    tagColorTheme: 'orange',
   },
 ]

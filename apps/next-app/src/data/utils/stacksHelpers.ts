@@ -1,5 +1,10 @@
 import { stacks } from '@data/generalData/dataStacks'
-import { EStackCategories, EStackFullNames, IStack } from '@data/types'
+import {
+  EStackCategories,
+  EStackFullNames,
+  IProjectTag,
+  IStack,
+} from '@data/types'
 import { filterMappedDataByFields, mapDataFieldAsKey } from './mapFilesIdAsKey'
 
 /// @NOTE: Extract  this func to a generic if there is similar data patterns
@@ -29,13 +34,18 @@ export const mappedStacksByNames = mapDataFieldAsKey<IStack>(
   'name',
 ) as { [key: string]: IStack }
 
-export function getStackTags(
-  stackData: Array<IStack>,
-): Array<Pick<IStack, 'id' | 'tagName' | 'tagColorTheme'>> {
-  return stackData.map(stack => ({
+export const getStackTags = (
+  fields: Array<EStackFullNames>,
+): Array<IProjectTag> => {
+  const filteredStacks = filterMappedDataByFields<IStack>(
+    fields,
+    mappedStacksByNames,
+  )
+
+  return filteredStacks.map(stack => ({
     id: stack.id,
     tagName: stack.tagName,
-    tagColorTheme: stack.tagColorTheme,
+    colorTheme: stack.tagColorTheme,
   }))
 }
 
