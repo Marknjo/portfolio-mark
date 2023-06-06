@@ -1,9 +1,9 @@
-import { ESiteNavNames, EWorkAvailability, IHomePage } from '@data/types'
+import { ESiteNavNames, EWorkAvailability, IHomePageData } from '@data/types'
 import { aboutText, headerText, summaryText } from './dataHomepageText'
 import { pickedProjects } from './dataPickedProjects'
 import { favProject } from './dataFavProject'
 
-export const homePageData: IHomePage = {
+export const homePageData: IHomePageData = {
   meta: {
     description:
       'Mark Profile page to show case his projects, skills, and share his experience in tech space',

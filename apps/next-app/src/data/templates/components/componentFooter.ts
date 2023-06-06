@@ -1,6 +1,6 @@
-import { IFooterComponent, ESiteNavNames } from '../../types'
+import { IFooterComponentData, ESiteNavNames } from '../../types'
 
-export const footerComponent: IFooterComponent = {
+export const footerComponent: IFooterComponentData = {
   theme: {
     colorTheme: 'orange',
     fontFamily: '',

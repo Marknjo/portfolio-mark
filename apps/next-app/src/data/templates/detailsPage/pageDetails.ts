@@ -1,10 +1,10 @@
 import {
   EDetailsPageImageThemes,
   ESiteNavNames,
-  IDetailsPage,
+  IProjectDetailsPageData,
 } from '@data/types'
 
-export const projectDetailsPageData: IDetailsPage = {
+export const projectDetailsPageData: IProjectDetailsPageData = {
   meta: {
     description: 'This is project details page',
   },

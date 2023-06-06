@@ -296,18 +296,44 @@ export interface IGenericComponentData {
 export interface IPage {
   id: string
   templateType: EPagesTemplateTypes | string
-  templateContent: IHomePage | IDetailsPage | IGenericPageData /// json object - homePage, details page, etc
+  templateContent: IHomePageData | IProjectDetailsPageData /// json object - homePage, details page, etc
+}
+
+/// individual pages types
+export interface IPageHome extends IPage {
+  templateContent: IHomePageData
+}
+
+export interface IPageProjectDetails extends IPage {
+  templateContent: IProjectDetailsPageData
 }
 
 export interface IComponent {
   id: string
   templateType: EGeneralComponents | string
   templateContent:
-    | IHomePage
-    | IDetailsPage
-    | INavComponent
     | IAppSetting
-    | ICtaComponent /// json object - homePage, details page, etc
+    | ICtaComponentData
+    | IFooterComponentData
+    | INavComponentData
+
+  /// json object - homePage, details page, etc
+}
+
+export interface IComponentAppSettings extends IComponent {
+  templateContent: IAppSetting
+}
+
+export interface IComponentCta extends IComponent {
+  templateContent: ICtaComponentData
+}
+
+export interface IComponentFooter extends IComponent {
+  templateContent: IFooterComponentData
+}
+
+export interface IComponentNav extends IComponent {
+  templateContent: INavComponentData
 }
 
 /// SiteWide Config
@@ -373,7 +399,7 @@ export interface IAppSetting extends IGenericComponentData {
 }
 
 /// Home Page Global Settings
-export interface IHomePage extends IGenericPageData {
+export interface IHomePageData extends IGenericPageData {
   meta: {
     description: string
     tagLine?: string
@@ -468,7 +494,7 @@ export interface IHomePage extends IGenericPageData {
 }
 
 /// Details Page Global Settings
-export interface IDetailsPage extends IGenericPageData {
+export interface IProjectDetailsPageData extends IGenericPageData {
   meta: {
     description: string
   }
@@ -516,7 +542,7 @@ export interface IDetailsPage extends IGenericPageData {
 // 3. Navigation
 
 // - CTA Component
-export interface ICtaComponent extends IGenericComponentData {
+export interface ICtaComponentData extends IGenericComponentData {
   theme: {
     colorTheme?: string
     fontFamily?: string
@@ -530,7 +556,7 @@ export interface ICtaComponent extends IGenericComponentData {
 }
 
 // - FOOTER Component
-export interface IFooterComponent extends IGenericComponentData {
+export interface IFooterComponentData extends IGenericComponentData {
   theme: {
     colorTheme?: string
     fontFamily?: string
@@ -544,7 +570,7 @@ export interface IFooterComponent extends IGenericComponentData {
 }
 
 // - Nav Component
-export interface INavComponent extends IGenericComponentData {
+export interface INavComponentData extends IGenericComponentData {
   content: {
     logoText: string
     logoImg?: string

@@ -1,4 +1,4 @@
-import { ICtaComponent } from '@data/types'
+import { ICtaComponentData } from '@data/types'
 
 const ctaText = `
   Let me help you build it and grow your company. Reach me from the contact form above.
@@ -9,7 +9,7 @@ const ctaText = `
 
 `
 
-export const ctaComponent: ICtaComponent = {
+export const ctaComponent: ICtaComponentData = {
   theme: {
     colorTheme: 'orange',
     fontFamily: '',

@@ -1,6 +1,6 @@
-import { INavComponent } from '@data/types'
+import { INavComponentData } from '@data/types'
 
-export const navComponent: INavComponent = {
+export const navComponent: INavComponentData = {
   content: {
     logoText: 'Mark Njoroge',
     logoImg: 'N',

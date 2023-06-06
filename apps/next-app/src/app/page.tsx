@@ -2,6 +2,8 @@ import React from 'react'
 import { Metadata } from 'next'
 
 import HomePage from '@components/homepage'
+import { getPageTemplateContent } from '@data/utils/pagesData'
+import { EPagesTemplateTypes, IHomePageData } from '@data/types'
 
 /* 
     <Head>
@@ -15,11 +17,17 @@ export const metadata: Metadata = {
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
 }
 
-const IndexPage = () => (
-  <>
-    {/*  */}
-    <HomePage />
-  </>
-)
+const IndexPage = () => {
+  const pageData = getPageTemplateContent<IHomePageData>(
+    EPagesTemplateTypes.HOME,
+  )
+
+  return (
+    <>
+      {/*  */}
+      <HomePage pageData={pageData} />
+    </>
+  )
+}
 
 export default IndexPage

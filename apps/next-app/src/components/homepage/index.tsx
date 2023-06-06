@@ -15,6 +15,8 @@ import { useIsLoading } from '@hooks/is-loading'
 import UiLoader from '@components/layouts/loaders/UiLoader'
 
 /// Local components
+import { IPageHome } from '@data/types'
+
 import HomePageHero from './hero/HomePageHero'
 import AboutSection from './about/AboutSection'
 import ProjectsSection from './projects/ProjectsSection'
@@ -22,7 +24,9 @@ import FavProjectSection from './fav-project/FavProjectSection'
 import SkillsSection from './skills-section/SkillsSection'
 import ContactSection from './contact-section/ContactSection'
 
-const HomePage = () => {
+const HomePage = ({ pageData }: { pageData: IPageHome }) => {
+  console.log(pageData)
+
   const isLoading = useIsLoading()
 
   if (isLoading) {
