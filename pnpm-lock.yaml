@@ -30,7 +30,7 @@ importers:
       '@chakra-ui/react-use-size': ^2.0.10
       '@emotion/react': ^11.11.0
       '@emotion/styled': ^11.11.0
-      '@types/node': ^18.16.16
+      '@types/node': ^20.2.5
       '@types/react': ^18.2.8
       autoprefixer: ^10.4.14
       eslint: ^8.42.0
@@ -61,7 +61,7 @@ importers:
       server: link:../server
       ui: link:../../packages/ui
     devDependencies:
-      '@types/node': 18.16.16
+      '@types/node': 20.2.5
       '@types/react': 18.2.8
       autoprefixer: 10.4.14_postcss@8.4.24
       eslint: 8.42.0
@@ -2020,10 +2020,6 @@ packages:
 
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
-    dev: true
-
-  /@types/node/18.16.16:
-    resolution: {integrity: sha512-NpaM49IGQQAUlBhHMF82QH80J08os4ZmyF9MkpCzWAGuOHqE4gTEbhzd7L3l5LmWuZ6E0OiC1FweQ4tsiW35+g==}
     dev: true
 
   /@types/node/20.2.5:
