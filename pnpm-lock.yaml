@@ -40,7 +40,7 @@ importers:
       postcss: ^8.4.24
       react: ^18.2.0
       react-dom: ^18.2.0
-      react-icons: ^4.8.0
+      react-icons: ^4.9.0
       server: workspace:*
       tailwindcss: ^3.3.2
       tsconfig: workspace:*
@@ -57,7 +57,7 @@ importers:
       next: 13.4.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-icons: 4.8.0_react@18.2.0
+      react-icons: 4.9.0_react@18.2.0
       server: link:../server
       ui: link:../../packages/ui
     devDependencies:
@@ -137,7 +137,7 @@ importers:
       autoprefixer: ^10.4.14
       framer-motion: ^10.12.16
       postcss: ^8.4.24
-      react-icons: ^4.8.0
+      react-icons: ^4.9.0
       tailwindcss: ^3.3.2
       tsconfig: workspace:*
       typescript: ^5.0.4
@@ -147,7 +147,7 @@ importers:
       '@emotion/react': 11.11.0_i2bxsyfskhzbpjanbovidbfj7u
       '@emotion/styled': 11.11.0_efnsujvwehy5in7hodous2swsa
       framer-motion: 10.12.16_biqbaboplfbrettd7655fr4n2y
-      react-icons: 4.8.0_react@18.2.0
+      react-icons: 4.9.0_react@18.2.0
     devDependencies:
       '@types/react': 18.2.8
       '@types/react-dom': 18.2.4
@@ -5342,8 +5342,8 @@ packages:
       use-sidecar: 1.1.2_i2bxsyfskhzbpjanbovidbfj7u
     dev: false
 
-  /react-icons/4.8.0_react@18.2.0:
-    resolution: {integrity: sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==}
+  /react-icons/4.9.0_react@18.2.0:
+    resolution: {integrity: sha512-ijUnFr//ycebOqujtqtV9PFS7JjhWg0QU6ykURVHuL4cbofvRCf3f6GMn9+fBktEFQOIVZnuAYLZdiyadRQRFg==}
     peerDependencies:
       react: '*'
     dependencies:
