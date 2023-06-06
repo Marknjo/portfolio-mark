@@ -3,7 +3,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { Flex, SystemStyleObject, keyframes } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
-import { INavLink } from '@data/navLinks'
+import { INavLink } from '@data/types'
 import { useIsLoading } from '@hooks/is-loading'
 
 import NavLink from './NavLink'

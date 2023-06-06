@@ -33,6 +33,8 @@ const animationKeyFrames = keyframes`
   opacity: 1;
   }
 `
+
+/// @TODO: Make logo text dynamic
 const LogoText = ({
   sxOverrides = {},
   asHamburger = false,

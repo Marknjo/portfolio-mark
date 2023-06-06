@@ -10,7 +10,7 @@ import {
 import { motion } from 'framer-motion'
 
 import { MainGrid } from 'ui'
-import { INavLink } from '@data/navLinks'
+import { INavLink } from '@data/types'
 
 import LogoText from './LogoText'
 import Hamburger from './Hamburger'

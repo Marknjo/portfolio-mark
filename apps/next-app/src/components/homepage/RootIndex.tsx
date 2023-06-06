@@ -10,7 +10,7 @@ import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
 import CtaSection from '@components/layouts/cta/CtaSection'
 import Footer from '@components/layouts/footer/Footer'
 import ToTop from '@components/layouts/to-top/ToTop'
-import { homePageNavLinks } from '@data/navLinks'
+import { useHomePageData } from '@store/context/homepage-context'
 
 /// Local components
 
@@ -21,41 +21,47 @@ import FavProjectSection from './fav-project/FavProjectSection'
 import SkillsSection from './skills-section/SkillsSection'
 import ContactSection from './contact-section/ContactSection'
 
-const HomePageRootIndex = () => (
-  <>
-    {/* HomePage Navigation */}
-    <MainTopNav displayMode={MenuMode.NORMAL} navLinks={homePageNavLinks} />
+const HomePageRootIndex = () => {
+  const {
+    data: { navData },
+  } = useHomePageData()
 
-    {/* Page Hero Section */}
-    <HomePageHero />
+  return (
+    <>
+      {/* HomePage Navigation */}
+      <MainTopNav displayMode={MenuMode.NORMAL} navLinks={navData} />
 
-    {/* Main Content */}
-    <Box as="main">
-      {/* About Section */}
-      <AboutSection />
+      {/* Page Hero Section */}
+      <HomePageHero />
 
-      {/* Projects Section */}
-      <ProjectsSection />
+      {/* Main Content */}
+      <Box as="main">
+        {/* About Section */}
+        <AboutSection />
 
-      {/* Favorite Project Section */}
-      <FavProjectSection />
+        {/* Projects Section */}
+        <ProjectsSection />
 
-      {/* Skills Section */}
-      <SkillsSection />
+        {/* Favorite Project Section */}
+        <FavProjectSection />
 
-      {/* Contact Section */}
-      <ContactSection />
+        {/* Skills Section */}
+        <SkillsSection />
 
-      {/* Page CTA */}
-      <CtaSection />
-    </Box>
+        {/* Contact Section */}
+        <ContactSection />
 
-    {/* Footer */}
-    <Footer />
+        {/* Page CTA */}
+        <CtaSection />
+      </Box>
 
-    {/* to top component */}
-    <ToTop />
-  </>
-)
+      {/* Footer */}
+      <Footer />
+
+      {/* to top component */}
+      <ToTop />
+    </>
+  )
+}
 
 export default HomePageRootIndex
