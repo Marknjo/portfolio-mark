@@ -436,6 +436,7 @@ export interface IHomePageData extends IGenericPageData {
       headerText: string
       moreButtonText: string
       moreButtonLink: string
+      profileImage: string
     }
     about: {
       isShown: boolean

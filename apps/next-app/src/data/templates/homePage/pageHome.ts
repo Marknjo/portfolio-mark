@@ -1,4 +1,5 @@
 import { ESiteNavNames, EWorkAvailability, IHomePageData } from '@data/types'
+import { appFiles } from '@data/generalData/dataFiles'
 import { aboutText, headerText, summaryText } from './dataHomepageText'
 import { pickedProjects } from './dataPickedProjects'
 import { favProject } from './dataFavProject'
@@ -29,6 +30,7 @@ export const homePageData: IHomePageData = {
       headerText,
       moreButtonText: 'more about me',
       moreButtonLink: '#about-section',
+      profileImage: appFiles[0].fileName,
     },
     about: {
       isShown: true,

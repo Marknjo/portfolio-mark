@@ -68,6 +68,7 @@ const initialData: IHomePageContext = {
       headerText: '',
       moreButtonText: '',
       moreButtonLink: '',
+      profileImage: '',
     },
     about: {
       isShown: true,

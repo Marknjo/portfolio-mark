@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { DotsBottomLeft, DotsBottomRight, DotsTopRight } from 'ui'
 import { sizes } from '@components/next-ui'
+import { useHomePageData } from '@store/context/homepage-context'
 
 const rightStyles: SystemStyleObject = {
   backgroundColor: 'orange.600',
@@ -23,6 +24,11 @@ const imageCommonStyles: SystemStyleObject = {
 }
 // #TODO:  Image @TODO: Animate Image:hover & border rotate
 const HeroRightGrid = () => {
+  const {
+    content: {
+      hero: { profileImage },
+    },
+  } = useHomePageData()
   const breakpoint = useBreakpoint()
   const imgContainerBreakpoint = useBreakpointValue(
     {
@@ -80,7 +86,7 @@ const HeroRightGrid = () => {
             position="relative"
           >
             <Image
-              src="/images/profile-image.jpg"
+              src={`/images/${profileImage}.jpg`}
               alt="Mark Njoroge Profile Image"
               objectFit="fill"
               zIndex="4"
