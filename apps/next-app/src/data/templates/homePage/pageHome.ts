@@ -4,14 +4,17 @@ import { pickedProjects } from './dataPickedProjects'
 import { favProject } from './dataFavProject'
 
 export const homePageData: IHomePageData = {
+  data: {
+    pickedProjects,
+    favProject,
+    // navData:  add later
+  },
   meta: {
     description:
       'Mark Profile page to show case his projects, skills, and share his experience in tech space',
     tagLine: 'Staying on track in tech space',
   },
   theme: {
-    pickedProjects,
-    favProject,
     nav: ESiteNavNames.TOP_NAV,
   },
   content: {

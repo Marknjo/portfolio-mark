@@ -283,13 +283,15 @@ export interface ILogin {
 
 /// Pages, site Config, and Components
 export interface IGenericPageData {
-  meta?: { description: string; [key: string]: any }
   theme: { [key: string]: any }
   content: { [key: string]: any } // deferent page sections
+  meta?: { description: string; [key: string]: any }
+  data?: { [key: string]: any }
 }
 
 export interface IGenericComponentData {
   content: { [key: string]: any }
+  data?: { [key: string]: any }
   theme?: { [key: string]: any }
 }
 
@@ -400,6 +402,11 @@ export interface IAppSetting extends IGenericComponentData {
 
 /// Home Page Global Settings
 export interface IHomePageData extends IGenericPageData {
+  data: {
+    pickedProjects: Array<TPickedProjects>
+    favProject: Array<IGallery>
+    navData?: INavLink
+  }
   meta: {
     description: string
     tagLine?: string
@@ -407,8 +414,6 @@ export interface IHomePageData extends IGenericPageData {
   theme: {
     colorTheme?: string
     fontFamily?: string
-    pickedProjects: Array<TPickedProjects>
-    favProject: Array<IGallery>
     nav: ESiteNavNames
   }
   content: {
@@ -495,6 +500,9 @@ export interface IHomePageData extends IGenericPageData {
 
 /// Details Page Global Settings
 export interface IProjectDetailsPageData extends IGenericPageData {
+  data: {
+    navData?: INavLink
+  }
   meta: {
     description: string
   }
