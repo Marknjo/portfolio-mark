@@ -133,6 +133,15 @@ export enum EPagesTemplateTypes {
   BLOG = 'blog',
 }
 
+export enum EHomePageSections {
+  HERO = 'hero',
+  ABOUT = 'about',
+  PROJECTS = 'projects',
+  FAV = 'favProjects',
+  CONTACT = 'contact',
+  SKILLS = 'skills',
+}
+
 export enum EGeneralComponents {
   CTA = 'cta',
   NAV = 'navigation',
@@ -405,7 +414,7 @@ export interface IHomePageData extends IGenericPageData {
   data: {
     pickedProjects: Array<TPickedProjects>
     favProject: Array<IGallery>
-    navData?: INavLink
+    navData?: Array<INavLink> | Array<string>
   }
   meta: {
     description: string
@@ -501,7 +510,7 @@ export interface IHomePageData extends IGenericPageData {
 /// Details Page Global Settings
 export interface IProjectDetailsPageData extends IGenericPageData {
   data: {
-    navData?: INavLink
+    navData?: Array<INavLink> | Array<string>
   }
   meta: {
     description: string
