@@ -267,7 +267,7 @@ export interface IProject {
 /// select field
 
 /// Own section to manage icons
-export interface ISocialLinks {
+export interface ISocialLink {
   id: string
   icon: string
   title: string
@@ -415,6 +415,8 @@ export interface IHomePageData extends IGenericPageData {
     pickedProjects: Array<TPickedProjects>
     favProject: Array<IGallery>
     navData: Array<INavLink> | []
+    aboutSocialIcons: Array<ISocialLink> | Array<Pick<ISocialLink, 'id'>>
+    contactSocialIcons: Array<ISocialLink> | Array<Pick<ISocialLink, 'id'>>
   }
   meta: {
     description: string
@@ -453,7 +455,6 @@ export interface IHomePageData extends IGenericPageData {
       detailsLocationTitle: string
       detailsLocationText: string
       detailsSocialTitle: string
-      // detailsSocialIcons: Array<ISocialLinks> // dropdown
     }
     projects: {
       isShown: boolean

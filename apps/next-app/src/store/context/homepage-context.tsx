@@ -11,17 +11,24 @@ import {
   ESiteNavNames,
   EWorkAvailability,
   IHomePageData,
+  ISocialLink,
 } from '@data/types'
 
-/// @TODO: add socialMedia links
-export interface IHomePageContext extends IHomePageData {
-  hideSection: (isShown: boolean, page: EHomePageSections) => void
-  changeWorkAvailabilityStatus: (status: EWorkAvailability) => void
+enum ESocialIconType {
+  contact = 'contactSocialIcons',
+  about = 'aboutSocialIcons',
 }
-
 enum EHomePageReducerFnActions {
   HIDE_SECTION = 'hide section',
   CHANGE_AVAILABILITY_STATUS = 'change work availability status',
+  TOGGLE_SOCIAL_ICON = 'toggle social icon',
+}
+
+/// @TODO: add socialMedia links
+export interface IHomePageContext extends IHomePageData {
+  hideSection: (isShown: boolean, pageSection: EHomePageSections) => void
+  changeWorkAvailabilityStatus: (status: EWorkAvailability) => void
+  toggleSocialIcon: (icon: string, iconType: ESocialIconType) => void
 }
 
 interface IHomePageReducerFnAction {
@@ -40,6 +47,8 @@ const initialData: IHomePageContext = {
     favProject: [],
     pickedProjects: [],
     navData: [],
+    aboutSocialIcons: [],
+    contactSocialIcons: [],
   },
   meta: {
     description: 'Mark Njoroge Profile',
@@ -128,8 +137,9 @@ const initialData: IHomePageContext = {
       socialTitle: '',
     },
   },
-  hideSection: (isShown, page) => ({ isShown, page }),
+  hideSection: (isShown, pageSection) => ({ isShown, pageSection }),
   changeWorkAvailabilityStatus: () => {},
+  toggleSocialIcon: (icon, iconType) => ({ icon, iconType }),
 }
 
 const HomePageContext = createContext(initialData)
@@ -180,6 +190,37 @@ const homePageReducerFn = (
       }
     }
 
+    case EHomePageReducerFnActions.TOGGLE_SOCIAL_ICON: {
+      const { icon, iconType } = action.payload.value as {
+        icon: string
+        iconType: ESocialIconType
+      }
+
+      const socialIcons = [...(state.data[iconType] as Array<ISocialLink>)]
+
+      const foundIconIndex = socialIcons.findIndex(
+        iconData => iconData.icon === icon,
+      )
+
+      /// do not update state
+      if (foundIconIndex < 0) return state
+
+      const foundIconData = socialIcons[foundIconIndex]
+
+      socialIcons[foundIconIndex] = {
+        ...foundIconData,
+        isHidden: !foundIconData.isHidden,
+      }
+
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          [iconType]: socialIcons,
+        },
+      }
+    }
+
     default:
       return state
   }
@@ -217,13 +258,23 @@ export const HomePageProvider = ({
     [],
   )
 
+  const toggleSocialIcon = useCallback(
+    (icon: string, iconType: ESocialIconType) =>
+      dispatch({
+        type: EHomePageReducerFnActions.TOGGLE_SOCIAL_ICON,
+        payload: { value: { icon, iconType } },
+      }),
+    [],
+  )
+
   const value = useMemo(
     () => ({
       ...state,
       hideSection,
       changeWorkAvailabilityStatus,
+      toggleSocialIcon,
     }),
-    [state, hideSection, changeWorkAvailabilityStatus],
+    [state, hideSection, changeWorkAvailabilityStatus, toggleSocialIcon],
   )
 
   return (

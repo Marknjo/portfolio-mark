@@ -1,13 +1,15 @@
-import { ISocialLinks } from '../types'
+import { ISocialLink } from '../types'
 
-export const socialLinks: Array<ISocialLinks> = [
+export const socialLinks: Array<ISocialLink> = [
   {
+    id: 'sl1',
     title: 'LinkedIn',
     link: 'https://linkedin.com/in/mark-njoroge/',
     icon: 'BsLinkedin',
     isHidden: false,
   },
   {
+    id: 'sl2',
     title: 'Twitter',
     link: 'https://twitter.com/marknjo7',
     icon: 'BsTwitter',
@@ -15,6 +17,7 @@ export const socialLinks: Array<ISocialLinks> = [
   },
 
   {
+    id: 'sl3',
     title: 'Github',
     link: 'https://github.com/Marknjo',
     icon: 'BsGithub',
@@ -22,6 +25,7 @@ export const socialLinks: Array<ISocialLinks> = [
   },
 
   {
+    id: 'sl4',
     title: 'https://youtube.com/@thetalkingdev',
     link: 'YouTube',
     icon: 'BsYoutube',
