@@ -7,7 +7,7 @@ export const homePageData: IHomePageData = {
   data: {
     pickedProjects,
     favProject,
-    // navData:  add later
+    navData: [],
   },
   meta: {
     description:

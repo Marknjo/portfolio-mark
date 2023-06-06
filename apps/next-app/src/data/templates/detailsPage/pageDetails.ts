@@ -5,6 +5,9 @@ import {
 } from '@data/types'
 
 export const projectDetailsPageData: IProjectDetailsPageData = {
+  data: {
+    navData: [],
+  },
   meta: {
     description: 'This is project details page',
   },

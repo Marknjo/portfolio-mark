@@ -163,7 +163,7 @@ export interface INavLink {
 export interface IPageNav {
   id: string
   name: ESiteNavNames // drop down menu
-  navLinksRef: Array<Pick<INavLink, 'id'>>
+  navLinksRef: Array<Pick<INavLink, 'id'>> | Array<INavLink>
   description?: string
 }
 
@@ -414,7 +414,7 @@ export interface IHomePageData extends IGenericPageData {
   data: {
     pickedProjects: Array<TPickedProjects>
     favProject: Array<IGallery>
-    navData?: Array<INavLink> | Array<string>
+    navData: Array<INavLink> | []
   }
   meta: {
     description: string
@@ -510,7 +510,7 @@ export interface IHomePageData extends IGenericPageData {
 /// Details Page Global Settings
 export interface IProjectDetailsPageData extends IGenericPageData {
   data: {
-    navData?: Array<INavLink> | Array<string>
+    navData: Array<INavLink> | []
   }
   meta: {
     description: string
