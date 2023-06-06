@@ -108,7 +108,7 @@ importers:
       eslint-plugin-import: ^2.27.5
       eslint-plugin-jest: ^27.2.1
       eslint-plugin-jest-dom: ^4.0.3
-      eslint-plugin-testing-library: ^5.10.3
+      eslint-plugin-testing-library: ^5.11.0
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.59.9_3cembfv4vokiyn6g4ljynjc5d4
       '@typescript-eslint/parser': 5.59.9_tizxnkcvjrb4cldxgwq5h3lj5u
@@ -121,7 +121,7 @@ importers:
       eslint-plugin-import: 2.27.5_sy3fwlw3eoekx4zbdfl3pdvalu
       eslint-plugin-jest: 27.2.1_6p7xp42z5pxanulzlc5byrxfg4
       eslint-plugin-jest-dom: 4.0.3_eslint@8.42.0
-      eslint-plugin-testing-library: 5.10.3_tizxnkcvjrb4cldxgwq5h3lj5u
+      eslint-plugin-testing-library: 5.11.0_tizxnkcvjrb4cldxgwq5h3lj5u
 
   packages/tsconfig:
     specifiers: {}
@@ -3676,8 +3676,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: false
 
-  /eslint-plugin-testing-library/5.10.3_tizxnkcvjrb4cldxgwq5h3lj5u:
-    resolution: {integrity: sha512-0yhsKFsjHLud5PM+f2dWr9K3rqYzMy4cSHs3lcmFYMa1CdSzRvHGgXvsFarBjZ41gU8jhTdMIkg8jHLxGJqLqw==}
+  /eslint-plugin-testing-library/5.11.0_tizxnkcvjrb4cldxgwq5h3lj5u:
+    resolution: {integrity: sha512-ELY7Gefo+61OfXKlQeXNIDVVLPcvKTeiQOoMZG9TeuWa7Ln4dUNRv8JdRWBQI9Mbb427XGlVB1aa1QPZxBJM8Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6'}
     peerDependencies:
       eslint: ^7.5.0 || ^8.0.0
