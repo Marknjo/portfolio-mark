@@ -624,11 +624,13 @@ export interface ICtaComponentData extends IGenericComponentData {
 
 // - FOOTER Component
 export interface IFooterComponentData extends IGenericComponentData {
+  data: {
+    nav: Array<INavLink>
+  }
   theme: {
     isProtected: boolean
     colorTheme?: string
     fontFamily?: string
-    nav: ESiteNavNames
   }
   content: {
     logoText: string

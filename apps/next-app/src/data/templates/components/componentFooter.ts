@@ -1,10 +1,14 @@
+import { getPageNav } from '@data/utils/pageNavs'
 import { IFooterComponentData, ESiteNavNames } from '../../types'
 
 export const footerComponent: IFooterComponentData = {
+  data: {
+    nav: getPageNav(ESiteNavNames.FOOTER_NAV),
+  },
   theme: {
     colorTheme: 'orange',
     fontFamily: '',
-    nav: ESiteNavNames.FOOTER_NAV,
+
     isProtected: false,
   },
   content: {
