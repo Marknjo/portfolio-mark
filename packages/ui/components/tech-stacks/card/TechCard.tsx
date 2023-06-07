@@ -207,7 +207,10 @@ export function TechCard<T extends { [key: string]: any }>({
 
       {showLink && (
         <GridItem gridColumn="c3-start/c3-end" gridRow="r1-start/r1-end">
-          <CardLink pageLink={skill.homePage} cardLinkStyles={cardLinkStyles} />
+          <CardLink
+            pageLink={skill.homePageUrl}
+            cardLinkStyles={cardLinkStyles}
+          />
         </GridItem>
       )}
 

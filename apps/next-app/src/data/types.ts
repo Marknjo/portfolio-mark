@@ -429,6 +429,7 @@ export interface IHomePageData extends IGenericPageData {
     navData: Array<INavLink> | []
     aboutSocialIcons: Array<ISocialLink> | Array<Pick<ISocialLink, 'id'>>
     contactSocialIcons: Array<ISocialLink> | Array<Pick<ISocialLink, 'id'>>
+    techStacks: Array<IStack> | []
   }
   meta: {
     description: string

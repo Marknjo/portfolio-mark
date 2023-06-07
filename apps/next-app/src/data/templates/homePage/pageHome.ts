@@ -2,6 +2,7 @@ import { ESiteNavNames, EWorkAvailability, IHomePageData } from '@data/types'
 import { findPickedProjects } from '@data/utils/projectsHelpers'
 import { appFiles } from '@data/generalData/dataFiles'
 import { favProjectsGalleryImgsPicker } from '@data/utils/galleryHelpers'
+import { getStacks } from '@data/utils/stacksHelpers'
 import { aboutText, headerText, summaryText } from './dataHomepageText'
 import { aboutSocialIcons, contactSocialIcons } from './dataSocialIcons'
 
@@ -21,6 +22,7 @@ export const homePageData: IHomePageData = {
     navData: [],
     aboutSocialIcons,
     contactSocialIcons,
+    techStacks: getStacks(),
   },
   meta: {
     description:

@@ -1,12 +1,11 @@
 import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import { getStacks, stacksSamp } from '@data/techStacksSample'
-import { StackCategory, TechCard, IStack, SubHeading } from 'ui'
-
-const progLangs = getStacks(stacksSamp)
+import { EStackCategories, IStack } from '@data/types'
+import { useHomePageData } from '@store/context/homepage-context'
+import { TechCard, SubHeading } from 'ui'
 
 interface IProps {
-  category: StackCategory
+  category: EStackCategories
   headingText: string
   mainStylesOverrides?: SystemStyleObject
   headingStylesOverrides?: SystemStyleObject
@@ -23,6 +22,10 @@ const SkillsCategoryContainer = ({
   headingStylesOverrides = {},
   cardsWrapperOverrides = {},
 }: IProps) => {
+  const {
+    data: { techStacks },
+  } = useHomePageData()
+
   const mainStyles: SystemStyleObject = {
     gridRow: 'r3-start/r3-end',
     gridColumn: 'content-start/content-end',
@@ -61,7 +64,7 @@ const SkillsCategoryContainer = ({
       <SubHeading as="h4" overrides={h4HeadingStyles} text={headingText} />
 
       <HStack gap="4" flexWrap="wrap" mb={sizes.sm} sx={cardsWrapperOverrides}>
-        {progLangs.map(
+        {techStacks.map(
           lang =>
             !lang.isHidden &&
             lang.category === category && (

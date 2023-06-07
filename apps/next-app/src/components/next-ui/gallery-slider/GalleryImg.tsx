@@ -23,8 +23,6 @@ const GalleryImg = ({ data }: { data: IGallery }) => {
     data.largeImgPrefix ? data.largeImgPrefix : ''
   }`
 
-  console.log(loadImg)
-
   return (
     <Image
       src={`/images/${loadImg}.jpg`}

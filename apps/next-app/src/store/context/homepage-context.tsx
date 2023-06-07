@@ -49,6 +49,7 @@ const initialData: IHomePageContext = {
     navData: [],
     aboutSocialIcons: [],
     contactSocialIcons: [],
+    techStacks: [],
   },
   meta: {
     description: 'Mark Njoroge Profile',
