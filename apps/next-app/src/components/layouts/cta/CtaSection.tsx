@@ -5,13 +5,13 @@ import {
   HStack,
   Heading,
   SystemStyleObject,
-  Text,
   VStack,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { useAppSettings } from '@store/context/app-settings-context'
 import NavLink from 'next/link'
 import { ReactNode } from 'react'
-import { MainGrid } from 'ui'
+import { MainGrid, ParagraphGenerator } from 'ui'
 
 const CtaSection = ({
   children,
@@ -26,6 +26,14 @@ const CtaSection = ({
   footerGridRow?: string
   ctaStylesOverrides?: GridProps
 }) => {
+  const {
+    data: {
+      ctaConfig: {
+        content: { contactButtonLink, contactButtonText, ctaText, title },
+      },
+    },
+  } = useAppSettings()
+
   const mainStyles: GridProps = {
     color: 'orange.50',
     backgroundColor: 'orange.500',
@@ -80,7 +88,7 @@ const CtaSection = ({
             fontWeight="medium"
             fontSize={{ base: '2xl', lg: 'lg', xl: '2xl' }}
           >
-            Having a project?
+            {title}
           </Heading>
 
           <VStack
@@ -88,21 +96,14 @@ const CtaSection = ({
             alignItems="center"
             textAlign="center"
             fontSize="small"
+            gap="1"
           >
-            <Text>
-              Let me help you build it and grow your company. Reach me from the
-              contact form above.
-            </Text>
-            <Text>
-              If from Kenya, call. I also don't mind to discuss the details of
-              your project over a cup of coffee.
-            </Text>
-            <Text>I don't mind buying it 😜.</Text>
+            <ParagraphGenerator content={ctaText} isStyled={false} />
           </VStack>
 
           <Button
             as={NavLink}
-            href="/#contact-section"
+            href={`/${contactButtonLink}`}
             variant="outline"
             color="teal.100"
             borderColor="teal.100"
@@ -115,7 +116,7 @@ const CtaSection = ({
               color: 'teal.50',
             }}
           >
-            Shoot Me 😃
+            {contactButtonText}
           </Button>
         </HStack>
       </GridItem>

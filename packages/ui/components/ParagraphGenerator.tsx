@@ -1,7 +1,15 @@
-import { Text } from '@chakra-ui/react'
+import { SystemStyleObject, Text } from '@chakra-ui/react'
 import { useMemo } from 'react'
 
-export const ParagraphGenerator = ({ content }: { content: string }) => {
+export const ParagraphGenerator = ({
+  content,
+  sx = {},
+  isStyled = true,
+}: {
+  content: string
+  sx?: SystemStyleObject
+  isStyled?: boolean
+}) => {
   const contentArr = useMemo(
     () =>
       content
@@ -11,14 +19,19 @@ export const ParagraphGenerator = ({ content }: { content: string }) => {
     [content],
   )
 
+  const styles: SystemStyleObject = {
+    mb: { base: '2', md: '3' },
+    textStyle: 'para-default',
+    layerStyle: 'para-default',
+    ...sx,
+  }
+
   return (
     <>
       {contentArr.map((text, idx) => (
         <Text
-          mb={{ base: '2', md: '3' }}
           key={`${idx + 1}+${text.slice(8)}`}
-          textStyle="para-default"
-          layerStyle="para-default"
+          sx={isStyled ? styles : undefined}
         >
           {text.trim()}
         </Text>
