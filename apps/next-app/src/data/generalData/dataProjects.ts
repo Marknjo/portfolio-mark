@@ -123,7 +123,8 @@ export const projectsData: Array<IProject> = [
   },
   {
     id: 'p5',
-    slug: 'mark-njoroge-profile',
+    // slug: 'mark-njoroge-profile',
+    slug: 'project-details',
     title: 'Dev Profile',
     category: projectCategories[5].id,
     liveLink: 'coming soon',

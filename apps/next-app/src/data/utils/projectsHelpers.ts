@@ -1,6 +1,13 @@
 import { projectsData } from '@data/generalData/dataProjects'
-import { TCardSlimGalleryData, TPickedProjectsCard } from '@data/types'
+import {
+  IProject,
+  TCardSlimGalleryData,
+  TPickedProjectsCard,
+} from '@data/types'
 import { imagePicker } from './galleryHelpers'
+import { mapDataFieldAsKey } from './mapFilesIdAsKey'
+
+const mappedProjectsBySlug = mapDataFieldAsKey(projectsData, 'slug')
 
 export const findPickedProjects = (): Array<TPickedProjectsCard> => {
   const foundPickedProjects = projectsData.filter(project => project.isPicked)
@@ -19,4 +26,8 @@ export const findPickedProjects = (): Array<TPickedProjectsCard> => {
 
     return dataPrep
   })
+}
+
+export function getProjectBySlug(slug: string): IProject | undefined {
+  return mappedProjectsBySlug[slug]
 }

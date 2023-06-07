@@ -142,6 +142,14 @@ export enum EHomePageSections {
   SKILLS = 'skills',
 }
 
+export enum EDetailPageSections {
+  HERO = 'hero',
+  THE_CHALLENGE = 'theChallenge',
+  GALLERY = 'gallery',
+  SUMMARY = 'summary',
+  CTA = 'cta',
+}
+
 export enum EGeneralComponents {
   CTA = 'cta',
   NAV = 'navigation',
@@ -560,6 +568,7 @@ export interface IHomePageData extends IGenericPageData {
 export interface IProjectDetailsPageData extends IGenericPageData {
   data: {
     navData: Array<INavLink> | []
+    projectData: IProject | null
   }
   meta: {
     description: string
@@ -572,6 +581,7 @@ export interface IProjectDetailsPageData extends IGenericPageData {
   }
   content: {
     hero: {
+      isShown: boolean
       stacksTitle: string
       stacksButtonText: string
       stacksButtonLink: string
@@ -579,22 +589,26 @@ export interface IProjectDetailsPageData extends IGenericPageData {
       introButtonText: string
     }
     theChallenge: {
+      isShown: boolean
       headerTitleMain: string
       headerTitleSub: string
       goalsTitle: string
       stacksTitle: string
     }
     gallery: {
+      isShown: boolean
       headerTitleMain: string
       headerTitleSub: string
     }
     summary: {
+      isShown: boolean
       headerTitleMain: string
       headerTitleSub: string
       challengesTitle: string
       lessonsTitle: string
     }
     cta: {
+      isShown: boolean
       headerTitle: string
       paginationPrevText: string
       paginationNextText: string
