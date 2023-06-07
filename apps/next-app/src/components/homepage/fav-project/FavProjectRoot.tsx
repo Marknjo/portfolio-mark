@@ -4,8 +4,8 @@ import { DotsBottomRight, MainGrid } from 'ui'
 import { sizes } from '@components/next-ui'
 
 import { useSlider } from '@store/context/slider'
-import { favProjectImgs } from '@data/favProjectImgs'
 import GallerySlider from '@components/next-ui/gallery-slider/GallerySlider'
+import { useHomePageData } from '@store/context/homepage-context'
 
 import FavTitle from './FavTittle'
 import FavBg from './FavBg'
@@ -14,12 +14,15 @@ import FavGallery from './FavGallery'
 
 const FavProjectRoot = () => {
   const { setSlideItems, setSliderIsModal } = useSlider()
+  const {
+    data: { favProject },
+  } = useHomePageData()
 
   /* Configure gallery slider */
   useEffect(() => {
-    setSlideItems(favProjectImgs)
+    setSlideItems(favProject)
     setSliderIsModal(true)
-  }, [setSlideItems, setSliderIsModal])
+  }, [setSlideItems, setSliderIsModal, favProject])
 
   const styles = useStyles()
   return (

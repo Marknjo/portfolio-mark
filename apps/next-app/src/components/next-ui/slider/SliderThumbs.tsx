@@ -1,5 +1,6 @@
 import { Box, Flex, Image, SystemStyleObject } from '@chakra-ui/react'
 import { useSlider } from '@store/context/slider'
+import { useId } from 'react'
 
 /// @TODO: Use actual image thumbnails
 /// @TODO: add position of placement settings, top, right, left or like current bottom
@@ -8,6 +9,7 @@ import { useSlider } from '@store/context/slider'
  * Set's slider thumbnails for previewing selected items
  */
 function SliderThumbs<T extends { [key: string]: any }>() {
+  const thumbId = useId()
   const { sliderItems, curActiveSlide, setCurActiveSlide } = useSlider<T>()
   // Styles
   const styles = useStyles()
@@ -19,12 +21,12 @@ function SliderThumbs<T extends { [key: string]: any }>() {
 
         return (
           <Box
-            key={imgData.id}
+            key={`${thumbId}-${imgData.id + i}`}
             aria-selected={isSelected}
             sx={styles.imgThumbWrapper}
           >
             <Image
-              src={`/images/${imgData.imgName}.jpg`}
+              src={`/images/${imgData.fileName}.jpg`}
               sx={styles.imgThumb}
               alt={imgData.title}
               // onClick={() => onSelectActiveSlide(i)}

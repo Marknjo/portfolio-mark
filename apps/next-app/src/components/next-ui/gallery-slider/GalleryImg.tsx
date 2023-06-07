@@ -3,10 +3,10 @@ import { Image, SystemStyleObject } from '@chakra-ui/react'
 
 // local
 import { useSliderSize } from '@components/next-ui/slider/hooks/use-slider-size'
-import { IFavGallery } from '@data/favProjectImgs'
+import { IGallery } from '@data/types'
 import { useSlider } from '@store/context/slider'
 
-const GalleryImg = ({ data }: { data: IFavGallery }) => {
+const GalleryImg = ({ data }: { data: IGallery }) => {
   const { setSliderSizes } = useSlider()
   const imgRef = useRef<HTMLImageElement>(null)
   const sizes = useSliderSize<HTMLImageElement>(imgRef)
@@ -19,9 +19,15 @@ const GalleryImg = ({ data }: { data: IFavGallery }) => {
     setSliderSizes(sizes)
   }, [setSliderSizes, sizes])
 
+  const loadImg = `${data.fileName}${
+    data.largeImgPrefix ? data.largeImgPrefix : ''
+  }`
+
+  console.log(loadImg)
+
   return (
     <Image
-      src={`/images/${data.imgName}.jpg`}
+      src={`/images/${loadImg}.jpg`}
       alt="sample image"
       id={`${data.id}`}
       ref={imgRef}

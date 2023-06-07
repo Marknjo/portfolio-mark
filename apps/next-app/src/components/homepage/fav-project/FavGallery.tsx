@@ -4,14 +4,16 @@ import { Grid, GridItem } from '@chakra-ui/react'
 
 import { GalleryImageCard } from 'ui'
 import { useSlider } from '@store/context/slider'
-import { IFavGallery } from '@data/favProjectImgs'
+import { IGallery } from '@data/types'
+import { useId } from 'react'
 
 const FavGallery = () => {
+  const imgId = useId()
   const {
     sliderItems,
     setCurActiveSlide: setCurSlide,
     openSlider,
-  } = useSlider<IFavGallery>()
+  } = useSlider<IGallery>()
 
   const gridColumnDef = {
     base: 'repeat(auto-fit, minmax(18rem, 1fr))',
@@ -43,8 +45,8 @@ const FavGallery = () => {
     >
       {sliderItems.map((img, i) => (
         <GalleryImageCard
-          key={img.id}
-          imgName={img.imgName}
+          key={`${imgId}-${img.id + i}`}
+          imgName={img.fileName}
           title={img.title}
           alt={img.alt}
           asNavLink={NextLink}

@@ -7,7 +7,7 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/react'
 import SliderThumbs from '@components/next-ui/slider/SliderThumbs'
-import { IFavGallery } from '@data/favProjectImgs'
+import { IGallery } from '@data/types'
 import { useSlider } from '@store/context/slider'
 import { ReactNode } from 'react'
 
@@ -29,7 +29,7 @@ const GalleryToolkit = ({ children }: { children: ReactNode }) => {
         {children}
 
         <ModalFooter sx={styles.thumbnails}>
-          <SliderThumbs<IFavGallery> />
+          <SliderThumbs<IGallery> />
         </ModalFooter>
       </ModalContent>
     </>

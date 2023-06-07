@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode, useCallback, useEffect } from 'react'
+import { ComponentType, ReactNode, useCallback, useEffect, useId } from 'react'
 import { Box, SystemStyleObject } from '@chakra-ui/react'
 
 /// local
@@ -21,6 +21,7 @@ function Slider<
   }>
   children?: ReactNode
 }) {
+  const sliderId = useId()
   const {
     isActive,
     curActiveSlide,
@@ -106,7 +107,10 @@ function Slider<
           transform: `translateX(${100 * (i - curActiveSlide)}%)`,
         }
         return (
-          <SlideItem key={slideData.id} style={style}>
+          <SlideItem
+            key={`${sliderId}-${(slideData.id as any) + i}`}
+            style={style}
+          >
             <SliderComponent data={slideData} />
             {children}
           </SlideItem>

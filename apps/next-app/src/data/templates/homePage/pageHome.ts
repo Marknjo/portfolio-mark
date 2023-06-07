@@ -1,10 +1,18 @@
 import { ESiteNavNames, EWorkAvailability, IHomePageData } from '@data/types'
 import { findPickedProjects } from '@data/utils/projectsHelpers'
 import { appFiles } from '@data/generalData/dataFiles'
+import { favProjectsGalleryImgsPicker } from '@data/utils/galleryHelpers'
 import { aboutText, headerText, summaryText } from './dataHomepageText'
-
-import { favProject } from './dataFavProject'
 import { aboutSocialIcons, contactSocialIcons } from './dataSocialIcons'
+
+const favProject = favProjectsGalleryImgsPicker([
+  'g7',
+  'g7',
+  'g7',
+  'g7',
+  'g7',
+  'g7',
+])
 
 export const homePageData: IHomePageData = {
   data: {
@@ -66,7 +74,7 @@ export const homePageData: IHomePageData = {
     favProject: {
       isShown: true,
       titleMain: 'I Build Expressive Websites, Awesome, And Catchy.',
-      titleSub: "Here's Quick Peak Of My Favorite Project",
+      titleSub: "Here's A Quick Peak Of My Favorite Project",
       summaryText,
       moreDetailsButtonText: 'Learn More',
       visitProjectButtonText: 'Visit Live Project',

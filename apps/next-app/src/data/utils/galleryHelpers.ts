@@ -19,3 +19,6 @@ export const imagePicker = (
 
   return fullImgData
 }
+
+export const favProjectsGalleryImgsPicker = (imgIds: Array<string>) =>
+  imgIds.map(id => imagePicker(id)) as Array<IGallery>

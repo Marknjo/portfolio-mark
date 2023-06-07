@@ -1,5 +1,6 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { useHomePageData } from '@store/context/homepage-context'
 import { LargeTitle } from 'ui'
 
 export const favRowBreakpoint = {
@@ -18,16 +19,23 @@ const gridStyles: SystemStyleObject = {
   borderRadius: { base: 'md', md: '0' },
   boxShadow: { base: 'sm', md: 'none' },
 }
-const FavTitle = () => (
-  <GridItem sx={gridStyles}>
-    <LargeTitle
-      title="I Build Expressive Websites,
-      Awesome, and Catchy."
-      subTitle="Here's Quick Peak of My Favorite Project"
-      subTitleConfig={{ textAlign: 'left' }}
-      alignTitle={{ alignItems: 'left', pl: sizes['xl-sm'] }}
-    />
-  </GridItem>
-)
+const FavTitle = () => {
+  const {
+    content: {
+      favProject: { titleMain, titleSub },
+    },
+  } = useHomePageData()
+
+  return (
+    <GridItem sx={gridStyles}>
+      <LargeTitle
+        title={titleMain}
+        subTitle={titleSub}
+        subTitleConfig={{ textAlign: 'left' }}
+        alignTitle={{ alignItems: 'left', pl: sizes['xl-sm'] }}
+      />
+    </GridItem>
+  )
+}
 
 export default FavTitle
