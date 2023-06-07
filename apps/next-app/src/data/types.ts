@@ -516,6 +516,7 @@ export interface IHomePageData extends IGenericPageData {
       socialIntoText: string
       favSocial: string
       socialText: string
+      socialHintText: string
       socialTitle: string
       // socialIcons: Array<ISocialLinks> // dropdown
     }

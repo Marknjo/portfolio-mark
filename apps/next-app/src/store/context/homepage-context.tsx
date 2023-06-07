@@ -136,6 +136,7 @@ const initialData: IHomePageContext = {
       socialIntoText: '',
       favSocial: '',
       socialText: '',
+      socialHintText: '',
       socialTitle: '',
     },
   },
