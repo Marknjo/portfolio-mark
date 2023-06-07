@@ -646,6 +646,6 @@ export interface INavComponentData extends IGenericComponentData {
   }
   content: {
     logoText: string
-    logoImg?: string
+    logoImg?: IGallery | string
   }
 }

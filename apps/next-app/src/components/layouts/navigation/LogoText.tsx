@@ -9,6 +9,7 @@ import {
 import NextLink from 'next/link'
 import { motion } from 'framer-motion'
 import { fontSizes } from '@components/next-ui'
+import { useAppSettings } from '@store/context/app-settings-context'
 
 const animationKeyFrames = keyframes`
   0% {
@@ -42,6 +43,14 @@ const LogoText = ({
   sxOverrides?: SystemStyleObject
   asHamburger: boolean
 }) => {
+  const {
+    data: {
+      mainNavConfig: {
+        content: { logoText },
+      },
+    },
+  } = useAppSettings()
+
   const animation = `${animationKeyFrames} .45s .1s ease-out backwards`
 
   /* Logo Styles */
@@ -76,7 +85,7 @@ const LogoText = ({
             transform: 'scaleX(1.05)',
           }}
         >
-          Mark Njoroge
+          {logoText}
         </Link>
       </Box>
     </GridItem>
