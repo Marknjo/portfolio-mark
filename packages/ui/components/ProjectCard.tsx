@@ -7,6 +7,7 @@ import {
   Image,
   SystemStyleObject,
   Tag,
+  Tooltip,
   VStack,
   Wrap,
   WrapItem,
@@ -15,8 +16,10 @@ import {
 import { LinkIcon } from './LinkIcon'
 
 export interface ProjectTagsInterface {
+  id: string
   tagName: string
   colorTheme: string
+  fullTagName: string
 }
 
 export interface CardsInfoInterface {
@@ -108,18 +111,27 @@ export const ProjectCard = ({
 
           <Wrap justify="space-evenly">
             {tags.map(tag => (
-              <WrapItem key={`${tag.tagName}-${title}`}>
-                <Tag
-                  colorScheme={tag.colorTheme}
-                  size="sm"
-                  fontSize={{
-                    base: 'xx-small',
-                    lg: 'x-small',
-                  }}
-                >
-                  {tag.tagName}
-                </Tag>
-              </WrapItem>
+              <Tooltip
+                hasArrow
+                colorScheme={tag.colorTheme}
+                placement="top-start"
+                label={tag.fullTagName}
+                key={`${tag.id}-${tag.tagName}`}
+              >
+                <WrapItem>
+                  <Tag
+                    cursor="help"
+                    colorScheme={tag.colorTheme}
+                    size="sm"
+                    fontSize={{
+                      base: 'xx-small',
+                      lg: 'x-small',
+                    }}
+                  >
+                    {tag.tagName}
+                  </Tag>
+                </WrapItem>
+              </Tooltip>
             ))}
           </Wrap>
 

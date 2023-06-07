@@ -182,6 +182,7 @@ export interface IGallery {
 export interface IProjectTag {
   id: string
   tagName: string
+  fullTagName: string
   colorTheme: string
 }
 

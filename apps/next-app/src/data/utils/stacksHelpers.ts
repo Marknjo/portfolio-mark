@@ -46,6 +46,7 @@ export const getStackTags = (
     id: stack.id,
     tagName: stack.tagName,
     colorTheme: stack.tagColorTheme,
+    fullTagName: stack.name,
   }))
 }
 
