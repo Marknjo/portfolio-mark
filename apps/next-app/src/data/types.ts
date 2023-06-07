@@ -295,7 +295,7 @@ export interface IProject {
   introStacks: TProjectStackData // dropdown - ref to stacks
   stacks: TProjectStackData // dropdown - ref to stacks
   tags: Array<IProjectTag>
-  gallery: Array<Pick<IGallery, 'id'>> | Array<string> // dropdown - ref to stacks
+  gallery: Array<IGallery> // dropdown - ref to stacks
   galleryPrevPrefix?: string // a gallery preview image prefix
 }
 

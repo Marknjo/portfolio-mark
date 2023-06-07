@@ -11,19 +11,24 @@ import { largeBorderBrP, sizes } from '@components/next-ui'
 
 /// local
 import { useSlider } from '@store/context/slider'
-import { gridImages } from '@data/gridImages'
 import GallerySlider from '@components/next-ui/gallery-slider/GallerySlider'
+import { useDetailsPageData } from '@store/context/details-page-context'
 
 import GalleryTitle from './GalleryTitle'
 import GalleryImages from './GalleryImages'
 
 const GalleryRoot = () => {
+  const {
+    data: { projectData },
+  } = useDetailsPageData()
+
+  const { gallery } = projectData!
   const { setSliderIsModal, setSlideItems } = useSlider()
 
   useEffect(() => {
     setSliderIsModal(true)
-    setSlideItems(gridImages)
-  }, [setSlideItems, setSliderIsModal])
+    setSlideItems(gallery)
+  }, [setSlideItems, setSliderIsModal, gallery])
 
   return (
     <MainGrid options={mainStyles} as="section" id="gallery-section">

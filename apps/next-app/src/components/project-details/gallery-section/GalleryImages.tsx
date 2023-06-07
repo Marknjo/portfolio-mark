@@ -5,14 +5,13 @@ import {
   useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import { IGalleryImg } from '@data/gridImages'
+import { IGallery } from '@data/types'
 import { useSlider } from '@store/context/slider'
 import { CardDetailsGallery, ExpandIconSize } from 'ui'
 
 const GalleryImages = () => {
   const { mainStyles, leftImagesStyles } = useStyles()
-  const { sliderItems, openSlider, setCurActiveSlide } =
-    useSlider<IGalleryImg>()
+  const { sliderItems, openSlider, setCurActiveSlide } = useSlider<IGallery>()
 
   return (
     <Grid sx={mainStyles}>
@@ -32,9 +31,9 @@ const GalleryImages = () => {
       <Grid sx={leftImagesStyles}>
         {sliderItems.slice(1, 5).map((img, i) => (
           <CardDetailsGallery
-            key={`${img.imgName}${img.id}`}
+            key={`${img.fileName}${img.id}`}
             alt={img.alt}
-            imgName={img.imgName}
+            imgName={img.fileName}
             iconSize={ExpandIconSize.md}
             openGallery={() => {
               setCurActiveSlide(i + 1)
