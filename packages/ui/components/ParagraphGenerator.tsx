@@ -1,15 +1,24 @@
 import { SystemStyleObject, Text } from '@chakra-ui/react'
 import { useMemo } from 'react'
 
+export interface IParagraphGenerator {
+  content: string
+  sx?: SystemStyleObject
+  isStyled?: boolean
+}
+
+/**
+ *  Paragraph generator
+ * @param  props: IParagraphGenerator
+ * @returns JSX
+ *
+ * @deprecated use TextContentGenerator component generator instead
+ */
 export const ParagraphGenerator = ({
   content,
   sx = {},
   isStyled = true,
-}: {
-  content: string
-  sx?: SystemStyleObject
-  isStyled?: boolean
-}) => {
+}: IParagraphGenerator) => {
   const contentArr = useMemo(
     () =>
       content

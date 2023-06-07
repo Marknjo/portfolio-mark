@@ -14,6 +14,7 @@ export * from './components/TechStacksCard'
 export * from './components/SubHeading'
 export * from './components/OsxImageWindow'
 export * from './components/ParagraphGenerator'
+export * from './components/TextContentGenerator'
 
 export * from './components/SectionSeparator'
 /// Types
