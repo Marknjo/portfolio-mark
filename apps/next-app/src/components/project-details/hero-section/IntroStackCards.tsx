@@ -1,22 +1,14 @@
 import { useBreakpoint } from '@chakra-ui/react'
-import {
-  StackNames,
-  groupStacksByCategory,
-  stacksSamp,
-} from '@data/techStacksSample'
+import { useDetailsPageData } from '@store/context/details-page-context'
 import { AlignPosition, TechStacksCard, TitleStyles } from 'ui'
 
-const stacks = groupStacksByCategory(
-  [
-    StackNames.REACT,
-    StackNames.CHAKRA,
-    StackNames.NEXT_JS,
-    StackNames.POSTGRES,
-  ],
-  stacksSamp,
-)
-
 const IntroStackCards = () => {
+  const {
+    data: { projectData },
+  } = useDetailsPageData()
+
+  const { introStacks } = projectData!
+
   const brP = useBreakpoint()
 
   const calBrp =
@@ -25,7 +17,7 @@ const IntroStackCards = () => {
       : AlignPosition.CENTER
   return (
     <TechStacksCard
-      stacks={stacks}
+      stacks={introStacks}
       titleStyle={TitleStyles.SM}
       hasDivider={false}
       titlePosition={calBrp}

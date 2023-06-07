@@ -1,13 +1,36 @@
 import NextLink from 'next/link'
-import { Box, Button, Grid, SystemStyleObject, VStack } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Grid,
+  SystemStyleObject,
+  Tooltip,
+  VStack,
+} from '@chakra-ui/react'
 import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi'
 import { ParagraphGenerator, SectionSeparator, SubHeading } from 'ui'
 import { sizes } from '@components/next-ui'
-import { introSampContent } from '@data/sampleContent'
+import { useDetailsPageData } from '@store/context/details-page-context'
 
 import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
+  const {
+    theme: { colorTheme },
+    data: { projectData },
+    content: {
+      hero: {
+        introButtonText,
+        introTextTitle,
+        stacksButtonLink,
+        stacksButtonText,
+        stacksTitle,
+      },
+    },
+  } = useDetailsPageData()
+
+  const { title, liveLink, introSummaryText } = projectData!
+
   const rowBrP = {
     base: `[content-start]
       auto[content-end separator-start] 
@@ -71,7 +94,7 @@ const HeroIntro = () => {
         <VStack sx={contentSectionStyles} gap={sizes.md}>
           <Box>
             <SubHeading
-              text="Tech Stack"
+              text={stacksTitle}
               as="h2"
               overrides={{
                 borderBottom: 'none',
@@ -85,12 +108,12 @@ const HeroIntro = () => {
 
           <Button
             as={NextLink}
-            href="/project-details/#stacks" /* @TODO: Use dynamic link */
+            href={`/project-details/${stacksButtonLink}`} /* @TODO: Use dynamic link */
             rightIcon={<FiArrowDown />}
             variant="link"
             colorScheme="teal"
           >
-            View All Stacks
+            {stacksButtonText}
           </Button>
         </VStack>
 
@@ -103,7 +126,7 @@ const HeroIntro = () => {
           <Box>
             {/* Plain Header */}
             <SubHeading
-              text="Introducing Afri-Hickr"
+              text={`${introTextTitle} ${title}`}
               as="h2"
               overrides={{
                 borderBottom: 'none',
@@ -112,18 +135,27 @@ const HeroIntro = () => {
               }}
             />
             {/* Paragraphs */}
-            <ParagraphGenerator content={introSampContent} />
+            <ParagraphGenerator content={introSummaryText as string} />
           </Box>
           {/* Button */}
-          <Button
-            as={NextLink}
-            href="/" /* @TODO: use github link */
-            rightIcon={<FiArrowUpRight />}
-            variant="outline"
-            colorScheme="orange"
+          <Tooltip
+            placement="top-start"
+            hasArrow
+            bgColor={`${colorTheme}.800`}
+            color={`${colorTheme}.100`}
+            label={liveLink}
+            isDisabled={liveLink !== 'coming soon'}
           >
-            View All Stacks
-          </Button>
+            <Button
+              as={NextLink}
+              href={liveLink === 'coming soon' ? '/#' : liveLink}
+              rightIcon={<FiArrowUpRight />}
+              variant="outline"
+              colorScheme="orange"
+            >
+              {introButtonText}
+            </Button>
+          </Tooltip>
         </VStack>
       </Grid>
       <SectionSeparator

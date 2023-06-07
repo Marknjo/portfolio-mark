@@ -16,6 +16,7 @@ export const projectDetailsPageData: IProjectDetailsPageData = {
   theme: {
     largeImageTheme: EDetailsPageImageThemes.OSX,
     nav: ESiteNavNames.PROJECT_DETAILS_NAV,
+    colorTheme: 'orange',
   },
   content: {
     hero: {

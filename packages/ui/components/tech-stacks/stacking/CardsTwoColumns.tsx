@@ -1,19 +1,18 @@
-import { HStack, SystemStyleObject, VStack } from '@chakra-ui/react'
+import { HStack, VStack } from '@chakra-ui/react'
 import {
   AlignPosition,
-  IStack,
   StackCategory,
   TitleStyles,
 } from '../types/tech-stacks-types'
 import { TechStack } from './TechStack'
 
-export const CardsTwoColumns = ({
+export function CardsTwoColumns<T extends { [key: string]: any }>({
   stacks,
   hasDivider,
 }: {
-  stacks: Map<StackCategory, [IStack]>
+  stacks: T
   hasDivider?: boolean
-}) => {
+}) {
   const showBadge = false
   const titlePosition = AlignPosition.LEFT
   const titleStyle = TitleStyles.SM_BADGE
@@ -21,10 +20,10 @@ export const CardsTwoColumns = ({
   return (
     <HStack flexWrap="wrap" gap="5" justifyContent="center">
       <VStack alignItems="center" gap="5">
-        {stacks.has(StackCategory.PROGRAMMING_LANGS) && (
+        {stacks[StackCategory.PROGRAMMING_LANGS] && (
           <TechStack
             title={StackCategory.PROGRAMMING_LANGS}
-            categoryStacks={stacks.get(StackCategory.PROGRAMMING_LANGS)!}
+            categoryStacks={stacks[StackCategory.PROGRAMMING_LANGS]}
             showBadge={showBadge}
             titlePosition={titlePosition}
             titleStyle={titleStyle}
@@ -32,10 +31,10 @@ export const CardsTwoColumns = ({
           />
         )}
 
-        {stacks.has(StackCategory.MOBILE) && (
+        {stacks[StackCategory.MOBILE] && (
           <TechStack
             title={StackCategory.MOBILE}
-            categoryStacks={stacks.get(StackCategory.MOBILE)!}
+            categoryStacks={stacks[StackCategory.MOBILE]}
             showBadge={showBadge && true}
             titlePosition={titlePosition}
             titleStyle={titleStyle}
@@ -43,10 +42,10 @@ export const CardsTwoColumns = ({
           />
         )}
 
-        {stacks.has(StackCategory.DESKTOP) && (
+        {stacks[StackCategory.DESKTOP] && (
           <TechStack
             title={StackCategory.DESKTOP}
-            categoryStacks={stacks.get(StackCategory.DESKTOP)!}
+            categoryStacks={stacks[StackCategory.DESKTOP]}
             showBadge={showBadge && true}
             titlePosition={titlePosition}
             titleStyle={titleStyle}
@@ -56,33 +55,33 @@ export const CardsTwoColumns = ({
       </VStack>
 
       <VStack gap="5" alignItems="center">
-        {stacks.has(StackCategory.FRONTEND) && (
+        {stacks[StackCategory.FRONTEND] && (
           <TechStack
             titlePosition={titlePosition}
             title={StackCategory.FRONTEND}
-            categoryStacks={stacks.get(StackCategory.FRONTEND)!}
+            categoryStacks={stacks[StackCategory.FRONTEND]}
             showBadge={showBadge && true}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
           />
         )}
 
-        {stacks.has(StackCategory.BACKEND) && (
+        {stacks[StackCategory.BACKEND] && (
           <TechStack
             titlePosition={titlePosition}
             title={StackCategory.BACKEND}
-            categoryStacks={stacks.get(StackCategory.BACKEND)!}
+            categoryStacks={stacks[StackCategory.BACKEND]}
             showBadge={showBadge && true}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
           />
         )}
 
-        {stacks.has(StackCategory.TOOLS) && (
+        {stacks[StackCategory.TOOLS] && (
           <TechStack
             titlePosition={titlePosition}
             title={StackCategory.TOOLS}
-            categoryStacks={stacks.get(StackCategory.TOOLS)!}
+            categoryStacks={stacks[StackCategory.TOOLS]}
             showBadge={showBadge && true}
             titleStyle={titleStyle}
             hasDivider={hasDivider}

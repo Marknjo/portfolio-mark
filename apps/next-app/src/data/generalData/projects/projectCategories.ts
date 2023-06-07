@@ -28,7 +28,7 @@ export const projectCategories: Array<IProjectsCategory> = [
   },
   {
     id: 'pc6',
-    name: EProjectCategories.FITNESS,
-    description: 'Health and fitness',
+    name: EProjectCategories.OTHERS,
+    description: 'Others',
   },
 ]

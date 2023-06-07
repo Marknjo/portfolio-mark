@@ -18,7 +18,7 @@ export const projectsData: Array<IProject> = [
     id: 'p1',
     slug: 'afri-hiqar',
     title: 'AfriHiqar',
-    category: projectCategories[0].id,
+    category: projectCategories[0],
     liveLink: 'coming soon',
     isPicked: true,
 
@@ -45,7 +45,7 @@ export const projectsData: Array<IProject> = [
     id: 'p2',
     slug: 'opti-planner',
     title: 'OptiPlanner',
-    category: projectCategories[3].id,
+    category: projectCategories[3],
     liveLink: 'coming soon',
     isPicked: true,
 
@@ -72,7 +72,7 @@ export const projectsData: Array<IProject> = [
     id: 'p3',
     slug: 'luku-fiti',
     title: 'LukuFiti',
-    category: projectCategories[2].id,
+    category: projectCategories[2],
     liveLink: 'coming soon',
 
     /// Text content
@@ -98,7 +98,7 @@ export const projectsData: Array<IProject> = [
     id: 'p4',
     slug: 'pesa-sync',
     title: 'PesaSync',
-    category: projectCategories[1].id,
+    category: projectCategories[1],
     liveLink: 'coming soon',
     isPicked: true,
 
@@ -126,7 +126,7 @@ export const projectsData: Array<IProject> = [
     // slug: 'mark-njoroge-profile',
     slug: 'project-details',
     title: 'Dev Profile',
-    category: projectCategories[5].id,
+    category: projectCategories[5],
     liveLink: 'coming soon',
 
     /// Text content

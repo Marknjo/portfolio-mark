@@ -276,10 +276,7 @@ export interface IProject {
   id: string
   slug: string
   title: string /// or {name: string, sub: string},
-  category:
-    | string
-    | Array<Pick<IProjectsCategory, 'id'>>
-    | Pick<IProjectsCategory, 'id'> // rep subTitle text
+  category: IProjectsCategory
   isPicked?: boolean
   liveLink: string
 

@@ -1,21 +1,22 @@
 import { SystemStyleObject } from '@chakra-ui/react'
 import { TechCard } from '../card/TechCard'
-import { IStack } from '../types/tech-stacks-types'
+import { useId } from 'react'
 
-export const StacksCard = ({
+export function StacksCard<T extends { [key: string]: any }>({
   stacks,
   showBadge,
   stylesOverrides = {},
 }: {
-  stacks: [IStack]
+  stacks: [T]
   showBadge?: boolean
   stylesOverrides?: SystemStyleObject
-}) => {
+}) {
+  const cpId = useId()
   return (
     <>
-      {stacks.map(stack => (
+      {stacks.map((stack, i) => (
         <TechCard
-          key={stack.name}
+          key={`${cpId}-${stack.name[0] + i}-${stack.id}`}
           skill={stack}
           showBadge={showBadge}
           stylesOverrides={stylesOverrides}

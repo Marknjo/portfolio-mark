@@ -1,11 +1,13 @@
 import { Box, HStack, Image, SystemStyleObject, VStack } from '@chakra-ui/react'
 
 export const OsxImageWindow = ({
-  url,
+  src,
   mainSxOverrides = {},
   imageSxOverrides = {},
+  alt,
 }: {
-  url: string
+  src: string
+  alt?: string
   mainSxOverrides?: SystemStyleObject
   imageSxOverrides?: SystemStyleObject
 }) => {
@@ -21,7 +23,11 @@ export const OsxImageWindow = ({
           <Box sx={circleYellowStyles}>&nbsp;</Box>
           <Box sx={circleGreenStyles}>&nbsp;</Box>
         </HStack>
-        <Image src={url} sx={imageStyles(imageSxOverrides)} />
+        <Image
+          src={src}
+          sx={imageStyles(imageSxOverrides)}
+          alt={alt || 'OSX Image'}
+        />
       </VStack>
     </Box>
   )

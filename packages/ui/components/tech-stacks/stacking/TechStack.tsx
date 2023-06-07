@@ -96,7 +96,7 @@ const titleStyleOverrides = (
   return styles
 }
 
-export const TechStack = ({
+export function TechStack<T extends { [key: string]: any }>({
   categoryStacks,
   title,
   showBadge,
@@ -104,13 +104,13 @@ export const TechStack = ({
   titleStyle,
   titlePosition,
 }: {
-  categoryStacks: [IStack]
-  title?: StackCategory
+  categoryStacks: [T]
+  title?: StackCategory | string
   showBadge?: boolean
   hasDivider?: boolean
   titleStyle: TitleStyles
   titlePosition: AlignPosition
-}) => {
+}) {
   const cardsWrapperStyles: StackProps = {
     gap: '4',
     flexWrap: 'wrap',

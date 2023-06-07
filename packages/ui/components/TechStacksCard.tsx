@@ -2,12 +2,10 @@ import {
   AlignPosition,
   CardsSingleColumn,
   CardsTwoColumns,
-  IStack,
-  StackCategory,
   TitleStyles,
 } from './tech-stacks'
 
-export const TechStacksCard = ({
+export function TechStacksCard<T extends { [key: string]: any }>({
   stacks,
   isCustom = false,
   showBadge = false,
@@ -16,19 +14,16 @@ export const TechStacksCard = ({
   titleStyle = TitleStyles.SM_BADGE,
   wrapperAlign = AlignPosition.LEFT,
 }: {
-  stacks: Map<StackCategory, [IStack]> | [[StackCategory, [IStack]]]
+  stacks: T
   showBadge?: boolean
   titlePosition?: AlignPosition
   titleStyle?: TitleStyles
   wrapperAlign?: AlignPosition
   isCustom?: boolean
   hasDivider?: boolean
-}) => {
+}) {
   return isCustom ? (
-    <CardsTwoColumns
-      hasDivider={hasDivider}
-      stacks={stacks as Map<StackCategory, [IStack]>}
-    />
+    <CardsTwoColumns hasDivider={hasDivider} stacks={stacks} />
   ) : (
     <CardsSingleColumn
       hasDivider={hasDivider}

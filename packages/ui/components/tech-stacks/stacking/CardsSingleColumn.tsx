@@ -1,7 +1,7 @@
+import { useId } from 'react'
 import { SystemStyleObject, VStack } from '@chakra-ui/react'
 import {
   AlignPosition,
-  IStack,
   StackCategory,
   TitleStyles,
 } from '../types/tech-stacks-types'
@@ -31,7 +31,7 @@ const alignCardItem = (flexAlignPosition: AlignPosition): SystemStyleObject => {
   return alignItemsStyles
 }
 
-export const CardsSingleColumn = ({
+export function CardsSingleColumn<T extends any>({
   stacks,
   showBadge = false,
   titlePosition,
@@ -39,16 +39,17 @@ export const CardsSingleColumn = ({
   wrapperAlign,
   hasDivider,
 }: {
-  stacks: Map<StackCategory, [IStack]> | [[StackCategory, [IStack]]]
+  stacks: T
   showBadge?: boolean
   titlePosition: AlignPosition
   titleStyle: TitleStyles
   wrapperAlign: AlignPosition
   hasDivider?: boolean
-}) => {
+}) {
+  const cpId = useId()
   const stackArrays = Array.isArray(stacks)
-    ? (stacks as unknown as [[StackCategory, [IStack]]])
-    : [...stacks.entries()]
+    ? (stacks as unknown as [[StackCategory, [T]]])
+    : Object.entries(stacks as object)
 
   const mainStyles: SystemStyleObject = {
     gap: { base: '3', md: '5' },
@@ -59,7 +60,7 @@ export const CardsSingleColumn = ({
     <VStack sx={mainStyles}>
       {stackArrays.map(stack => (
         <TechStack
-          key={stack[0]}
+          key={`${cpId}-${stack[0]}`}
           title={stack[0]}
           categoryStacks={stack[1]}
           showBadge={showBadge}

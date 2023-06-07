@@ -77,6 +77,7 @@ const Footer = () => {
           >
             {nav.map(navItem => (
               <Tooltip
+                key={navItem.id}
                 hasArrow
                 bgColor={`${colorTheme}.100`}
                 color={`${colorTheme}.800`}
