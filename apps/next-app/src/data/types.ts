@@ -262,15 +262,13 @@ export type TProjectStackData =
   | Array<Pick<IStack, 'id'>>
   | { [key: string]: Array<IStack> }
 
+export type TProjectText = string | [[[key: string], string]]
+
 export interface IProjectsCategory {
   id: string
   name: EProjectCategories
   description?: string
 }
-
-export type IProjectText =
-  | string
-  | Array<{ link: string } | { content: string }>
 
 export interface IProject {
   id: string
@@ -282,11 +280,11 @@ export interface IProject {
 
   /// Text content
   excerpt: string
-  introSummaryText: IProjectText
-  goalsText: IProjectText
-  textStacksText: IProjectText
-  challengesText: IProjectText
-  lessonsText: IProjectText
+  introSummaryText: TProjectText
+  goalsText: TProjectText
+  textStacksText: TProjectText
+  challengesText: TProjectText
+  lessonsText: TProjectText
 
   /// Images
   cardImgId: Pick<IGallery, 'id'> | string

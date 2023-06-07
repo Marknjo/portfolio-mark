@@ -55,7 +55,7 @@ export const projectsData: Array<IProject> = [
     goalsText: optiPlanner.goalsText,
     textStacksText: optiPlanner.textStacksText,
     challengesText: optiPlanner.challengesText,
-    lessonsText: optiPlanner.lessonsText,
+    lessonsText: optiPlanner.lessonsText as [[[key: string], string]],
 
     /// Images
     cardImgId: 'g2',
@@ -81,7 +81,7 @@ export const projectsData: Array<IProject> = [
     goalsText: fitHustle.goalsText,
     textStacksText: fitHustle.textStacksText,
     challengesText: fitHustle.challengesText,
-    lessonsText: fitHustle.lessonsText,
+    lessonsText: fitHustle.lessonsText as [[[key: string], string]],
 
     /// Images
     cardImgId: 'g2',
@@ -108,7 +108,7 @@ export const projectsData: Array<IProject> = [
     goalsText: pesaSync.goalsText,
     textStacksText: pesaSync.textStacksText,
     challengesText: pesaSync.challengesText,
-    lessonsText: pesaSync.lessonsText,
+    lessonsText: pesaSync.lessonsText as [[[key: string], string]],
 
     /// Images
     cardImgId: 'g2',
@@ -135,7 +135,7 @@ export const projectsData: Array<IProject> = [
     goalsText: markProfile.goalsText,
     textStacksText: markProfile.textStacksText,
     challengesText: markProfile.challengesText,
-    lessonsText: markProfile.lessonsText,
+    lessonsText: markProfile.lessonsText as [[[key: string], string]],
 
     /// Images
     cardImgId: 'g2',

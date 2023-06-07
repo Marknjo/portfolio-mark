@@ -1,3 +1,6 @@
+/// string | Array<[[key: string], string]>
+/// delimiter?: '<--p-->' | '<--l-->'
+
 /// 1. Hiking Project
 export const afriHickr = {
   excerpt:
@@ -47,6 +50,19 @@ export const afriHickr = {
   `,
 }
 
+const lessonsParaText = `
+    Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
+      
+    Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
+  `
+
+const lessonsListText = `
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    Assumenda, quia temporibus eveniet a libero incidunt suscipit
+    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+  `
+
 /// 2. Project OptiPlanner
 export const optiPlanner = {
   excerpt:
@@ -74,27 +90,19 @@ export const optiPlanner = {
       Ullamcorper pulvinar duis at egestas. Gravida velit lorem pellentesque ut dolor volutpat at vulputate. Volutpat fermentum dui ullamcorper at ac donec sit et vulputate. Bibendum vitae congue enim pulvinar ut. Turpis arcu vitae fringilla et.
   `,
   challengesText: `
-      <--content-->
       Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
       
       Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-      <--list-->
+      <--l-->
       Lorem ipsum dolor sit amet, consectetur adipisicing elit
       Assumenda, quia temporibus eveniet a libero incidunt suscipit
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
   `,
-  lessonsText: `
-    <--content-->
-    Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
-    
-    Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-    <--list-->
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-    Assumenda, quia temporibus eveniet a libero incidunt suscipit
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-  `,
+  lessonsText: [
+    ['para-1', lessonsParaText],
+    ['list-1', lessonsListText],
+  ],
 }
 
 /// 3. Project fitHustle
@@ -124,27 +132,19 @@ export const fitHustle = {
       Ullamcorper pulvinar duis at egestas. Gravida velit lorem pellentesque ut dolor volutpat at vulputate. Volutpat fermentum dui ullamcorper at ac donec sit et vulputate. Bibendum vitae congue enim pulvinar ut. Turpis arcu vitae fringilla et.
   `,
   challengesText: `
-      <--content-->
       Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
       
       Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-      <--list-->
+      <--l-->
       Lorem ipsum dolor sit amet, consectetur adipisicing elit
       Assumenda, quia temporibus eveniet a libero incidunt suscipit
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
   `,
-  lessonsText: `
-    <--content-->
-    Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
-    
-    Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-    <--list-->
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-    Assumenda, quia temporibus eveniet a libero incidunt suscipit
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-  `,
+  lessonsText: [
+    ['para-1', lessonsParaText],
+    ['list-1', lessonsListText],
+  ],
 }
 
 /// 4. Project pesaSync
@@ -174,27 +174,19 @@ export const pesaSync = {
       Ullamcorper pulvinar duis at egestas. Gravida velit lorem pellentesque ut dolor volutpat at vulputate. Volutpat fermentum dui ullamcorper at ac donec sit et vulputate. Bibendum vitae congue enim pulvinar ut. Turpis arcu vitae fringilla et.
   `,
   challengesText: `
-      <--content-->
       Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
       
       Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-      <--list-->
+      <--l-->
       Lorem ipsum dolor sit amet, consectetur adipisicing elit
       Assumenda, quia temporibus eveniet a libero incidunt suscipit
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
   `,
-  lessonsText: `
-    <--content-->
-    Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
-    
-    Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-    <--list-->
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-    Assumenda, quia temporibus eveniet a libero incidunt suscipit
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-  `,
+  lessonsText: [
+    ['para-1', lessonsParaText],
+    ['list-1', lessonsListText],
+  ],
 }
 
 /// 5. Profile section
@@ -223,25 +215,17 @@ export const markProfile = {
       Ullamcorper pulvinar duis at egestas. Gravida velit lorem pellentesque ut dolor volutpat at vulputate. Volutpat fermentum dui ullamcorper at ac donec sit et vulputate. Bibendum vitae congue enim pulvinar ut. Turpis arcu vitae fringilla et.
   `,
   challengesText: `
-      <--content-->
       Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
       
       Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-      <--list-->
+      <--l-->
       Lorem ipsum dolor sit amet, consectetur adipisicing elit
       Assumenda, quia temporibus eveniet a libero incidunt suscipit
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
   `,
-  lessonsText: `
-    <--content-->
-    Lorem ipsum dolor sit amet consectetur. Pellentesque non tortor non volutpat mi. Facilisi purus faucibus eget suspendisse amet pharetra donec. Vulputate nulla faucibus sollicitudin eget fusce ornare accumsan sollicitudin eros.
-    
-    Purus laoreet amet et placerat a blandit mi fringilla aenean. Ipsum quisque blandit lacus risus et lobortis. Sed sit quisque nisl id. Aliquam aenean sapien arcu justo. Cras proin fusce orci pretium sit.
-    <--list-->
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-    Assumenda, quia temporibus eveniet a libero incidunt suscipit
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-  `,
+  lessonsText: [
+    ['para-1', lessonsParaText],
+    ['list-1', lessonsListText],
+  ],
 }

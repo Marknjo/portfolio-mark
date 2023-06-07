@@ -48,7 +48,7 @@ function ListGenerator({
   spacing = 3,
 }: IListGeneratorProps) {
   const ulStyles: SystemStyleObject = {
-    pl: { base: '4', md: '6', xl: 0 },
+    pl: { base: '4', md: '6', xl: '4' },
     ...ulSx,
   }
 
@@ -110,7 +110,7 @@ const ParagraphGenerator = ({
 export function TextContentGenerator({
   text,
   type,
-  delimiter = '<--l-->',
+  delimiter,
   listOptions = {
     icon: IoMdCheckmarkCircle,
     ulSx: {},
@@ -148,15 +148,15 @@ export function TextContentGenerator({
   const testStr = text as string
 
   ///
-  if (type === 'list') {
+  if (type === 'list' && !delimiter) {
     return <ListGenerator listText={testStr} {...listOptions} />
   }
 
-  if (type === 'paragraph') {
+  if (type === 'paragraph' && !delimiter) {
     return <ParagraphGenerator content={testStr} {...paraOptions} />
   }
 
-  const [paraText, listText] = testStr.trim().split(delimiter)
+  const [paraText, listText] = testStr.trim().split(delimiter!)
   return (
     <>
       <ParagraphGenerator content={paraText} {...paraOptions} />

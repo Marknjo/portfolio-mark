@@ -1,9 +1,14 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import { sampContent } from '@data/sampleContent'
-import { ParagraphGenerator } from 'ui'
+import { useDetailsPageData } from '@store/context/details-page-context'
+import { TextContentGenerator } from 'ui'
 
 const TheStackContent = () => {
+  const {
+    data: { projectData },
+  } = useDetailsPageData()
+  const { challengesText } = projectData!
+
   const mainStyles: SystemStyleObject = {
     gridRow: { base: 'r7-start / r7-end', md: 'r6-start / r6-end' },
     gridColumn: {
@@ -18,7 +23,11 @@ const TheStackContent = () => {
 
   return (
     <GridItem sx={mainStyles}>
-      <ParagraphGenerator content={sampContent} />
+      <TextContentGenerator
+        text={challengesText}
+        delimiter="<--l-->"
+        type="paragraph"
+      />
     </GridItem>
   )
 }
