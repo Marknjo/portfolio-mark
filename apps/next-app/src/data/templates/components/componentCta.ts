@@ -13,6 +13,7 @@ export const ctaComponent: ICtaComponentData = {
   theme: {
     colorTheme: 'orange',
     fontFamily: '',
+    isProtected: false,
   },
   content: {
     title: 'Having a project?',

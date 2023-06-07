@@ -1,4 +1,3 @@
-import { appSettings } from '@data/templates/components/componentAppSettings'
 import { ctaComponent } from '@data/templates/components/componentCta'
 import { footerComponent } from '@data/templates/components/componentFooter'
 import { navComponent } from '@data/templates/components/componentNav'
@@ -19,10 +18,5 @@ export const componentsData: Array<IComponent> = [
     id: 'c3',
     templateType: EGeneralComponents.FOOTER,
     templateContent: footerComponent,
-  },
-  {
-    id: 'c4',
-    templateType: EGeneralComponents.APP_SETTINGS,
-    templateContent: appSettings,
   },
 ]

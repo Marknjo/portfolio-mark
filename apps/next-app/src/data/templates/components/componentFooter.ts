@@ -5,6 +5,7 @@ export const footerComponent: IFooterComponentData = {
     colorTheme: 'orange',
     fontFamily: '',
     nav: ESiteNavNames.FOOTER_NAV,
+    isProtected: false,
   },
   content: {
     logoText: 'Mark Njoroge',

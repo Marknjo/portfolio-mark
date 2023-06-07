@@ -1,17 +1,33 @@
 import { appFiles } from '@data/generalData/dataFiles'
 import { IAppSetting } from '@data/types'
+import { ctaComponent } from './componentCta'
+import { footerComponent } from './componentFooter'
+import { navComponent } from './componentNav'
 
 /// @TODO: Fill in the details appropriately
 export const appSettings: IAppSetting = {
+  data: {
+    ctaConfig: ctaComponent,
+    footerConfig: footerComponent,
+    mainNavConfig: navComponent,
+  },
   theme: {
-    accentThemeColor: '',
+    accentThemeColor: 'teal',
     fontFamily: '',
-    primaryThemeColor: '',
-    siteTitle: '',
+    primaryThemeColor: 'teal',
     darkThemeColor: '',
   },
   content: {
+    generalSettings: {
+      isProtected: true,
+      adminEmail: 'admin@markmarknjoroge.com',
+      siteTitle: 'Mark Njoroge',
+      tagLine: 'Commit, Consistency, & Care',
+      blogBio: '',
+      projectsBio: '',
+    },
     profile: {
+      isProtected: true,
       name: 'Mark Njoroge',
       profileImg: appFiles[0],
       bio: 'My bio',
@@ -20,6 +36,7 @@ export const appSettings: IAppSetting = {
       tagLine: '',
     },
     google: {
+      isProtected: false,
       googleId: '',
       googleTagsId: '',
       searchConsoleConfig: '',

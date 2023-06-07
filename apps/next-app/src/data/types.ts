@@ -149,6 +149,26 @@ export enum EGeneralComponents {
   APP_SETTINGS = 'app settings',
 }
 
+export enum EAppSettingsIsProtectedContentNames {
+  /// SETTINGS CONTENT
+  TOOLS = 'tools',
+  MEDIA = 'media',
+  MAILING_SERVICES = 'mailingServices',
+  GENERAL_SETTINGS = 'generalSettings',
+  GOOGLE = 'google',
+  PROFILE = 'profile',
+
+  /// COMPONENTS
+  CTA_CONFIG = 'ctaConfig',
+  FOOTER_CONFIG = 'footerConfig',
+  MAIN_NAV_CONFIG = 'mainNavConfig',
+}
+
+export enum EAppSettingsIsProtectedVariants {
+  COMPONENT = 'data',
+  CONTENT = 'content',
+}
+
 /// Nav
 export interface INavLink {
   id: string
@@ -372,20 +392,34 @@ export interface IComponentNav extends IComponent {
 // 5. Site Nav Settings
 // 6. Profile Image settings
 export interface IAppSetting extends IGenericComponentData {
+  data: {
+    ctaConfig: ICtaComponentData
+    footerConfig: IFooterComponentData
+    mainNavConfig: INavComponentData
+  }
   theme: {
-    siteTitle: string
     fontFamily: string
     primaryThemeColor: string
     accentThemeColor: string
     darkThemeColor?: string
   }
   content: {
+    generalSettings: {
+      isProtected: boolean
+      siteTitle: string
+      tagLine: string
+      adminEmail: string
+      blogBio?: string
+      projectsBio?: string
+    }
     tools?: {
+      isProtected: boolean
       import: any
       export: any
       redirects: any
     }
     media?: {
+      isProtected: boolean
       allowSizing: boolean
       thumbnailSize: { width: number; height: number; allowCrop: boolean }
       mediumSize: { maxW: number; maxH: number }
@@ -394,28 +428,27 @@ export interface IAppSetting extends IGenericComponentData {
       filesUploadDefaultDir: string
       organizeFiles: 'month-year' | 'fileType'
     }
-    mailingServices: {
+    mailingServices?: {
+      isProtected: boolean
       mainServer?: string
-      port: string
+      port: number
       login: string
       password: string
     }
-    generalSettings?: {
-      siteTitle: string
-      tagLine: string
-      adminEmail: string
-    }
+
     google?: {
+      isProtected: boolean
       googleId: string
       searchConsoleConfig: string
       googleTagsId: string
     }
     profile: {
+      isProtected: boolean
       name: string
       tagLine: string
       bio: string
       profileImg: Pick<IGallery, 'id'> | string
-      cv: Pick<IGallery, 'id'> // pdf file editable
+      cv: Pick<IGallery, 'id'> | string // pdf file editable
       cvUrl?: string // page hosting my cv, printable and downloadable
     }
   }
@@ -577,6 +610,7 @@ export interface IProjectDetailsPageData extends IGenericPageData {
 // - CTA Component
 export interface ICtaComponentData extends IGenericComponentData {
   theme: {
+    isProtected: boolean
     colorTheme?: string
     fontFamily?: string
   }
@@ -591,6 +625,7 @@ export interface ICtaComponentData extends IGenericComponentData {
 // - FOOTER Component
 export interface IFooterComponentData extends IGenericComponentData {
   theme: {
+    isProtected: boolean
     colorTheme?: string
     fontFamily?: string
     nav: ESiteNavNames
@@ -604,6 +639,9 @@ export interface IFooterComponentData extends IGenericComponentData {
 
 // - Nav Component
 export interface INavComponentData extends IGenericComponentData {
+  theme: {
+    isProtected: boolean
+  }
   content: {
     logoText: string
     logoImg?: string

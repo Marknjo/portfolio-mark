@@ -1,5 +1,5 @@
 import { ESiteNavNames, INavLink } from '@data/types'
-import { siteNav } from '../generalData/dataSiteNav'
+import { siteNav } from '../generalData/dataAppNav'
 
 export const getPageNav = (navName: ESiteNavNames) => {
   const foundNav = siteNav.find(navItem => navItem.name === navName)
