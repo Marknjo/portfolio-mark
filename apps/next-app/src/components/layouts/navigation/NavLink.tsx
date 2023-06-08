@@ -2,6 +2,7 @@ import NextLink from 'next/link'
 
 import { Link, Box, SystemStyleObject } from '@chakra-ui/react'
 import { INavLink } from '@data/navLinks'
+import { usePathname } from 'next/navigation'
 
 export const activeState = {
   color: 'teal.50',
@@ -29,6 +30,8 @@ const NavLink = ({
   asHamburgerMenu = false,
   isSelected,
 }: INav) => {
+  const path = usePathname()
+
   /* NavLink Overrides */
   const linkWithHamburger: SystemStyleObject = {
     py: '3',
@@ -62,11 +65,15 @@ const NavLink = ({
     ...sxOverrides,
   }
 
+  // type of link
+  const linkHasHash = link.includes('#')
+  const newLink = linkHasHash ? `${path}${link}` : link
+
   return (
     <Box as="li">
       <Link
         className="main__nav-link"
-        href={link}
+        href={newLink}
         as={NextLink}
         sx={linkStyles}
         aria-selected={isSelected}
