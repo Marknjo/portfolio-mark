@@ -130,14 +130,23 @@ export function TextContentGenerator({
 
     return (
       <>
-        {textMapKeys.map(text => {
-          if (text.includes('list')) {
-            ;<ListGenerator listText={textMap.get(text)!} {...listOptions} />
+        {textMapKeys.map(textKey => {
+          if (textKey.includes('list')) {
+            return (
+              <ListGenerator
+                key={textKey as unknown as string}
+                listText={textMap.get(textKey)!}
+                {...listOptions}
+              />
+            )
           } else {
-            ;<ParagraphGenerator
-              content={textMap.get(text)!}
-              {...paraOptions}
-            />
+            return (
+              <ParagraphGenerator
+                key={textKey as unknown as string}
+                content={textMap.get(textKey)!}
+                {...paraOptions}
+              />
+            )
           }
         })}
       </>
@@ -156,11 +165,16 @@ export function TextContentGenerator({
     return <ParagraphGenerator content={testStr} {...paraOptions} />
   }
 
-  const [paraText, listText] = testStr.trim().split(delimiter!)
-  return (
-    <>
-      <ParagraphGenerator content={paraText} {...paraOptions} />
-      <ListGenerator listText={listText} {...listOptions} />
-    </>
-  )
+  if (delimiter || type === 'mixed') {
+    const [paraText, listText] = testStr.trim().split(delimiter!)
+    return (
+      <>
+        <ParagraphGenerator content={paraText} {...paraOptions} />
+        <ListGenerator listText={listText} {...listOptions} />
+      </>
+    )
+  }
+
+  /// anything else render as a paragraph
+  return <ParagraphGenerator content={testStr} {...paraOptions} />
 }
