@@ -1,5 +1,6 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { SubHeading } from 'ui'
 
@@ -8,7 +9,7 @@ const LeftSubHeading = () => {
     content: {
       contact: { textTitle },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   const topHeadingStyles: SystemStyleObject = {
     borderColor: 'teal.200',

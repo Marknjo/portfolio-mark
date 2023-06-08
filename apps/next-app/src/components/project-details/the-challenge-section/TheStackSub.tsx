@@ -1,4 +1,5 @@
 import { sizes } from '@components/next-ui'
+import { IProjectDetailsContentV1 } from '@data/types'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { GradientLayerStyles } from '@theme/foundations'
 import { SectionTitle } from 'ui'
@@ -8,7 +9,7 @@ const TheStackSub = () => {
     content: {
       theChallenge: { stacksTitle },
     },
-  } = useDetailsPageData()
+  } = useDetailsPageData<IProjectDetailsContentV1>()
 
   return (
     <SectionTitle

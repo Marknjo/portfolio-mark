@@ -1,4 +1,5 @@
 import { GridItem } from '@chakra-ui/react'
+import { IProjectDetailsContentV1 } from '@data/types'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { LargeTitle } from 'ui'
 
@@ -13,7 +14,7 @@ const GalleryTitle = () => {
     content: {
       gallery: { headerTitleMain, headerTitleSub },
     },
-  } = useDetailsPageData()
+  } = useDetailsPageData<IProjectDetailsContentV1>()
 
   return (
     <GridItem gridColumn={gridBreakPoints} zIndex="2">

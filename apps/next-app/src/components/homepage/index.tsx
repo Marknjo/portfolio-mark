@@ -8,10 +8,14 @@ import { useIsLoading } from '@hooks/is-loading'
 import UiLoader from '@components/layouts/loaders/UiLoader'
 
 /// Local components
-import { IPageHome } from '@data/types'
+import { IHomePageTemplate, TPageTemplateContent } from '@data/types'
 import HomePageRootIndex from './RootIndex'
 
-const HomePage = ({ pageData }: { pageData: IPageHome }) => {
+function HomePage<T extends TPageTemplateContent>({
+  pageData,
+}: {
+  pageData: IHomePageTemplate<T>
+}) {
   const isLoading = useIsLoading()
 
   if (isLoading) {
@@ -19,7 +23,7 @@ const HomePage = ({ pageData }: { pageData: IPageHome }) => {
   }
 
   return (
-    <HomePageProvider pageData={pageData.templateContent}>
+    <HomePageProvider<T> pageData={pageData}>
       <HomePageRootIndex />
     </HomePageProvider>
   )

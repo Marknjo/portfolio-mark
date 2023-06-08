@@ -1,6 +1,6 @@
 import { sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
-import { EStackCategories } from '@data/types'
+import { EStackCategories, IHomePageContentV1 } from '@data/types'
 import SkillsCategoryContainer from './SkillsCategoryContainer'
 /**
  * Card for programming languages I have worked with
@@ -10,7 +10,7 @@ const SkillsPrLangs = () => {
     content: {
       skills: { progsLangTitle },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <SkillsCategoryContainer

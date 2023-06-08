@@ -2,7 +2,7 @@
 
 import { useIsLoading } from '@hooks/is-loading'
 import { DetailsPageProvider } from '@store/context/details-page-context'
-import { IProjectDetailsPageData } from '@data/types'
+import { IProjectDetailsTemplate, TPageTemplateContent } from '@data/types'
 import UiLoader from '@components/layouts/loaders/UiLoader'
 import DetailsPageRootIndex from './RootIndex'
 
@@ -11,7 +11,11 @@ import DetailsPageRootIndex from './RootIndex'
 //   pageDetails?: any
 // }
 
-const DetailsPage = ({ pageData }: { pageData: IProjectDetailsPageData }) => {
+function DetailsPage<T extends TPageTemplateContent>({
+  pageData,
+}: {
+  pageData: IProjectDetailsTemplate<T>
+}) {
   const isLoading = useIsLoading()
 
   if (isLoading) {
@@ -19,7 +23,7 @@ const DetailsPage = ({ pageData }: { pageData: IProjectDetailsPageData }) => {
   }
 
   return (
-    <DetailsPageProvider data={pageData}>
+    <DetailsPageProvider<T> pageData={pageData}>
       <DetailsPageRootIndex />
     </DetailsPageProvider>
   )

@@ -1,4 +1,5 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { IProjectDetailsContentV1 } from '@data/types'
 
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { TechStacksCard } from 'ui'
@@ -6,7 +7,7 @@ import { TechStacksCard } from 'ui'
 const TheTechStacks = () => {
   const {
     data: { projectData },
-  } = useDetailsPageData()
+  } = useDetailsPageData<IProjectDetailsContentV1>()
 
   const { stacks } = projectData!
 

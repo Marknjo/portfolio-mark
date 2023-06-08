@@ -2,13 +2,14 @@ import { SectionTitle } from 'ui'
 import { sizes, subHeadingsBr } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
 import { GradientLayerStyles } from '@theme/foundations'
+import { IHomePageContentV1 } from '@data/types'
 
 const ProjectSub = () => {
   const {
     content: {
       projects: { subTitle },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <SectionTitle

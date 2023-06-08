@@ -2,6 +2,7 @@ import { GridItem, VStack, useBreakpoint, useConst } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
+import { IHomePageContentV1 } from '@data/types'
 import { TextContentGenerator } from 'ui'
 import AboutCtaBtn from './AboutCtaBtn'
 
@@ -20,7 +21,7 @@ const AboutTextContent = () => {
     content: {
       about: { aboutText },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
   const breakpoint = useBreakpoint()
 
   const textOptions = useConst({

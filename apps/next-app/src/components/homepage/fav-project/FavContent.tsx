@@ -1,6 +1,7 @@
 import { GridItem, VStack, Button, Icon, useConst } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { FiArrowRight } from 'react-icons/fi'
 import { TextContentGenerator } from 'ui'
@@ -13,7 +14,7 @@ const FavContent = () => {
     content: {
       favProject: { summaryText, moreDetailsButtonText },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   const textOptions = useConst({
     ...summaryText,

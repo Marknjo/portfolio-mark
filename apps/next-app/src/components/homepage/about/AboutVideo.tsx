@@ -1,4 +1,5 @@
 import { AspectRatio, GridItem } from '@chakra-ui/react'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 
 /// @TODO: Implement splash image
@@ -7,7 +8,7 @@ const AboutVideo = () => {
     content: {
       about: { videoLink },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <GridItem

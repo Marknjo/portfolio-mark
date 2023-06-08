@@ -1,4 +1,5 @@
 import { GridItem, Image, StyleProps } from '@chakra-ui/react'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 
 const ProjectHeroImg = () => {
@@ -6,7 +7,7 @@ const ProjectHeroImg = () => {
     content: {
       projects: { mainImgAlt, mainImg },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   const commonStyles: StyleProps = {
     borderRadius: 'md',

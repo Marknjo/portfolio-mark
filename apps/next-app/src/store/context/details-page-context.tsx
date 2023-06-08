@@ -3,7 +3,9 @@ import {
   EDetailPageSections,
   EDetailsPageImageThemes,
   ESiteNavNames,
-  IProjectDetailsPageData,
+  IPage,
+  TPageTemplateContent,
+  IProjectDetailsTemplate,
 } from '@data/types'
 import {
   ReactNode,
@@ -17,8 +19,10 @@ enum EDetailsPageActions {
   HIDE_SECTION = 'hide-section',
 }
 
-interface IDetailsPageContext extends IProjectDetailsPageData {
+interface IDetailsPageContext<T extends TPageTemplateContent>
+  extends IProjectDetailsTemplate<T> {
   hideSection: (isShown: boolean, pageSection: EDetailPageSections) => void
+  content: T
 }
 
 interface IDetailsPageAction {
@@ -28,7 +32,7 @@ interface IDetailsPageAction {
   }
 }
 
-const initialContent: IDetailsPageContext = {
+const initialContent: IDetailsPageContext<any> = {
   data: {
     navData: [],
     projectData: null,
@@ -41,59 +45,28 @@ const initialContent: IDetailsPageContext = {
     largeImageTheme: EDetailsPageImageThemes.OSX,
     nav: ESiteNavNames.PROJECT_DETAILS_NAV,
   },
-  content: {
-    hero: {
-      isShown: true,
-      stacksTitle: '',
-      stacksButtonText: '',
-      stacksButtonLink: '',
-      introButtonText: '',
-      introTextTitle: '',
-    },
-    theChallenge: {
-      isShown: true,
-      headerTitleMain: '',
-      headerTitleSub: '',
-      goalsTitle: '',
-      stacksTitle: '',
-    },
-    gallery: {
-      isShown: true,
-      headerTitleMain: '',
-      headerTitleSub: '',
-    },
-    summary: {
-      isShown: true,
-      headerTitleMain: '',
-      headerTitleSub: '',
-      challengesTitle: '',
-      lessonsTitle: '',
-    },
-    cta: {
-      isShown: true,
-      headerTitle: '',
-      paginationPrevText: '',
-      paginationNextText: '',
-    },
-  },
+  content: {},
   hideSection: (isShown, pageSection) => ({ isShown, pageSection }),
 }
 
 const DetailsPageContext = createContext(initialContent)
-export const useDetailsPageData = () => useContext(DetailsPageContext)
 
-function detailsPageReducerFn(
-  state: IDetailsPageContext,
+export function useDetailsPageData<T extends TPageTemplateContent>() {
+  return useContext<IDetailsPageContext<T>>(DetailsPageContext)
+}
+
+function detailsPageReducerFn<T extends TPageTemplateContent>(
+  state: IDetailsPageContext<T>,
   action: IDetailsPageAction,
-): IDetailsPageContext {
+): IDetailsPageContext<T> {
   switch (action.type) {
     case EDetailsPageActions.HIDE_SECTION: {
       const { isShown, pageSection } = action.payload.value as {
-        pageSection: keyof IDetailsPageContext['content']
+        pageSection: keyof IPage['content']
         isShown: boolean
       }
 
-      const changedSectionStatus = state.content[pageSection]
+      const changedSectionStatus = state.content![pageSection]
 
       /// throw some kind of error/do not update
       if (!changedSectionStatus) return state
@@ -117,16 +90,16 @@ function detailsPageReducerFn(
   }
 }
 
-export function DetailsPageProvider({
+export function DetailsPageProvider<T extends TPageTemplateContent>({
   children,
-  data,
+  pageData,
 }: {
   children: ReactNode
-  data: IProjectDetailsPageData
+  pageData: IProjectDetailsTemplate<T>
 }) {
   const [state, dispatch] = useReducer(detailsPageReducerFn, {
     ...initialContent,
-    ...data,
+    ...pageData,
   })
 
   const hideSection = useCallbackRef(

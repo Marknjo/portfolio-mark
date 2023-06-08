@@ -1,5 +1,6 @@
 import { useBreakpoint } from '@chakra-ui/react'
 import { sizes, subHeadingsBr } from '@components/next-ui'
+import { IProjectDetailsContentV1 } from '@data/types'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { GradientLayerStyles } from '@theme/foundations'
 import { SectionTitle } from 'ui'
@@ -9,7 +10,7 @@ const SummarySubLeft = () => {
     content: {
       summary: { challengesTitle },
     },
-  } = useDetailsPageData()
+  } = useDetailsPageData<IProjectDetailsContentV1>()
   const brkP = useBreakpoint()
 
   const mb = brkP === 'sm' || brkP === 'base' ? 0 : sizes.md

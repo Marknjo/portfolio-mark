@@ -1,5 +1,6 @@
 import { Badge, GridItem, Heading, Text } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 
 /// @TODO: Implement list and long text format
@@ -8,7 +9,7 @@ const SkillsNote = () => {
     content: {
       skills: { notesTitle, notesActiveText, notesPassiveText },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <GridItem

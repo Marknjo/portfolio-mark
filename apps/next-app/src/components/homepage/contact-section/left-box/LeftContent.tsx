@@ -4,6 +4,7 @@ import { Box, GridItem, Icon, Text, Link, Badge } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
+import { IHomePageContentV1 } from '@data/types'
 
 const LeftContent = () => {
   const {
@@ -20,7 +21,7 @@ const LeftContent = () => {
         favSocial,
       },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <GridItem

@@ -7,7 +7,7 @@
  */
 export function mapDataFieldAsKey<T extends { [key: string]: any }>(
   data: Array<T>,
-  field: string,
+  field: keyof T,
 ): { [key: string]: T } {
   const mappedData: { [key: string]: T } = {}
 

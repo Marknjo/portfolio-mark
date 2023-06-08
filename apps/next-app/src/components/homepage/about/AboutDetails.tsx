@@ -2,7 +2,7 @@ import { Box, GridItem, VStack, Text } from '@chakra-ui/react'
 import { DetailsItemsTitle, SubHeading } from 'ui'
 import { HSocialIcons, sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
-import { ISocialLink } from '@data/types'
+import { IHomePageContentV1, ISocialLink } from '@data/types'
 
 const DetailsItem = ({ title, text }: { title: string; text: string }) => (
   <Box>
@@ -32,7 +32,7 @@ const AboutDetails = () => {
         detailsWorkAvailabilityTitle,
       },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   const rowBreakingPoint = {
     base: 'r5-start/r6-end',

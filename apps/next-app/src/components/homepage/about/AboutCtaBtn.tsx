@@ -1,4 +1,5 @@
 import { Button } from '@chakra-ui/react'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { useRouter } from 'next/navigation'
 import { BsArrowDown } from 'react-icons/bs'
@@ -8,7 +9,7 @@ const AboutCtaBtn = () => {
     content: {
       about: { contactButtonLink, contactButtonText },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
   const router = useRouter()
 
   return (

@@ -123,12 +123,12 @@ export enum EWorkAvailability {
 
 export enum EPagesTemplateTypes {
   HOME = 'home',
-  PROJECT_DETAILS_PAGE = 'project details page',
+  PROJECT_DETAILS_PAGE = 'project-details-page',
   PROJECTS = 'projects',
   TERMS = 'terms',
-  PRIVACY_POLICY = 'privacy policy',
+  PRIVACY_POLICY = 'privacy-policy',
   ABOUT = 'about',
-  CONTACT = 'contact us',
+  CONTACT = 'contact-us',
   RESOURCES = 'resources',
   BLOG = 'blog',
 }
@@ -191,6 +191,10 @@ export interface ITextData {
     isStyled?: boolean
   }
 }
+
+export type TPageTemplateContent = { [key: string]: any }
+
+export type TPageData = Omit<IPage, 'id' | 'templateId' | 'pageName'>
 
 /// Nav
 export interface INavLink {
@@ -339,11 +343,12 @@ export interface ILogin {
 }
 
 /// Pages, site Config, and Components
-export interface IGenericPageData {
+
+export interface IGenericPageTemplate<T extends TPageTemplateContent> {
   theme: { [key: string]: any }
-  content: { [key: string]: any } // deferent page sections
   meta?: { description: string; [key: string]: any }
   data?: { [key: string]: any }
+  content?: T
 }
 
 export interface IGenericComponentData {
@@ -352,20 +357,30 @@ export interface IGenericComponentData {
   theme?: { [key: string]: any }
 }
 
-export interface IPage {
+export interface ITemplate {
   id: string
   templateType: EPagesTemplateTypes | string
-  templateContent: IHomePageData | IProjectDetailsPageData /// json object - homePage, details page, etc
+  templateContent: TPageTemplateContent /// json object - homePage, details
+}
+
+export interface IPage {
+  id: string
+  pageName: EPagesTemplateTypes
+  templateId: string
+  theme: { [key: string]: any }
+  meta: { description: string; [key: string]: any }
+  data: { [key: string]: any }
+  content?: { [key: string]: any }
 }
 
 /// individual pages types
-export interface IPageHome extends IPage {
-  templateContent: IHomePageData
-}
+// export interface IPageHome extends ITemplate {
+//   templateContent: IHomePageTemplate
+// }
 
-export interface IPageProjectDetails extends IPage {
-  templateContent: IProjectDetailsPageData
-}
+// export interface IPageProjectDetails extends ITemplate {
+//   templateContent: IProjectDetailsTemplate
+// }
 
 export interface IComponent {
   id: string
@@ -471,13 +486,14 @@ export interface IAppSetting extends IGenericComponentData {
 }
 
 /// Home Page Global Settings
-export interface IHomePageData extends IGenericPageData {
+export interface IHomePageTemplate<T extends TPageTemplateContent>
+  extends IGenericPageTemplate<T> {
   data: {
     pickedProjects: Array<TPickedProjectsCard>
-    favProject: Array<IGallery>
+    favProject: Array<IGallery> | []
     navData: Array<INavLink> | []
-    aboutSocialIcons: Array<ISocialLink> | Array<Pick<ISocialLink, 'id'>>
-    contactSocialIcons: Array<ISocialLink> | Array<Pick<ISocialLink, 'id'>>
+    aboutSocialIcons: Array<ISocialLink>
+    contactSocialIcons: Array<ISocialLink>
     techStacks: Array<IStack> | []
   }
   meta: {
@@ -489,91 +505,93 @@ export interface IHomePageData extends IGenericPageData {
     fontFamily?: string
     nav: ESiteNavNames
   }
-  content: {
-    hero: {
-      isShown: boolean
-      salutationText: string
-      headerTitleMain: string
-      headerTitleSub: string
-      headerText: ITextData
-      moreButtonText: string
-      moreButtonLink: string
-      profileImage: string
-    }
-    about: {
-      isShown: boolean
-      titleMain: string
-      titleSub: string
-      subTitle: string
-      aboutText: ITextData
-      contactButtonText: string
-      contactButtonLink: string
-      videoLink: string
-      videoSplashImg?: string
-      detailsTitle: string
-      detailsNameTitle: string
-      detailsNameText: string
-      detailsWorkAvailabilityTitle: string
-      detailsWorkAvailabilityText: EWorkAvailability // dropdown
-      detailsLocationTitle: string
-      detailsLocationText: string
-      detailsSocialTitle: string
-    }
-    projects: {
-      isShown: boolean
-      titleMain: string
-      titleSub: string
-      subTitle: string
-      mainImg: string
-      mainImgAlt: string
-      viewAllButtonText: string
-      viewAllButtonLink: string
-    }
-    favProject: {
-      isShown: boolean
-      titleMain: string
-      titleSub: string
-      summaryText: ITextData
-      moreDetailsButtonText: string
-      visitProjectButtonText: string
-    }
-    skills: {
-      isShown: boolean
-      titleMain: string
-      titleSub: string
-      subTitle: string
-      progsLangTitle: string
-      frontendTitle: string
-      backendTitle: string
-      toolsTitle: string
-      desktopMobileTitle: string
-      notesTitle: string
-      notesActiveText: string
-      notesPassiveText: string
-      notesBottomText?: string
-      notesListText?: string
-    }
-    contact: {
-      isShown: boolean
-      titleMain: string
-      textTitle: string
-      blogText: string
-      blogLink?: string
-      contactIcon: string
-      contactText: string
-      contactNo: string
-      socialIntoText: string
-      favSocial: string
-      socialText: string
-      socialHintText: string
-      socialTitle: string
-      // socialIcons: Array<ISocialLinks> // dropdown
-    }
+}
+
+export interface IHomePageContentV1 {
+  hero: {
+    isShown: boolean
+    salutationText: string
+    headerTitleMain: string
+    headerTitleSub: string
+    headerText: ITextData
+    moreButtonText: string
+    moreButtonLink: string
+    profileImage: string
+  }
+  about: {
+    isShown: boolean
+    titleMain: string
+    titleSub: string
+    subTitle: string
+    aboutText: ITextData
+    contactButtonText: string
+    contactButtonLink: string
+    videoLink: string
+    videoSplashImg?: string
+    detailsTitle: string
+    detailsNameTitle: string
+    detailsNameText: string
+    detailsWorkAvailabilityTitle: string
+    detailsWorkAvailabilityText: EWorkAvailability // dropdown
+    detailsLocationTitle: string
+    detailsLocationText: string
+    detailsSocialTitle: string
+  }
+  projects: {
+    isShown: boolean
+    titleMain: string
+    titleSub: string
+    subTitle: string
+    mainImg: string
+    mainImgAlt: string
+    viewAllButtonText: string
+    viewAllButtonLink: string
+  }
+  favProject: {
+    isShown: boolean
+    titleMain: string
+    titleSub: string
+    summaryText: ITextData
+    moreDetailsButtonText: string
+    visitProjectButtonText: string
+  }
+  skills: {
+    isShown: boolean
+    titleMain: string
+    titleSub: string
+    subTitle: string
+    progsLangTitle: string
+    frontendTitle: string
+    backendTitle: string
+    toolsTitle: string
+    desktopMobileTitle: string
+    notesTitle: string
+    notesActiveText: string
+    notesPassiveText: string
+    notesBottomText?: string
+    notesListText?: string
+  }
+  contact: {
+    isShown: boolean
+    titleMain: string
+    textTitle: string
+    blogText: string
+    blogLink?: string
+    contactIcon: string
+    contactText: string
+    contactNo: string
+    socialIntoText: string
+    favSocial: string
+    socialText: string
+    socialHintText: string
+    socialTitle: string
+    // socialIcons: Array<ISocialLinks> // dropdown
   }
 }
 
 /// Details Page Global Settings
-export interface IProjectDetailsPageData extends IGenericPageData {
+export interface IProjectDetailsTemplate<T extends TPageTemplateContent>
+  extends IGenericPageTemplate<T> {
   data: {
     navData: Array<INavLink> | []
     projectData: IProject | null
@@ -588,40 +606,41 @@ export interface IProjectDetailsPageData extends IGenericPageData {
     largeImageTheme: EDetailsPageImageThemes
     nav: ESiteNavNames
   }
-  content: {
-    hero: {
-      isShown: boolean
-      stacksTitle: string
-      stacksButtonText: string
-      stacksButtonLink: string
-      introTextTitle: string
-      introButtonText: string
-    }
-    theChallenge: {
-      isShown: boolean
-      headerTitleMain: string
-      headerTitleSub: string
-      goalsTitle: string
-      stacksTitle: string
-    }
-    gallery: {
-      isShown: boolean
-      headerTitleMain: string
-      headerTitleSub: string
-    }
-    summary: {
-      isShown: boolean
-      headerTitleMain: string
-      headerTitleSub: string
-      challengesTitle: string
-      lessonsTitle: string
-    }
-    cta: {
-      isShown: boolean
-      headerTitle: string
-      paginationPrevText: string
-      paginationNextText: string
-    }
+}
+
+export interface IProjectDetailsContentV1 {
+  hero: {
+    isShown: boolean
+    stacksTitle: string
+    stacksButtonText: string
+    stacksButtonLink: string
+    introTextTitle: string
+    introButtonText: string
+  }
+  theChallenge: {
+    isShown: boolean
+    headerTitleMain: string
+    headerTitleSub: string
+    goalsTitle: string
+    stacksTitle: string
+  }
+  gallery: {
+    isShown: boolean
+    headerTitleMain: string
+    headerTitleSub: string
+  }
+  summary: {
+    isShown: boolean
+    headerTitleMain: string
+    headerTitleSub: string
+    challengesTitle: string
+    lessonsTitle: string
+  }
+  cta: {
+    isShown: boolean
+    headerTitle: string
+    paginationPrevText: string
+    paginationNextText: string
   }
 }
 

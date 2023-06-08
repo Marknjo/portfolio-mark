@@ -13,6 +13,7 @@ import { SectionSeparator, SubHeading, TextContentGenerator } from 'ui'
 import { sizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
+import { IProjectDetailsContentV1 } from '@data/types'
 
 import IntroStackCards from './IntroStackCards'
 
@@ -29,7 +30,7 @@ const HeroIntro = () => {
         stacksTitle,
       },
     },
-  } = useDetailsPageData()
+  } = useDetailsPageData<IProjectDetailsContentV1>()
 
   const { title, liveLink, introSummaryText } = projectData!
 

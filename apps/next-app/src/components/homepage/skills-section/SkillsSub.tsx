@@ -1,4 +1,5 @@
 import { sizes, subHeadingsBr } from '@components/next-ui'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { GradientLayerStyles } from '@theme/foundations'
 import { SectionTitle } from 'ui'
@@ -8,7 +9,7 @@ const SkillsSub = () => {
     content: {
       skills: { subTitle },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <SectionTitle

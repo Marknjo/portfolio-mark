@@ -1,0 +1,3 @@
+Type '{ favProject: never[]; pickedProjects: never[]; navData: []; aboutSocialIcons: never[]; contactSocialIcons: never[]; techStacks: never[]; }' is not assignable to type '{ navData: INavLink[] | []; projectData: IProject | null; relatedProjects: (Pick<IProject, "id" | "title" | "slug" | "tags"> & TCardSlimGalleryData)[] | null; }'.
+  Object literal may only specify known properties, and 'favProject' does not exist in type '{ navData: INavLink[] | []; projectData: IProject | null; relatedProjects: (Pick<IProject, "id" | "title" | "slug" | "tags"> & TCardSlimGalleryData)[] | null; }'.ts(2322)
+types.ts(592, 3): The expected type comes from property 'data' which is declared here on type 'IHomePageContext<any>'

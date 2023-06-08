@@ -10,8 +10,10 @@ import {
   EHomePageSections,
   ESiteNavNames,
   EWorkAvailability,
-  IHomePageData,
+  IHomePageTemplate,
+  IPage,
   ISocialLink,
+  TPageTemplateContent,
 } from '@data/types'
 
 enum ESocialIconType {
@@ -25,10 +27,12 @@ enum EHomePageReducerFnActions {
 }
 
 /// @TODO: add socialMedia links
-export interface IHomePageContext extends IHomePageData {
+export interface IHomePageContext<T extends TPageTemplateContent>
+  extends IHomePageTemplate<T> {
   hideSection: (isShown: boolean, pageSection: EHomePageSections) => void
   changeWorkAvailabilityStatus: (status: EWorkAvailability) => void
   toggleSocialIcon: (icon: string, iconType: ESocialIconType) => void
+  content: T
 }
 
 interface IHomePageReducerFnAction {
@@ -42,7 +46,7 @@ interface IHomePageReducerFnAction {
   }
 }
 
-const initialData: IHomePageContext = {
+const initialData: IHomePageContext<any> = {
   data: {
     favProject: [],
     pickedProjects: [],
@@ -53,126 +57,14 @@ const initialData: IHomePageContext = {
   },
   meta: {
     description: 'Mark Njoroge Profile',
-    tagLine: 'Building beautiful softwares',
+    tagLine: '',
   },
   theme: {
     colorTheme: 'orange',
     fontFamily: '',
     nav: ESiteNavNames.TOP_NAV,
   },
-  content: {
-    hero: {
-      isShown: true,
-      salutationText: '',
-      headerTitleMain: '',
-      headerTitleSub: '',
-      headerText: {
-        text: '',
-        delimiter: undefined,
-        type: 'paragraph',
-        listOptions: {
-          isStyled: undefined,
-          icon: undefined,
-        },
-        paraOptions: {
-          isStyled: false,
-        },
-      },
-      moreButtonText: '',
-      moreButtonLink: '',
-      profileImage: '',
-    },
-    about: {
-      isShown: true,
-      titleMain: '',
-      titleSub: '',
-      subTitle: '',
-      aboutText: {
-        text: '',
-        delimiter: undefined,
-        type: 'paragraph',
-        listOptions: {
-          isStyled: undefined,
-          icon: undefined,
-        },
-        paraOptions: {
-          isStyled: undefined,
-        },
-      },
-      contactButtonText: '',
-      contactButtonLink: '',
-      videoLink: '',
-      videoSplashImg: '',
-      detailsTitle: '',
-      detailsNameTitle: '',
-      detailsNameText: '',
-      detailsWorkAvailabilityTitle: '',
-      detailsWorkAvailabilityText: EWorkAvailability.AVAILABLE,
-      detailsLocationTitle: '',
-      detailsLocationText: '',
-      detailsSocialTitle: '',
-    },
-    projects: {
-      isShown: true,
-      titleMain: '',
-      titleSub: '',
-      subTitle: '',
-      mainImg: '',
-      mainImgAlt: '',
-      viewAllButtonText: '',
-      viewAllButtonLink: '',
-    },
-    favProject: {
-      isShown: true,
-      titleMain: '',
-      titleSub: '',
-      summaryText: {
-        text: '',
-        delimiter: undefined,
-        type: 'paragraph',
-        listOptions: {
-          isStyled: undefined,
-          icon: undefined,
-        },
-        paraOptions: {
-          isStyled: undefined,
-        },
-      },
-      moreDetailsButtonText: '',
-      visitProjectButtonText: '',
-    },
-    skills: {
-      isShown: true,
-      titleMain: '',
-      titleSub: '',
-      subTitle: '',
-      progsLangTitle: '',
-      frontendTitle: '',
-      backendTitle: '',
-      toolsTitle: '',
-      desktopMobileTitle: '',
-      notesTitle: '',
-      notesActiveText: '',
-      notesPassiveText: '',
-      notesBottomText: '',
-      notesListText: '',
-    },
-    contact: {
-      isShown: true,
-      titleMain: '',
-      textTitle: '',
-      blogText: '',
-      blogLink: '',
-      contactIcon: '',
-      contactText: '',
-      contactNo: '',
-      socialIntoText: '',
-      favSocial: '',
-      socialText: '',
-      socialHintText: '',
-      socialTitle: '',
-    },
-  },
+  content: {},
   hideSection: (isShown, pageSection) => ({ isShown, pageSection }),
   changeWorkAvailabilityStatus: () => {},
   toggleSocialIcon: (icon, iconType) => ({ icon, iconType }),
@@ -180,16 +72,18 @@ const initialData: IHomePageContext = {
 
 const HomePageContext = createContext(initialData)
 
-export const useHomePageData = () => useContext(HomePageContext)
+export function useHomePageData<T extends TPageTemplateContent>() {
+  return useContext<IHomePageContext<T>>(HomePageContext)
+}
 
-const homePageReducerFn = (
-  state: IHomePageContext,
+function homePageReducerFn<T extends TPageTemplateContent>(
+  state: IHomePageContext<T>,
   action: IHomePageReducerFnAction,
-) => {
+) {
   switch (action.type) {
     case EHomePageReducerFnActions.HIDE_SECTION: {
       const { isShown, pageSection } = action.payload.value as {
-        pageSection: keyof IHomePageContext['content']
+        pageSection: keyof IPage['content']
         isShown: boolean
       }
 
@@ -262,16 +156,16 @@ const homePageReducerFn = (
   }
 }
 
-export const HomePageProvider = ({
+export function HomePageProvider<T extends TPageTemplateContent>({
   children,
-  pageData: dbData,
+  pageData,
 }: {
   children: ReactNode
-  pageData: IHomePageData
-}) => {
+  pageData: IHomePageTemplate<T>
+}) {
   const [state, dispatch] = useReducer(homePageReducerFn, {
     ...initialData,
-    ...dbData,
+    ...pageData,
   })
 
   const hideSection = useCallback(

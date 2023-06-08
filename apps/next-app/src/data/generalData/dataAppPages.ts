@@ -2,15 +2,17 @@ import { projectDetailsPageData } from '@data/templates/detailsPage/pageDetails'
 import { homePageData } from '@data/templates/homePage/pageHome'
 import { EPagesTemplateTypes, IPage } from '@data/types'
 
-export const appPages: Array<IPage> = [
+export const dataAppPages: Array<IPage> = [
   {
     id: 'p1',
-    templateType: EPagesTemplateTypes.HOME,
-    templateContent: homePageData,
+    pageName: EPagesTemplateTypes.HOME,
+    templateId: 'pT1',
+    ...homePageData,
   },
   {
     id: 'p2',
-    templateType: EPagesTemplateTypes.PROJECT_DETAILS_PAGE,
-    templateContent: projectDetailsPageData,
+    pageName: EPagesTemplateTypes.PROJECT_DETAILS_PAGE,
+    templateId: 'pT2',
+    ...projectDetailsPageData,
   },
 ]

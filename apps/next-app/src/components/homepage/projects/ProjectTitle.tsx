@@ -1,4 +1,5 @@
 import { GridItem } from '@chakra-ui/react'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { LargeTitle } from 'ui'
 
@@ -7,7 +8,7 @@ const ProjectTitle = () => {
     content: {
       projects: { titleMain, titleSub },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <GridItem

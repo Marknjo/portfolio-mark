@@ -1,13 +1,20 @@
 import React from 'react'
 import { Metadata, ResolvingMetadata } from 'next'
 import DetailsPage from '@components/project-details'
-import { IProjectDetailsPageData } from '@data/types'
-import { getDetailsUIData } from '@data/utils/detailsPageHelpers'
+import {
+  EPagesTemplateTypes,
+  IProjectDetailsContentV1,
+  IProjectDetailsTemplate,
+  TPageData,
+  TPageTemplateContent,
+} from '@data/types'
+
 import {
   getProjectBySlug,
   findRelatedProjects,
 } from '@data/utils/projectsHelpers'
 import { notFound } from 'next/navigation'
+import { getPageTemplateContent } from '@data/utils/pagesData'
 
 interface MetaProps {
   params: { ['project-details']: string }
@@ -31,7 +38,7 @@ export async function generateMetadata(
   }
 }
 
-async function pageData(slug: string) {
+async function getData<T extends TPageTemplateContent>(slug: string) {
   const pageProject = getProjectBySlug(slug)
 
   /// throw 404 error
@@ -44,10 +51,12 @@ async function pageData(slug: string) {
   )
 
   /// ui data
-  const detailsPageData = getDetailsUIData()
+  const detailsPageData = getPageTemplateContent(
+    EPagesTemplateTypes.PROJECT_DETAILS_PAGE,
+  )
 
   // configure page data
-  const pageDataWithProjectInfo: IProjectDetailsPageData = {
+  const pageDataWithProjectInfo: TPageData = {
     ...detailsPageData,
     data: {
       ...detailsPageData.data,
@@ -57,15 +66,15 @@ async function pageData(slug: string) {
   }
 
   // project details data
-
-  return Promise.resolve(pageDataWithProjectInfo)
+  return Promise.resolve(pageDataWithProjectInfo as IProjectDetailsTemplate<T>)
 }
 
 const ProjectDetailsPage = async ({ params }: PageProps) => {
-  /* This page */
-  const data = await pageData(params['project-details'])
+  const pageData = await getData<IProjectDetailsContentV1>(
+    params['project-details'],
+  )
 
-  return <DetailsPage pageData={data!} />
+  return <DetailsPage<IProjectDetailsContentV1> pageData={pageData} />
 }
 
 export default ProjectDetailsPage

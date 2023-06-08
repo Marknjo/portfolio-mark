@@ -7,6 +7,7 @@ import {
   useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { IProjectDetailsContentV1 } from '@data/types'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import NextLink from 'next/link'
 import { BiHome } from 'react-icons/bi'
@@ -26,7 +27,7 @@ const CTALinks = ({
       cta: { paginationNextText, paginationPrevText },
       hero: { introButtonText },
     },
-  } = useDetailsPageData()
+  } = useDetailsPageData<IProjectDetailsContentV1>()
   const brkP = useBreakpoint()
 
   const { mainStyles, paginationStyles, projectLinkStyles, btnWrapperStyles } =

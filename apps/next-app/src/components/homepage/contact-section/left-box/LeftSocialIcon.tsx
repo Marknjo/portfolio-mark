@@ -3,7 +3,7 @@ import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { SubHeading } from 'ui'
 import { HSocialIcons, sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
-import { ISocialLink } from '@data/types'
+import { IHomePageContentV1, ISocialLink } from '@data/types'
 
 const LeftSocialIcons = () => {
   const {
@@ -11,7 +11,7 @@ const LeftSocialIcons = () => {
     content: {
       contact: { socialTitle },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   const socialHeadingStyles: SystemStyleObject = {
     borderColor: 'teal.200',

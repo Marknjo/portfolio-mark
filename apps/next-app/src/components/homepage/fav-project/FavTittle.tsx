@@ -1,5 +1,6 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { LargeTitle } from 'ui'
 
@@ -24,7 +25,7 @@ const FavTitle = () => {
     content: {
       favProject: { titleMain, titleSub },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <GridItem sx={gridStyles}>

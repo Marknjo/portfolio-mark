@@ -11,6 +11,7 @@ import {
 import { DotsBottomLeft, DotsBottomRight, DotsTopRight } from 'ui'
 import { sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
+import { IHomePageContentV1 } from '@data/types'
 
 const rightStyles: SystemStyleObject = {
   backgroundColor: 'orange.600',
@@ -28,7 +29,8 @@ const HeroRightGrid = () => {
     content: {
       hero: { profileImage },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
+
   const breakpoint = useBreakpoint()
   const imgContainerBreakpoint = useBreakpointValue(
     {

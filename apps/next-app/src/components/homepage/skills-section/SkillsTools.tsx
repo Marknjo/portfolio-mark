@@ -1,4 +1,4 @@
-import { EStackCategories } from '@data/types'
+import { EStackCategories, IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import SkillsCategoryContainer from './SkillsCategoryContainer'
 
@@ -7,7 +7,7 @@ const SkillsTools = () => {
     content: {
       skills: { toolsTitle },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <SkillsCategoryContainer

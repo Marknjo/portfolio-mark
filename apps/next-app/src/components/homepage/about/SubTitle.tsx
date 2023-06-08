@@ -1,4 +1,5 @@
 import { subHeadingsBr } from '@components/next-ui'
+import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { GradientLayerStyles } from '@theme/foundations'
 import { SectionTitle } from 'ui'
@@ -8,7 +9,7 @@ const SubTitle = () => {
     content: {
       about: { subTitle },
     },
-  } = useHomePageData()
+  } = useHomePageData<IHomePageContentV1>()
 
   const rowBreakingPoints = {
     base: 'r2-start/r2-end',
