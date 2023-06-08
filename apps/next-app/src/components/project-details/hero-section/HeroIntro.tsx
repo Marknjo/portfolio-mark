@@ -1,8 +1,10 @@
+import { usePathname } from 'next/navigation'
 import NextLink from 'next/link'
 import {
   Box,
   Button,
   Grid,
+  Link,
   SystemStyleObject,
   Tooltip,
   VStack,
@@ -18,6 +20,8 @@ import { IProjectDetailsContentV1 } from '@data/types'
 import IntroStackCards from './IntroStackCards'
 
 const HeroIntro = () => {
+  const path = usePathname()
+
   const {
     theme: { colorTheme },
     data: { projectData },
@@ -119,11 +123,11 @@ const HeroIntro = () => {
           </Box>
 
           <Button
-            as={NextLink}
-            href={`/project-details/${stacksButtonLink}`} /* @TODO: Use dynamic link */
+            as={Link}
+            href={`${path}${stacksButtonLink}`}
             rightIcon={<FiArrowDown />}
             variant="link"
-            colorScheme="teal"
+            colorScheme="orange"
           >
             {stacksButtonText}
           </Button>

@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import { useRouter } from 'next/navigation'
 import {
   GridItem,
   SystemStyleObject,
@@ -8,6 +7,7 @@ import {
   Heading,
   VStack,
   Button,
+  Link,
   useConst,
 } from '@chakra-ui/react'
 import { fontSizes, sizes } from '@components/next-ui'
@@ -18,8 +18,6 @@ import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IHomePageContentV1 } from '@data/types'
 
 const HeroLeftGrid = () => {
-  const router = useRouter()
-
   const {
     content: {
       hero: {
@@ -153,6 +151,9 @@ const HeroLeftGrid = () => {
           <TextContentGenerator {...textOptions} />
           <Box>
             <Button
+              href={`/${moreButtonLink}`}
+              as={Link}
+              textDecoration="none"
               textTransform="capitalize"
               variant="solid"
               bgColor="orange.50"
@@ -162,13 +163,14 @@ const HeroLeftGrid = () => {
               _hover={{
                 bgColor: 'orange.100',
                 boxShadow: 'md',
+                textDecoration: 'none',
               }}
               _active={{
                 boxShadow: 'base',
+                textDecoration: 'none',
               }}
               mt={sizes.xs}
               size="md"
-              onClick={() => router.push(`${moreButtonLink}`)}
               rightIcon={<BsArrowDown />}
             >
               {moreButtonText}

@@ -1,7 +1,6 @@
-import { Button } from '@chakra-ui/react'
+import { Button, Link } from '@chakra-ui/react'
 import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
-import { useRouter } from 'next/navigation'
 import { BsArrowDown } from 'react-icons/bs'
 
 const AboutCtaBtn = () => {
@@ -10,14 +9,25 @@ const AboutCtaBtn = () => {
       about: { contactButtonLink, contactButtonText },
     },
   } = useHomePageData<IHomePageContentV1>()
-  const router = useRouter()
 
   return (
     <Button
+      href={`/${contactButtonLink}`}
+      as={Link}
+      textDecoration="none"
       variant="outline"
       colorScheme="orange"
-      onClick={() => router.push(`${contactButtonLink}`)}
       rightIcon={<BsArrowDown />}
+      transition="all .2s ease-in"
+      _hover={{
+        bgColor: 'orange.100',
+        boxShadow: 'md',
+        textDecoration: 'none',
+      }}
+      _active={{
+        boxShadow: 'base',
+        textDecoration: 'none',
+      }}
     >
       {contactButtonText}
     </Button>

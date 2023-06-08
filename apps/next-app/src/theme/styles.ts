@@ -22,15 +22,17 @@ function scrollBarsStyles(selector: string, color: string) {
 
 export const styles: ThemeOverride['styles'] = {
   global: {
-    body: {
-      bg: 'orange.50',
+    html: {
       scrollBehavior: 'smooth',
     },
-    '::-moz-selection': {
+    body: {
+      bg: 'orange.50',
+    },
+    'html::-moz-selection': {
       color: 'orange.50',
       backgroundColor: 'orange.600',
     },
-    '::selection': {
+    'html::selection': {
       color: 'orange.50',
       backgroundColor: 'orange.600',
     },
