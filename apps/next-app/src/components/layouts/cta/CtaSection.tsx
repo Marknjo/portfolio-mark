@@ -6,12 +6,14 @@ import {
   Heading,
   SystemStyleObject,
   VStack,
+  useConst,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { useAppSettings } from '@store/context/app-settings-context'
 import NavLink from 'next/link'
 import { ReactNode } from 'react'
-import { MainGrid, ParagraphGenerator } from 'ui'
+import { MainGrid, TextContentGenerator } from 'ui'
 
 const CtaSection = ({
   children,
@@ -33,6 +35,15 @@ const CtaSection = ({
       },
     },
   } = useAppSettings()
+
+  const textOptions = useConst({
+    ...ctaText,
+    listOptions: {
+      ...(ctaText?.listOptions?.icon
+        ? { icon: appIcons.listIcons[ctaText.listOptions.icon] }
+        : {}),
+    },
+  })
 
   const mainStyles: GridProps = {
     color: 'orange.50',
@@ -98,7 +109,7 @@ const CtaSection = ({
             fontSize="small"
             gap="1"
           >
-            <ParagraphGenerator content={ctaText} isStyled={false} />
+            <TextContentGenerator {...textOptions} />
           </VStack>
 
           <Button

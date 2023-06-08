@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useId } from 'react'
+import React from 'react'
 import { useRouter } from 'next/navigation'
 import {
   GridItem,
@@ -7,16 +7,18 @@ import {
   Box,
   Heading,
   VStack,
-  Text,
   Button,
+  useConst,
 } from '@chakra-ui/react'
 import { fontSizes, sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
 import { BsArrowDown } from 'react-icons/bs'
+import { TextContentGenerator } from 'ui'
+import { appIcons } from '@data/generalData/icons/dataAppIcons'
 
 const HeroLeftGrid = () => {
   const router = useRouter()
-  const textId = useId()
+
   const {
     content: {
       hero: {
@@ -30,6 +32,15 @@ const HeroLeftGrid = () => {
       },
     },
   } = useHomePageData()
+
+  const textOptions = useConst({
+    ...headerText,
+    listOptions: {
+      ...(headerText?.listOptions?.icon
+        ? { icon: appIcons.listIcons[headerText.listOptions.icon] }
+        : {}),
+    },
+  })
 
   const profileTitleSub = headerTitleSub.split(' ')
 
@@ -140,15 +151,7 @@ const HeroLeftGrid = () => {
             color="whiteAlpha.800"
             pt={sizes.sm}
           >
-            {headerText.split('\n').map((text, i) => (
-              <Text
-                key={`${textId}-${text.slice(0, 5) + i}`}
-                textAlign={{ base: 'center', md: 'left' }}
-                textStyle="para-default"
-              >
-                {text.trim()}
-              </Text>
-            ))}
+            <TextContentGenerator {...textOptions} />
             <Box>
               <Button
                 textTransform="capitalize"

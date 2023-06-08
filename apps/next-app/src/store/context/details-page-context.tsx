@@ -47,8 +47,8 @@ const initialContent: IDetailsPageContext = {
       stacksTitle: '',
       stacksButtonText: '',
       stacksButtonLink: '',
-      introTextTitle: '',
       introButtonText: '',
+      introTextTitle: '',
     },
     theChallenge: {
       isShown: true,

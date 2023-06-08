@@ -1,5 +1,7 @@
 export const headerText = `
-  I'am a self-taught software engineer focused on web applications. I use all my energy tinkering with JavaScript and it's ecosystem of libraries and frameworks.
+  I'am a self-taught software engineer focused on web applications. 
+  
+  I use all my energy tinkering with JavaScript and it's ecosystem of libraries and frameworks.
 
   I have a lot to share with you
 

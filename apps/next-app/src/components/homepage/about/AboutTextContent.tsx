@@ -1,7 +1,8 @@
-import { GridItem, VStack, useBreakpoint } from '@chakra-ui/react'
+import { GridItem, VStack, useBreakpoint, useConst } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
-import { ParagraphGenerator } from 'ui'
+import { appIcons } from '@data/generalData/icons/dataAppIcons'
+import { TextContentGenerator } from 'ui'
 import AboutCtaBtn from './AboutCtaBtn'
 
 const rowBreakingPoints = {
@@ -22,6 +23,15 @@ const AboutTextContent = () => {
   } = useHomePageData()
   const breakpoint = useBreakpoint()
 
+  const textOptions = useConst({
+    ...aboutText,
+    listOptions: {
+      ...(aboutText?.listOptions?.icon
+        ? { icon: appIcons.listIcons[aboutText.listOptions.icon] }
+        : {}),
+    },
+  })
+
   return (
     <GridItem
       gridColumn={columnBreakingPoints}
@@ -36,7 +46,7 @@ const AboutTextContent = () => {
         marginBottom={sizes.lg}
         color="blackAlpha.800"
       >
-        <ParagraphGenerator content={aboutText.trim()} />
+        <TextContentGenerator {...textOptions} />
       </VStack>
 
       {['base', 'sm', 'md'].includes(breakpoint) || <AboutCtaBtn />}

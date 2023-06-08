@@ -66,7 +66,18 @@ const initialData: IHomePageContext = {
       salutationText: '',
       headerTitleMain: '',
       headerTitleSub: '',
-      headerText: '',
+      headerText: {
+        text: '',
+        delimiter: undefined,
+        type: 'paragraph',
+        listOptions: {
+          isStyled: undefined,
+          icon: undefined,
+        },
+        paraOptions: {
+          isStyled: false,
+        },
+      },
       moreButtonText: '',
       moreButtonLink: '',
       profileImage: '',
@@ -76,7 +87,18 @@ const initialData: IHomePageContext = {
       titleMain: '',
       titleSub: '',
       subTitle: '',
-      aboutText: '',
+      aboutText: {
+        text: '',
+        delimiter: undefined,
+        type: 'paragraph',
+        listOptions: {
+          isStyled: undefined,
+          icon: undefined,
+        },
+        paraOptions: {
+          isStyled: undefined,
+        },
+      },
       contactButtonText: '',
       contactButtonLink: '',
       videoLink: '',
@@ -104,7 +126,18 @@ const initialData: IHomePageContext = {
       isShown: true,
       titleMain: '',
       titleSub: '',
-      summaryText: '',
+      summaryText: {
+        text: '',
+        delimiter: undefined,
+        type: 'paragraph',
+        listOptions: {
+          isStyled: undefined,
+          icon: undefined,
+        },
+        paraOptions: {
+          isStyled: undefined,
+        },
+      },
       moreDetailsButtonText: '',
       visitProjectButtonText: '',
     },

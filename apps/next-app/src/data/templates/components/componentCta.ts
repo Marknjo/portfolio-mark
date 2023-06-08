@@ -17,7 +17,13 @@ export const ctaComponent: ICtaComponentData = {
   },
   content: {
     title: 'Having a project?',
-    ctaText,
+    ctaText: {
+      text: ctaText,
+      type: 'paragraph',
+      paraOptions: {
+        isStyled: false,
+      },
+    },
     contactButtonText: 'Shoot Me 💘',
     contactButtonLink: '#contact-section',
   },

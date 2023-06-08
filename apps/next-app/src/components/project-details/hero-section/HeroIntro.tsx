@@ -6,11 +6,13 @@ import {
   SystemStyleObject,
   Tooltip,
   VStack,
+  useConst,
 } from '@chakra-ui/react'
 import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi'
-import { ParagraphGenerator, SectionSeparator, SubHeading } from 'ui'
+import { SectionSeparator, SubHeading, TextContentGenerator } from 'ui'
 import { sizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
+import { appIcons } from '@data/generalData/icons/dataAppIcons'
 
 import IntroStackCards from './IntroStackCards'
 
@@ -30,6 +32,15 @@ const HeroIntro = () => {
   } = useDetailsPageData()
 
   const { title, liveLink, introSummaryText } = projectData!
+
+  const textOptions = useConst({
+    ...introSummaryText,
+    listOptions: {
+      ...(introSummaryText?.listOptions?.icon
+        ? { icon: appIcons.listIcons[introSummaryText.listOptions.icon] }
+        : {}),
+    },
+  })
 
   const rowBrP = {
     base: `[content-start]
@@ -135,7 +146,7 @@ const HeroIntro = () => {
               }}
             />
             {/* Paragraphs */}
-            <ParagraphGenerator content={introSummaryText as string} />
+            <TextContentGenerator {...textOptions} />
           </Box>
           {/* Button */}
           <Tooltip

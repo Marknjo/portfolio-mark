@@ -24,12 +24,28 @@ export const projectsData: Array<IProject> = [
 
     /// Text content
     excerpt: afriHickr.excerpt,
-    introSummaryText: afriHickr.introSummaryText,
-    goalsText: afriHickr.goalsText,
-    textStacksText: afriHickr.textStacksText,
-    challengesText: afriHickr.challengesText,
-    lessonsText: afriHickr.lessonsText,
-
+    introSummaryText: {
+      text: afriHickr.introSummaryText,
+      type: 'paragraph',
+    },
+    goalsText: {
+      text: afriHickr.goalsText,
+      type: 'paragraph',
+    },
+    textStacksText: {
+      text: afriHickr.textStacksText,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    challengesText: {
+      text: afriHickr.challengesText,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    lessonsText: {
+      text: afriHickr.lessonsText as [[[key: string], string]],
+      type: 'mixed',
+    },
     /// Images
     cardImgId: 'g2',
     introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
@@ -51,11 +67,28 @@ export const projectsData: Array<IProject> = [
 
     /// Text content
     excerpt: optiPlanner.excerpt,
-    introSummaryText: optiPlanner.introSummaryText,
-    goalsText: optiPlanner.goalsText,
-    textStacksText: optiPlanner.textStacksText,
-    challengesText: optiPlanner.challengesText,
-    lessonsText: optiPlanner.lessonsText as [[[key: string], string]],
+    introSummaryText: {
+      text: optiPlanner.introSummaryText as string,
+      type: 'paragraph',
+    },
+    goalsText: {
+      text: optiPlanner.goalsText as string,
+      type: 'paragraph',
+    },
+    textStacksText: {
+      text: optiPlanner.textStacksText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    challengesText: {
+      text: optiPlanner.challengesText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    lessonsText: {
+      text: optiPlanner.lessonsText as [[[key: string], string]],
+      type: 'mixed',
+    },
 
     /// Images
     cardImgId: 'g2',
@@ -77,11 +110,28 @@ export const projectsData: Array<IProject> = [
 
     /// Text content
     excerpt: fitHustle.excerpt,
-    introSummaryText: fitHustle.introSummaryText,
-    goalsText: fitHustle.goalsText,
-    textStacksText: fitHustle.textStacksText,
-    challengesText: fitHustle.challengesText,
-    lessonsText: fitHustle.lessonsText as [[[key: string], string]],
+    introSummaryText: {
+      text: fitHustle.introSummaryText as string,
+      type: 'paragraph',
+    },
+    goalsText: {
+      text: fitHustle.goalsText as string,
+      type: 'paragraph',
+    },
+    textStacksText: {
+      text: fitHustle.textStacksText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    challengesText: {
+      text: fitHustle.challengesText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    lessonsText: {
+      text: fitHustle.lessonsText as [[[key: string], string]],
+      type: 'mixed',
+    },
 
     /// Images
     cardImgId: 'g2',
@@ -104,11 +154,28 @@ export const projectsData: Array<IProject> = [
 
     /// Text content
     excerpt: pesaSync.excerpt,
-    introSummaryText: pesaSync.introSummaryText,
-    goalsText: pesaSync.goalsText,
-    textStacksText: pesaSync.textStacksText,
-    challengesText: pesaSync.challengesText,
-    lessonsText: pesaSync.lessonsText as [[[key: string], string]],
+    introSummaryText: {
+      text: pesaSync.introSummaryText as string,
+      type: 'paragraph',
+    },
+    goalsText: {
+      text: pesaSync.goalsText as string,
+      type: 'paragraph',
+    },
+    textStacksText: {
+      text: pesaSync.textStacksText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    challengesText: {
+      text: pesaSync.challengesText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    lessonsText: {
+      text: pesaSync.lessonsText as [[[key: string], string]],
+      type: 'mixed',
+    },
 
     /// Images
     cardImgId: 'g2',
@@ -131,11 +198,28 @@ export const projectsData: Array<IProject> = [
 
     /// Text content
     excerpt: markProfile.excerpt,
-    introSummaryText: markProfile.introSummaryText,
-    goalsText: markProfile.goalsText,
-    textStacksText: markProfile.textStacksText,
-    challengesText: markProfile.challengesText,
-    lessonsText: markProfile.lessonsText as [[[key: string], string]],
+    introSummaryText: {
+      text: markProfile.introSummaryText as string,
+      type: 'paragraph',
+    },
+    goalsText: {
+      text: markProfile.goalsText as string,
+      type: 'paragraph',
+    },
+    textStacksText: {
+      text: markProfile.textStacksText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    challengesText: {
+      text: markProfile.challengesText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    lessonsText: {
+      text: markProfile.lessonsText as [[[key: string], string]],
+      type: 'mixed',
+    },
 
     /// Images
     cardImgId: 'g2',

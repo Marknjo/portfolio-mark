@@ -1,5 +1,6 @@
-import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { GridItem, SystemStyleObject, useConst } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { TextContentGenerator } from 'ui'
 
@@ -7,7 +8,7 @@ const TheStackContent = () => {
   const {
     data: { projectData },
   } = useDetailsPageData()
-  const { challengesText } = projectData!
+  const { textStacksText } = projectData!
 
   const mainStyles: SystemStyleObject = {
     gridRow: { base: 'r7-start / r7-end', md: 'r6-start / r6-end' },
@@ -21,13 +22,18 @@ const TheStackContent = () => {
     pl: { base: '0', md: sizes.lg },
   }
 
+  const textOptions = useConst({
+    ...textStacksText,
+    listOptions: {
+      ...(textStacksText?.listOptions?.icon
+        ? { icon: appIcons.listIcons[textStacksText.listOptions.icon] }
+        : {}),
+    },
+  })
+
   return (
     <GridItem sx={mainStyles}>
-      <TextContentGenerator
-        text={challengesText}
-        delimiter="<--l-->"
-        type="paragraph"
-      />
+      <TextContentGenerator {...textOptions} />
     </GridItem>
   )
 }

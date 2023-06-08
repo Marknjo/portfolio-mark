@@ -113,9 +113,9 @@ export function TextContentGenerator({
   delimiter,
   listOptions = {
     icon: IoMdCheckmarkCircle,
+    isStyled: true,
     ulSx: {},
     iconSx: {},
-    isStyled: true,
     spacing: 3,
   },
   paraOptions = {
@@ -123,7 +123,7 @@ export function TextContentGenerator({
     isStyled: true,
   },
 }: ITextContentGeneratorProps) {
-  if (Array.isArray(text)) {
+  if (Array.isArray(text) && type === 'mixed') {
     ///
     const textMap = new Map(text as Array<[[key: string], string]>)
     const textMapKeys = [...textMap.keys()]
@@ -156,7 +156,6 @@ export function TextContentGenerator({
   /// Handle text string only
   const testStr = text as string
 
-  ///
   if (type === 'list' && !delimiter) {
     return <ListGenerator listText={testStr} {...listOptions} />
   }
@@ -165,7 +164,7 @@ export function TextContentGenerator({
     return <ParagraphGenerator content={testStr} {...paraOptions} />
   }
 
-  if (delimiter || type === 'mixed') {
+  if (delimiter && type === 'mixed') {
     const [paraText, listText] = testStr.trim().split(delimiter!)
     return (
       <>

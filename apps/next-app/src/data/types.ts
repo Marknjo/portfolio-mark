@@ -177,6 +177,21 @@ export enum EAppSettingsIsProtectedVariants {
   CONTENT = 'content',
 }
 
+/// GENERAL HELPER INTERFACES AND TYPES
+
+export interface ITextData {
+  text: string | [[[key: string], string]]
+  delimiter?: '<--p-->' | '<--l-->'
+  type: 'paragraph' | 'list' | 'mixed'
+  listOptions?: {
+    icon?: string
+    isStyled?: boolean
+  }
+  paraOptions?: {
+    isStyled?: boolean
+  }
+}
+
 /// Nav
 export interface INavLink {
   id: string
@@ -262,8 +277,6 @@ export type TProjectStackData =
   | Array<Pick<IStack, 'id'>>
   | { [key: string]: Array<IStack> }
 
-export type TProjectText = string | [[[key: string], string]]
-
 export interface IProjectsCategory {
   id: string
   name: EProjectCategories
@@ -280,11 +293,11 @@ export interface IProject {
 
   /// Text content
   excerpt: string
-  introSummaryText: TProjectText
-  goalsText: TProjectText
-  textStacksText: TProjectText
-  challengesText: TProjectText
-  lessonsText: TProjectText
+  introSummaryText: ITextData
+  goalsText: ITextData
+  textStacksText: ITextData
+  challengesText: ITextData
+  lessonsText: ITextData
 
   /// Images
   cardImgId: Pick<IGallery, 'id'> | string
@@ -482,7 +495,7 @@ export interface IHomePageData extends IGenericPageData {
       salutationText: string
       headerTitleMain: string
       headerTitleSub: string
-      headerText: string
+      headerText: ITextData
       moreButtonText: string
       moreButtonLink: string
       profileImage: string
@@ -492,7 +505,7 @@ export interface IHomePageData extends IGenericPageData {
       titleMain: string
       titleSub: string
       subTitle: string
-      aboutText: string
+      aboutText: ITextData
       contactButtonText: string
       contactButtonLink: string
       videoLink: string
@@ -520,7 +533,7 @@ export interface IHomePageData extends IGenericPageData {
       isShown: boolean
       titleMain: string
       titleSub: string
-      summaryText: string
+      summaryText: ITextData
       moreDetailsButtonText: string
       visitProjectButtonText: string
     }
@@ -626,7 +639,7 @@ export interface ICtaComponentData extends IGenericComponentData {
   }
   content: {
     title: string
-    ctaText: string
+    ctaText: ITextData
     contactButtonText: string
     contactButtonLink: string
   }

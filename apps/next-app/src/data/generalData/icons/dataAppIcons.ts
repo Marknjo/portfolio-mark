@@ -13,7 +13,10 @@ const displayIcons: { [key: string]: IconType } = {
   IoIosPhonePortrait,
 }
 
+const listIcons: { [key: string]: IconType } = {}
+
 export const appIcons = {
   socialIcons,
   displayIcons,
+  listIcons,
 }

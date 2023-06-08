@@ -1,8 +1,9 @@
-import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { Grid, GridItem, SystemStyleObject, useConst } from '@chakra-ui/react'
 import { DotsBottomRight, MainGrid, TextContentGenerator } from 'ui'
 
 import { sizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
+import { appIcons } from '@data/generalData/icons/dataAppIcons'
 
 const mainStyles: SystemStyleObject = {
   gridRow: 'r3-start/r3-end',
@@ -18,7 +19,16 @@ const ProjectGoalContent = () => {
     data: { projectData },
   } = useDetailsPageData()
 
-  const { textStacksText } = projectData!
+  const { goalsText } = projectData!
+
+  const textOptions = useConst({
+    ...goalsText,
+    listOptions: {
+      ...(goalsText?.listOptions?.icon
+        ? { icon: appIcons.listIcons[goalsText.listOptions.icon] }
+        : {}),
+    },
+  })
 
   return (
     <Grid sx={mainStyles}>
@@ -38,7 +48,7 @@ const ProjectGoalContent = () => {
           px={sizes.md}
           pb={sizes.md}
         >
-          <TextContentGenerator text={textStacksText} type="paragraph" />
+          <TextContentGenerator {...textOptions} />
         </GridItem>
       </MainGrid>
       <DotsBottomRight width={24} fill="#ED8936" />

@@ -38,7 +38,13 @@ export const homePageData: IHomePageData = {
       salutationText: 'Hello',
       headerTitleMain: "I'Am,",
       headerTitleSub: 'Mark Njoroge',
-      headerText,
+      headerText: {
+        text: headerText,
+        type: 'paragraph',
+        paraOptions: {
+          isStyled: false,
+        },
+      },
       moreButtonText: 'more about me',
       moreButtonLink: '#about-section',
       profileImage: appFiles[0].fileName,
@@ -48,7 +54,10 @@ export const homePageData: IHomePageData = {
       titleMain: 'About Me',
       titleSub: "Let's Start With My Background",
       subTitle: 'My Short Story',
-      aboutText,
+      aboutText: {
+        text: aboutText,
+        type: 'paragraph',
+      },
       contactButtonText: 'Reach Me For A Chat 😊!',
       contactButtonLink: '#contact-section',
       videoLink: 'https://www.youtube.com/embed/SREpK81HHJQ?controls=0',
@@ -77,7 +86,10 @@ export const homePageData: IHomePageData = {
       isShown: true,
       titleMain: 'I Build Expressive Websites, Awesome, And Catchy.',
       titleSub: "Here's A Quick Peak Of My Favorite Project",
-      summaryText,
+      summaryText: {
+        text: summaryText,
+        type: 'paragraph',
+      },
       moreDetailsButtonText: 'Learn More',
       visitProjectButtonText: 'Visit Live Project',
     },
