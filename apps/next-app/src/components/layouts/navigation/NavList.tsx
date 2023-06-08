@@ -49,7 +49,7 @@ const NavList = ({
   const hamburgerListStyles: SystemStyleObject = {
     flexDirection: 'column',
     borderTop: '2px solid ',
-    borderTopColor: 'blackAlpha.100',
+    borderTopColor: 'blackAlpha.300',
     animation: navAnimation,
   }
 
@@ -59,6 +59,7 @@ const NavList = ({
     columnGap: '2.5',
     flexDirection: 'row',
     listStyle: 'none',
+    bgColor: 'blackAlpha.200',
     ...(asHamburger ? hamburgerListStyles : {}),
   }
 

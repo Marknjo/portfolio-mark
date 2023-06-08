@@ -1,4 +1,5 @@
 import { Box, Portal, SystemStyleObject, keyframes } from '@chakra-ui/react'
+import { overlays } from '@components/next-ui'
 import { motion } from 'framer-motion'
 
 const animationKeyFrames = keyframes`
@@ -21,13 +22,13 @@ const MenuOverlay = () => {
     height: '100%',
     borderRadius: 'full',
     transformOrigin: 'center',
-    backgroundColor: 'blackAlpha.900',
     backfaceVisibility: 'hidden',
     position: 'fixed',
     top: 0,
     right: 0,
     zIndex: 1000,
     animation,
+    ...overlays.default,
   }
 
   return (

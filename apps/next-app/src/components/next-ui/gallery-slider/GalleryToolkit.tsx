@@ -10,6 +10,7 @@ import SliderThumbs from '@components/next-ui/slider/SliderThumbs'
 import { IGallery } from '@data/types'
 import { useSlider } from '@store/context/slider'
 import { ReactNode } from 'react'
+import { overlays } from '../constants'
 
 const GalleryToolkit = ({ children }: { children: ReactNode }) => {
   const { slideTitle } = useSlider()
@@ -68,10 +69,7 @@ const useStyles = (): Styles => {
       borderLeftColor: wrapperBordersStyles.color,
       userSelect: 'none',
     },
-    overlay: {
-      backdropFilter: 'blur(8px)',
-      bgColor: 'blackAlpha.400',
-    },
+    overlay: overlays.default,
     header: {
       alignSelf: 'flex-start',
       position: 'absolute',

@@ -1,3 +1,5 @@
+import { SystemStyleObject } from '@chakra-ui/react'
+
 export enum LargeBorderRadiusSize {
   XL = 12,
   LG = 7,
@@ -60,4 +62,11 @@ export const subHeadingsBr = {
 export const largeBorderBrP = {
   base: `${LargeBorderRadiusSize.SM}rem`,
   lg: `${LargeBorderRadiusSize.MD}rem`,
+}
+
+export const overlays: { default: SystemStyleObject } = {
+  default: {
+    backdropFilter: 'blur(8px)',
+    bgColor: 'blackAlpha.400',
+  },
 }
