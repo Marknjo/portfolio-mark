@@ -23,6 +23,7 @@ const SummarySection = () => {
         auto [r5-end]
     `,
     },
+    id: 'summary-section',
   }
 
   return (

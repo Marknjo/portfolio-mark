@@ -30,4 +30,5 @@ const mainGridStyles: GridProps = {
 
   borderTopRightRadius: largeBorderBrP,
   backgroundImage: defaultGradients(GradientVariants.Orange500to800),
+  id: 'cta-section',
 }

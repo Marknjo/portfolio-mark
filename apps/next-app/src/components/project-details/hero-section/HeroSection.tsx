@@ -52,6 +52,7 @@ const HeroSection = () => {
     gridTemplateRows: rowBrp,
     pb: sizes.xl,
     pt: sizes.nav_pd,
+    id: 'hero-section',
   }
 
   return (

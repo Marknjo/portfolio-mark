@@ -39,21 +39,26 @@ const detailsPageNavLinks: Array<INavLink> = [
   },
   {
     id: 'l2',
+    title: 'Intro',
+    link: '#hero-section',
+  },
+  {
+    id: 'l3',
     title: 'The Challenge',
     link: '#the-challenge-section',
   },
   {
-    id: 'l3',
+    id: 'l4',
     title: 'Gallery',
     link: '#gallery-section',
   },
   {
-    id: 'l4',
+    id: 'l5',
     title: 'Project Summary',
     link: '#summary-section',
   },
   {
-    id: 'l5',
+    id: 'l6',
     title: 'Similar Projects',
     link: '#cta-section',
   },

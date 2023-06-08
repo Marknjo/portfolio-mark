@@ -21,6 +21,7 @@ const TheChallengeSection = () => {
     `,
     backgroundColor: 'orange.50',
     pb: sizes.xl,
+    id: 'the-challenge-section',
   }
 
   return (

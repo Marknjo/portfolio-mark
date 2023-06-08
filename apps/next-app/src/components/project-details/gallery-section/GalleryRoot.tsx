@@ -59,4 +59,5 @@ const mainStyles: GridProps = {
   overflow: 'hidden',
   borderBottomLeftRadius: largeBorderBrP,
   borderTopRightRadius: largeBorderBrP,
+  id: 'gallery-section',
 }
