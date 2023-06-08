@@ -24,6 +24,7 @@ const HeroTitle = () => {
         pb: { base: '12', lg: '28' },
         pt: '0',
       }}
+      isCapitalized
     />
   )
 }

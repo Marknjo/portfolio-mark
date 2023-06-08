@@ -3,13 +3,8 @@
 import { useIsLoading } from '@hooks/is-loading'
 import { DetailsPageProvider } from '@store/context/details-page-context'
 import { IProjectDetailsTemplate, TPageTemplateContent } from '@data/types'
-import UiLoader from '@components/layouts/loaders/UiLoader'
+import UiLoaderBoxWipe from '@components/layouts/loaders/UiLoaderBoxWipe'
 import DetailsPageRootIndex from './RootIndex'
-
-// @TODO: Implement the details page context to share page data
-// interface DetailsPageProps {
-//   pageDetails?: any
-// }
 
 function DetailsPage<T extends TPageTemplateContent>({
   pageData,
@@ -19,7 +14,7 @@ function DetailsPage<T extends TPageTemplateContent>({
   const isLoading = useIsLoading()
 
   if (isLoading) {
-    return <UiLoader />
+    return <UiLoaderBoxWipe />
   }
 
   return (

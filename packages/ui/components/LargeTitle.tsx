@@ -72,6 +72,7 @@ export const LargeTitle = ({
   alignTitle,
   as = 'h2',
   isLighter = false,
+  isCapitalized = false,
 }: {
   title: string
   subTitle?: string
@@ -80,6 +81,7 @@ export const LargeTitle = ({
   titleConfig?: SystemStyleObject
   subTitleConfig?: SystemStyleObject
   alignTitle?: SystemStyleObject
+  isCapitalized?: boolean
   as?: As
   isLighter?: boolean
 }) => {
@@ -98,9 +100,12 @@ export const LargeTitle = ({
       <VStack sx={alignTitleDefault} as="span">
         <Box
           as="span"
-          sx={subTitleConfig}
+          sx={{
+            ...subTitleConfig,
+          }}
           textStyle={lg.replace('-light', '')}
           layerStyle={lg}
+          textTransform={isCapitalized ? 'capitalize' : undefined}
         >
           {title}
         </Box>
