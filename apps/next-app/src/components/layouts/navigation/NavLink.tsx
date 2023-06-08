@@ -74,10 +74,9 @@ const NavLink = ({
       <Link
         className="main__nav-link"
         href={newLink}
-        as={NextLink}
+        as={!linkHasHash ? NextLink : undefined}
         sx={linkStyles}
         aria-selected={isSelected}
-        onClick={e => e.preventDefault()}
       >
         {title}
       </Link>

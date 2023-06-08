@@ -1,5 +1,5 @@
-import { SyntheticEvent, useLayoutEffect, useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import { useLayoutEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Flex, SystemStyleObject, keyframes } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
@@ -27,7 +27,6 @@ const NavList = ({
   navLinks: Array<INavLink>
   asHamburger: boolean
 }) => {
-  const router = useRouter()
   const currentRoute = usePathname()
   const isLoading = useIsLoading()
   const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
@@ -59,33 +58,12 @@ const NavList = ({
     columnGap: '2.5',
     flexDirection: 'row',
     listStyle: 'none',
-    bgColor: 'blackAlpha.200',
+    bgColor: asHamburger && 'blackAlpha.200',
     ...(asHamburger ? hamburgerListStyles : {}),
   }
 
-  const selectedLinkHandler = (event: SyntheticEvent) => {
-    const selectedItemItem = event.target as HTMLElement
-    const selectedEl = selectedItemItem.closest(
-      '.main__nav-link',
-    ) as HTMLInputElement
-
-    if (!selectedEl) return
-
-    const urlHash = selectedEl.getAttribute('href')
-    setSelectedLinkEl(urlHash)
-
-    if (urlHash?.includes('/')) {
-      router.push(urlHash)
-      return
-    }
-
-    document.querySelector(urlHash!)?.scrollIntoView({
-      behavior: 'smooth',
-    })
-  }
-
   return (
-    <Flex as={motion.ul} sx={listStyles} onClick={selectedLinkHandler}>
+    <Flex as={motion.ul} sx={listStyles}>
       {navLinks.map(item => (
         <NavLink
           key={item.title}
