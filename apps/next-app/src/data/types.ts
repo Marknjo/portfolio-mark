@@ -564,6 +564,7 @@ export interface IProjectDetailsPageData extends IGenericPageData {
   data: {
     navData: Array<INavLink> | []
     projectData: IProject | null
+    relatedProjects: Array<TPickedProjectsCard> | null
   }
   meta: {
     description: string

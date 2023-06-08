@@ -1,5 +1,6 @@
 import {
   As,
+  Box,
   Button,
   Grid,
   GridItem,
@@ -25,6 +26,8 @@ export interface ProjectTagsInterface {
 export interface CardsInfoInterface {
   title: string
   slug: string
+  alt?: string
+  fileName: string
   as?: As
   tags: Array<ProjectTagsInterface>
   maxW?: string | { [key: string]: string }
@@ -32,6 +35,8 @@ export interface CardsInfoInterface {
 }
 
 export const ProjectCard = ({
+  alt,
+  fileName,
   title,
   slug,
   tags,
@@ -79,8 +84,8 @@ export const ProjectCard = ({
     <Grid as="article" sx={wrapperStyles}>
       <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
-          src="./images/card-image.jpg"
-          alt="Project card Image"
+          src={`./images/${fileName}.jpg`}
+          alt={alt ? alt : 'Project card Image'}
           borderRadius="md"
           border="2px solid"
           borderColor="orange.100"
@@ -98,42 +103,44 @@ export const ProjectCard = ({
         shadow="lg"
         borderColor="orange.100"
       >
-        <VStack rowGap={{ base: '2', md: '3' }}>
-          <Heading
-            as="h3"
-            color="orange.800"
-            fontSize={{ base: 'xl', md: '2xl' }}
-            textAlign="center"
-            lineHeight="none"
-          >
-            {title}
-          </Heading>
+        <VStack rowGap={{ base: '3', md: '4' }}>
+          <VStack>
+            <Heading
+              as="h3"
+              color="orange.800"
+              fontSize={{ base: 'xl', md: '2xl' }}
+              textAlign="center"
+              lineHeight="none"
+            >
+              {title}
+            </Heading>
 
-          <Wrap justify="space-evenly">
-            {tags.map(tag => (
-              <Tooltip
-                hasArrow
-                colorScheme={tag.colorTheme}
-                placement="top-start"
-                label={tag.fullTagName}
-                key={`${tag.id}-${tag.tagName}`}
-              >
-                <WrapItem>
-                  <Tag
-                    cursor="help"
-                    colorScheme={tag.colorTheme}
-                    size="sm"
-                    fontSize={{
-                      base: 'xx-small',
-                      lg: 'x-small',
-                    }}
-                  >
-                    {tag.tagName}
-                  </Tag>
-                </WrapItem>
-              </Tooltip>
-            ))}
-          </Wrap>
+            <Wrap justify="space-evenly">
+              {tags.map(tag => (
+                <Tooltip
+                  hasArrow
+                  colorScheme={tag.colorTheme}
+                  placement="auto"
+                  label={tag.fullTagName}
+                  key={`${tag.id}-${tag.tagName}`}
+                >
+                  <WrapItem>
+                    <Tag
+                      cursor="help"
+                      colorScheme={tag.colorTheme}
+                      size="sm"
+                      fontSize={{
+                        base: 'xx-small',
+                        lg: 'x-small',
+                      }}
+                    >
+                      {tag.tagName}
+                    </Tag>
+                  </WrapItem>
+                </Tooltip>
+              ))}
+            </Wrap>
+          </VStack>
 
           <Button
             {...(as ? { as } : {})}
@@ -143,7 +150,7 @@ export const ProjectCard = ({
             rightIcon={<LinkIcon />}
             size="sm"
           >
-            {breakBtnText ? 'Explore' : 'Explore Project'}
+            Explore
           </Button>
         </VStack>
       </GridItem>

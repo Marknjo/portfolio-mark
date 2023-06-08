@@ -1,5 +1,3 @@
-import { sampleProjects } from '@data/sampleProjects'
-
 import RelatedProjectsTitle from './RelatedProjectsTitle'
 import CTALinks from './CTALinks'
 import CTARelatedProjects from './CTARelatedProjects'
@@ -13,7 +11,7 @@ const CTASection = () => (
     <RelatedProjectsTitle />
 
     {/* Cards */}
-    <CTARelatedProjects projectInfo={sampleProjects} />
+    <CTARelatedProjects />
     {/*  */}
   </>
 )

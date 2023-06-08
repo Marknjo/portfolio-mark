@@ -32,6 +32,7 @@ const initialContent: IDetailsPageContext = {
   data: {
     navData: [],
     projectData: null,
+    relatedProjects: null,
   },
   meta: {
     description: '',

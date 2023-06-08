@@ -1,13 +1,17 @@
 import NextLink from 'next/link'
 import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
-import { CardsInfoInterface, DotsBottomRight, ProjectCard } from 'ui'
+import { DotsBottomRight, ProjectCard } from 'ui'
 import { sizes } from '@components/next-ui'
+import { useDetailsPageData } from '@store/context/details-page-context'
+import { TPickedProjectsCard } from '@data/types'
 
-const CTARelatedProjects = ({
-  projectInfo,
-}: {
-  projectInfo: Array<CardsInfoInterface>
-}) => {
+const CTARelatedProjects = () => {
+  const {
+    data: { relatedProjects },
+  } = useDetailsPageData()
+
+  const projectRelated = relatedProjects as Array<TPickedProjectsCard>
+
   const { mainStyles, cardsWrapperStyles } = useStyles()
 
   return (
@@ -24,11 +28,11 @@ const CTARelatedProjects = ({
 
       <GridItem sx={mainStyles}>
         <HStack sx={cardsWrapperStyles}>
-          {projectInfo.map(info => (
+          {projectRelated.map(projectCardInfo => (
             <ProjectCard
               maxW={{ base: 'auto', md: '72', lg: '64', xl: '72' }}
-              key={info.title}
-              {...info}
+              key={projectCardInfo.title}
+              {...projectCardInfo}
               as={NextLink}
             />
           ))}

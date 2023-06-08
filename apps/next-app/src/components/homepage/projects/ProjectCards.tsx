@@ -32,11 +32,11 @@ const ProjectCards = () => {
         flexDirection={{ base: 'column', md: 'inherit' }}
         px={{ md: '4', lg: 0 }}
       >
-        {pickedProjects.map(info => (
+        {pickedProjects.map(projectCardInfo => (
           <ProjectCard
             wrapperSx={wrapperOverridesStyles}
-            key={info.title}
-            {...info}
+            key={projectCardInfo.title}
+            {...projectCardInfo}
             as={NextLink}
           />
         ))}

@@ -7,6 +7,7 @@ import {
   useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { useDetailsPageData } from '@store/context/details-page-context'
 import NextLink from 'next/link'
 import { BiHome } from 'react-icons/bi'
 import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
@@ -20,8 +21,13 @@ const CTALinks = ({
   nextProjectUrl?: string
   prevProjectUrl?: string
 }) => {
+  const {
+    content: {
+      cta: { paginationNextText, paginationPrevText },
+      hero: { introButtonText },
+    },
+  } = useDetailsPageData()
   const brkP = useBreakpoint()
-  /* Styles */
 
   const { mainStyles, paginationStyles, projectLinkStyles, btnWrapperStyles } =
     useStyles()
@@ -35,10 +41,10 @@ const CTALinks = ({
           leftIcon={<FiArrowLeft />}
           rightIcon={<BiHome />}
           variant="solid"
-          colorScheme="teal"
+          colorScheme="orange"
           size={{ base: 'sm', md: 'md' }}
         >
-          {brkP === 'base' || brkP === 'sm' ? 'Home' : 'Back To Home'}
+          Home
         </Button>
 
         <Button
@@ -46,11 +52,11 @@ const CTALinks = ({
           href={projectUrl}
           sx={projectLinkStyles}
           rightIcon={<FiArrowUpRight />}
-          colorScheme="teal"
+          colorScheme="orange"
           variant="outline"
           size={{ base: 'sm', md: 'md' }}
         >
-          {brkP === 'base' || brkP === 'sm' ? 'Visit' : 'Visit Live Project'}
+          {brkP === 'base' || brkP === 'sm' ? 'Visit' : introButtonText}
         </Button>
 
         {/* Pagination Links */}
@@ -71,7 +77,7 @@ const CTALinks = ({
               transform: 'translateX(-3px) scale(1.05)',
             }}
           >
-            Prev
+            {paginationPrevText}
           </Button>
           <Box width="2px" bgColor="whiteAlpha.400">
             &nbsp;
@@ -88,7 +94,7 @@ const CTALinks = ({
               transform: 'translateX(3px) scale(1.05)',
             }}
           >
-            Next
+            {paginationNextText}
           </Button>
         </HStack>
       </HStack>

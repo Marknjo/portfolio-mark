@@ -3,7 +3,10 @@ import { Metadata, ResolvingMetadata } from 'next'
 import DetailsPage from '@components/project-details'
 import { IProjectDetailsPageData } from '@data/types'
 import { getDetailsUIData } from '@data/utils/detailsPageHelpers'
-import { getProjectBySlug } from '@data/utils/projectsHelpers'
+import {
+  getProjectBySlug,
+  findRelatedProjects,
+} from '@data/utils/projectsHelpers'
 import { notFound } from 'next/navigation'
 
 interface MetaProps {
@@ -34,6 +37,12 @@ async function pageData(slug: string) {
   /// throw 404 error
   if (!pageProject) return notFound()
 
+  /// get related projects
+  const relatedProjects = findRelatedProjects(
+    pageProject.isPicked,
+    pageProject.category,
+  )
+
   /// ui data
   const detailsPageData = getDetailsUIData()
 
@@ -43,6 +52,7 @@ async function pageData(slug: string) {
     data: {
       ...detailsPageData.data,
       projectData: pageProject,
+      relatedProjects,
     },
   }
 
