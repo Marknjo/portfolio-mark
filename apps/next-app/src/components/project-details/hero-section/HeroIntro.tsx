@@ -2,7 +2,6 @@ import { usePathname } from 'next/navigation'
 import NextLink from 'next/link'
 import {
   Box,
-  Button,
   Grid,
   Link,
   SystemStyleObject,
@@ -10,13 +9,14 @@ import {
   VStack,
   useConst,
 } from '@chakra-ui/react'
-import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi'
+import { FiArrowUpRight } from 'react-icons/fi'
 import { SectionSeparator, SubHeading, TextContentGenerator } from 'ui'
 import { sizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IProjectDetailsContentV1 } from '@data/types'
 import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
+import IconLineBtn from '@components/next-ui/buttons/IconLineBtn'
 
 import IntroStackCards from './IntroStackCards'
 
@@ -123,15 +123,12 @@ const HeroIntro = () => {
             <IntroStackCards />
           </Box>
 
-          <Button
-            as={Link}
+         
+          <IconLineBtn
+            text={stacksButtonText}
             href={`${path}${stacksButtonLink}`}
-            rightIcon={<FiArrowDown />}
-            variant="link"
-            colorScheme="orange"
-          >
-            {stacksButtonText}
-          </Button>
+            props={{ as: Link }}
+          />
         </VStack>
 
         {/* Text & Button */}
