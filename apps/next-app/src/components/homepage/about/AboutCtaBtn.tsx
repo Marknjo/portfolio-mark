@@ -1,4 +1,5 @@
-import { Button, Link } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/react'
+import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
 import { IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { BsArrowDown } from 'react-icons/bs'
@@ -11,26 +12,19 @@ const AboutCtaBtn = () => {
   } = useHomePageData<IHomePageContentV1>()
 
   return (
-    <Button
+    <SolidBtn
+      text={contactButtonText}
+      props={{
+        as: Link,
+        rightIcon: <BsArrowDown />,
+      }}
       href={`/${contactButtonLink}`}
-      as={Link}
-      textDecoration="none"
-      variant="outline"
-      colorScheme="orange"
-      rightIcon={<BsArrowDown />}
-      transition="all .2s ease-in"
-      _hover={{
+      sx={{
+        border: '1px solid',
+        borderColor: 'orange.300',
         bgColor: 'orange.100',
-        boxShadow: 'md',
-        textDecoration: 'none',
       }}
-      _active={{
-        boxShadow: 'base',
-        textDecoration: 'none',
-      }}
-    >
-      {contactButtonText}
-    </Button>
+    />
   )
 }
 

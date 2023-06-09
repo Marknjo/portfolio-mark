@@ -16,6 +16,7 @@ import { sizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IProjectDetailsContentV1 } from '@data/types'
+import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
 
 import IntroStackCards from './IntroStackCards'
 
@@ -162,15 +163,19 @@ const HeroIntro = () => {
             label={liveLink}
             isDisabled={liveLink !== 'coming soon'}
           >
-            <Button
-              as={NextLink}
+            <SolidBtn
+              text={introButtonText}
+              props={{
+                as: NextLink,
+                rightIcon: <FiArrowUpRight />,
+              }}
               href={liveLink === 'coming soon' ? '/#' : liveLink}
-              rightIcon={<FiArrowUpRight />}
-              variant="outline"
-              colorScheme="orange"
-            >
-              {introButtonText}
-            </Button>
+              sx={{
+                border: '1px solid',
+                borderColor: 'orange.400',
+                bgColor: 'orange.100',
+              }}
+            />
           </Tooltip>
         </VStack>
       </Grid>

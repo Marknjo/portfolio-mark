@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Checkbox,
   CheckboxGroup,
   Flex,
@@ -15,6 +14,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
 
 import { BiMailSend } from 'react-icons/bi'
 
@@ -125,9 +125,19 @@ const ContactRightBox = () => {
           />
         </FormControl>
 
-        <Button type="submit" colorScheme="teal" rightIcon={<BiMailSend />}>
-          Send Message
-        </Button>
+        <SolidBtn
+          text=" Send Message"
+          props={{
+            rightIcon: <BiMailSend />,
+            type: 'submit',
+          }}
+          sx={{
+            border: '1px solid',
+            borderColor: 'orange.400',
+            bgColor: 'orange.500',
+            color: 'orange.50',
+          }}
+        />
       </VStack>
     </GridItem>
   )

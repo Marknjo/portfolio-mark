@@ -7,6 +7,7 @@ import {
   useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
 import { IProjectDetailsContentV1 } from '@data/types'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import NextLink from 'next/link'
@@ -30,35 +31,43 @@ const CTALinks = ({
   } = useDetailsPageData<IProjectDetailsContentV1>()
   const brkP = useBreakpoint()
 
-  const { mainStyles, paginationStyles, projectLinkStyles, btnWrapperStyles } =
-    useStyles()
+  const { mainStyles, paginationStyles, btnWrapperStyles } = useStyles()
 
   return (
     <GridItem sx={mainStyles}>
       <HStack sx={btnWrapperStyles}>
-        <Button
-          as={NextLink}
+        <SolidBtn
+          text="Home"
+          props={{
+            as: NextLink,
+            leftIcon: <FiArrowLeft />,
+            rightIcon: <BiHome />,
+            size: { base: 'sm', md: 'md' },
+          }}
           href="/"
-          leftIcon={<FiArrowLeft />}
-          rightIcon={<BiHome />}
-          variant="solid"
-          colorScheme="orange"
-          size={{ base: 'sm', md: 'md' }}
-        >
-          Home
-        </Button>
+          sx={{
+            border: '1px solid',
+            borderColor: 'orange.50',
+            letterSpacing: '1px',
+            bgColor: 'orange.500',
+            color: 'orange.100',
+          }}
+        />
 
-        <Button
-          as={NextLink}
-          href={projectUrl}
-          sx={projectLinkStyles}
-          rightIcon={<FiArrowUpRight />}
-          colorScheme="orange"
-          variant="outline"
-          size={{ base: 'sm', md: 'md' }}
-        >
-          {brkP === 'base' || brkP === 'sm' ? 'Visit' : introButtonText}
-        </Button>
+        <SolidBtn
+          text={brkP === 'base' || brkP === 'sm' ? 'Visit' : introButtonText}
+          props={{
+            as: NextLink,
+            rightIcon: <FiArrowUpRight />,
+            size: { base: 'sm', md: 'md' },
+          }}
+          href={projectUrl === 'coming soon' ? '/#' : projectUrl}
+          sx={{
+            border: '1px solid',
+            borderColor: 'orange.400',
+            bgColor: 'orange.100',
+          }}
+        />
 
         {/* Pagination Links */}
         <HStack

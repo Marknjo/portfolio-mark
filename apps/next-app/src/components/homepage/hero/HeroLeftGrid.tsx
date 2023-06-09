@@ -6,16 +6,15 @@ import {
   Box,
   Heading,
   VStack,
-  Button,
   Link,
   useConst,
 } from '@chakra-ui/react'
 import { fontSizes, sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
-import { BsArrowDown } from 'react-icons/bs'
 import { TextContentGenerator } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IHomePageContentV1 } from '@data/types'
+import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
 
 const HeroLeftGrid = () => {
   const {
@@ -150,31 +149,19 @@ const HeroLeftGrid = () => {
         >
           <TextContentGenerator {...textOptions} />
           <Box>
-            <Button
+            <SolidBtn
+              text={moreButtonText}
+              props={{
+                as: Link,
+              }}
               href={`/${moreButtonLink}`}
-              as={Link}
-              textDecoration="none"
-              textTransform="capitalize"
-              variant="solid"
-              bgColor="orange.50"
-              color="orange.800"
-              colorScheme="orange"
-              transition="all .2s ease-in"
-              _hover={{
+              sx={{
+                border: '1px solid',
+                borderColor: 'orange.400',
                 bgColor: 'orange.100',
-                boxShadow: 'md',
-                textDecoration: 'none',
+                mt: sizes.xs,
               }}
-              _active={{
-                boxShadow: 'base',
-                textDecoration: 'none',
-              }}
-              mt={sizes.xs}
-              size="md"
-              rightIcon={<BsArrowDown />}
-            >
-              {moreButtonText}
-            </Button>
+            />
           </Box>
         </VStack>
       </GridItem>

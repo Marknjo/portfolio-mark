@@ -10,5 +10,7 @@
     "Navs",
     "Opti",
     "pesa"
-  ]
+  ],
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true
 }

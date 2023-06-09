@@ -1,5 +1,5 @@
 import {
-  Button,
+  Link,
   GridItem,
   GridProps,
   HStack,
@@ -9,9 +9,9 @@ import {
   useConst,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { useAppSettings } from '@store/context/app-settings-context'
-import NavLink from 'next/link'
 import { ReactNode } from 'react'
 import { MainGrid, TextContentGenerator } from 'ui'
 
@@ -91,7 +91,7 @@ const CtaSection = ({
       <GridItem sx={ctaStyles}>
         <HStack
           justifyContent={{ base: 'center', lg: 'space-between', xl: 'center' }}
-          gap={{ base: '4', lg: '3', xl: '4' }}
+          gap={{ base: '4', lg: '3', xl: '8' }}
           wrap={{ base: 'wrap', lg: 'nowrap' }}
         >
           <Heading
@@ -112,23 +112,20 @@ const CtaSection = ({
             <TextContentGenerator {...textOptions} />
           </VStack>
 
-          <Button
-            as={NavLink}
+          <SolidBtn
+            text={contactButtonText}
+            props={{
+              as: Link,
+            }}
             href={`/${contactButtonLink}`}
-            variant="outline"
-            color="teal.100"
-            borderColor="teal.100"
-            colorScheme="teal"
-            _active={{
-              color: 'teal.800',
-              backgroundColor: 'teal.300',
+            sx={{
+              border: '1px solid',
+              borderColor: 'orange.400',
+              textTransform: 'capitalize',
+              letterSpacing: '1px',
+              bgColor: 'orange.100',
             }}
-            _hover={{
-              color: 'teal.50',
-            }}
-          >
-            {contactButtonText}
-          </Button>
+          />
         </HStack>
       </GridItem>
       <GridItem
