@@ -56,24 +56,26 @@ const HeroLeftGrid = () => {
           md: '1 / 2',
         }}
         sx={leftStyles}
-        alignItems={{ base: 'center', md: 'start' }}
+        alignItems="start"
+        mb={{ base: '4', md: '3' }}
       >
         {/* Heading Box */}
         <Box
           letterSpacing="widest"
           fontSize={['md', 'lg', 'xl', '2xl']}
           marginLeft={sizes.xl}
-          marginBottom="2"
+          marginBottom="4"
+          minWidth="12"
           position="relative"
           _after={{
             backgroundColor: 'orange.600',
             content: '""',
             display: 'block',
-            width: ['4', '6'],
-            height: ['4', '6'],
+            width: ['3', '6'],
+            height: ['3', '6'],
             position: 'absolute',
             bottom: '0',
-            left: { base: '40%', md: '1' },
+            left: { base: '2px', md: '1' },
             transform: 'translate(50%, 50%) rotate(.12turn)',
             zIndex: '0',
           }}
@@ -82,22 +84,19 @@ const HeroLeftGrid = () => {
             as="span"
             backgroundColor="orange.600"
             borderRadius="4px"
-            px={sizes.xs}
+            px={{ base: '2', md: '4' }}
             py={['1', '2']}
             position="relative"
             zIndex="3"
-            left={{ base: '40%', md: 0 }}
+            left="0"
+            minWidth="12"
           >
             {salutationText}
           </Box>
         </Box>
 
         {/* Heading Main */}
-        <Heading
-          as="h1"
-          fontFamily="heading"
-          textAlign={{ base: 'center', md: 'left' }}
-        >
+        <Heading as="h1" fontFamily="heading">
           <Box
             as="span"
             color="whiteAlpha.800"
@@ -110,7 +109,7 @@ const HeroLeftGrid = () => {
           </Box>
           <VStack
             as="span"
-            alignItems={{ base: 'center', md: 'flex-start' }}
+            alignItems="flex-start"
             fontSize={fontSizes.lg}
             lineHeight="none"
             letterSpacing="wider"
@@ -140,14 +139,13 @@ const HeroLeftGrid = () => {
         pb={sizes.xl}
       >
         <VStack
-          alignItems={{ base: 'center', md: 'flex-start' }}
+          pl={{ base: '4', sm: '6', lg: 0 }}
+          alignItems="flex-start"
           gap="2"
-          fontSize="md"
           color="whiteAlpha.800"
-          pt={sizes.sm}
         >
           <TextContentGenerator {...textOptions} />
-          <Box>
+          <Box mt="3">
             <SolidBtn
               text={moreButtonText}
               props={{
