@@ -34,7 +34,9 @@ const FavContent = () => {
       gridRow="r5-start / r5-end"
       gridColumn={{
         base: 'content-start / content-end',
-        sm: 'col-start 2 / col-end 10',
+        sm: 'col-start 2 / col-end 11',
+        lg: 'col-start 2 / col-end 10',
+        xl: 'col-start 2 / col-end 8',
       }}
       mt={sizes.xl}
       zIndex="2"
