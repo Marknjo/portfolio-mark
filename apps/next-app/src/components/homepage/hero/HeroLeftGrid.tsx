@@ -9,6 +9,7 @@ import {
   Link,
   useConst,
 } from '@chakra-ui/react'
+import { BsArrowDown } from 'react-icons/bs'
 import { fontSizes, sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
 import { TextContentGenerator, SolidBtn } from 'ui'
@@ -150,6 +151,7 @@ const HeroLeftGrid = () => {
               text={moreButtonText}
               props={{
                 as: Link,
+                rightIcon: <BsArrowDown />,
               }}
               href={`/${moreButtonLink}`}
               sx={{
