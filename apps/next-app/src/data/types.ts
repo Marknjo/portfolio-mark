@@ -215,6 +215,12 @@ export interface IPageNav {
 }
 
 /// Gallery - requires a full uploading gallery
+export interface IFavGalleryData {
+  link: string
+  favGalleryText: ITextData
+  gallery: IGallery[]
+}
+
 export interface IGallery {
   id: string
   alt: string
@@ -293,6 +299,7 @@ export interface IProject {
   title: string /// or {name: string, sub: string},
   category: IProjectsCategory
   isPicked?: boolean
+  isFavorite?: boolean
   liveLink: string
 
   /// Text content
@@ -302,6 +309,7 @@ export interface IProject {
   textStacksText: ITextData
   challengesText: ITextData
   lessonsText: ITextData
+  favGalleryText?: ITextData
 
   /// Images
   cardImgId: Pick<IGallery, 'id'> | string
@@ -313,6 +321,7 @@ export interface IProject {
   stacks: TProjectStackData // dropdown - ref to stacks
   tags: Array<IProjectTag>
   gallery: Array<IGallery> // dropdown - ref to stacks
+  favGallery?: Array<IGallery> | [] // dropdown - ref to stacks
   galleryPrevPrefix?: string // a gallery preview image prefix
 }
 
@@ -490,7 +499,7 @@ export interface IHomePageTemplate<T extends TPageTemplateContent>
   extends IGenericPageTemplate<T> {
   data: {
     pickedProjects: Array<TPickedProjectsCard>
-    favProject: Array<IGallery> | []
+    favProject: IFavGalleryData | []
     navData: Array<INavLink> | []
     aboutSocialIcons: Array<ISocialLink>
     contactSocialIcons: Array<ISocialLink>
@@ -551,7 +560,6 @@ export interface IHomePageContentV1 {
     isShown: boolean
     titleMain: string
     titleSub: string
-    summaryText: ITextData
     moreDetailsButtonText: string
     visitProjectButtonText: string
   }

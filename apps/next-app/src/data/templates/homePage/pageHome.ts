@@ -1,22 +1,15 @@
 import { ESiteNavNames, TPageData } from '@data/types'
-import { findPickedProjects } from '@data/utils/projectsHelpers'
-import { favProjectsGalleryImgsPicker } from '@data/utils/galleryHelpers'
+import {
+  findFavoriteProject,
+  findPickedProjects,
+} from '@data/utils/projectsHelpers'
 import { getStacks } from '@data/utils/stacksHelpers'
 import { aboutSocialIcons, contactSocialIcons } from './dataSocialIcons'
-
-const favProject = favProjectsGalleryImgsPicker([
-  'g7',
-  'g7',
-  'g7',
-  'g7',
-  'g7',
-  'g7',
-])
 
 export const homePageData: TPageData = {
   data: {
     pickedProjects: findPickedProjects(),
-    favProject,
+    favProject: findFavoriteProject(),
     navData: [],
     aboutSocialIcons,
     contactSocialIcons,

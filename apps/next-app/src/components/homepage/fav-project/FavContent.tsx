@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import { GridItem, VStack, Icon, useConst } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
-import { IHomePageContentV1 } from '@data/types'
+import { IFavGalleryData, IHomePageContentV1 } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { FiArrowRight } from 'react-icons/fi'
 import { SolidBtn, TextContentGenerator } from 'ui'
@@ -12,17 +12,19 @@ const LinkIconRight = () => <Icon as={FiArrowRight} />
 /// @TODO: fix button links - pass favorite project url links here
 const FavContent = () => {
   const {
-    // data: {favProject},
+    data: { favProject },
     content: {
-      favProject: { summaryText, moreDetailsButtonText },
+      favProject: { moreDetailsButtonText },
     },
   } = useHomePageData<IHomePageContentV1>()
 
+  const { favGalleryText, link } = favProject as IFavGalleryData
+
   const textOptions = useConst({
-    ...summaryText,
+    ...favGalleryText,
     listOptions: {
-      ...(summaryText?.listOptions?.icon
-        ? { icon: appIcons.listIcons[summaryText.listOptions.icon] }
+      ...(favGalleryText?.listOptions?.icon
+        ? { icon: appIcons.listIcons[favGalleryText.listOptions.icon] }
         : {}),
     },
   })
@@ -48,8 +50,7 @@ const FavContent = () => {
             as: NextLink,
             rightIcon: <LinkIconRight />,
           }}
-          // href={`/${contactButtonLink}`}
-          href="#"
+          href={`/${link}`}
           sx={{
             border: '1px solid',
             borderColor: 'orange.300',

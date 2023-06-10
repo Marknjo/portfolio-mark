@@ -1,5 +1,7 @@
 import { projectsData } from '@data/generalData/dataProjects'
 import {
+  IFavGalleryData,
+  IGallery,
   IProject,
   IProjectsCategory,
   TCardSlimGalleryData,
@@ -57,4 +59,16 @@ export function findRelatedProjects(
   }
 
   return findPickedProjects(filterCriteria, maxPick)
+}
+
+export function findFavoriteProject(): IFavGalleryData | [] {
+  const foundProject = projectsData.find(project => project.isFavorite)
+
+  if (!foundProject) return [] // not found project
+
+  return {
+    link: foundProject.slug,
+    favGalleryText: foundProject.favGalleryText!,
+    gallery: foundProject.favGallery as IGallery[],
+  }
 }

@@ -6,7 +6,7 @@ import { sizes } from '@components/next-ui'
 import { useSlider } from '@store/context/slider'
 import GallerySlider from '@components/next-ui/gallery-slider/GallerySlider'
 import { useHomePageData } from '@store/context/homepage-context'
-import { IHomePageContentV1 } from '@data/types'
+import { IFavGalleryData, IHomePageContentV1 } from '@data/types'
 
 import FavTitle from './FavTittle'
 import FavBg from './FavBg'
@@ -19,11 +19,13 @@ const FavProjectRoot = () => {
     data: { favProject },
   } = useHomePageData<IHomePageContentV1>()
 
+  const { gallery } = favProject as IFavGalleryData
+
   /* Configure gallery slider */
   useEffect(() => {
-    setSlideItems(favProject)
+    setSlideItems(gallery)
     setSliderIsModal(true)
-  }, [setSlideItems, setSliderIsModal, favProject])
+  }, [setSlideItems, setSliderIsModal, gallery])
 
   const styles = useStyles()
   return (

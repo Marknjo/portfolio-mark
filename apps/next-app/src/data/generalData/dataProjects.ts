@@ -1,10 +1,13 @@
 import { IProject, TCardSlimGalleryData } from '@data/types'
 
-import { imagePicker } from '@data/utils/galleryHelpers'
+import {
+  favProjectsGalleryImgsPicker,
+  imagePicker,
+} from '@data/utils/galleryHelpers'
 import { projectCategories } from './projects/projectCategories'
 import {
   afriHickr,
-  fitHustle,
+  lukuFiti,
   markProfile,
   optiPlanner,
   pesaSync,
@@ -12,6 +15,15 @@ import {
 
 import { galleryImgs } from './projects/projectGalleries'
 import { projectStacks } from './projects/projectStacks'
+
+const favProject = favProjectsGalleryImgsPicker([
+  'g7',
+  'g7',
+  'g7',
+  'g7',
+  'g7',
+  'g7',
+])
 
 export const projectsData: Array<IProject> = [
   {
@@ -107,30 +119,35 @@ export const projectsData: Array<IProject> = [
     title: 'LukuFiti',
     category: projectCategories[2],
     liveLink: 'coming soon',
+    isFavorite: true,
 
     /// Text content
-    excerpt: fitHustle.excerpt,
+    excerpt: lukuFiti.excerpt,
     introSummaryText: {
-      text: fitHustle.introSummaryText as string,
+      text: lukuFiti.introSummaryText as string,
       type: 'paragraph',
     },
     goalsText: {
-      text: fitHustle.goalsText as string,
+      text: lukuFiti.goalsText as string,
       type: 'paragraph',
     },
     textStacksText: {
-      text: fitHustle.textStacksText as string,
+      text: lukuFiti.textStacksText as string,
       type: 'mixed',
       delimiter: '<--l-->',
     },
     challengesText: {
-      text: fitHustle.challengesText as string,
+      text: lukuFiti.challengesText as string,
       type: 'mixed',
       delimiter: '<--l-->',
     },
     lessonsText: {
-      text: fitHustle.lessonsText as [[[key: string], string]],
+      text: lukuFiti.lessonsText as [[[key: string], string]],
       type: 'mixed',
+    },
+    favGalleryText: {
+      text: lukuFiti.favGalleryText as string,
+      type: 'paragraph',
     },
 
     /// Images
@@ -143,6 +160,7 @@ export const projectsData: Array<IProject> = [
     tags: projectStacks.fitHustle.tags,
     stacks: projectStacks.fitHustle.allStacks,
     gallery: galleryImgs.fitHustle,
+    favGallery: favProject,
   },
   {
     id: 'p4',

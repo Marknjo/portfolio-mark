@@ -108,7 +108,7 @@ export const optiPlanner = {
 }
 
 /// 3. Project fitHustle
-export const fitHustle = {
+export const lukuFiti = {
   excerpt:
     'FitHustle is an online web store app for selling cool second hand clothes',
 
@@ -148,6 +148,18 @@ export const fitHustle = {
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
   `,
+  favGalleryText: `
+      Hey, This project is actually this template.
+
+      It is supposed to be catchy, modern, expressive, and packed with a lot of concepts on UI/UX and Front-end design principles.
+
+      With this project I want to express my love for design. Handcraft every piece of it to give it my personality.
+
+      I hope by looking at it and exploring it, you will get in love with how I approach software engineering. In this case, front-end design.
+
+      Do you want to dive deep?
+  `,
+
   lessonsText: [
     ['para-1', lessonsParaText],
     ['list-1', lessonsListText],
