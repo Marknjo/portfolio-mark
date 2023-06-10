@@ -5,7 +5,7 @@ import {
   ChakraTheme,
   SystemStyleObject,
 } from '@chakra-ui/react'
-import { BsArrowDown } from 'react-icons/bs'
+import { ReactNode } from 'react'
 
 interface IBtnColors {
   btnTheme?: TColor
@@ -20,25 +20,24 @@ export function SolidBtn({
   props,
   sx,
   btnColors,
+  children,
 }: {
-  text: string
+  text?: string
   props: ButtonProps
   sx?: SystemStyleObject
   href?: string
   btnColors?: IBtnColors
+  children?: ReactNode
 }) {
-  const { size, rightIcon } = props
+  const { size, rightIcon, disabled } = props
 
-  const definedColors = btnColors
-    ? [
-        btnColors.btnTheme,
-        btnColors.textColor,
-        btnColors.rippleColor,
-        btnColors.hoverColor,
-      ]
-    : []
-
-  const { btnSolid } = useStyles(...definedColors)
+  const { btnSolid } = useStyles(
+    btnColors?.btnTheme,
+    btnColors?.textColor,
+    btnColors?.rippleColor,
+    btnColors?.hoverColor,
+    disabled,
+  )
 
   const styles: SystemStyleObject = {
     ...btnSolid,
@@ -50,10 +49,10 @@ export function SolidBtn({
       sx={styles}
       {...props}
       size={size || 'md'}
-      rightIcon={rightIcon || <BsArrowDown />}
+      rightIcon={rightIcon}
       {...(href ? { href } : {})}
     >
-      {text}
+      {children ? children : text}
     </Button>
   )
 }
@@ -69,6 +68,7 @@ const useStyles = (
   textColor?: TColor,
   rippleColor?: TColor,
   hoverColor?: TColor,
+  isDisabled?: boolean,
 ): IStyles => {
   const beforeAfterStyles: SystemStyleObject = {
     transition: 'all 0.2s ease-in',
@@ -112,6 +112,31 @@ const useStyles = (
     }
   }
 
+  const hoverStyles: SystemStyleObject = !isDisabled
+    ? {
+        color: colorConfig.tHover as string,
+        textDecoration: 'none',
+        transform: 'scale(1.1)',
+        shadow: 'md',
+        _before: {
+          ...beforeAfterStyles,
+        },
+        _focus: {
+          ...beforeAfterStyles,
+        },
+      }
+    : {}
+
+  const activeStyles: SystemStyleObject = !isDisabled
+    ? {
+        transform: 'scale(0.9)',
+        shadow: 'sm',
+        textDecoration: 'none',
+      }
+    : {}
+
+  console.log({ isDisabled })
+
   return {
     btnSolid: {
       letterSpacing: '1px',
@@ -144,24 +169,9 @@ const useStyles = (
         },
       },
 
-      _hover: {
-        color: colorConfig.tHover as string,
-        textDecoration: 'none',
-        transform: 'scale(1.1)',
-        shadow: 'md',
-        _before: {
-          ...beforeAfterStyles,
-        },
-        _focus: {
-          ...beforeAfterStyles,
-        },
-      },
+      _hover: hoverStyles,
 
-      _active: {
-        transform: 'scale(0.9)',
-        shadow: 'sm',
-        textDecoration: 'none',
-      },
+      _active: activeStyles,
     },
   }
 }
