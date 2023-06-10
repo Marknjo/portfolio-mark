@@ -5,5 +5,6 @@ module.exports = {
   transpilePackages: ['ui'],
   experimental: {
     scrollRestoration: true,
+    serverActions: true,
   },
 }
