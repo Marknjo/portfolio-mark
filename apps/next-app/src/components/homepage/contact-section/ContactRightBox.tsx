@@ -14,7 +14,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
+import { SolidBtn } from 'ui'
 
 import { BiMailSend } from 'react-icons/bi'
 

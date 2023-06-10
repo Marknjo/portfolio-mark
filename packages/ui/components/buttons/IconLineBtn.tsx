@@ -47,7 +47,7 @@ function BtnIcon({
   )
 }
 
-export default function IconLineBtn({
+export function IconLineBtn({
   href,
   text,
   props,

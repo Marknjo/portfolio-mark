@@ -1,4 +1,3 @@
-export * from './components/buttons/SolidBtn'
 export * from './components/MainGrid'
 export * from './components/DotsBottomRight'
 export * from './components/DotsBottomLeft'
@@ -14,6 +13,10 @@ export * from './components/TechStacksCard'
 export * from './components/SubHeading'
 export * from './components/OsxImageWindow'
 export * from './components/TextContentGenerator'
+
+/// Buttons\
+export * from './components/buttons/SolidBtn'
+export * from './components/buttons/IconLineBtn'
 
 export * from './components/SectionSeparator'
 /// Types

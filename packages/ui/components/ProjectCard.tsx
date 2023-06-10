@@ -14,6 +14,7 @@ import {
   WrapItem,
   useBreakpoint,
 } from '@chakra-ui/react'
+
 import { LinkIcon } from './LinkIcon'
 
 export interface ProjectTagsInterface {

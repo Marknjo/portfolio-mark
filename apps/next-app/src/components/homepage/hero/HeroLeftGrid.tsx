@@ -11,10 +11,9 @@ import {
 } from '@chakra-ui/react'
 import { fontSizes, sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
-import { TextContentGenerator } from 'ui'
+import { TextContentGenerator, SolidBtn } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IHomePageContentV1 } from '@data/types'
-import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
 
 const HeroLeftGrid = () => {
   const {

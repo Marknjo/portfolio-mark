@@ -10,13 +10,17 @@ import {
   useConst,
 } from '@chakra-ui/react'
 import { FiArrowUpRight } from 'react-icons/fi'
-import { SectionSeparator, SubHeading, TextContentGenerator } from 'ui'
+import {
+  SectionSeparator,
+  SubHeading,
+  TextContentGenerator,
+  SolidBtn,
+  IconLineBtn,
+} from 'ui'
 import { sizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IProjectDetailsContentV1 } from '@data/types'
-import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
-import IconLineBtn from '@components/next-ui/buttons/IconLineBtn'
 
 import IntroStackCards from './IntroStackCards'
 
@@ -123,7 +127,6 @@ const HeroIntro = () => {
             <IntroStackCards />
           </Box>
 
-         
           <IconLineBtn
             text={stacksButtonText}
             href={`${path}${stacksButtonLink}`}

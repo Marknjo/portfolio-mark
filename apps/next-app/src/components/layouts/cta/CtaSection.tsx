@@ -9,7 +9,7 @@ import {
   useConst,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
+import { SolidBtn } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { useAppSettings } from '@store/context/app-settings-context'
 import { ReactNode } from 'react'

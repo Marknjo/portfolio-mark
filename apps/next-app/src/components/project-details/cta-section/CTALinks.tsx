@@ -7,7 +7,7 @@ import {
   useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import SolidBtn from '@components/next-ui/buttons/ SolidBtn'
+import { SolidBtn } from 'ui'
 import { IProjectDetailsContentV1 } from '@data/types'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import NextLink from 'next/link'
