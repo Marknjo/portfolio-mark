@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 
 import { LinkIcon } from './LinkIcon'
+import { SolidBtn } from './buttons/SolidBtn'
 
 export interface ProjectTagsInterface {
   id: string
@@ -143,16 +144,20 @@ export const ProjectCard = ({
             </Wrap>
           </VStack>
 
-          <Button
-            {...(as ? { as } : {})}
+          <SolidBtn
+            text="Explore"
+            props={{
+              ...(as ? { as } : {}),
+              size: 'sm',
+              rightIcon: <LinkIcon />,
+            }}
             href={`${slug}`}
-            variant="outline"
-            colorScheme="orange"
-            rightIcon={<LinkIcon />}
-            size="sm"
-          >
-            Explore
-          </Button>
+            sx={{
+              border: '1px solid',
+              borderColor: 'orange.200',
+              bgColor: 'orange.50',
+            }}
+          />
         </VStack>
       </GridItem>
     </Grid>

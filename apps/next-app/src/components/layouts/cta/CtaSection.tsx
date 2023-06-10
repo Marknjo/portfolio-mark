@@ -9,11 +9,10 @@ import {
   useConst,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
-import { SolidBtn } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { useAppSettings } from '@store/context/app-settings-context'
 import { ReactNode } from 'react'
-import { MainGrid, TextContentGenerator } from 'ui'
+import { MainGrid, TextContentGenerator, SolidBtn } from 'ui'
 
 const CtaSection = ({
   children,
