@@ -1,13 +1,21 @@
+import { useEffect, useRef, useState } from 'react'
+
 import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
   Box,
-  Checkbox,
-  CheckboxGroup,
   Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
   GridItem,
+  HStack,
   Input,
+  Radio,
+  RadioGroup,
+  Spinner,
   SystemStyleObject,
   Text,
   Textarea,
@@ -17,10 +25,42 @@ import { sizes } from '@components/next-ui'
 import { SolidBtn } from 'ui'
 
 import { BiMailSend } from 'react-icons/bi'
+import { IContactFormData, contactMe } from 'src/server-lib/lib/contactMe'
+import { useSize } from '@chakra-ui/react-use-size'
 
 // @TODO: implement sending form - emailing, form submission and state handling, refactor form elements
+// @TODO: implement form validation and CSRF
+// @TODO:  Make Text Message expandable
+// @TODO: add a download resume button
 
 const ContactRightBox = () => {
+  const [formHasErrors, setFormHasErrors] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const formRef = useRef<HTMLFormElement>(null)
+
+  /// auto remove success message
+  useEffect(() => {
+    setIsSubmitting(false)
+    const timer = setTimeout(() => {
+      setSuccessMessage('')
+    }, 10000)
+
+    return () => clearTimeout(timer)
+  }, [successMessage])
+
+  /// auto remove error message
+  useEffect(() => {
+    setIsSubmitting(false)
+    const timer = setTimeout(() => {
+      setFormHasErrors(false)
+    }, 10000)
+
+    return () => clearTimeout(timer)
+  }, [formHasErrors])
+
   const mainStyles: SystemStyleObject = {
     gridColumn: {
       base: 'content-start/content-end',
@@ -35,9 +75,106 @@ const ContactRightBox = () => {
     zIndex: '2',
   }
 
+  async function sendFormDataHandler(data: FormData) {
+    const validationMessage = 'You name/email/message/topic cannot be empty'
+
+    try {
+      /// resets
+
+      /// client side data validation
+      const { fullName, email, topic, message } = Object.fromEntries(
+        data,
+      ) as unknown as IContactFormData
+
+      /// Naive validation @TODO: Implement full validation - at backend
+      if (!fullName.trim() || !email.trim() || !message.trim() || !topic) {
+        throw new Error(validationMessage)
+      }
+
+      // /// on success clear form inputs
+      const res = await contactMe(data)
+
+      /// reset values
+      if (formHasErrors) {
+        setErrorMessage('')
+        setFormHasErrors(false)
+      }
+
+      setSuccessMessage(res.data.message)
+      formRef.current!.reset()
+    } catch (error: any) {
+      const errorMess = error.message
+
+      /// @TODO: move this to the server and return a generic response
+      setErrorMessage(
+        errorMess !== validationMessage
+          ? '🥹 Sending your Message failed! Try again'
+          : errorMess,
+      )
+      setFormHasErrors(true)
+      setSuccessMessage('')
+    }
+  }
+
+  function formSubmitResetHandler() {
+    setIsSubmitting(true)
+    setErrorMessage('')
+    setFormHasErrors(false)
+    setSuccessMessage('')
+  }
+
+  function closeMessageBoxHandler() {
+    if (formHasErrors) {
+      setFormHasErrors(false)
+    }
+
+    if (successMessage) {
+      setSuccessMessage('')
+    }
+  }
+
+  const alertStyles: SystemStyleObject = {
+    borderRadius: 'md',
+    position: 'absolute',
+    left: '5',
+    top: '-10',
+    maxW: '90%',
+  }
+
   return (
-    <GridItem sx={mainStyles}>
-      <VStack as="form" gap={sizes.md} alignItems="flex-start">
+    <GridItem sx={mainStyles} position="relative">
+      {/* Handle error messages */}
+
+      {/* // show form error message */}
+      {formHasErrors && (
+        <Alert status="error" sx={alertStyles} onClick={closeMessageBoxHandler}>
+          <AlertIcon />
+          <AlertTitle>Form Errors!</AlertTitle>
+          <AlertDescription>{errorMessage}</AlertDescription>
+        </Alert>
+      )}
+
+      {successMessage && (
+        <Alert
+          status="success"
+          sx={alertStyles}
+          onClick={closeMessageBoxHandler}
+        >
+          <AlertIcon />
+          <AlertTitle>Form Success!</AlertTitle>
+          <AlertDescription>{successMessage}</AlertDescription>
+        </Alert>
+      )}
+
+      <VStack
+        as="form"
+        gap={sizes.md}
+        alignItems="flex-start"
+        // eslint-disable-next-line react/jsx-no-bind
+        action={sendFormDataHandler}
+        ref={formRef}
+        onSubmit={formSubmitResetHandler}
+      >
         <Flex
           gap={sizes.sm}
           justifyContent="space-around"
@@ -46,23 +183,25 @@ const ContactRightBox = () => {
           rowGap={{ base: 0, md: '2' }}
         >
           <FormControl isRequired>
-            <FormLabel>Full Name</FormLabel>
+            <FormLabel htmlFor="fullName">Full Name</FormLabel>
             <Input
               type="text"
-              name="fullname"
-              placeholder="John Ndoe"
+              name="fullName"
+              placeholder="John Doe"
               focusBorderColor="orange.400"
               errorBorderColor="red.300"
               colorScheme="orange"
               size="md"
               variant="flushed"
+              id="fullName"
             />
             <FormErrorMessage>Please add a valid full name</FormErrorMessage>
           </FormControl>
 
           <FormControl isRequired>
-            <FormLabel>Email</FormLabel>
+            <FormLabel htmlFor="email">Email</FormLabel>
             <Input
+              id="email"
               type="email"
               name="email"
               placeholder="johnndoe@gmail.com"
@@ -71,13 +210,13 @@ const ContactRightBox = () => {
               colorScheme="orange"
               size="md"
               variant="flushed"
+              autoComplete="true"
             />
             <FormErrorMessage>
               Please add a valid email address
             </FormErrorMessage>
           </FormControl>
         </Flex>
-
         <Box as="fieldset" width="100%">
           <Text
             as="legend"
@@ -88,7 +227,7 @@ const ContactRightBox = () => {
           >
             What Would You like do discuss about?
           </Text>
-          <CheckboxGroup defaultValue={['others']}>
+          <RadioGroup size="md" name="topic" defaultValue="others">
             <Box
               display="flex"
               flexDirection={['column', 'row']}
@@ -98,25 +237,36 @@ const ContactRightBox = () => {
               justifyContent="flex-start"
               alignContent="flex-start"
             >
-              <Checkbox value="ui/ux" colorScheme="orange">
-                Web Design (UI/UX)
-              </Checkbox>
-              <Checkbox value="api-dev" colorScheme="orange">
-                API Development
-              </Checkbox>
-              <Checkbox value="frontend" colorScheme="orange">
+              <Radio id="frontend" value="frontend" colorScheme="orange">
                 Frontend Design
-              </Checkbox>
-              <Checkbox value="others" colorScheme="orange">
+              </Radio>
+              <Radio
+                id="react-native"
+                value="react-native"
+                colorScheme="orange"
+              >
+                Mobile App{' '}
+                <Box as="small" color="orange.400">
+                  (React Native)
+                </Box>
+              </Radio>
+              <Radio id="api-dev" value="api-dev" colorScheme="orange">
+                API Development
+              </Radio>
+              <Radio id="fullStack" value="full stack" colorScheme="orange">
+                Full Stack App
+              </Radio>
+              <Radio id="others" value="others" colorScheme="orange">
                 Others
-              </Checkbox>
+              </Radio>
             </Box>
-          </CheckboxGroup>
+          </RadioGroup>
         </Box>
-
         <FormControl isRequired>
-          <FormLabel>Your Message</FormLabel>
+          <FormLabel htmlFor="message">Your Message</FormLabel>
           <Textarea
+            id="message"
+            name="message"
             placeholder="Write your message here..."
             variant="flushed"
             focusBorderColor="orange.400"
@@ -124,12 +274,14 @@ const ContactRightBox = () => {
             colorScheme="orange"
           />
         </FormControl>
-
         <SolidBtn
-          text=" Send Message"
           props={{
-            rightIcon: <BiMailSend />,
+            ...(isSubmitting ? {} : { rightIcon: <BiMailSend /> }),
             type: 'submit',
+            disabled: !!isSubmitting,
+            isDisabled: !!isSubmitting,
+            'aria-disabled': !!isSubmitting,
+            onClick: closeMessageBoxHandler,
           }}
           sx={{
             border: '1px solid',
@@ -137,7 +289,16 @@ const ContactRightBox = () => {
             bgColor: 'orange.500',
             color: 'orange.50',
           }}
-        />
+        >
+          {isSubmitting ? (
+            <HStack>
+              <Box>Sending...</Box>{' '}
+              <Spinner size="sm" colorScheme="whiteAlpha" />
+            </HStack>
+          ) : (
+            'Send Message'
+          )}
+        </SolidBtn>
       </VStack>
     </GridItem>
   )
