@@ -79,7 +79,7 @@ const ParagraphGenerator = ({
   const contentArr = useMemo(() => textSplitter(content), [content])
 
   const styles: SystemStyleObject = {
-    mb: { base: '2', md: '3' },
+    mb: '0.25rem',
     textStyle: 'para-default',
     layerStyle: 'para-default',
     ...sx,
