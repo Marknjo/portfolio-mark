@@ -135,8 +135,6 @@ const useStyles = (
       }
     : {}
 
-  console.log({ isDisabled })
-
   return {
     btnSolid: {
       letterSpacing: '1px',

@@ -9,6 +9,7 @@ import UiLoaderHoneyComb from '@components/layouts/loaders/UiLoaderHoneyComb'
 
 /// Local components
 import { IHomePageTemplate, TPageTemplateContent } from '@data/types'
+
 import HomePageRootIndex from './RootIndex'
 
 function HomePage<T extends TPageTemplateContent>({
@@ -18,14 +19,13 @@ function HomePage<T extends TPageTemplateContent>({
 }) {
   const isLoading = useIsLoading()
 
-  if (isLoading) {
-    return <UiLoaderHoneyComb />
-  }
-
   return (
-    <HomePageProvider<T> pageData={pageData}>
-      <HomePageRootIndex />
-    </HomePageProvider>
+    <>
+      {isLoading && <UiLoaderHoneyComb />}
+      <HomePageProvider<T> pageData={pageData}>
+        <HomePageRootIndex />
+      </HomePageProvider>
+    </>
   )
 }
 

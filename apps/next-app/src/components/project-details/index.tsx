@@ -4,6 +4,7 @@ import { useIsLoading } from '@hooks/is-loading'
 import { DetailsPageProvider } from '@store/context/details-page-context'
 import { IProjectDetailsTemplate, TPageTemplateContent } from '@data/types'
 import UiLoaderHoneyComb from '@components/layouts/loaders/UiLoaderHoneyComb'
+
 import DetailsPageRootIndex from './RootIndex'
 
 function DetailsPage<T extends TPageTemplateContent>({
@@ -13,14 +14,13 @@ function DetailsPage<T extends TPageTemplateContent>({
 }) {
   const isLoading = useIsLoading()
 
-  if (isLoading) {
-    return <UiLoaderHoneyComb />
-  }
-
   return (
-    <DetailsPageProvider<T> pageData={pageData}>
-      <DetailsPageRootIndex />
-    </DetailsPageProvider>
+    <>
+      {isLoading && <UiLoaderHoneyComb />}
+      <DetailsPageProvider<T> pageData={pageData}>
+        <DetailsPageRootIndex />
+      </DetailsPageProvider>
+    </>
   )
 }
 

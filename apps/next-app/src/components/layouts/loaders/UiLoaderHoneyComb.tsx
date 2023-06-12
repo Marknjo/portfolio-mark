@@ -75,7 +75,7 @@ const afterBefore: SystemStyleObject = {
 
 const honeyBoxStyles: SystemStyleObject = {
   animation: `${honeyCombAnimation} 1.8s infinite backwards`,
-  background: 'orange.500',
+  background: 'orange.700',
   height: '16px',
   mt: '6px',
   position: 'absolute',
@@ -83,13 +83,13 @@ const honeyBoxStyles: SystemStyleObject = {
   _after: {
     top: '-5px',
     borderBottom: '6px solid',
-    borderBottomColor: ' orange.600',
+    borderBottomColor: ' orange.700',
     ...afterBefore,
   },
   _before: {
     bottom: '-5px',
     borderTop: '6px solid',
-    borderTopColor: 'orange.300',
+    borderTopColor: 'orange.700',
     ...afterBefore,
   },
 }

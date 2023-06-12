@@ -75,7 +75,6 @@ const HeroLeftGrid = () => {
         alignItems="start"
         mb={{ base: '4', md: '3' }}
       >
-        {/* Heading Box */}
         <Box
           letterSpacing="widest"
           fontSize={['md', 'lg', 'xl', '2xl']}
