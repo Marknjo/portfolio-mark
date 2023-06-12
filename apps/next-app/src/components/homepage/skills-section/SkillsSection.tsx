@@ -1,5 +1,8 @@
-import { GridItemProps } from '@chakra-ui/react'
+import { GridItemProps, chakra, shouldForwardProp } from '@chakra-ui/react'
+import { isValidMotionProp, motion } from 'framer-motion'
+
 import { DotsTopRight, MainGrid } from 'ui'
+import { sectionsReveal } from '@components/next-ui/animations/slideIn'
 import { sizes } from '@components/next-ui'
 
 import SkillsTitle from './SkillsTitle'
@@ -7,6 +10,14 @@ import SkillsSub from './SkillsSub'
 import SkillsPrLangs from './SkillsPrLangs'
 import SkillsCategories from './SkillsCategories'
 import SkillsNote from './SkillsNote'
+
+const SectionBox = chakra(motion.section, {
+  baseStyle: {
+    perspective: '1500px',
+    perspectiveOrigin: 'center',
+  },
+  shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+})
 
 const SkillsSection = () => {
   const gridRows: GridItemProps = {
@@ -27,24 +38,32 @@ const SkillsSection = () => {
   }
 
   return (
-    <MainGrid id="skills-section" as="section" options={gridRows}>
-      <DotsTopRight fill="#ED8936" width={22} />
+    <SectionBox
+      id="skills-section"
+      variants={sectionsReveal}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true }}
+    >
+      <MainGrid options={gridRows}>
+        <DotsTopRight fill="#ED8936" width={22} />
 
-      {/* Main Heading */}
-      <SkillsTitle />
+        {/* Main Heading */}
+        <SkillsTitle />
 
-      {/* Section Title */}
-      <SkillsSub />
+        {/* Section Title */}
+        <SkillsSub />
 
-      {/* Programming Languages */}
-      <SkillsPrLangs />
+        {/* Programming Languages */}
+        <SkillsPrLangs />
 
-      {/* Columns of: Frontend, backend, & Tools */}
-      <SkillsCategories />
+        {/* Columns of: Frontend, backend, & Tools */}
+        <SkillsCategories />
 
-      {/* @TODO: Add Mobile & Desktop Programming Skills */}
-      <SkillsNote />
-    </MainGrid>
+        {/* @TODO: Add Mobile & Desktop Programming Skills */}
+        <SkillsNote />
+      </MainGrid>
+    </SectionBox>
   )
 }
 

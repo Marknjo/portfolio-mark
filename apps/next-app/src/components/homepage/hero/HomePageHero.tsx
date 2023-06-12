@@ -1,5 +1,6 @@
 import React from 'react'
 import { MainGrid } from 'ui'
+
 import HeroLeftGrid from './HeroLeftGrid'
 import HeroRightGrid from './HeroRightGrid'
 

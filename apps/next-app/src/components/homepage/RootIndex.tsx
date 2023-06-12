@@ -3,7 +3,8 @@
 import React from 'react'
 
 // eslint-disable-next-line import/no-unresolved
-import { Box } from '@chakra-ui/react'
+import { chakra, shouldForwardProp } from '@chakra-ui/react'
+import { isValidMotionProp, motion } from 'framer-motion'
 
 // Components
 import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
@@ -21,6 +22,10 @@ import FavProjectSection from './fav-project/FavProjectSection'
 import SkillsSection from './skills-section/SkillsSection'
 import ContactSection from './contact-section/ContactSection'
 
+const AnimationMain = chakra(motion.main, {
+  shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+})
+
 const HomePageRootIndex = () => {
   const {
     data: { navData },
@@ -35,7 +40,12 @@ const HomePageRootIndex = () => {
       <HomePageHero />
 
       {/* Main Content */}
-      <Box as="main">
+      <AnimationMain
+        // as="main"
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.8 }}
+      >
         {/* About Section */}
         <AboutSection />
 
@@ -53,7 +63,7 @@ const HomePageRootIndex = () => {
 
         {/* Page CTA */}
         <CtaSection />
-      </Box>
+      </AnimationMain>
 
       {/* Footer */}
       <Footer />

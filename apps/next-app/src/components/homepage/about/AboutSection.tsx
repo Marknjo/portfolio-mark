@@ -1,6 +1,13 @@
 import { MainGrid } from 'ui'
 import { sizes } from '@components/next-ui'
-import { GridItem, useBreakpoint } from '@chakra-ui/react'
+import {
+  GridItem,
+  chakra,
+  shouldForwardProp,
+  useBreakpoint,
+} from '@chakra-ui/react'
+import { isValidMotionProp, motion } from 'framer-motion'
+import { sectionsReveal } from '@components/next-ui/animations/slideIn'
 
 import AboutTitle from './AboutTitle'
 import SubTitle from './SubTitle'
@@ -9,6 +16,10 @@ import AboutTextContent from './AboutTextContent'
 import AboutVideo from './AboutVideo'
 import AboutBg from './AboutBg'
 import AboutCtaBtn from './AboutCtaBtn'
+
+const SectionBox = chakra(motion.section, {
+  shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+})
 
 const AboutSection = () => {
   const breakpoint = useBreakpoint()
@@ -33,44 +44,50 @@ const AboutSection = () => {
   }
 
   return (
-    <MainGrid
+    <SectionBox
       id="about-section"
-      as="section"
-      options={{
-        backgroundColor: 'orange.50',
-        gridTemplateRows: templateRows,
-        pb: sizes.xl,
-      }}
+      variants={sectionsReveal}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true }}
     >
-      {/* Title */}
-      <AboutTitle />
+      <MainGrid
+        options={{
+          backgroundColor: 'orange.50',
+          gridTemplateRows: templateRows,
+          pb: sizes.xl,
+        }}
+      >
+        {/* Title */}
+        <AboutTitle />
 
-      {/*  Row 3/4 - Heading only (start/end), Detail Background Start - contains dots bottom-right */}
-      <SubTitle />
+        {/*  Row 3/4 - Heading only (start/end), Detail Background Start - contains dots bottom-right */}
+        <SubTitle />
 
-      {/*  Row 4/5 - content only (start/end), video (start/end) */}
-      <AboutTextContent />
+        {/*  Row 4/5 - content only (start/end), video (start/end) */}
+        <AboutTextContent />
 
-      {/* My Story Video  */}
-      <AboutVideo />
+        {/* My Story Video  */}
+        <AboutVideo />
 
-      {/*  Row 2/3 - Detail Background Start - contains dots bottom-right */}
-      <AboutBg />
+        {/*  Row 2/3 - Detail Background Start - contains dots bottom-right */}
+        <AboutBg />
 
-      {/*  Row 5/6 - Details End */}
-      <AboutDetails />
+        {/*  Row 5/6 - Details End */}
+        <AboutDetails />
 
-      {/* Responsive button - show after large media query breaking point */}
-      {['base', 'sm', 'md'].includes(breakpoint) && (
-        <GridItem
-          gridColumn="content-start/content-end"
-          justifySelf="center"
-          pt="8"
-        >
-          <AboutCtaBtn />
-        </GridItem>
-      )}
-    </MainGrid>
+        {/* Responsive button - show after large media query breaking point */}
+        {['base', 'sm', 'md'].includes(breakpoint) && (
+          <GridItem
+            gridColumn="content-start/content-end"
+            justifySelf="center"
+            pt="8"
+          >
+            <AboutCtaBtn />
+          </GridItem>
+        )}
+      </MainGrid>
+    </SectionBox>
   )
 }
 

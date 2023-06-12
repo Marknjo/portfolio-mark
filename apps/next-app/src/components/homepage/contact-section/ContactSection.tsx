@@ -1,10 +1,21 @@
-import { GridProps } from '@chakra-ui/react'
+import { GridProps, chakra, shouldForwardProp } from '@chakra-ui/react'
+import { isValidMotionProp, motion } from 'framer-motion'
+
+import { sectionsReveal } from '@components/next-ui/animations/slideIn'
 import { DotsBottomRight, DotsTopRight, MainGrid } from 'ui'
 import { sizes } from '@components/next-ui'
 
 import ContactTitle from './ContactTitle'
 import ContactLeftBox from './ContactLeftBox'
 import ContactRightBox from './ContactRightBox'
+
+const SectionBox = chakra(motion.section, {
+  baseStyle: {
+    perspective: '1500px',
+    perspectiveOrigin: 'center',
+  },
+  shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+})
 
 const ContactSection = () => {
   const rowBrP = {
@@ -40,22 +51,30 @@ const ContactSection = () => {
     gridTemplateRows: rowBrP,
   }
   return (
-    <MainGrid options={gridStyles} as="section" id="contact-section">
-      {/* Dotted Top */}
-      <DotsTopRight width={22} />
+    <SectionBox
+      id="contact-section"
+      variants={sectionsReveal}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true }}
+    >
+      <MainGrid options={gridStyles}>
+        {/* Dotted Top */}
+        <DotsTopRight width={22} />
 
-      {/* Section Title (subtitle component as h2) */}
-      <ContactTitle />
+        {/* Section Title (subtitle component as h2) */}
+        <ContactTitle />
 
-      {/* Component Text */}
-      <ContactLeftBox />
+        {/* Component Text */}
+        <ContactLeftBox />
 
-      {/* Contact Form component */}
-      <ContactRightBox />
+        {/* Contact Form component */}
+        <ContactRightBox />
 
-      {/* Dotted Bottom */}
-      <DotsBottomRight width={22} />
-    </MainGrid>
+        {/* Dotted Bottom */}
+        <DotsBottomRight width={22} />
+      </MainGrid>
+    </SectionBox>
   )
 }
 

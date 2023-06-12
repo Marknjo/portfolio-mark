@@ -29,7 +29,7 @@ const FavProjectRoot = () => {
 
   const styles = useStyles()
   return (
-    <MainGrid id="fav-section" as="section" options={styles.mainWrapper}>
+    <MainGrid options={styles.mainWrapper}>
       {/* Main Title */}
       <FavTitle />
 

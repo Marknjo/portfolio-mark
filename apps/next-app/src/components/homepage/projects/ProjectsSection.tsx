@@ -1,11 +1,22 @@
-import { GridProps } from '@chakra-ui/react'
+import { GridProps, chakra, shouldForwardProp } from '@chakra-ui/react'
+import { isValidMotionProp, motion } from 'framer-motion'
+
 import { DotsTopRight, MainGrid } from 'ui'
 import { sizes } from '@components/next-ui'
+import { sectionsReveal } from '@components/next-ui/animations/slideIn'
 
 import ProjectTitle from './ProjectTitle'
 import ProjectSub from './ProjectSub'
 import ProjectHeroImg from './ProjectHeroImg'
 import ProjectCards from './ProjectCards'
+
+const SectionBox = chakra(motion.section, {
+  baseStyle: {
+    perspective: '1500px',
+    perspectiveOrigin: 'center',
+  },
+  shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+})
 
 const ProjectsSection = () => {
   const templateRows = {
@@ -39,24 +50,32 @@ const ProjectsSection = () => {
   }
 
   return (
-    <MainGrid id="projects-section" as="section" options={mainGridStyles}>
-      {/* Dots */}
-      <DotsTopRight width={22} />
+    <SectionBox
+      id="projects-section"
+      variants={sectionsReveal}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true }}
+    >
+      <MainGrid options={mainGridStyles}>
+        {/* Dots */}
+        <DotsTopRight width={22} />
 
-      {/* Main Title */}
-      <ProjectTitle />
+        {/* Main Title */}
+        <ProjectTitle />
 
-      {/* Subtitle */}
-      <ProjectSub />
+        {/* Subtitle */}
+        <ProjectSub />
 
-      {/* Main Image */}
-      <ProjectHeroImg />
+        {/* Main Image */}
+        <ProjectHeroImg />
 
-      {/* Cards Section */}
-      <ProjectCards />
+        {/* Cards Section */}
+        <ProjectCards />
 
-      {/* @TODO: Implement a view all projects sub-section */}
-    </MainGrid>
+        {/* @TODO: Implement a view all projects sub-section */}
+      </MainGrid>
+    </SectionBox>
   )
 }
 

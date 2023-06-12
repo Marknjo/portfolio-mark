@@ -1,3 +1,5 @@
+import { Variants } from 'framer-motion'
+
 export const fromRight = {
   hidden: {
     x: '100vw',
@@ -18,4 +20,18 @@ export const fromLeft = {
     x: '-100vw',
   },
   visible: fromRight.visible,
+}
+
+export const sectionsReveal: Variants = {
+  offscreen: {
+    y: 150,
+  },
+  onscreen: {
+    y: 50,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
 }
