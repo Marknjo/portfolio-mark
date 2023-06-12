@@ -27,11 +27,27 @@ export const sectionsReveal: Variants = {
     y: 150,
   },
   onscreen: {
-    y: 50,
+    y: 0,
     transition: {
       type: 'spring',
       bounce: 0.4,
-      duration: 0.8,
+      duration: 1.2,
+    },
+  },
+}
+
+export const lgImgReveal: Variants = {
+  offscreen: {
+    y: 150,
+    scale: 0.4,
+  },
+  onscreen: {
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 1.5,
     },
   },
 }
