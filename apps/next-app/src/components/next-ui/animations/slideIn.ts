@@ -31,7 +31,7 @@ export const sectionsReveal: Variants = {
     transition: {
       type: 'spring',
       bounce: 0.4,
-      duration: 1.2,
+      duration: 0.8,
     },
   },
 }
@@ -47,7 +47,7 @@ export const lgImgReveal: Variants = {
     transition: {
       type: 'spring',
       bounce: 0.4,
-      duration: 1.5,
+      duration: 0.8,
     },
   },
 }
