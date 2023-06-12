@@ -22,7 +22,7 @@ export function typewriter<T extends HTMLElement>(
   clearTimeout(startTypingTimer)
 
   const { typingSpeed, nextMsgDelay, loop, startTypingAfter } = {
-    typingSpeed: 190,
+    typingSpeed: 120,
     nextMsgDelay: 200,
     loop: true,
     ...config,
