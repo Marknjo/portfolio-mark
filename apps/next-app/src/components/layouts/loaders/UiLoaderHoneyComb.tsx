@@ -76,25 +76,25 @@ const afterBefore: SystemStyleObject = {
 const honeyBoxStyles: SystemStyleObject = {
   animation: `${honeyCombAnimation} 1.8s infinite backwards`,
   background: 'orange.500',
-  height: '12px',
+  height: '16px',
   mt: '6px',
   position: 'absolute',
   width: '24px',
   _after: {
-    top: '-6px',
+    top: '-5px',
     borderBottom: '6px solid',
-    borderBottomColor: ' orange.500',
+    borderBottomColor: ' orange.600',
     ...afterBefore,
   },
   _before: {
-    bottom: '-6px',
+    bottom: '-5px',
     borderTop: '6px solid',
-    borderTopColor: 'orange.500',
+    borderTopColor: 'orange.300',
     ...afterBefore,
   },
 }
 
-export default function UiLoaderBoxWipe() {
+export default function UiLoaderHoneyComb() {
   return (
     <LoaderWrapper>
       <Box sx={honeyCombWrapperStyles}>

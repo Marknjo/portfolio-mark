@@ -5,7 +5,7 @@ import React from 'react'
 // Components
 import { HomePageProvider } from '@store/context/homepage-context'
 import { useIsLoading } from '@hooks/is-loading'
-import UiLoaderBoxWipe from '@components/layouts/loaders/UiLoaderBoxWipe'
+import UiLoaderHoneyComb from '@components/layouts/loaders/UiLoaderHoneyComb'
 
 /// Local components
 import { IHomePageTemplate, TPageTemplateContent } from '@data/types'
@@ -19,7 +19,7 @@ function HomePage<T extends TPageTemplateContent>({
   const isLoading = useIsLoading()
 
   if (isLoading) {
-    return <UiLoaderBoxWipe />
+    return <UiLoaderHoneyComb />
   }
 
   return (

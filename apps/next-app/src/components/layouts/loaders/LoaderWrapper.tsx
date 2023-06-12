@@ -1,5 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { ReactNode } from 'react'
+import { BgWithICons } from 'ui'
 
 export default function LoaderWrapper({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,10 @@ export default function LoaderWrapper({ children }: { children: ReactNode }) {
       bgColor="whiteAlpha.600"
       position="relative"
     >
+      <BgWithICons
+        sx={{ position: 'absolute', top: 0, left: 0, opacity: 0.2 }}
+      />
+
       <Flex
         minH="100vh"
         minW="100vw"

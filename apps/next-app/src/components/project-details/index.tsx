@@ -3,7 +3,7 @@
 import { useIsLoading } from '@hooks/is-loading'
 import { DetailsPageProvider } from '@store/context/details-page-context'
 import { IProjectDetailsTemplate, TPageTemplateContent } from '@data/types'
-import UiLoaderBoxWipe from '@components/layouts/loaders/UiLoaderBoxWipe'
+import UiLoaderHoneyComb from '@components/layouts/loaders/UiLoaderHoneyComb'
 import DetailsPageRootIndex from './RootIndex'
 
 function DetailsPage<T extends TPageTemplateContent>({
@@ -14,7 +14,7 @@ function DetailsPage<T extends TPageTemplateContent>({
   const isLoading = useIsLoading()
 
   if (isLoading) {
-    return <UiLoaderBoxWipe />
+    return <UiLoaderHoneyComb />
   }
 
   return (

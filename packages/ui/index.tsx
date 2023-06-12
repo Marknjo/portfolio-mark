@@ -18,6 +18,9 @@ export * from './components/TextContentGenerator'
 export * from './components/buttons/SolidBtn'
 export * from './components/buttons/IconLineBtn'
 
+/// ICONS
+export * from './components/icons/BgWithIcons'
+
 export * from './components/SectionSeparator'
 /// Types
 export * from './components/tech-stacks/types/tech-stacks-types'
