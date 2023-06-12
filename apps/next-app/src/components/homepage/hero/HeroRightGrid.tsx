@@ -1,17 +1,25 @@
+'use client'
+
 import React from 'react'
 import {
   GridItem,
   SystemStyleObject,
-  Image,
-  Box,
-  Flex,
   useBreakpointValue,
   useBreakpoint,
+  chakra,
+  shouldForwardProp,
 } from '@chakra-ui/react'
 import { DotsBottomLeft, DotsBottomRight, DotsTopRight } from 'ui'
 import { sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
 import { IHomePageContentV1 } from '@data/types'
+import { Image } from '@chakra-ui/next-js'
+import { isValidMotionProp, motion } from 'framer-motion'
+import { fromRight } from '@components/next-ui/animations/slideIn'
+
+const AnimationBox = chakra(motion.div, {
+  shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+})
 
 const rightStyles: SystemStyleObject = {
   backgroundColor: 'orange.600',
@@ -45,6 +53,22 @@ const HeroRightGrid = () => {
     },
   )
 
+  const imgHeight = () => {
+    if (breakpoint === 'base') {
+      return 300
+    }
+
+    if (breakpoint === 'sm') {
+      return 380
+    }
+
+    if (breakpoint === 'md') {
+      return 300
+    }
+
+    return 420
+  }
+
   const dotSizesBreakpoint = useBreakpointValue(
     { base: 40, sm: 28, md: 45 },
     { fallback: 'md' },
@@ -66,13 +90,23 @@ const HeroRightGrid = () => {
         position="relative"
         alignSelf="center"
       >
-        <Flex
-          pt={sizes.xl_TT}
-          pb={['8', '12', '16']}
-          sx={imgContainerBreakpoint}
+        <AnimationBox
+          sx={{
+            display: 'flex',
+            pt: sizes.xl_TT,
+            pb: ['8', '12', '16'],
+            ...imgContainerBreakpoint,
+          }}
+          variants={fromRight}
+          initial="hidden"
+          animate="visible"
         >
-          <Box
+          <AnimationBox
             maxW={{ base: '70%', sm: '60%', xl: '80' }}
+            cursor={`
+              url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>💖</text></svg>")
+              16 0, auto
+            `}
             _after={{
               content: '""',
               display: 'block',
@@ -86,18 +120,29 @@ const HeroRightGrid = () => {
               ...imageCommonStyles,
             }}
             position="relative"
+            whileHover={{
+              scale: [1.04, 1, 1.04, 1],
+            }}
           >
             <Image
+              sx={{
+                zIndex: '4',
+                position: 'relative',
+                boxShadow: 'lg',
+                objectFit: 'cover',
+                objectPosition: 'left',
+                ...imageCommonStyles,
+              }}
               src={`/images/${profileImage}.jpg`}
               alt="Mark Njoroge Profile Image"
-              objectFit="fill"
-              zIndex="4"
-              position="relative"
-              boxShadow="lg"
-              sx={imageCommonStyles}
+              // sizes="100vw"
+              width="360"
+              height={imgHeight()}
+              quality={75}
+              priority
             />
-          </Box>
-        </Flex>
+          </AnimationBox>
+        </AnimationBox>
       </GridItem>
 
       {/* Right Background */}
