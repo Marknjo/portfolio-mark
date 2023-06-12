@@ -163,20 +163,36 @@ const HeroIntro = () => {
             label={liveLink}
             isDisabled={liveLink !== 'coming soon'}
           >
-            <SolidBtn
-              text={introButtonText}
-              props={{
-                as: NextLink,
-                rightIcon: <FiArrowUpRight />,
-              }}
-              href={liveLink === 'coming soon' ? '/#' : liveLink}
-              sx={{
-                border: '1px solid',
-                borderColor: 'orange.400',
-                bgColor: 'orange.100',
-              }}
-            />
+            <Box>
+              <SolidBtn
+                text={introButtonText}
+                props={{
+                  as: NextLink,
+                  rightIcon: <FiArrowUpRight />,
+                }}
+                href={liveLink === 'coming soon' ? '/#' : liveLink}
+                sx={{
+                  border: '1px solid',
+                  borderColor: 'orange.400',
+                  bgColor: 'orange.100',
+                }}
+              />
+            </Box>
           </Tooltip>
+
+          {/* <SolidBtn
+            text={introButtonText}
+            props={{
+              as: NextLink,
+              rightIcon: <FiArrowUpRight />,
+            }}
+            href={liveLink === 'coming soon' ? '/#' : liveLink}
+            sx={{
+              border: '1px solid',
+              borderColor: 'orange.400',
+              bgColor: 'orange.100',
+            }}
+          /> */}
         </VStack>
       </Grid>
       <SectionSeparator

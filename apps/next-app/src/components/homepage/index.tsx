@@ -22,9 +22,11 @@ function HomePage<T extends TPageTemplateContent>({
   return (
     <>
       {isLoading && <UiLoaderHoneyComb />}
-      <HomePageProvider<T> pageData={pageData}>
-        <HomePageRootIndex />
-      </HomePageProvider>
+      {!isLoading && (
+        <HomePageProvider<T> pageData={pageData}>
+          <HomePageRootIndex />
+        </HomePageProvider>
+      )}
     </>
   )
 }

@@ -45,6 +45,7 @@ const HomePageRootIndex = () => {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.8 }}
+        overflow="hidden"
       >
         {/* About Section */}
         <AboutSection />

@@ -17,9 +17,11 @@ function DetailsPage<T extends TPageTemplateContent>({
   return (
     <>
       {isLoading && <UiLoaderHoneyComb />}
-      <DetailsPageProvider<T> pageData={pageData}>
-        <DetailsPageRootIndex />
-      </DetailsPageProvider>
+      {!isLoading && (
+        <DetailsPageProvider<T> pageData={pageData}>
+          <DetailsPageRootIndex />
+        </DetailsPageProvider>
+      )}
     </>
   )
 }

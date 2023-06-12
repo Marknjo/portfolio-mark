@@ -13,10 +13,9 @@ import {
 import { BsArrowDown } from 'react-icons/bs'
 import { fontSizes, sizes } from '@components/next-ui'
 import { useHomePageData } from '@store/context/homepage-context'
-import { TextContentGenerator, SolidBtn } from 'ui'
+import { TextContentGenerator, SolidBtn, typewriter } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IHomePageContentV1 } from '@data/types'
-import { typewriter } from '@components/next-ui/animations/typewriter'
 
 const HeroLeftGrid = () => {
   const salutationRef = useRef<HTMLSpanElement>(null)

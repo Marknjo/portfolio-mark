@@ -30,3 +30,4 @@ export * from './components/LinkIcon'
 
 /// utils
 export * from './utils/gradient'
+export * from './utils/animations/typewriter'

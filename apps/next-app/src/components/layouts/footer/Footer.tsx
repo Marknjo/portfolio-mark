@@ -31,6 +31,7 @@ const Footer = () => {
     py: { base: '2', md: '4' },
     borderBottom: '0.8rem solid',
     borderBottomColor: 'orange.900',
+    overflow: 'hidden',
   }
 
   const linkStyles: SystemStyleObject = {
