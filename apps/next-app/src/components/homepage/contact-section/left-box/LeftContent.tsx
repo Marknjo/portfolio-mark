@@ -43,9 +43,9 @@ const LeftContent = () => {
       <Link
         href="tel:+254727366216"
         as={NextLink}
-        color="teal.500"
+        color="orange.500"
         fontWeight="bold"
-        _hover={{ color: 'teal.600' }}
+        _hover={{ color: 'orange.600' }}
         display="flex"
         flexWrap="nowrap"
         gap="2"
@@ -65,12 +65,12 @@ const LeftContent = () => {
       </Link>{' '}
       <Text as="p">{socialText}</Text>
       <Text as="p">
-        <Text as="strong" color="teal.400">
+        <Text as="strong" color="orange.400">
           {socialIntoText}
         </Text>
       </Text>
       <Text as="p">
-        <Box as="span" color="teal.500">
+        <Box as="span" color="orange.500">
           {socialHintText.split('<--fav-->')[0]}
         </Box>{' '}
         <Badge as="span" colorScheme="orange">

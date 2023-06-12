@@ -12,8 +12,8 @@ const LeftSubHeading = () => {
   } = useHomePageData<IHomePageContentV1>()
 
   const topHeadingStyles: SystemStyleObject = {
-    borderColor: 'teal.200',
-    color: 'teal.900',
+    borderColor: 'orange.200',
+    color: 'orange.900',
   }
 
   return (

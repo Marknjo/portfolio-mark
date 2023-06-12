@@ -53,7 +53,7 @@ function ListGenerator({
   }
 
   const iconStyles: SystemStyleObject = {
-    color: 'teal.500',
+    color: 'orange.500',
     ...iconSx,
   }
   const splitText = useMemo(() => textSplitter(listText), [listText])

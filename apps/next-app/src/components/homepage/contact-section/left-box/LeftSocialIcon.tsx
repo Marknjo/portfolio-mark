@@ -14,8 +14,8 @@ const LeftSocialIcons = () => {
   } = useHomePageData<IHomePageContentV1>()
 
   const socialHeadingStyles: SystemStyleObject = {
-    borderColor: 'teal.200',
-    color: 'teal.900',
+    borderColor: 'orange.200',
+    color: 'orange.900',
     textAlign: 'left',
     display: 'inline-block',
     pr: sizes.xs,
@@ -26,8 +26,8 @@ const LeftSocialIcons = () => {
       <SubHeading overrides={socialHeadingStyles} text={socialTitle} />
       <HSocialIcons
         socialDetails={contactSocialIcons as Array<ISocialLink>}
-        themeColor={{ color: 'teal.400', width: '24px' }}
-        themeHoverColor={{ color: 'teal.500' }}
+        themeColor={{ color: 'orange.400', width: '24px' }}
+        themeHoverColor={{ color: 'orange.500' }}
       />
     </GridItem>
   )

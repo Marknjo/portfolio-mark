@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import { useEffect, useRef, useState } from 'react'
 
 import {
@@ -26,7 +27,6 @@ import { SolidBtn } from 'ui'
 
 import { BiMailSend } from 'react-icons/bi'
 import { IContactFormData, contactMe } from 'src/server-lib/lib/contactMe'
-import { useSize } from '@chakra-ui/react-use-size'
 
 // @TODO: implement sending form - emailing, form submission and state handling, refactor form elements
 // @TODO: implement form validation and CSRF
@@ -73,6 +73,9 @@ const ContactRightBox = () => {
     borderRadius: { base: 'md', md: 'lg' },
     boxShadow: 'md',
     zIndex: '2',
+    position: 'relative',
+    border: '2px solid',
+    borderColor: 'orange.200',
   }
 
   async function sendFormDataHandler(data: FormData) {
@@ -142,7 +145,7 @@ const ContactRightBox = () => {
   }
 
   return (
-    <GridItem sx={mainStyles} position="relative">
+    <GridItem sx={mainStyles}>
       {/* Handle error messages */}
 
       {/* // show form error message */}

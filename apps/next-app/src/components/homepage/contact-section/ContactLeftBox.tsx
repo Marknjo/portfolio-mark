@@ -15,7 +15,7 @@ const ContactLeftBox = () => {
     mb: { base: '0', md: '10', lg: '12' },
     p: sizes.lg,
 
-    backgroundColor: 'teal.50',
+    backgroundColor: 'whiteAlpha.900',
     borderRadius: { base: 'md', md: 'lg' },
     boxShadow: 'base',
 
