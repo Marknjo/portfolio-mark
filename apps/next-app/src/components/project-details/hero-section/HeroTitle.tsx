@@ -25,6 +25,7 @@ const HeroTitle = () => {
         pt: '0',
       }}
       isCapitalized
+      hasTypewriter
     />
   )
 }

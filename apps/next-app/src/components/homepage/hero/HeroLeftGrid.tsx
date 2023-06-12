@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
   GridItem,
   SystemStyleObject,
@@ -8,7 +8,6 @@ import {
   VStack,
   Link,
   useConst,
-  useSafeLayoutEffect,
 } from '@chakra-ui/react'
 import { BsArrowDown } from 'react-icons/bs'
 import { fontSizes, sizes } from '@components/next-ui'
@@ -47,13 +46,13 @@ const HeroLeftGrid = () => {
 
   const [firstName, lastName] = headerTitleSub.split(' ')
 
-  useSafeLayoutEffect(() => {
+  useEffect(() => {
     typewriter(
       [salutationRef, subTitleRef, firstNameRef, lastNameRef],
       [salutationText, headerTitleMain, firstName, lastName],
       { loop: false, startTypingAfter: 500 },
     )
-  }, [])
+  }, [salutationText, headerTitleMain, firstName, lastName])
 
   const leftStyles: SystemStyleObject = {
     backgroundColor: 'orange.500',

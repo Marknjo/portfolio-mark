@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import {
   As,
   Box,
@@ -7,6 +7,7 @@ import {
   SystemStyleObject,
   VStack,
 } from '@chakra-ui/react'
+import { typewriter } from '../utils/animations/typewriter'
 
 /// @TODO: Implement this feature with Chakra Variants
 
@@ -73,6 +74,7 @@ export const LargeTitle = ({
   as = 'h2',
   isLighter = false,
   isCapitalized = false,
+  hasTypewriter = false,
 }: {
   title: string
   subTitle?: string
@@ -84,8 +86,10 @@ export const LargeTitle = ({
   isCapitalized?: boolean
   as?: As
   isLighter?: boolean
+  hasTypewriter?: boolean
 }) => {
   const { sub, lg, hLg } = titleStyles(as, isLighter)
+  const largeTitleRef = useRef<HTMLSpanElement>(null)
 
   const alignTitleDefault: SystemStyleObject = useMemo(
     () => ({
@@ -94,6 +98,15 @@ export const LargeTitle = ({
     }),
     [alignTitle],
   )
+
+  useEffect(() => {
+    hasTypewriter &&
+      typewriter(largeTitleRef, [title], {
+        loop: false,
+        startTypingAfter: 500,
+        typingSpeed: 200,
+      })
+  }, [hasTypewriter, typewriter, title])
 
   return (
     <Heading as={as} {...options} sx={titleConfig} textStyle={hLg}>
@@ -106,8 +119,15 @@ export const LargeTitle = ({
           textStyle={lg.replace('-light', '')}
           layerStyle={lg}
           textTransform={isCapitalized ? 'capitalize' : undefined}
+          ref={largeTitleRef}
         >
-          {title}
+          {hasTypewriter ? (
+            <Box as="span" opacity="0" aria-hidden visibility="hidden">
+              {title}
+            </Box>
+          ) : (
+            title
+          )}
         </Box>
         {hasSubtitle && (
           <Box

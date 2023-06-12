@@ -46,10 +46,13 @@ export function typewriter<T extends HTMLElement>(
     if (charPos != messages[msgIndex].length) {
       msgBuffer += messages[msgIndex].charAt(charPos)
 
-      currentId.current!.innerText =
-        msgBuffer + (charPos != messages[msgIndex].length ? typewriterIcon : '')
       delay = typingSpeed
-      currentId.current!.scrollTop = currentId.current!.scrollHeight
+      if (currentId.current) {
+        currentId.current!.innerText =
+          msgBuffer +
+          (charPos != messages[msgIndex].length ? typewriterIcon : '')
+        currentId.current!.scrollTop = currentId.current!.scrollHeight
+      }
     } else {
       delay = nextMsgDelay
       msgBuffer = ''
@@ -66,7 +69,9 @@ export function typewriter<T extends HTMLElement>(
 
     /// for multiple refs, clear typewriter cursor at the end of message index block
     if (Array.isArray(id) && messages[msgIndex].length === charPos) {
-      id[msgIndex].current!.innerText = messages[msgIndex]
+      if (currentId.current) {
+        id[msgIndex].current!.innerText = messages[msgIndex]
+      }
     }
 
     /// clear timer
@@ -83,7 +88,9 @@ export function typewriter<T extends HTMLElement>(
     /// for a single id clear timer at the end of the conversation
     if (!loop && !Array.isArray(id) && messages[msgIndex].length === charPos) {
       clearTimeout(timer)
-      currentId.current!.innerText = messages[msgIndex]
+      if (currentId.current) {
+        currentId.current!.innerText = messages[msgIndex]
+      }
     }
   }
 
