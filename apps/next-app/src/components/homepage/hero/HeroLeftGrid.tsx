@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react'
+import React, { useRef } from 'react'
 import {
   GridItem,
   SystemStyleObject,
@@ -8,6 +8,7 @@ import {
   VStack,
   Link,
   useConst,
+  useSafeLayoutEffect,
 } from '@chakra-ui/react'
 import { BsArrowDown } from 'react-icons/bs'
 import { fontSizes, sizes } from '@components/next-ui'
@@ -15,8 +16,14 @@ import { useHomePageData } from '@store/context/homepage-context'
 import { TextContentGenerator, SolidBtn } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IHomePageContentV1 } from '@data/types'
+import { typewriter } from '@components/next-ui/typewriter'
 
 const HeroLeftGrid = () => {
+  const salutationRef = useRef<HTMLSpanElement>(null)
+  const firstNameRef = useRef<HTMLSpanElement>(null)
+  const lastNameRef = useRef<HTMLSpanElement>(null)
+  const subTitleRef = useRef<HTMLSpanElement>(null)
+
   const {
     content: {
       hero: {
@@ -39,7 +46,15 @@ const HeroLeftGrid = () => {
     },
   })
 
-  const profileTitleSub = headerTitleSub.split(' ')
+  const [firstName, lastName] = headerTitleSub.split(' ')
+
+  useSafeLayoutEffect(() => {
+    typewriter(
+      [salutationRef, subTitleRef, firstNameRef, lastNameRef],
+      [salutationText, headerTitleMain, firstName, lastName],
+      { loop: false, startTypingAfter: 500 },
+    )
+  }, [])
 
   const leftStyles: SystemStyleObject = {
     backgroundColor: 'orange.500',
@@ -91,8 +106,11 @@ const HeroLeftGrid = () => {
             zIndex="3"
             left="0"
             minWidth="12"
+            ref={salutationRef}
           >
-            {salutationText}
+            <Box as="span" opacity="0" aria-hidden visibility="hidden">
+              {salutationText}
+            </Box>
           </Box>
         </Box>
 
@@ -105,8 +123,11 @@ const HeroLeftGrid = () => {
             fontWeight="light"
             marginBottom="1"
             display="block"
+            ref={subTitleRef}
           >
-            {headerTitleMain}
+            <Box as="span" opacity="0" aria-hidden visibility="hidden">
+              {headerTitleMain}
+            </Box>
           </Box>
           <VStack
             as="span"
@@ -116,11 +137,25 @@ const HeroLeftGrid = () => {
             letterSpacing="wider"
             color="teal.50"
           >
-            <Box as="span" marginBottom="-1.5">
-              {profileTitleSub[0].toUpperCase()}
+            <Box
+              as="span"
+              marginBottom="-1.5"
+              textTransform="uppercase"
+              ref={firstNameRef}
+            >
+              <Box as="span" opacity="0" aria-hidden visibility="hidden">
+                {firstName}
+              </Box>
             </Box>
-            <Box as="span" marginTop="0">
-              {profileTitleSub[1].toUpperCase()}
+            <Box
+              as="span"
+              marginTop="0"
+              textTransform="uppercase"
+              ref={lastNameRef}
+            >
+              <Box as="span" opacity="0" aria-hidden visibility="hidden">
+                {lastName}
+              </Box>
             </Box>
           </VStack>
         </Heading>
