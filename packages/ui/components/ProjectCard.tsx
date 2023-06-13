@@ -1,11 +1,8 @@
 import {
   As,
-  Box,
-  Button,
   Grid,
   GridItem,
   Heading,
-  Image,
   SystemStyleObject,
   Tag,
   Tooltip,
@@ -14,6 +11,7 @@ import {
   WrapItem,
   useBreakpoint,
 } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/next-js'
 
 import { LinkIcon } from './LinkIcon'
 import { SolidBtn } from './buttons/SolidBtn'
@@ -27,7 +25,6 @@ const cardAnimationVariant: Variants = {
     y: 0,
     transition: {
       type: 'spring',
-      // ease: 'easeIn',
       duration: 0.8,
       bounce: 0.4,
     },
@@ -114,12 +111,20 @@ export const ProjectCard = ({
     >
       <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
-          src={`./images/${fileName}.jpg`}
+          src={`/images/${fileName}.jpg`}
           alt={alt ? alt : 'Project card Image'}
-          borderRadius="md"
-          border="2px solid"
-          borderColor="orange.100"
-          objectFit="cover"
+          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
+          sx={{
+            borderRadius: 'md',
+            border: '2px solid',
+            borderColor: 'orange.100',
+            objectFit: 'cover',
+          }}
+          quality={75}
+          width={348}
+          height={278}
+          loading="lazy"
+          placeholder="blur"
         />
       </GridItem>
 
