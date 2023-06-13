@@ -7,12 +7,20 @@ import {
   SystemStyleObject,
   VStack,
   useConst,
+  chakra,
+  shouldForwardProp,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { ctaReveal } from '@components/next-ui/animations/slideIn'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { useAppSettings } from '@store/context/app-settings-context'
+import { isValidMotionProp, motion } from 'framer-motion'
 import { ReactNode } from 'react'
 import { MainGrid, TextContentGenerator, SolidBtn } from 'ui'
+
+const BgBox = chakra(motion.div, {
+  shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+})
 
 const CtaSection = ({
   children,
@@ -87,7 +95,14 @@ const CtaSection = ({
       {children && children}
 
       {/* CTA */}
-      <GridItem sx={ctaStyles}>
+      <BgBox
+        as={motion.div}
+        sx={ctaStyles}
+        variants={ctaReveal}
+        initial="offscreen"
+        whileInView="onscreen"
+        // viewport={{ once: true }}
+      >
         <HStack
           justifyContent={{ base: 'center', lg: 'space-between', xl: 'center' }}
           gap={{ base: '4', lg: '3', xl: '8' }}
@@ -126,7 +141,7 @@ const CtaSection = ({
             }}
           />
         </HStack>
-      </GridItem>
+      </BgBox>
       <GridItem
         gridColumn="outer-left-start/outer-right-end"
         gridRow={footerGridRow || 'r2-start/r3-end'}

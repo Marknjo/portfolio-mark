@@ -13,9 +13,9 @@ const WrapperBox = chakra(motion.div, {
 export function PageWrapper({ children }: { children: ReactNode }) {
   return (
     <WrapperBox
-      initial={{ x: -1000, opacity: 0.4 }}
+      initial={{ x: 0, opacity: 0.4 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -1000, opacity: 0.4 }}
+      exit={{ x: -1000, opacity: 0 }}
       // @ts-ignore no problem in operation, although type error appears.
       transition={{ type: 'tween', ease: 'easeIn', duration: 0.8 }}
     >

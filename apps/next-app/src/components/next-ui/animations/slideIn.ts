@@ -1,8 +1,8 @@
 import { Variants } from 'framer-motion'
 
-export const fromRight = {
+export const fromRight: Variants = {
   hidden: {
-    x: '100vw',
+    x: 500,
   },
   visible: {
     x: 0,
@@ -32,7 +32,22 @@ export const sectionsReveal: Variants = {
       type: 'tween',
       ease: 'easeIn',
       // bounce: 0.4,
-      duration: 0.8,
+      duration: 0.4,
+    },
+  },
+}
+
+export const ctaReveal: Variants = {
+  offscreen: {
+    y: 80,
+  },
+  onscreen: {
+    y: 0,
+    transition: {
+      type: 'spring',
+      delay: 0.1,
+      bounce: 0.4,
+      duration: 0.2,
     },
   },
 }

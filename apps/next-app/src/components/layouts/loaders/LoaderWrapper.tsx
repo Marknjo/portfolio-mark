@@ -37,13 +37,16 @@ export default function LoaderWrapper({ children }: { children: ReactNode }) {
     <Portal appendToParentPortal>
       <LoaderWrapperBox
         initial={{
-          y: '-100vh',
+          scale: 0,
+          opacity: 0,
         }}
         animate={{
-          y: 0,
+          scale: 1,
+          opacity: 1,
         }}
         exit={{
-          y: '-100vh',
+          scale: 0,
+          opacity: 0,
         }}
       >
         <Box

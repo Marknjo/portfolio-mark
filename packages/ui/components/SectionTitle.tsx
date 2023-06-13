@@ -32,15 +32,15 @@ const titleVariant = (isFromRight: boolean, isBg: boolean): Variants => {
   const bgTransition = {
     type: 'tween',
     ease: 'easeOut',
-    duration: 0.6,
+    duration: 0.4,
     delay: 0.2,
   }
 
   const textTransition = {
-    delay: 0.6,
+    delay: 0.5,
     type: 'spring',
     bounce: 0.4,
-    duration: 0.4,
+    duration: 0.3,
   }
 
   return {
