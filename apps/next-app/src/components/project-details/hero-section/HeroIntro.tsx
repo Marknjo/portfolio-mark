@@ -89,6 +89,7 @@ const HeroIntro = () => {
     borderRadius: 'lg',
     px: sizes.lg,
     pt: sizes.lg,
+    zIndex: 3,
   }
 
   const contentStyles: SystemStyleObject = {

@@ -27,6 +27,7 @@ const HeroImg = () => {
     pt: sizes.lg,
     backfaceVisibility: 'hidden',
     perspective: '1000px',
+    zIndex: 3,
   }
 
   return (
