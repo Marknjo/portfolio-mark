@@ -1,4 +1,5 @@
 import {
+  Box,
   Flex,
   Portal,
   SystemStyleObject,
@@ -7,11 +8,6 @@ import {
 } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 import { isValidMotionProp, motion } from 'framer-motion'
-import { BgWithICons } from 'ui'
-
-// const LoaderAnimationWrapper = chakra(AnimatePresence, {
-//   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
-// })
 
 const commonStyles: SystemStyleObject = {
   position: 'fixed',
@@ -50,7 +46,7 @@ export default function LoaderWrapper({ children }: { children: ReactNode }) {
           y: '-100vh',
         }}
       >
-        <BgWithICons
+        <Box
           sx={{
             bgColor: 'whiteAlpha.700',
             ...commonStyles,
