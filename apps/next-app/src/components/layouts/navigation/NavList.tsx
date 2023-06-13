@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Flex, SystemStyleObject, keyframes } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
@@ -30,10 +30,6 @@ const NavList = ({
   const currentRoute = usePathname()
   const isLoading = useIsLoading()
   const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
-
-  useLayoutEffect(() => {
-    setSelectedLinkEl(window.location.hash)
-  }, [])
 
   const isSelectedLinkItem = (link: string) => {
     const isSelected = isLoading
@@ -71,6 +67,7 @@ const NavList = ({
           link={item.link}
           asHamburgerMenu={asHamburger}
           isSelected={isSelectedLinkItem(item.link)}
+          onSelect={setSelectedLinkEl}
         />
       ))}
     </Flex>

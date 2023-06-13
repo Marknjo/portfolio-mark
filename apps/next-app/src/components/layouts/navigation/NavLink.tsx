@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 
-import { Link, Box, SystemStyleObject } from '@chakra-ui/react'
+import { Box, Link, SystemStyleObject } from '@chakra-ui/react'
 import { INavLink } from '@data/navLinks'
 import { usePathname } from 'next/navigation'
 
@@ -21,6 +21,7 @@ interface INav extends INavLink {
   sxOverrides?: SystemStyleObject
   asHamburgerMenu?: boolean
   isSelected?: boolean
+  onSelect: (hash: string) => void
 }
 
 const NavLink = ({
@@ -29,6 +30,7 @@ const NavLink = ({
   sxOverrides = {},
   asHamburgerMenu = false,
   isSelected,
+  onSelect,
 }: INav) => {
   const path = usePathname()
 
@@ -77,6 +79,14 @@ const NavLink = ({
         as={!linkHasHash ? NextLink : undefined}
         sx={linkStyles}
         aria-selected={isSelected}
+        onClick={event => {
+          const el = event.target as HTMLAnchorElement
+          const elLink = el.href.split('#').at(-1)!
+
+          const hash = elLink?.includes('http') ? '/' : `#${elLink}`
+
+          onSelect(hash)
+        }}
       >
         {title}
       </Link>
