@@ -60,6 +60,7 @@ export const projectsData: Array<IProject> = [
     },
     /// Images
     cardImgId: 'g2',
+    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
     introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
     footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
@@ -104,6 +105,7 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
+    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
     introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
     footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
@@ -152,6 +154,7 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
+    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
     introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
     footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
@@ -197,6 +200,7 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
+    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
     introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
     footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 
@@ -241,6 +245,7 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
+    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
     introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
     footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
 

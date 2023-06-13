@@ -313,6 +313,7 @@ export interface IProject {
 
   /// Images
   cardImgId: Pick<IGallery, 'id'> | string
+  introBgImg: TCardSlimGalleryData
   introLgImg: TCardSlimGalleryData
   footerLgImg: TCardSlimGalleryData
 

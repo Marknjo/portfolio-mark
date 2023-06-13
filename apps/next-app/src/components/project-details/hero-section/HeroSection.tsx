@@ -3,12 +3,22 @@ import { Image } from '@chakra-ui/next-js'
 
 import { GradientVariants, MainGrid, customGradientWithImg } from 'ui'
 import { largeBorderBrP, sizes } from '@components/next-ui'
+import { useDetailsPageData } from '@store/context/details-page-context'
+import { IProjectDetailsContentV1 } from '@data/types'
 
 import HeroTitle from './HeroTitle'
 import HeroIntro from './HeroIntro'
 import HeroImg from './HeroImg'
 
 const HeroSection = () => {
+  const {
+    data: { projectData },
+  } = useDetailsPageData<IProjectDetailsContentV1>()
+
+  const {
+    introBgImg: { alt, fileName: largeImg },
+  } = projectData!
+
   const rowBrp = {
     base: `[nav-start]
       50px [nav-end title-start]
@@ -54,8 +64,6 @@ const HeroSection = () => {
     id: 'hero-section',
   }
 
-  const largeImg = 'homepage-sectioning'
-
   const largeImgWrapperStyles: SystemStyleObject = {
     position: 'absolute',
     top: 0,
@@ -88,7 +96,7 @@ const HeroSection = () => {
       <Box sx={largeImgWrapperStyles} />
       <Image
         sx={largeImgStyles}
-        alt={largeImg.split('-').join(' ')}
+        alt={alt}
         src={`/images/${largeImg}.jpg`}
         width={1542}
         height={6858}
