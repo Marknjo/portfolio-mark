@@ -18,8 +18,8 @@ const GalleryImages = () => {
       {/* Main Image */}
       <GridItem>
         <CardDetailsGallery
-          alt="A screenshot of project profile section design"
-          imgName="gallery-profile-lg-img"
+          alt={`${sliderItems.at(0)?.alt}`}
+          imgName={`${sliderItems.at(0)?.fileName}`}
           openGallery={() => {
             setCurActiveSlide(0)
             openSlider()

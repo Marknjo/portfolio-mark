@@ -77,6 +77,7 @@ const HeroSection = () => {
     zIndex: 1,
     objectFit: 'cover',
     width: '100%',
+    height: 'auto',
     backgroundSize: 'cover',
     backgroundPosition: 'left top',
     backgroundRepeat: 'no-repeat',

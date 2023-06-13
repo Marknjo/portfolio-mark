@@ -1,4 +1,5 @@
-import { Box, GridItem, Icon, Image, SystemStyleObject } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/next-js'
+import { Box, GridItem, Icon, SystemStyleObject } from '@chakra-ui/react'
 import { useCallback } from 'react'
 import { BsPlusLg } from 'react-icons/bs'
 
@@ -68,7 +69,7 @@ export const CardDetailsGallery = ({
       left: '50%',
       transform: 'scale(1) translate(-50%, -50%)',
       borderRadius: 'none',
-      backgroundColor: overlayColor || 'teal.400',
+      backgroundColor: overlayColor || 'orange.400',
       opacity: '0.7',
     },
   }
@@ -96,11 +97,11 @@ export const CardDetailsGallery = ({
 
   const iconStyles: SystemStyleObject = {
     transition: 'all .3s ease-in',
-    color: 'teal.100',
+    color: 'orange.100',
     ...expandSize(iconSize || ExpandIconSize.lg),
     backfaceVisibility: 'hidden',
     _hover: {
-      color: 'teal.50',
+      color: 'orange.50',
       transform: 'rotate(0.75turn)',
     },
 
@@ -118,11 +119,19 @@ export const CardDetailsGallery = ({
   return (
     <GridItem as="article" role="group" sx={cardStyles}>
       <Image
-        src={`./images/${imgName}.jpg`}
+        src={`/images/${imgName}.jpg`}
         alt={alt}
-        width="100%"
-        height="100%"
-        objectFit="cover"
+        sx={{
+          objectFit: 'cover',
+          width: '100%',
+          height: 'auto',
+        }}
+        blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
+        quality={90}
+        width={340}
+        height={346}
+        loading="lazy"
+        placeholder="blur"
       />
       <Box sx={imageDetailsStyles}>
         {/* @TODO: Implement Gallery */}
