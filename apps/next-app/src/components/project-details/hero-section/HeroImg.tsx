@@ -39,7 +39,7 @@ const HeroImg = () => {
     >
       <OsxImageWindow
         mainSxOverrides={{ backgroundColor: 'orange.50' }}
-        src={`./images/${introLgImg.fileName}.jpg`}
+        src={`/images/${introLgImg.fileName}.jpg`}
         alt={introLgImg.alt}
       />
     </SectionBox>

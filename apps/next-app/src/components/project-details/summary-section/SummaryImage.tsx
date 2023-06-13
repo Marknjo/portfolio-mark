@@ -39,7 +39,7 @@ const SummaryImage = () => {
       viewport={{ once: true }}
     >
       <OsxImageWindow
-        src={`./images/${footerLgImg.fileName}.jpg`}
+        src={`/images/${footerLgImg.fileName}.jpg`}
         alt={footerLgImg.alt}
       />
     </SectionBox>

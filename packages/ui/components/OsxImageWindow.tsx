@@ -1,4 +1,5 @@
-import { Box, HStack, Image, SystemStyleObject, VStack } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/next-js'
+import { Box, HStack, SystemStyleObject, VStack } from '@chakra-ui/react'
 import { Variants, motion } from 'framer-motion'
 
 const circleVariants: Variants = {
@@ -66,6 +67,12 @@ export const OsxImageWindow = ({
           src={src}
           sx={imageStyles(imageSxOverrides)}
           alt={alt || 'OSX Image'}
+          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
+          quality={90}
+          width={1536}
+          height={1138}
+          loading="lazy"
+          placeholder="blur"
         />
       </VStack>
     </Box>
