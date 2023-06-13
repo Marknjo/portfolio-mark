@@ -1,5 +1,7 @@
 'use server'
 
+/* eslint-disable class-methods-use-this */
+
 /* eslint-disable consistent-return */
 
 // @ts-ignore

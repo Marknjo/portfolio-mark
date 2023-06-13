@@ -19,8 +19,8 @@ export function typewriter<T extends HTMLElement>(
   config?: ITypewriterConfig,
 ) {
   if (!refId) return
-  let timer: number | undefined
-  let startTypingTimer: number | undefined
+  let timer
+  let startTypingTimer
 
   clearTimeout(timer)
   clearTimeout(startTypingTimer)

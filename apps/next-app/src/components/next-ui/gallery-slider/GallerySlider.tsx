@@ -2,8 +2,8 @@ import { Modal, ModalBody, SystemStyleObject } from '@chakra-ui/react'
 
 /// Local
 import Slider from '@components/next-ui/slider/Slider'
-import { IFavGallery } from '@data/favProjectImgs'
 import { useSlider } from '@store/context/slider'
+import { IGallery } from '@data/types'
 
 // local
 
@@ -15,7 +15,7 @@ import GalleryToolkit from './GalleryToolkit'
 /// @TODO: Lazy load the loaded image to prevent image slash on load
 
 const GallerySlider = () => {
-  const { sliderSizes, isSliderOpen, closeSlider } = useSlider<IFavGallery>()
+  const { sliderSizes, isSliderOpen, closeSlider } = useSlider<IGallery>()
 
   // Styles
   const styles = useStyles(sliderSizes.height)
@@ -29,7 +29,7 @@ const GallerySlider = () => {
     >
       <GalleryToolkit>
         <ModalBody sx={styles.galleryBody} className="gallery-slider">
-          <Slider<IFavGallery> SliderComponent={GalleryImg} />
+          <Slider<IGallery> SliderComponent={GalleryImg} />
         </ModalBody>
       </GalleryToolkit>
     </Modal>

@@ -8,8 +8,8 @@ export const fromRight: Variants = {
     x: 0,
     transition: {
       type: 'spring',
-      delay: 0.8,
-      duration: 1.5,
+      delay: 0.4,
+      duration: 0.8,
       bounce: 0.2,
     },
   },
@@ -32,7 +32,7 @@ export const sectionsReveal: Variants = {
       type: 'tween',
       ease: 'easeIn',
       // bounce: 0.4,
-      duration: 0.4,
+      duration: 0.6,
     },
   },
 }
@@ -44,26 +44,28 @@ export const ctaReveal: Variants = {
   onscreen: {
     y: 0,
     transition: {
-      type: 'spring',
-      delay: 0.1,
-      bounce: 0.4,
-      duration: 0.2,
+      type: 'tween',
+      ease: 'easeInOut',
+      // delay: 0.1,
+      // bounce: 0.2,
+      duration: 0.3,
     },
   },
 }
 
 export const lgImgReveal: Variants = {
   offscreen: {
-    y: 80,
+    y: 50,
     scale: 0.4,
   },
   onscreen: {
     y: 0,
     scale: 1,
     transition: {
-      type: 'spring',
-      bounce: 0.2,
-      duration: 0.8,
+      type: 'tween',
+      // bounce: 0.2,
+      ease: 'easeInOut',
+      duration: 0.6,
     },
   },
 }

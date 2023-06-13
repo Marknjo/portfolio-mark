@@ -1,5 +1,6 @@
 import React from 'react'
-import { Metadata, ResolvingMetadata } from 'next'
+// import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import DetailsPage from '@components/project-details'
 import {
   EPagesTemplateTypes,
@@ -23,19 +24,19 @@ interface PageProps {
   params: { ['project-details']: string }
 }
 
-export async function generateMetadata(
-  { params }: MetaProps,
-  parent?: ResolvingMetadata,
-): Promise<Metadata> {
-  const previousImages = (parent && (await parent).openGraph?.images) || []
+export async function generateMetadata({
+  params,
+}: MetaProps): // parent?: ResolvingMetadata,
+Promise<Metadata> {
+  // const previousImages = (parent && (await parent).openGraph?.images) || []
   const pageProject = getProjectBySlug(params['project-details'])
 
   return {
     title: `Project - ${pageProject ? pageProject.title : 'Not Found'}`,
-    openGraph: {
-      images: [...previousImages],
-    },
-  }
+    // openGraph: {
+    //   images: [...previousImages],
+    // },
+  } as Metadata
 }
 
 async function getData<T extends TPageTemplateContent>(slug: string) {

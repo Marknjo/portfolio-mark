@@ -1,6 +1,6 @@
 import { appFiles } from '@data/generalData/dataFiles'
 import { EWorkAvailability, IHomePageContentV1 } from '@data/types'
-import { aboutText, headerText, summaryText } from './dataHomepageText'
+import { aboutText, headerText } from './dataHomepageText'
 
 export const homePageContentV1: IHomePageContentV1 = {
   hero: {
@@ -56,10 +56,6 @@ export const homePageContentV1: IHomePageContentV1 = {
     isShown: true,
     titleMain: 'I Build Expressive Websites, Awesome, And Catchy.',
     titleSub: "Here's A Quick Peak Of My Favorite Project",
-    summaryText: {
-      text: summaryText,
-      type: 'paragraph',
-    },
     moreDetailsButtonText: 'Learn More',
     visitProjectButtonText: 'Visit Live Project',
   },

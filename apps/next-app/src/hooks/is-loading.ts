@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 
 export const useIsLoading = () => {
@@ -10,7 +12,7 @@ export const useIsLoading = () => {
     // Check if the page has already loaded
     if (document.readyState === 'complete') {
       onPageLoad()
-    } else {
+    } else if (window) {
       window.addEventListener('load', onPageLoad)
       // Remove the event listener when component unmounts
       return () => window.removeEventListener('load', onPageLoad)

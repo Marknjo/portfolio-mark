@@ -13,4 +13,3 @@ This turborepo uses [pnpm](https://pnpm.io/) as a package manager. It includes t
 - `ui`: a stub React component library shared by both `next-app`
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
-

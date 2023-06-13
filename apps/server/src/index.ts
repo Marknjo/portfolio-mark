@@ -8,5 +8,6 @@ app.get('/', (_req, res) => {
 })
 
 app.listen(port, () => {
+  /* eslint-disable no-console */
   console.log(`Example app listening at http://localhost:${port}`)
 })

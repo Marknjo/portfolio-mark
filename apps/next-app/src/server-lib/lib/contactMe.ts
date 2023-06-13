@@ -1,5 +1,7 @@
 'use server'
 
+/* eslint-disable no-useless-catch */
+
 import Email from './email'
 
 export interface IContactFormData {
@@ -29,7 +31,7 @@ export async function contactMe(contactData: FormData) {
         message,
         recipient: {
           name: fullName,
-          email: email,
+          email,
         },
       },
       true,

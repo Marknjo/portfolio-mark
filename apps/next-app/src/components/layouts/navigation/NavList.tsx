@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import {
@@ -37,7 +39,9 @@ const NavList = ({
   const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
 
   useSafeLayoutEffect(() => {
-    setSelectedLinkEl(window.location.hash)
+    if (window) {
+      setSelectedLinkEl(window.location.hash)
+    }
   }, [])
 
   const isSelectedLinkItem = (link: string) => {
@@ -71,7 +75,7 @@ const NavList = ({
     <Flex as={motion.ul} sx={listStyles}>
       {navLinks.map(item => (
         <NavLink
-          key={item.title}
+          key={`${item.title}-${item.id}`}
           title={item.title}
           link={item.link}
           asHamburgerMenu={asHamburger}

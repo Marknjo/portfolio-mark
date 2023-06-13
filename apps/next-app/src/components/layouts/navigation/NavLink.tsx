@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 
 import { Box, Link, SystemStyleObject } from '@chakra-ui/react'
-import { INavLink } from '@data/navLinks'
+
 import { usePathname } from 'next/navigation'
 
 export const activeState = {
@@ -17,7 +17,10 @@ const linkActive: SystemStyleObject = {
   borderBottomColor: 'whiteAlpha.600',
 }
 
-interface INav extends INavLink {
+// eslint-disable-next-line no-bitwise
+interface INav {
+  link: string
+  title: string
   sxOverrides?: SystemStyleObject
   asHamburgerMenu?: boolean
   isSelected?: boolean

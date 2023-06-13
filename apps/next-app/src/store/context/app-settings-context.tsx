@@ -3,7 +3,6 @@
 import {
   EAppSettingsIsProtectedContentNames,
   EAppSettingsIsProtectedVariants,
-  ESiteNavNames,
   IAppSetting,
 } from '@data/types'
 import {
@@ -36,17 +35,23 @@ const initialSettingsData: IAppSettingContext = {
       },
       content: {
         title: '',
-        ctaText: '',
+        ctaText: {
+          text: '',
+          type: 'paragraph',
+          delimiter: '<--l-->',
+        },
         contactButtonText: '',
         contactButtonLink: '',
       },
     },
     footerConfig: {
+      data: {
+        nav: [],
+      },
       theme: {
         isProtected: false,
         colorTheme: '',
         fontFamily: '',
-        nav: ESiteNavNames.FOOTER_NAV,
       },
       content: {
         logoText: '',
