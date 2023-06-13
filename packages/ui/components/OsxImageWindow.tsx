@@ -1,4 +1,16 @@
 import { Box, HStack, Image, SystemStyleObject, VStack } from '@chakra-ui/react'
+import { Variants, motion } from 'framer-motion'
+
+const circleVariants: Variants = {
+  hidden: {
+    scale: 1,
+    opacity: 0.8,
+  },
+  visible: {
+    scale: 1.1,
+    opacity: 1,
+  },
+}
 
 export const OsxImageWindow = ({
   src,
@@ -19,9 +31,36 @@ export const OsxImageWindow = ({
           px={circlesBrP}
           py={{ base: '4px', sm: '6px', md: '2' }}
         >
-          <Box sx={circleRedStyles}>&nbsp;</Box>
-          <Box sx={circleYellowStyles}>&nbsp;</Box>
-          <Box sx={circleGreenStyles}>&nbsp;</Box>
+          <Box
+            as={motion.div}
+            variants={circleVariants}
+            initial="hidden"
+            whileHover="visible"
+            whileTap="visible"
+            sx={circleRedStyles}
+          >
+            &nbsp;
+          </Box>
+          <Box
+            as={motion.div}
+            variants={circleVariants}
+            initial="hidden"
+            whileHover="visible"
+            whileTap="visible"
+            sx={circleYellowStyles}
+          >
+            &nbsp;
+          </Box>
+          <Box
+            as={motion.div}
+            variants={circleVariants}
+            initial="hidden"
+            whileHover="visible"
+            whileTap="visible"
+            sx={circleGreenStyles}
+          >
+            &nbsp;
+          </Box>
         </HStack>
         <Image
           src={src}
@@ -68,6 +107,7 @@ const circlesStyles: SystemStyleObject = {
   borderRadius: 'full',
   boxShadow: 'base',
   transition: 'all .25s ease-in',
+  cursor: 'crosshair',
   _hover: {
     boxShadow: 'sm',
   },
