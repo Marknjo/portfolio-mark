@@ -10,7 +10,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { useAppSettings } from '@store/context/app-settings-context'
-import { easeIn } from 'framer-motion'
+import { easeIn, motion } from 'framer-motion'
 import NextLink from 'next/link'
 import { MainGrid } from 'ui'
 
@@ -43,7 +43,7 @@ const Footer = () => {
     fontSize: { base: 'small', sm: 'md' },
 
     _hover: {
-      color: 'teal.50',
+      color: 'orange.50',
       textDecoration: 'none',
       transform: 'skew(2deg) scale(1.02) rotate(-5deg)',
     },
@@ -54,19 +54,29 @@ const Footer = () => {
       <GridItem gridColumn="content-start/content-end">
         <VStack gap="2">
           {/* @TODO: Implement image logo */}
+
           <Box
-            href="/"
-            as={NextLink}
-            fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-            fontWeight="bold"
-            textTransform="uppercase"
-            transition={`all .25s ${easeIn(2)}`}
+            as={motion.div}
+            display="inline-block"
             _hover={{
-              color: 'teal.50',
+              color: 'orange.50',
               textDecoration: 'none',
             }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.8 }}
+            // @ts-ignore no problem in operation, although type error appears.
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
-            {logoText}
+            <Box
+              href="/"
+              as={NextLink}
+              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+              fontWeight="bold"
+              textTransform="uppercase"
+              transition={`all .25s ${easeIn(2)}`}
+            >
+              {logoText}
+            </Box>
           </Box>
 
           <HStack

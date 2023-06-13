@@ -1,12 +1,6 @@
 import React from 'react'
-import {
-  Box,
-  GridItem,
-  Link,
-  SystemStyleObject,
-  keyframes,
-} from '@chakra-ui/react'
-import NextLink from 'next/link'
+import { Box, GridItem, SystemStyleObject, keyframes } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/next-js'
 import { motion } from 'framer-motion'
 import { fontSizes } from '@components/next-ui'
 import { useAppSettings } from '@store/context/app-settings-context'
@@ -72,21 +66,30 @@ const LogoText = ({
         animation={asHamburger ? animation : undefined}
         fontSize={fontSizes.md}
         fontWeight="bold"
-        color="teal.50"
+        color="orange.50"
         marginY="2"
       >
-        <Link
-          as={NextLink}
-          href="/"
-          colorScheme="teal"
-          transition="all 150ms ease"
-          _hover={{
-            color: 'teal.100',
-            transform: 'scaleX(1.05)',
-          }}
+        <Box
+          display="inline-block"
+          as={motion.div}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.8 }}
+          // @ts-ignore no problem in operation, although type error appears.
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
         >
-          {logoText}
-        </Link>
+          <Link
+            href="/"
+            // as={motion.a}
+            colorScheme="orange"
+            transition="all 150ms ease"
+            _hover={{
+              color: 'white',
+              transform: 'scaleX(1.05)',
+            }}
+          >
+            {logoText}
+          </Link>
+        </Box>
       </Box>
     </GridItem>
   )
