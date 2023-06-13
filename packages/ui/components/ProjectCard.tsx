@@ -17,6 +17,26 @@ import {
 
 import { LinkIcon } from './LinkIcon'
 import { SolidBtn } from './buttons/SolidBtn'
+import { Variants, motion } from 'framer-motion'
+
+const cardAnimationVariant: Variants = {
+  offscreen: {
+    y: 50,
+  },
+  onscreen: {
+    y: 0,
+    transition: {
+      type: 'spring',
+      // ease: 'easeIn',
+      duration: 0.8,
+      bounce: 0.4,
+    },
+  },
+  gesture: {
+    scale: 1.02,
+    translateY: -5,
+  },
+}
 
 export interface ProjectTagsInterface {
   id: string
@@ -83,7 +103,15 @@ export const ProjectCard = ({
   }
 
   return (
-    <Grid as="article" sx={wrapperStyles}>
+    <Grid
+      as={motion.article}
+      sx={wrapperStyles}
+      variants={cardAnimationVariant}
+      initial="offscreen"
+      whileInView="onscreen"
+      whileHover="gesture"
+      // viewport={{ once: true }}
+    >
       <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
           src={`./images/${fileName}.jpg`}
