@@ -1,5 +1,6 @@
 import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { CardLink, StackThemes, iconPicker, CardBadge } from '..'
+import { motion } from 'framer-motion'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -198,7 +199,19 @@ export function TechCard<T extends { [key: string]: any }>({
   const CardIcon = iconPicker(cardIconStyles, skill.icon)
 
   return (
-    <Grid sx={cardDefaultStyles} role="group">
+    <Grid
+      as={motion.div}
+      whileHover={{
+        scale: 1.02,
+        translateY: -5,
+      }}
+      whileTap={{
+        scale: 0.9,
+        translateY: 2,
+      }}
+      sx={cardDefaultStyles}
+      role="group"
+    >
       {showBadge && (
         <GridItem sx={badgeStyles}>
           <CardBadge isActive={!!skill.active} />
