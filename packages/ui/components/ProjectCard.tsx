@@ -113,13 +113,13 @@ export const ProjectCard = ({
         <Image
           src={`/images/${fileName}.jpg`}
           alt={alt ? alt : 'Project card Image'}
-          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
           sx={{
             borderRadius: 'md',
             border: '2px solid',
             borderColor: 'orange.100',
             objectFit: 'cover',
           }}
+          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
           quality={75}
           width={348}
           height={278}
