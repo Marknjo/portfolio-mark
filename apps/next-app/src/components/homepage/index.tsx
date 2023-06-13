@@ -19,6 +19,10 @@ function HomePage<T extends TPageTemplateContent>({
 }) {
   const isLoading = useIsLoading()
 
+  // if (isLoading) {
+  //   return <UiLoaderHoneyComb />
+  // }
+
   return (
     <>
       {isLoading && <UiLoaderHoneyComb />}
