@@ -15,6 +15,7 @@ import { useHomePageData } from '@store/context/homepage-context'
 import { TextContentGenerator, SolidBtn, typewriter } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IHomePageContentV1 } from '@data/types'
+import { motion } from 'framer-motion'
 
 const HeroLeftGrid = () => {
   const salutationRef = useRef<HTMLSpanElement>(null)
@@ -74,8 +75,10 @@ const HeroLeftGrid = () => {
         mb={{ base: '4', md: '3' }}
       >
         <Box
+          as={motion.div}
           letterSpacing="widest"
           fontSize={['md', 'lg', 'xl', '2xl']}
+          display="inline-block"
           marginLeft={sizes.xl}
           marginBottom="4"
           minWidth="12"
@@ -91,6 +94,13 @@ const HeroLeftGrid = () => {
             left: { base: '2px', md: '1' },
             transform: 'translate(50%, 50%) rotate(.12turn)',
             zIndex: '0',
+          }}
+          cursor={`
+              url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👋</text></svg>")
+              16 0, auto
+            `}
+          whileHover={{
+            scale: [1.1, 1, 1.1, 1],
           }}
         >
           <Box
