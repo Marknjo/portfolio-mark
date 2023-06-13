@@ -1,9 +1,9 @@
 'use client'
 
-import { useIsLoading } from '@hooks/is-loading'
 import { DetailsPageProvider } from '@store/context/details-page-context'
 import { IProjectDetailsTemplate, TPageTemplateContent } from '@data/types'
 import UiLoaderHoneyComb from '@components/layouts/loaders/UiLoaderHoneyComb'
+import { PageWrapper } from '@components/next-ui/PageWrapper'
 
 import DetailsPageRootIndex from './RootIndex'
 
@@ -12,20 +12,14 @@ function DetailsPage<T extends TPageTemplateContent>({
 }: {
   pageData: IProjectDetailsTemplate<T>
 }) {
-  const isLoading = useIsLoading()
-
-  // if (isLoading) {
-  //   return <UiLoaderHoneyComb />
-  // }
-
   return (
     <>
-      {isLoading && <UiLoaderHoneyComb />}
-      {!isLoading && (
+      <UiLoaderHoneyComb />
+      <PageWrapper>
         <DetailsPageProvider<T> pageData={pageData}>
           <DetailsPageRootIndex />
         </DetailsPageProvider>
-      )}
+      </PageWrapper>
     </>
   )
 }

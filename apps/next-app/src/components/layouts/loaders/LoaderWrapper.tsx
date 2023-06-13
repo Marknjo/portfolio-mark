@@ -1,47 +1,64 @@
-import { Flex, chakra, shouldForwardProp } from '@chakra-ui/react'
+import {
+  Flex,
+  Portal,
+  SystemStyleObject,
+  chakra,
+  shouldForwardProp,
+} from '@chakra-ui/react'
 import { ReactNode } from 'react'
-import { AnimatePresence, isValidMotionProp } from 'framer-motion'
+import { isValidMotionProp, motion } from 'framer-motion'
 import { BgWithICons } from 'ui'
 
-const LoaderAnimationWrapper = chakra(AnimatePresence, {
+// const LoaderAnimationWrapper = chakra(AnimatePresence, {
+//   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
+// })
+
+const commonStyles: SystemStyleObject = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  overflow: 'hidden',
+}
+
+const loaderContentStyles: SystemStyleObject = {
+  justifyContent: 'center',
+  alignItems: 'center',
+  bgColor: 'blackAlpha.200',
+  backdropFilter: 'blur(5px)',
+  zIndex: 'modal',
+  ...commonStyles,
+}
+
+const LoaderWrapperBox = chakra(motion.div, {
+  baseStyle: commonStyles,
   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
 export default function LoaderWrapper({ children }: { children: ReactNode }) {
   return (
-    <LoaderAnimationWrapper
-      zIndex="overlay"
-      minH="100vh"
-      minW="100%"
-      overflow="hidden"
-      bgColor="whiteAlpha.100"
-      position="relative"
-    >
-      <>
+    <Portal appendToParentPortal>
+      <LoaderWrapperBox
+        initial={{
+          y: '-100vh',
+        }}
+        animate={{
+          y: 0,
+        }}
+        exit={{
+          y: '-100vh',
+        }}
+      >
         <BgWithICons
           sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            opacity: 0.4,
-            width: '100vw',
-            height: '100vh',
+            bgColor: 'whiteAlpha.700',
+            ...commonStyles,
           }}
         />
 
-        <Flex
-          minH="100vh"
-          minW="100vw"
-          justifyContent="center"
-          alignItems="center"
-          bgColor="blackAlpha.200"
-          backdropFilter="blur(5px)"
-          position="fixed"
-          zIndex="modal"
-        >
-          {children}
-        </Flex>
-      </>
-    </LoaderAnimationWrapper>
+        <Flex sx={loaderContentStyles}>{children}</Flex>
+      </LoaderWrapperBox>
+    </Portal>
   )
 }

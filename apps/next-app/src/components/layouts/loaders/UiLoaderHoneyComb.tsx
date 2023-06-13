@@ -1,4 +1,5 @@
 import { Box, SystemStyleObject, keyframes } from '@chakra-ui/react'
+import { useIsLoading } from '@hooks/is-loading'
 import LoaderWrapper from './LoaderWrapper'
 
 const honeyCombWrapperStyles: SystemStyleObject = {
@@ -75,7 +76,7 @@ const afterBefore: SystemStyleObject = {
 
 const honeyBoxStyles: SystemStyleObject = {
   animation: `${honeyCombAnimation} 1.8s infinite backwards`,
-  background: 'orange.700',
+  background: 'orange.800',
   height: '16px',
   mt: '6px',
   position: 'absolute',
@@ -83,29 +84,35 @@ const honeyBoxStyles: SystemStyleObject = {
   _after: {
     top: '-5px',
     borderBottom: '6px solid',
-    borderBottomColor: ' orange.700',
+    borderBottomColor: ' orange.800',
     ...afterBefore,
   },
   _before: {
     bottom: '-5px',
     borderTop: '6px solid',
-    borderTopColor: 'orange.700',
+    borderTopColor: 'orange.800',
     ...afterBefore,
   },
 }
 
 export default function UiLoaderHoneyComb() {
+  const isLoading = useIsLoading()
+
   return (
-    <LoaderWrapper>
-      <Box sx={honeyCombWrapperStyles}>
-        <Box sx={honeyBoxStyles} />
-        <Box sx={honeyBoxStyles} />
-        <Box sx={honeyBoxStyles} />
-        <Box sx={honeyBoxStyles} />
-        <Box sx={honeyBoxStyles} />
-        <Box sx={honeyBoxStyles} />
-        <Box sx={honeyBoxStyles} />
-      </Box>
-    </LoaderWrapper>
+    <>
+      {isLoading && (
+        <LoaderWrapper>
+          <Box sx={honeyCombWrapperStyles}>
+            <Box sx={honeyBoxStyles} />
+            <Box sx={honeyBoxStyles} />
+            <Box sx={honeyBoxStyles} />
+            <Box sx={honeyBoxStyles} />
+            <Box sx={honeyBoxStyles} />
+            <Box sx={honeyBoxStyles} />
+            <Box sx={honeyBoxStyles} />
+          </Box>
+        </LoaderWrapper>
+      )}{' '}
+    </>
   )
 }

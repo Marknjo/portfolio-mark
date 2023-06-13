@@ -4,11 +4,11 @@ import React from 'react'
 
 // Components
 import { HomePageProvider } from '@store/context/homepage-context'
-import { useIsLoading } from '@hooks/is-loading'
 import UiLoaderHoneyComb from '@components/layouts/loaders/UiLoaderHoneyComb'
 
 /// Local components
 import { IHomePageTemplate, TPageTemplateContent } from '@data/types'
+import { PageWrapper } from '@components/next-ui/PageWrapper'
 
 import HomePageRootIndex from './RootIndex'
 
@@ -17,20 +17,15 @@ function HomePage<T extends TPageTemplateContent>({
 }: {
   pageData: IHomePageTemplate<T>
 }) {
-  const isLoading = useIsLoading()
-
-  // if (isLoading) {
-  //   return <UiLoaderHoneyComb />
-  // }
-
   return (
     <>
-      {isLoading && <UiLoaderHoneyComb />}
-      {!isLoading && (
+      <UiLoaderHoneyComb />
+
+      <PageWrapper>
         <HomePageProvider<T> pageData={pageData}>
           <HomePageRootIndex />
         </HomePageProvider>
-      )}
+      </PageWrapper>
     </>
   )
 }
