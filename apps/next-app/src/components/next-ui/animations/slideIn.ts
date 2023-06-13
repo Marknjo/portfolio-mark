@@ -9,8 +9,8 @@ export const fromRight = {
     transition: {
       type: 'spring',
       delay: 0.8,
-      duration: 0.8,
-      bounce: 0.3,
+      duration: 1.5,
+      bounce: 0.2,
     },
   },
 }
@@ -24,13 +24,14 @@ export const fromLeft = {
 
 export const sectionsReveal: Variants = {
   offscreen: {
-    y: 150,
+    y: 80,
   },
   onscreen: {
     y: 0,
     transition: {
-      type: 'spring',
-      bounce: 0.4,
+      type: 'tween',
+      ease: 'easeIn',
+      // bounce: 0.4,
       duration: 0.8,
     },
   },
@@ -38,7 +39,7 @@ export const sectionsReveal: Variants = {
 
 export const lgImgReveal: Variants = {
   offscreen: {
-    y: 150,
+    y: 80,
     scale: 0.4,
   },
   onscreen: {
@@ -46,7 +47,7 @@ export const lgImgReveal: Variants = {
     scale: 1,
     transition: {
       type: 'spring',
-      bounce: 0.4,
+      bounce: 0.2,
       duration: 0.8,
     },
   },
