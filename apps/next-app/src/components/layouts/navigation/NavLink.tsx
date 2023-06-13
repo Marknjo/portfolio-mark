@@ -5,8 +5,8 @@ import { INavLink } from '@data/navLinks'
 import { usePathname } from 'next/navigation'
 
 export const activeState = {
-  color: 'teal.50',
-  borderBottomColor: 'teal.100',
+  color: 'orange.50',
+  borderBottomColor: 'orange.100',
   transform: 'scaleX(1.02)',
 }
 
@@ -50,8 +50,8 @@ const NavLink = ({
   }
 
   const linkStyles: SystemStyleObject = {
-    colorScheme: 'teal',
-    color: 'teal.100',
+    colorScheme: 'orange',
+    color: 'whiteAlpha.900',
     fontSize: 'lg',
     fontWeight: 'thin',
     paddingX: '2',

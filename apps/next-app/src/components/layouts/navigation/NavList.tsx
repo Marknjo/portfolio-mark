@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Flex, SystemStyleObject, keyframes } from '@chakra-ui/react'
+import {
+  Flex,
+  SystemStyleObject,
+  keyframes,
+  useSafeLayoutEffect,
+} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 
 import { INavLink } from '@data/types'
@@ -30,6 +35,10 @@ const NavList = ({
   const currentRoute = usePathname()
   const isLoading = useIsLoading()
   const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
+
+  useSafeLayoutEffect(() => {
+    setSelectedLinkEl(window.location.hash)
+  }, [])
 
   const isSelectedLinkItem = (link: string) => {
     const isSelected = isLoading
