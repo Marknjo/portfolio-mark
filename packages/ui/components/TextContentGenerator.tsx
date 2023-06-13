@@ -5,6 +5,7 @@ import {
   SystemStyleObject,
   Text,
 } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 import { useMemo } from 'react'
 import { IconType } from 'react-icons'
 import { IoMdCheckmarkCircle } from 'react-icons/io'
@@ -48,6 +49,7 @@ function ListGenerator({
   spacing = 3,
 }: IListGeneratorProps) {
   const ulStyles: SystemStyleObject = {
+    color: 'blackAlpha.800',
     pl: { base: '4', md: '6', xl: '4' },
     ...ulSx,
   }
@@ -61,7 +63,24 @@ function ListGenerator({
   return (
     <List spacing={spacing} sx={isStyled ? ulStyles : undefined}>
       {splitText.map((text, idx) => (
-        <ListItem key={`0${idx + 1}+${text.slice(8).replace(' ', '-')}`}>
+        <ListItem
+          as={motion.li}
+          key={`0${idx + 1}+${text.slice(8).replace(' ', '-')}`}
+          initial={{
+            originX: 0,
+            opacity: 0.8,
+          }}
+          whileHover={{
+            x: 10,
+            opacity: 1,
+          }}
+          whileTap={{
+            x: 10,
+            opacity: 1,
+          }}
+          // @ts-ignore no problem in operation, although type error appears.
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+        >
           <ListIcon as={icon} sx={isStyled ? iconStyles : undefined} />
           {text}
         </ListItem>
