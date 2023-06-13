@@ -69,11 +69,13 @@ const CTALinks = ({
           }}
         />
 
-        {/* Pagination Links */}
+        {/* Pagination Links: @TODO: implement pagination */}
         <HStack
           width={{ base: '100%', sm: 'auto' }}
           justifyContent={{ base: 'center', sm: 'auto' }}
           gap={{ base: '4', sm: '2' }}
+          display="none"
+          aria-hidden
         >
           <Button
             as={NextLink}

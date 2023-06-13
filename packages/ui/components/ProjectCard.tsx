@@ -118,6 +118,8 @@ export const ProjectCard = ({
             border: '2px solid',
             borderColor: 'orange.100',
             objectFit: 'cover',
+            width: '100%',
+            height: 'auto',
           }}
           blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
           quality={75}
