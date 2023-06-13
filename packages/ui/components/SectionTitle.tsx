@@ -27,7 +27,7 @@ const BgBox = chakra(motion.div, {
   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
-const xValue = 150
+const xValue = 200
 const titleVariant = (isFromRight: boolean, isBg: boolean): Variants => {
   const bgTransition = {
     type: 'tween',
@@ -37,10 +37,10 @@ const titleVariant = (isFromRight: boolean, isBg: boolean): Variants => {
   }
 
   const textTransition = {
-    delay: 0.5,
+    delay: 0.6,
     type: 'spring',
-    bounce: 0.6,
-    duration: 0.3,
+    bounce: 0.4,
+    duration: 0.4,
   }
 
   return {
@@ -99,7 +99,7 @@ export const SectionTitle = React.memo(
         </BgBox>
         <BgBox
           {...headingGridSetting}
-          variants={titleVariant(isRightAligned, true)}
+          variants={titleVariant(isRightAligned, false)}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ amount: 0.1 }}
