@@ -28,11 +28,11 @@ export const styles: ThemeOverride['styles'] = {
     body: {
       bg: 'orange.50',
     },
-    'html::-moz-selection': {
+    '::-moz-selection': {
       color: 'orange.50',
       backgroundColor: 'orange.600',
     },
-    'html::selection': {
+    '::selection': {
       color: 'orange.50',
       backgroundColor: 'orange.600',
     },
