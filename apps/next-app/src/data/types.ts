@@ -1,7 +1,12 @@
 // Profile Page Data
 
+import { ReactNode } from 'react'
+import { IconType } from 'react-icons'
+
 /// Enums Data
 export enum EStackFullNames {
+  API = 'api',
+  MARKDOWN = 'markdown',
   ELECTRON = 'Electron',
   JAVASCRIPT = 'JavaScript',
   TYPESCRIPT = 'TypeScript',
@@ -13,6 +18,7 @@ export enum EStackFullNames {
   HTML = 'HTML',
   CSS = 'CSS',
   REACT = 'ReactJs',
+  REACT_NATIVE = 'React Native',
   VUE = 'VueJs',
   SOLID_JS = 'SolidJs',
   TAILWIND = 'TailwindCSS',
@@ -255,7 +261,7 @@ export interface IStack {
   id: string
   name: EStackFullNames
   homePageUrl: string
-  icon: string
+  icon: string | IconType | ReactNode | JSX.Element
   isHidden: boolean
   category: string | Pick<IStackCategory, 'id'> | EStackCategories // rel to stacks categories
   theme?: Pick<IStackThemes, 'id'> | EStackThemes // rel to stack themes

@@ -103,6 +103,7 @@ export function TechStack<T extends { [key: string]: any }>({
   hasDivider,
   titleStyle,
   titlePosition,
+  iconPicker,
 }: {
   categoryStacks: [T]
   title?: StackCategory | string
@@ -110,6 +111,7 @@ export function TechStack<T extends { [key: string]: any }>({
   hasDivider?: boolean
   titleStyle: TitleStyles
   titlePosition: AlignPosition
+  iconPicker: (props: any) => JSX.Element
 }) {
   const cardsWrapperStyles: StackProps = {
     gap: '4',
@@ -157,6 +159,7 @@ export function TechStack<T extends { [key: string]: any }>({
           stacks={categoryStacks}
           showBadge={showBadge}
           stylesOverrides={{ p: '1' }}
+          iconPicker={iconPicker}
         />
       </StackingWrapper>
     </StackingWrapper>

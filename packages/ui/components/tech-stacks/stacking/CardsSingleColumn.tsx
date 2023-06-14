@@ -38,6 +38,7 @@ export function CardsSingleColumn<T extends any>({
   titleStyle,
   wrapperAlign,
   hasDivider,
+  iconPicker,
 }: {
   stacks: T
   showBadge?: boolean
@@ -45,6 +46,7 @@ export function CardsSingleColumn<T extends any>({
   titleStyle: TitleStyles
   wrapperAlign: AlignPosition
   hasDivider?: boolean
+  iconPicker: (props: any) => JSX.Element
 }) {
   const cpId = useId()
   const stackArrays = Array.isArray(stacks)
@@ -67,6 +69,7 @@ export function CardsSingleColumn<T extends any>({
           titlePosition={titlePosition}
           titleStyle={titleStyle}
           hasDivider={hasDivider}
+          iconPicker={iconPicker}
         />
       ))}
     </VStack>

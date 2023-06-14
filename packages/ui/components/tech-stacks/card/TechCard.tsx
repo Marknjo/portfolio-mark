@@ -1,6 +1,7 @@
-import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { As, Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { CardLink, StackThemes, iconPicker, CardBadge } from '..'
 import { motion } from 'framer-motion'
+import { ReactNode } from 'react'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -196,7 +197,7 @@ export function TechCard<T extends { [key: string]: any }>({
     },
   }
 
-  const CardIcon = iconPicker(cardIconStyles, skill.icon)
+  const CardIcon = iconPicker(skill.icon, cardIconStyles)
 
   return (
     <Grid
@@ -217,7 +218,6 @@ export function TechCard<T extends { [key: string]: any }>({
           <CardBadge isActive={!!skill.isActive} />
         </GridItem>
       )}
-
       {showLink && (
         <GridItem gridColumn="c3-start/c3-end" gridRow="r1-start/r1-end">
           <CardLink
@@ -226,12 +226,13 @@ export function TechCard<T extends { [key: string]: any }>({
           />
         </GridItem>
       )}
-
       <GridItem as="p" sx={cardTitleStyles}>
         {skill.name}
       </GridItem>
+      {/* {<CardIcon />} */}
 
-      {showIcon && <GridItem as={CardIcon} />}
+      {showIcon && CardIcon && <GridItem as={CardIcon} />}
     </Grid>
   )
 }
+/* {showIcon && CardIcon && <GridItem as={CardIcon} />} */

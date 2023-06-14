@@ -13,6 +13,7 @@ export function TechStacksCard<T extends { [key: string]: any }>({
   titlePosition = AlignPosition.LEFT,
   titleStyle = TitleStyles.SM_BADGE,
   wrapperAlign = AlignPosition.LEFT,
+  iconPicker,
 }: {
   stacks: T
   showBadge?: boolean
@@ -21,9 +22,14 @@ export function TechStacksCard<T extends { [key: string]: any }>({
   wrapperAlign?: AlignPosition
   isCustom?: boolean
   hasDivider?: boolean
+  iconPicker: (props: any) => JSX.Element
 }) {
   return isCustom ? (
-    <CardsTwoColumns hasDivider={hasDivider} stacks={stacks} />
+    <CardsTwoColumns
+      iconPicker={iconPicker}
+      hasDivider={hasDivider}
+      stacks={stacks}
+    />
   ) : (
     <CardsSingleColumn
       hasDivider={hasDivider}
@@ -31,6 +37,7 @@ export function TechStacksCard<T extends { [key: string]: any }>({
       titleStyle={titleStyle}
       stacks={stacks}
       wrapperAlign={wrapperAlign}
+      iconPicker={iconPicker}
     />
   )
 }

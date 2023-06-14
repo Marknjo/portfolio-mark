@@ -1,4 +1,5 @@
 import { useBreakpoint } from '@chakra-ui/react'
+import { stackIconPicker } from '@data/generalData/icons/stackIconPicker'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { AlignPosition, TechStacksCard, TitleStyles } from 'ui'
 
@@ -21,6 +22,7 @@ const IntroStackCards = () => {
       titleStyle={TitleStyles.SM}
       hasDivider={false}
       titlePosition={calBrp}
+      iconPicker={stackIconPicker as unknown as (props: any) => JSX.Element}
     />
   )
 }

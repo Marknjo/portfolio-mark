@@ -9,9 +9,11 @@ import { TechStack } from './TechStack'
 export function CardsTwoColumns<T extends { [key: string]: any }>({
   stacks,
   hasDivider,
+  iconPicker,
 }: {
   stacks: T
   hasDivider?: boolean
+  iconPicker: (props: any) => JSX.Element
 }) {
   const showBadge = false
   const titlePosition = AlignPosition.LEFT
@@ -28,6 +30,7 @@ export function CardsTwoColumns<T extends { [key: string]: any }>({
             titlePosition={titlePosition}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
+            iconPicker={iconPicker}
           />
         )}
 
@@ -39,6 +42,7 @@ export function CardsTwoColumns<T extends { [key: string]: any }>({
             titlePosition={titlePosition}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
+            iconPicker={iconPicker}
           />
         )}
 
@@ -50,6 +54,7 @@ export function CardsTwoColumns<T extends { [key: string]: any }>({
             titlePosition={titlePosition}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
+            iconPicker={iconPicker}
           />
         )}
       </VStack>
@@ -63,6 +68,7 @@ export function CardsTwoColumns<T extends { [key: string]: any }>({
             showBadge={showBadge && true}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
+            iconPicker={iconPicker}
           />
         )}
 
@@ -74,6 +80,7 @@ export function CardsTwoColumns<T extends { [key: string]: any }>({
             showBadge={showBadge && true}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
+            iconPicker={iconPicker}
           />
         )}
 
@@ -85,6 +92,7 @@ export function CardsTwoColumns<T extends { [key: string]: any }>({
             showBadge={showBadge && true}
             titleStyle={titleStyle}
             hasDivider={hasDivider}
+            iconPicker={iconPicker}
           />
         )}
       </VStack>

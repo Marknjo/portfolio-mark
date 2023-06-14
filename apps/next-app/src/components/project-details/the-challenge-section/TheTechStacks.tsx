@@ -1,4 +1,5 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+import { stackIconPicker } from '@data/generalData/icons/stackIconPicker'
 import { IProjectDetailsContentV1 } from '@data/types'
 
 import { useDetailsPageData } from '@store/context/details-page-context'
@@ -23,7 +24,11 @@ const TheTechStacks = () => {
 
   return (
     <GridItem sx={mainStyles} id="stacks">
-      <TechStacksCard stacks={stacks} isCustom />
+      <TechStacksCard
+        stacks={stacks}
+        isCustom
+        iconPicker={stackIconPicker as unknown as (props: any) => JSX.Element}
+      />
     </GridItem>
   )
 }

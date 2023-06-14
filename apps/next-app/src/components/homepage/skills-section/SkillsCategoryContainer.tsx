@@ -1,5 +1,6 @@
 import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
+import { stackIconPicker } from '@data/generalData/icons/stackIconPicker'
 import { EStackCategories, IStack } from '@data/types'
 import { useHomePageData } from '@store/context/homepage-context'
 import { TechCard, SubHeading } from 'ui'
@@ -70,7 +71,10 @@ const SkillsCategoryContainer = ({
             lang.category === category && (
               <TechCard<IStack>
                 key={lang.name}
-                skill={lang as IStack}
+                skill={{
+                  ...lang,
+                  icon: stackIconPicker(lang.name) as unknown as JSX.Element,
+                }}
                 showBadge
               />
             ),

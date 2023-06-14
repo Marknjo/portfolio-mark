@@ -1,4 +1,5 @@
-import { Icon, SystemStyleObject } from '@chakra-ui/react'
+import { SystemStyleObject } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 import { FiDribbble } from 'react-icons/fi'
 
 /**
@@ -8,11 +9,6 @@ import { FiDribbble } from 'react-icons/fi'
  * @param iconName Custom skill icon
  * @returns Icon component
  */
-export function iconPicker(
-  cardIconStyles: SystemStyleObject,
-  iconName?: string,
-) {
-  return () => (
-    <Icon as={FiDribbble} width="100%" height="100%" sx={cardIconStyles} />
-  )
+export function iconPicker(Icon: any, cardIconStyles: SystemStyleObject) {
+  return (props: any) => <Icon {...props} {...cardIconStyles} />
 }

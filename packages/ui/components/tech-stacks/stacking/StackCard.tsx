@@ -6,10 +6,12 @@ export function StacksCard<T extends { [key: string]: any }>({
   stacks,
   showBadge,
   stylesOverrides = {},
+  iconPicker,
 }: {
   stacks: [T]
   showBadge?: boolean
   stylesOverrides?: SystemStyleObject
+  iconPicker: (props: any) => JSX.Element
 }) {
   const cpId = useId()
   return (
@@ -17,7 +19,10 @@ export function StacksCard<T extends { [key: string]: any }>({
       {stacks.map((stack, i) => (
         <TechCard
           key={`${cpId}-${stack.name[0] + i}-${stack.id}`}
-          skill={stack}
+          skill={{
+            ...stack,
+            icon: iconPicker(stack.name),
+          }}
           showBadge={showBadge}
           stylesOverrides={stylesOverrides}
         />
