@@ -72,3 +72,7 @@ export function findFavoriteProject(): IFavGalleryData | [] {
     gallery: foundProject.favGallery as IGallery[],
   }
 }
+
+export function getProjectNames(): Array<string> {
+  return projectsData.map(project => project.slug)
+}

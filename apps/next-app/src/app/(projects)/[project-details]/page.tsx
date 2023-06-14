@@ -31,6 +31,9 @@ export async function generateMetadata({
 Promise<Metadata> {
   // const previousImages = (parent && (await parent).openGraph?.images) || []
   const pageProject = getProjectBySlug(params['project-details'])
+
+  if (!pageProject) return {}
+
   const { stacks, title, excerpt, introBgImg } = pageProject!
 
   const stacksCats = Object.keys(stacks).join(', ')
@@ -53,7 +56,7 @@ Promise<Metadata> {
       card: 'summary_large_image',
       site: '@marknjo',
       creator: '@marknjo',
-      images: introBgImg && `/images/${introBgImg}.jpg`,
+      images: `/images/${introBgImg.fileName}.jpg`,
       creatorId: '@marknjo',
       title,
       description: excerpt,
