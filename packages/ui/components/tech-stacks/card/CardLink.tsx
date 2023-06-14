@@ -1,4 +1,5 @@
-import { Icon, Link, SystemStyleObject } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/next-js'
+import { Icon, SystemStyleObject } from '@chakra-ui/react'
 import { FiExternalLink } from 'react-icons/fi'
 
 /**

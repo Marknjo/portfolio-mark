@@ -102,6 +102,8 @@ export function TechCard<T extends { [key: string]: any }>({
     showBadge = false
   }
 
+  console.log(skill)
+
   /// Styles
   const cardDefaultStyles: SystemStyleObject = {
     position: 'relative',
@@ -214,7 +216,7 @@ export function TechCard<T extends { [key: string]: any }>({
     >
       {showBadge && (
         <GridItem sx={badgeStyles}>
-          <CardBadge isActive={!!skill.active} />
+          <CardBadge isActive={!!skill.isActive} />
         </GridItem>
       )}
 
