@@ -164,7 +164,7 @@ const HeroIntro = () => {
             label={liveLink}
             isDisabled={liveLink !== 'coming soon'}
           >
-            <Box>
+            <Box as="span">
               <SolidBtn
                 text={introButtonText}
                 props={{
@@ -180,20 +180,6 @@ const HeroIntro = () => {
               />
             </Box>
           </Tooltip>
-
-          {/* <SolidBtn
-            text={introButtonText}
-            props={{
-              as: NextLink,
-              rightIcon: <FiArrowUpRight />,
-            }}
-            href={liveLink === 'coming soon' ? '/#' : liveLink}
-            sx={{
-              border: '1px solid',
-              borderColor: 'orange.400',
-              bgColor: 'orange.100',
-            }}
-          /> */}
         </VStack>
       </Grid>
       <SectionSeparator

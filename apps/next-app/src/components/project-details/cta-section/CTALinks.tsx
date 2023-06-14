@@ -4,6 +4,7 @@ import {
   GridItem,
   HStack,
   SystemStyleObject,
+  Tooltip,
   useBreakpoint,
 } from '@chakra-ui/react'
 import { sizes } from '@components/next-ui'
@@ -13,25 +14,30 @@ import { useDetailsPageData } from '@store/context/details-page-context'
 import NextLink from 'next/link'
 import { BiHome } from 'react-icons/bi'
 import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
+import { useAppSettings } from '@store/context/app-settings-context'
 
 const CTALinks = ({
-  projectUrl = '#',
   nextProjectUrl = '#',
   prevProjectUrl = '#',
 }: {
-  projectUrl?: string
   nextProjectUrl?: string
   prevProjectUrl?: string
 }) => {
   const {
+    data: { projectData },
     content: {
       cta: { paginationNextText, paginationPrevText },
       hero: { introButtonText },
     },
   } = useDetailsPageData<IProjectDetailsContentV1>()
   const brkP = useBreakpoint()
+  const {
+    theme: { primaryThemeColor: brand },
+  } = useAppSettings()
 
   const { mainStyles, paginationStyles, btnWrapperStyles } = useStyles()
+
+  const { liveLink } = projectData!
 
   return (
     <GridItem sx={mainStyles}>
@@ -54,20 +60,34 @@ const CTALinks = ({
           }}
         />
 
-        <SolidBtn
-          text={brkP === 'base' || brkP === 'sm' ? 'Visit' : introButtonText}
-          props={{
-            as: NextLink,
-            rightIcon: <FiArrowUpRight />,
-            size: { base: 'sm', md: 'md' },
-          }}
-          href={projectUrl === 'coming soon' ? '/#' : projectUrl}
-          sx={{
-            border: '1px solid',
-            borderColor: 'orange.400',
-            bgColor: 'orange.100',
-          }}
-        />
+        {/* Button */}
+        <Tooltip
+          placement="top-start"
+          hasArrow
+          bgColor={`${brand}.800`}
+          color={`${brand}.100`}
+          label={liveLink}
+          isDisabled={liveLink !== 'coming soon'}
+        >
+          <Box as="span">
+            <SolidBtn
+              text={
+                brkP === 'base' || brkP === 'sm' ? 'Visit' : introButtonText
+              }
+              props={{
+                as: NextLink,
+                rightIcon: <FiArrowUpRight />,
+                size: { base: 'sm', md: 'md' },
+              }}
+              href={liveLink === 'coming soon' ? '/#' : liveLink}
+              sx={{
+                border: '1px solid',
+                borderColor: 'orange.400',
+                bgColor: 'orange.100',
+              }}
+            />
+          </Box>
+        </Tooltip>
 
         {/* Pagination Links: @TODO: implement pagination */}
         <HStack
