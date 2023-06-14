@@ -12,6 +12,7 @@ import CtaSection from '@components/layouts/cta/CtaSection'
 import Footer from '@components/layouts/footer/Footer'
 import ToTop from '@components/layouts/to-top/ToTop'
 import { useHomePageData } from '@store/context/homepage-context'
+import { IHomePageContentV1 } from '@data/types'
 
 /// Local components
 
@@ -29,7 +30,14 @@ const AnimationMain = chakra(motion.main, {
 const HomePageRootIndex = () => {
   const {
     data: { navData },
-  } = useHomePageData()
+    content: {
+      about: { isShown: aboutSecIsShown },
+      projects: { isShown: projectsSecIsShown },
+      favProject: { isShown: favSecIsShown },
+      skills: { isShown: skillsSecIsShown },
+      contact: { isShown: contactSecIsShown },
+    },
+  } = useHomePageData<IHomePageContentV1>()
 
   return (
     <>
@@ -48,19 +56,19 @@ const HomePageRootIndex = () => {
         overflow="hidden"
       >
         {/* About Section */}
-        <AboutSection />
+        {aboutSecIsShown && <AboutSection />}
 
         {/* Projects Section */}
-        <ProjectsSection />
+        {projectsSecIsShown && <ProjectsSection />}
 
         {/* Favorite Project Section */}
-        <FavProjectSection />
+        {favSecIsShown && <FavProjectSection />}
 
         {/* Skills Section */}
-        <SkillsSection />
+        {skillsSecIsShown && <SkillsSection />}
 
         {/* Contact Section */}
-        <ContactSection />
+        {contactSecIsShown && <ContactSection />}
 
         {/* Page CTA */}
         <CtaSection />

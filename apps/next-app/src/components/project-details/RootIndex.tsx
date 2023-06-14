@@ -13,6 +13,7 @@ import HeroSection from '@components/project-details/hero-section/HeroSection'
 
 import { useEffect } from 'react'
 import { useDetailsPageData } from '@store/context/details-page-context'
+import { IProjectDetailsContentV1 } from '@data/types'
 
 // @TODO: Implement the details page context to share page data
 // interface DetailsPageProps {
@@ -22,7 +23,14 @@ import { useDetailsPageData } from '@store/context/details-page-context'
 const DetailsPageRootIndex = () => {
   const {
     data: { navData },
-  } = useDetailsPageData()
+    content: {
+      hero: { isShown: heroIsShown },
+      theChallenge: { isShown: theChallengeIsShown },
+      gallery: { isShown: galleryIsShown },
+      summary: { isShown: summaryIsShown },
+      cta: { isShown: ctaIsShown },
+    },
+  } = useDetailsPageData<IProjectDetailsContentV1>()
 
   const brP = useBreakpoint()
 
@@ -46,19 +54,19 @@ const DetailsPageRootIndex = () => {
       {/* Main Content */}
       <Box as="main" backgroundColor="orange.50">
         {/* Page Hero Section */}
-        <HeroSection />
+        {heroIsShown && <HeroSection />}
 
         {/* The Challenge Section */}
-        <TheChallengeSection />
+        {theChallengeIsShown && <TheChallengeSection />}
 
         {/* The Gallery Section */}
-        <GallerySection />
+        {galleryIsShown && <GallerySection />}
 
         {/* Project Summary Section */}
-        <SummarySection />
+        {summaryIsShown && <SummarySection />}
 
         {/* Project Links & related projects & Page CTA */}
-        <ProjectDetailsCTA />
+        {ctaIsShown && <ProjectDetailsCTA />}
       </Box>
 
       {/* Footer */}
