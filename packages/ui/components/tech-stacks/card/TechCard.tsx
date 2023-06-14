@@ -102,8 +102,6 @@ export function TechCard<T extends { [key: string]: any }>({
     showBadge = false
   }
 
-  console.log(skill)
-
   /// Styles
   const cardDefaultStyles: SystemStyleObject = {
     position: 'relative',

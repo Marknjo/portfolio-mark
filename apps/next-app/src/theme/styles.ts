@@ -30,11 +30,11 @@ export const styles: ThemeOverride['styles'] = {
     },
     '::-moz-selection': {
       color: 'orange.50',
-      backgroundColor: 'orange.600',
+      backgroundColor: 'orange.500',
     },
     '::selection': {
       color: 'orange.50',
-      backgroundColor: 'orange.600',
+      backgroundColor: 'orange.500',
     },
 
     // Scroll bars variations

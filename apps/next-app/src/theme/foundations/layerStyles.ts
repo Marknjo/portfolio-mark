@@ -233,9 +233,9 @@ export const layerStyles: ThemeOverride['layerStyles'] = {
 
   /// Other definitions
   'para-default': {
-    color: 'orange.900',
+    color: 'gray.800',
   },
   'para-default-inverted': {
-    color: 'orange.50',
+    color: 'gray.50',
   },
 }

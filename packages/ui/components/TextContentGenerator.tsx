@@ -49,8 +49,10 @@ function ListGenerator({
   spacing = 3,
 }: IListGeneratorProps) {
   const ulStyles: SystemStyleObject = {
-    color: 'blackAlpha.800',
-    pl: { base: '4', md: '6', xl: '4' },
+    color: 'gray.800',
+    mx: { base: '4', md: '5' },
+    alignSelf: 'flex-start',
+
     ...ulSx,
   }
 
@@ -98,7 +100,7 @@ const ParagraphGenerator = ({
   const contentArr = useMemo(() => textSplitter(content), [content])
 
   const styles: SystemStyleObject = {
-    mb: '0.25rem',
+    mb: '0.35rem',
     textStyle: 'para-default',
     layerStyle: 'para-default',
     ...sx,
