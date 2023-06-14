@@ -45,10 +45,10 @@ export const ctaReveal: Variants = {
     y: 0,
     transition: {
       type: 'tween',
-      ease: 'easeInOut',
+      ease: 'easeOut',
       // delay: 0.1,
       // bounce: 0.2,
-      duration: 0.3,
+      duration: 0.2,
     },
   },
 }

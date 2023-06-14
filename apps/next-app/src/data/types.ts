@@ -432,11 +432,26 @@ export interface IComponentNav extends IComponent {
 // 4. Social Icons
 // 5. Site Nav Settings
 // 6. Profile Image settings
+interface ICvData {
+  tooltipText: string
+  link: string
+  btnText: string
+  icon: string
+}
+interface ICvConfig {
+  preview: ICvData
+  download: ICvData
+  theme: {
+    isProtected: boolean
+  }
+}
+
 export interface IAppSetting extends IGenericComponentData {
   data: {
     ctaConfig: ICtaComponentData
     footerConfig: IFooterComponentData
     mainNavConfig: INavComponentData
+    cvConfig: ICvConfig
   }
   theme: {
     fontFamily: string

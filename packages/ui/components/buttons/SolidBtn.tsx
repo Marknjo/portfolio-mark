@@ -21,6 +21,7 @@ export function SolidBtn({
   sx,
   btnColors,
   children,
+  target,
 }: {
   text?: string
   props: ButtonProps
@@ -28,6 +29,7 @@ export function SolidBtn({
   href?: string
   btnColors?: IBtnColors
   children?: ReactNode
+  target?: string
 }) {
   const { size, rightIcon, disabled } = props
 
@@ -51,6 +53,7 @@ export function SolidBtn({
       size={size || 'md'}
       rightIcon={rightIcon}
       {...(href ? { href } : {})}
+      {...(target ? { target } : {})}
     >
       {children ? children : text}
     </Button>
@@ -78,10 +81,10 @@ const useStyles = (
     color: 'white',
   }
 
-  /// defaults
+  ///
   let colorConfig: { tColor: TColor; rColor: TColor; tHover: TColor } = {
-    tColor: 'orange.900',
-    rColor: 'orange.400',
+    tColor: `${btnTheme ? btnTheme : 'orange'}.900`,
+    rColor: `${btnTheme ? btnTheme : 'orange'}.400`,
     tHover: 'white',
   }
 
@@ -103,10 +106,9 @@ const useStyles = (
     }
   }
 
-  if (btnTheme || hoverColor) {
+  if (hoverColor) {
     colorConfig = {
-      tColor: `${btnTheme}.900`,
-      rColor: `${btnTheme}.400`,
+      ...colorConfig,
       tHover: ((hoverColor as string)?.includes('.')
         ? hoverColor
         : 'white') as TColor,

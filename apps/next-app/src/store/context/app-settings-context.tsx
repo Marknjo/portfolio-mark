@@ -68,6 +68,23 @@ const initialSettingsData: IAppSettingContext = {
         logoImg: '',
       },
     },
+    cvConfig: {
+      theme: {
+        isProtected: false,
+      },
+      preview: {
+        tooltipText: '',
+        link: '',
+        btnText: '',
+        icon: '',
+      },
+      download: {
+        tooltipText: '',
+        link: '',
+        btnText: '',
+        icon: '',
+      },
+    },
   },
   theme: {
     fontFamily: '',

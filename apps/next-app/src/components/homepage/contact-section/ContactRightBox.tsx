@@ -27,6 +27,7 @@ import { SolidBtn } from 'ui'
 
 import { BiMailSend } from 'react-icons/bi'
 import { IContactFormData, contactMe } from 'src/server-lib/lib/contactMe'
+import CvDownloadBtn from '@components/next-ui/buttons/CvDownloadBtn'
 
 // @TODO: implement sending form - emailing, form submission and state handling, refactor form elements
 // @TODO: implement form validation and CSRF
@@ -277,31 +278,40 @@ const ContactRightBox = () => {
             colorScheme="orange"
           />
         </FormControl>
-        <SolidBtn
-          props={{
-            ...(isSubmitting ? {} : { rightIcon: <BiMailSend /> }),
-            type: 'submit',
-            disabled: !!isSubmitting,
-            isDisabled: !!isSubmitting,
-            'aria-disabled': !!isSubmitting,
-            onClick: closeMessageBoxHandler,
-          }}
+        <Flex
           sx={{
-            border: '1px solid',
-            borderColor: 'orange.400',
-            bgColor: 'orange.500',
-            color: 'orange.50',
+            gap: '5',
+            flexWrap: 'wrap',
           }}
         >
-          {isSubmitting ? (
-            <HStack>
-              <Box>Sending...</Box>{' '}
-              <Spinner size="sm" colorScheme="whiteAlpha" />
-            </HStack>
-          ) : (
-            'Send Message'
-          )}
-        </SolidBtn>
+          <SolidBtn
+            props={{
+              ...(isSubmitting ? {} : { rightIcon: <BiMailSend /> }),
+              type: 'submit',
+              disabled: !!isSubmitting,
+              isDisabled: !!isSubmitting,
+              'aria-disabled': !!isSubmitting,
+              onClick: closeMessageBoxHandler,
+            }}
+            sx={{
+              border: '1px solid',
+              borderColor: 'orange.400',
+              bgColor: 'orange.500',
+              color: 'orange.50',
+            }}
+          >
+            {isSubmitting ? (
+              <HStack>
+                <Box>Sending...</Box>{' '}
+                <Spinner size="sm" colorScheme="whiteAlpha" />
+              </HStack>
+            ) : (
+              'Send Message'
+            )}
+          </SolidBtn>
+
+          <CvDownloadBtn outlinePrevBtn outlineDownloadBtn />
+        </Flex>
       </VStack>
     </GridItem>
   )

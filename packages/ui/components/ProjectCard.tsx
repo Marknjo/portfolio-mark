@@ -9,7 +9,6 @@ import {
   VStack,
   Wrap,
   WrapItem,
-  useBreakpoint,
 } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/next-js'
 
@@ -63,10 +62,6 @@ export const ProjectCard = ({
   maxW = '64',
   wrapperSx,
 }: CardsInfoInterface) => {
-  const brkP = useBreakpoint()
-
-  const breakBtnText = brkP === 'base' || brkP === 'sm' || brkP === 'md'
-
   const gridRowsBreakpoint = {
     base: `
       [r1-start] 
@@ -107,7 +102,7 @@ export const ProjectCard = ({
       initial="offscreen"
       whileInView="onscreen"
       whileHover="gesture"
-      // viewport={{ once: true }}
+      viewport={{ once: true }}
     >
       <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
