@@ -11,16 +11,10 @@ import {
 } from '@data/types'
 import { getPageNav } from '@data/utils/pageNavs'
 
-/* 
-    <Head>
-      <title></title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-*/
-
 export const metadata: Metadata = {
   title: 'Mark Njoroge',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  description:
+    "This is Mark Njoroge's Profile Website to showcase his projects and share his thoughts in the space of technology, especially on JavaScript and it's ecosystem of Frontend and Backend tools",
 }
 
 async function getData<T extends TPageTemplateContent>(): Promise<

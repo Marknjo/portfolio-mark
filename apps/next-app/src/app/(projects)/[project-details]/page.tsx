@@ -6,6 +6,7 @@ import {
   EPagesTemplateTypes,
   IProjectDetailsContentV1,
   IProjectDetailsTemplate,
+  IStack,
   TPageData,
   TPageTemplateContent,
 } from '@data/types'
@@ -30,12 +31,33 @@ export async function generateMetadata({
 Promise<Metadata> {
   // const previousImages = (parent && (await parent).openGraph?.images) || []
   const pageProject = getProjectBySlug(params['project-details'])
+  const { stacks, title, excerpt, introBgImg } = pageProject!
+
+  const stacksCats = Object.keys(stacks).join(', ')
+
+  let techs: Array<IStack> = []
+
+  ;(Object.values(stacks) as Array<Array<IStack>>).forEach(
+    (stackCats: Array<IStack>) => {
+      techs = [...techs, ...stackCats]
+    },
+  )
+
+  const stackNames = techs.map(stack => stack.name).join(', ')
 
   return {
-    title: `Project - ${pageProject ? pageProject.title : 'Not Found'}`,
-    // openGraph: {
-    //   images: [...previousImages],
-    // },
+    title: `Project - ${pageProject ? title : 'Not Found'}`,
+    description: excerpt,
+    keywords: `${stacksCats}, ${stackNames}`,
+    twitter: {
+      card: 'summary_large_image',
+      site: '@marknjo',
+      creator: '@marknjo',
+      images: introBgImg && `/images/${introBgImg}.jpg`,
+      creatorId: '@marknjo',
+      title,
+      description: excerpt,
+    },
   } as Metadata
 }
 
