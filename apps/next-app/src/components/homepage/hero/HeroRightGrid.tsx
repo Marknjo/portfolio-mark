@@ -17,19 +17,21 @@ import { Image } from '@chakra-ui/next-js'
 import { isValidMotionProp, motion } from 'framer-motion'
 import { fromRight } from '@components/next-ui/animations/slideIn'
 
+const brand = 'orange'
+
 const AnimationBox = chakra(motion.div, {
   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
 const rightStyles: SystemStyleObject = {
-  backgroundColor: 'orange.600',
+  backgroundColor: `${brand}.600`,
   pb: ['8', '12', '16'],
 }
 
 const imageCommonStyles: SystemStyleObject = {
   borderRadius: ['4px', '8px'],
   border: ['3px solid', '4px solid'],
-  borderColor: { base: 'orange.100', sm: 'orange.100' },
+  borderColor: { base: `${brand}.100`, sm: `${brand}.100` },
 }
 // #TODO:  Image @TODO: Animate Image:hover & border rotate
 const HeroRightGrid = () => {

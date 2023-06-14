@@ -10,6 +10,7 @@ import {
 import { motion } from 'framer-motion'
 
 import { MainGrid } from 'ui'
+import { useAppSettings } from '@store/context/app-settings-context'
 import { INavLink } from '@data/types'
 
 import LogoText from './LogoText'
@@ -80,10 +81,15 @@ const MainTopNav = ({
   navLinks: Array<INavLink>
   displayMode: MenuMode
 }) => {
+  const {
+    theme: { primaryThemeColor },
+  } = useAppSettings()
   const [isHamburgerMode, setIsHamburgerMode] = useState(displayMode)
   const [hideHamburger, setHideHamburger] = useState(false)
   const [showHamburger, setShowHamburger] = useState(false)
   const breakPoint = useBreakpoint()
+
+  console.log(primaryThemeColor)
 
   /// monitor screen sizes to enable hamburger menu
   useEffect(() => {

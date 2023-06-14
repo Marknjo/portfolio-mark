@@ -14,7 +14,7 @@ export const appSettings: IAppSetting = {
   theme: {
     accentThemeColor: 'teal',
     fontFamily: '',
-    primaryThemeColor: 'teal',
+    primaryThemeColor: 'orange',
     darkThemeColor: '',
   },
   content: {

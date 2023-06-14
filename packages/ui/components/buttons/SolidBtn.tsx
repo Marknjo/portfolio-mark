@@ -78,6 +78,7 @@ const useStyles = (
     color: 'white',
   }
 
+  /// defaults
   let colorConfig: { tColor: TColor; rColor: TColor; tHover: TColor } = {
     tColor: 'orange.900',
     rColor: 'orange.400',
