@@ -83,7 +83,7 @@ const MainTopNav = ({
   const [isHamburgerMode, setIsHamburgerMode] = useState(displayMode)
   const [hideHamburger, setHideHamburger] = useState(false)
   const [showHamburger, setShowHamburger] = useState(false)
-  const breakPoint = useBreakpoint({ ssr: false })
+  const breakPoint = useBreakpoint()
 
   /// monitor screen sizes to enable hamburger menu
   useEffect(() => {
