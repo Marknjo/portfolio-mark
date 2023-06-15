@@ -18,15 +18,13 @@ function HomePage<T extends TPageTemplateContent>({
   pageData: IHomePageTemplate<T>
 }) {
   return (
-    <>
+    <HomePageProvider<T> pageData={pageData}>
       <UiLoaderHoneyComb />
 
       <PageWrapper>
-        <HomePageProvider<T> pageData={pageData}>
-          <HomePageRootIndex />
-        </HomePageProvider>
+        <HomePageRootIndex />
       </PageWrapper>
-    </>
+    </HomePageProvider>
   )
 }
 

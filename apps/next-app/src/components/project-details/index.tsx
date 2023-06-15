@@ -13,14 +13,12 @@ function DetailsPage<T extends TPageTemplateContent>({
   pageData: IProjectDetailsTemplate<T>
 }) {
   return (
-    <>
+    <DetailsPageProvider<T> pageData={pageData}>
       <UiLoaderHoneyComb />
       <PageWrapper>
-        <DetailsPageProvider<T> pageData={pageData}>
-          <DetailsPageRootIndex />
-        </DetailsPageProvider>
+        <DetailsPageRootIndex />
       </PageWrapper>
-    </>
+    </DetailsPageProvider>
   )
 }
 

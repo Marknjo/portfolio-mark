@@ -2,7 +2,7 @@ import { Variants } from 'framer-motion'
 
 export const fromRight: Variants = {
   hidden: {
-    x: 500,
+    x: 1000,
   },
   visible: {
     x: 0,

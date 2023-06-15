@@ -13,7 +13,7 @@ const WrapperBox = chakra(motion.div, {
 export function PageWrapper({ children }: { children: ReactNode }) {
   return (
     <WrapperBox
-      initial={{ x: 0, opacity: 0.4 }}
+      initial={{ x: 0, opacity: 0.1 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -1000, opacity: 0 }}
       // @ts-ignore no problem in operation, although type error appears.
