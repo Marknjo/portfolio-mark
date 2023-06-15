@@ -17,7 +17,7 @@ export const findPickedProjects = (
   maxPick: number = 3,
 ): Array<TPickedProjectsCard> => {
   let foundPickedProjects = projectsData.filter(
-    project => filterCriteria || project.isPicked,
+    project => filterCriteria || (project.isPicked && !project.isFavorite),
   )
 
   if (foundPickedProjects.length > maxPick) {

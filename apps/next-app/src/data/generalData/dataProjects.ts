@@ -121,6 +121,7 @@ export const projectsData: Array<IProject> = [
     title: 'LukuFiti',
     category: projectCategories[2],
     liveLink: 'coming soon',
+    isPicked: true,
     isFavorite: true,
 
     /// Text content
