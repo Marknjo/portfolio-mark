@@ -154,7 +154,7 @@ class Email {
 
     if (!transport) return
 
-    const pathToTemplate = path.join('views/templates/', `${template}.pug`)
+    const pathToTemplate = path.join('./views/templates/', `${template}.pug`)
 
     const html = renderFile(pathToTemplate, {
       name: this.recipientName ? this.recipientName : '',
