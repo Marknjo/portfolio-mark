@@ -7,23 +7,25 @@ import {
   twitterImgData,
 } from './images'
 
-const isProd = env.NODE_ENV === 'production' && !!env.NEXT_PUBLIC_VERCEL_URL
+const isProd =
+  env.NODE_ENV === 'production' &&
+  (!!env.NEXT_PUBLIC_VERCEL_URL || !!env.VERCEL_URL || !!env.APP_DOMAIN)
+
+const url = env.APP_DOMAIN || env.VERCEL_URL || env.NEXT_PUBLIC_VERCEL_URL
 
 // eslint-disable-next-line no-console
-console.log({ url: env.NEXT_PUBLIC_VERCEL_URL })
+console.log({ url })
 
 /// construct image urls
 const introUrl = isProd
-  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-6.png`
+  ? `https://${url}/images/email/image-6.png`
   : introTextData
 const linkedInImage = isProd
-  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-2.png`
+  ? `https://${url}/images/email/image-2.png`
   : linkedInImageData
-const logoImg = isProd
-  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-4.png`
-  : logoImgData
+const logoImg = isProd ? `https://${url}/images/email/image-4.png` : logoImgData
 const twitterImg = isProd
-  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-1.png`
+  ? `https://${url}/images/email/image-1.png`
   : twitterImgData
 
 const emailHTMLTemplate = `
