@@ -154,7 +154,10 @@ class Email {
 
     if (!transport) return
 
-    const pathToTemplate = path.join('./views/templates/', `${template}.pug`)
+    const pathToTemplate = path.resolve('views/templates/', `${template}.pug`)
+
+    // eslint-disable-next-line no-console
+    console.log({ pathToTemplate }, 'Another')
 
     const html = renderFile(pathToTemplate, {
       name: this.recipientName ? this.recipientName : '',
