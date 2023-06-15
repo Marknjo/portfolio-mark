@@ -27,7 +27,7 @@ import { createTransport } from 'nodemailer'
 import { LocalsObject, renderFile } from 'pug'
 import htmlToText, { HtmlToTextOptions } from 'html-to-text'
 import Mail from 'nodemailer/lib/mailer'
-import rootDir from 'src/lib/rootDir'
+// import rootDir from 'src/lib/rootDir'
 
 interface IEmailOptions {
   url?: string
@@ -154,11 +154,7 @@ class Email {
 
     if (!transport) return
 
-    const pathToTemplate = path.join(
-      rootDir,
-      '/views/templates/',
-      `${template}.pug`,
-    )
+    const pathToTemplate = path.join('views/templates/', `${template}.pug`)
 
     const html = renderFile(pathToTemplate, {
       name: this.recipientName ? this.recipientName : '',
