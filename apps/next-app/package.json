@@ -25,7 +25,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "server": "workspace:*",
-    "ui": "workspace:*"
+    "ui": "workspace:*",
+    "youtube-player": "^5.6.0"
   },
   "devDependencies": {
     "@types/html-to-text": "^9.0.1",
@@ -33,6 +34,7 @@
     "@types/nodemailer": "^6.4.8",
     "@types/pug": "^2.0.6",
     "@types/react": "^18.2.8",
+    "@types/youtube-player": "^5.5.7",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.42.0",
     "eslint-config-custom": "workspace:*",
