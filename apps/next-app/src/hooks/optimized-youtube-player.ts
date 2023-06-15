@@ -52,6 +52,7 @@ export function useOptimizedYoutubePlayer(
   const [isLoadingPlayer, setIsLoadingPlayer] = useState(true)
 
   useEffect(() => {
+    const iframeEl = document.getElementById('about-video')
     const loaderImg = imgRef.current
 
     async function loadVideo(videoId: string, videoRootId: string) {
@@ -104,8 +105,12 @@ export function useOptimizedYoutubePlayer(
       playerLoaderObserver.observe(loaderImg)
     }
 
-    /// initialize youtube loader
-    lazyLoadYouTubePlayer()
+    if (iframeEl?.nodeName === 'DIV') {
+      console.log(iframeEl?.nodeName)
+
+      /// initialize youtube loader
+      lazyLoadYouTubePlayer()
+    }
   }, [imgRef, isLoadingPlayer, videoPlayerId, videoPlayerRootId])
 
   return {

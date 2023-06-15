@@ -13,6 +13,7 @@ import Footer from '@components/layouts/footer/Footer'
 import ToTop from '@components/layouts/to-top/ToTop'
 import { useHomePageData } from '@store/context/homepage-context'
 import { IHomePageContentV1 } from '@data/types'
+import SectionHoneycombLoader from '@components/layouts/loaders/SectionHoneycombLoader'
 
 /// Local components
 
@@ -43,6 +44,8 @@ const HomePageRootIndex = () => {
     <>
       {/* HomePage Navigation */}
       <MainTopNav displayMode={MenuMode.NORMAL} navLinks={navData} />
+
+      <SectionHoneycombLoader />
 
       {/* Page Hero Section */}
       <HomePageHero />

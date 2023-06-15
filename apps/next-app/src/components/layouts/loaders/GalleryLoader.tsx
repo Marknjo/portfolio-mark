@@ -1,5 +1,5 @@
 import { Box, SystemStyleObject, keyframes } from '@chakra-ui/react'
-import LoaderWrapper from './LoaderWrapper'
+import WithPortal from './wrappers/WithPortal'
 
 const loaderSlideAnimation = keyframes`
   0% , 100% {
@@ -67,8 +67,8 @@ const galleryLoaderStyles: SystemStyleObject = {
 
 export default function GalleryLoader() {
   return (
-    <LoaderWrapper>
+    <WithPortal>
       <Box sx={galleryLoaderStyles} />
-    </LoaderWrapper>
+    </WithPortal>
   )
 }

@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Portal,
   SystemStyleObject,
   chakra,
   shouldForwardProp,
@@ -33,32 +32,30 @@ const LoaderWrapperBox = chakra(motion.div, {
   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
-export default function LoaderWrapper({ children }: { children: ReactNode }) {
+export default function WithoutPortal({ children }: { children: ReactNode }) {
   return (
-    <Portal appendToParentPortal>
-      <LoaderWrapperBox
-        initial={{
-          scale: 0,
-          opacity: 0,
+    <LoaderWrapperBox
+      initial={{
+        scale: 0,
+        opacity: 0,
+      }}
+      animate={{
+        scale: 1,
+        opacity: 1,
+      }}
+      exit={{
+        scale: 0,
+        opacity: 0,
+      }}
+    >
+      <Box
+        sx={{
+          bgColor: 'whiteAlpha.700',
+          ...commonStyles,
         }}
-        animate={{
-          scale: 1,
-          opacity: 1,
-        }}
-        exit={{
-          scale: 0,
-          opacity: 0,
-        }}
-      >
-        <Box
-          sx={{
-            bgColor: 'whiteAlpha.700',
-            ...commonStyles,
-          }}
-        />
+      />
 
-        <Flex sx={loaderContentStyles}>{children}</Flex>
-      </LoaderWrapperBox>
-    </Portal>
+      <Flex sx={loaderContentStyles}>{children}</Flex>
+    </LoaderWrapperBox>
   )
 }
