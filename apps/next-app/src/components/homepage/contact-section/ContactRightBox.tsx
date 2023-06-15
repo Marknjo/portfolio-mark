@@ -310,7 +310,7 @@ const ContactRightBox = () => {
             )}
           </SolidBtn>
 
-          <CvDownloadBtn outlinePrevBtn outlineDownloadBtn />
+          <CvDownloadBtn outlineDownloadBtn hasPrevBtn={false} />
         </Flex>
       </VStack>
     </GridItem>
