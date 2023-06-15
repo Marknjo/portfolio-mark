@@ -156,7 +156,7 @@ class Email {
 
     const pathToTemplate = path.join(
       rootDir,
-      'server-lib/views/templates/',
+      '/views/templates/',
       `${template}.pug`,
     )
 
