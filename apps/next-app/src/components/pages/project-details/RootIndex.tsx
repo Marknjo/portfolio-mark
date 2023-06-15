@@ -10,7 +10,7 @@ import ToTop from '@components/layouts/to-top/ToTop'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { IProjectDetailsContentV1 } from '@data/types'
 
-import HeroSection from '@components/project-details/hero-section/HeroSection'
+import HeroSection from '@components/pages/project-details/hero-section/HeroSection'
 import SectionHoneycombLoader from '@components/layouts/loaders/SectionHoneycombLoader'
 /// lazy load these
 // import TheChallengeSection from '@components/project-details/the-challenge-section/TheChallengeSection'
@@ -21,17 +21,20 @@ import SectionHoneycombLoader from '@components/layouts/loaders/SectionHoneycomb
 const TheChallengeSection = lazy(
   () =>
     import(
-      '@components/project-details/the-challenge-section/TheChallengeSection'
+      '@components/pages/project-details/the-challenge-section/TheChallengeSection'
     ),
 )
 const ProjectDetailsCTA = lazy(
-  () => import('@components/project-details/cta-section/ProjectDetailCTA'),
+  () =>
+    import('@components/pages/project-details/cta-section/ProjectDetailCTA'),
 )
 const GallerySection = lazy(
-  () => import('@components/project-details/gallery-section/GallerySection'),
+  () =>
+    import('@components/pages/project-details/gallery-section/GallerySection'),
 )
 const SummarySection = lazy(
-  () => import('@components/project-details/summary-section/SummarySection'),
+  () =>
+    import('@components/pages/project-details/summary-section/SummarySection'),
 )
 
 const DetailsPageRootIndex = () => {

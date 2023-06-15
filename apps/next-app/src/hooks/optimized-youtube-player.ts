@@ -106,8 +106,6 @@ export function useOptimizedYoutubePlayer(
     }
 
     if (iframeEl?.nodeName === 'DIV') {
-      console.log(iframeEl?.nodeName)
-
       /// initialize youtube loader
       lazyLoadYouTubePlayer()
     }

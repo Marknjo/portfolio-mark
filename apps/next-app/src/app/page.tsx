@@ -1,6 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
-import HomePage from '@components/homepage'
+import HomePage from '@components/pages/homepage'
 import { getPageTemplateContent } from '@data/utils/pagesData'
 import {
   EPagesTemplateTypes,

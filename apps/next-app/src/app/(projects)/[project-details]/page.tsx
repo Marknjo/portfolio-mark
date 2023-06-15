@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Metadata, ResolvingMetadata } from 'next'
 import { Metadata } from 'next'
-import DetailsPage from '@components/project-details'
+import DetailsPage from '@components/pages/project-details'
 import {
   EPagesTemplateTypes,
   IProjectDetailsContentV1,
