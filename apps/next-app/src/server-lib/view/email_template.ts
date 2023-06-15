@@ -7,14 +7,12 @@ import {
   twitterImgData,
 } from './images'
 
+/// Image urls
 const isProd =
   env.NODE_ENV === 'production' &&
   (!!env.NEXT_PUBLIC_VERCEL_URL || !!env.VERCEL_URL || !!env.APP_DOMAIN)
 
 const url = env.APP_DOMAIN || env.VERCEL_URL || env.NEXT_PUBLIC_VERCEL_URL
-
-// eslint-disable-next-line no-console
-console.log({ url })
 
 /// construct image urls
 const introUrl = isProd
@@ -28,6 +26,7 @@ const twitterImg = isProd
   ? `https://${url}/images/email/image-1.png`
   : twitterImgData
 
+/// @TODO: implement multiple email template
 const emailHTMLTemplate = `
 <!DOCTYPE HTML
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

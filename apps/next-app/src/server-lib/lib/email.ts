@@ -24,11 +24,11 @@
 // import path from 'path'
 import { env } from 'process'
 import { createTransport } from 'nodemailer'
-// import { LocalsObject, renderFile } from 'pug'
+
 import htmlToText, { HtmlToTextOptions } from 'html-to-text'
+
 import Mail from 'nodemailer/lib/mailer'
 import { htmlTemplateLoader } from '@server/view/email_template'
-// import rootDir from 'src/lib/rootDir'
 
 interface IEmailOptions {
   url?: string
@@ -68,9 +68,6 @@ class Email {
 
     // Initialize to
     this.to = this.setToRecipient(!!isContact, options)
-
-    // eslint-disable-next-line no-console
-    console.log({ isContact, to: this.to })
 
     // initialize user name
     this.recipientName = options.recipient
@@ -153,21 +150,12 @@ class Email {
    * @param subject Default email subject
    * @param template Template name for pug html
    */
-  async send(subject: string, template: string) {
+  async send(subject: string) {
     const transport = this.buildTransport()
 
     if (!transport) return
 
-    // const pathToTemplate = path.resolve('views/templates/', `${template}.pug`)
-    // eslint-disable-next-line no-console
-    console.log({ template })
-
-    // const html = renderFile(pathToTemplate, {
-    //   name: this.recipientName ? this.recipientName : '',
-    //   email: this.to ? this.to : '',
-    //   ...(this.url ? { url: this.url } : {}),
-    //   ...(this.message ? { message: this.message } : {}),
-    // } as LocalsObject)
+    /// load local email template from a file
     const html = htmlTemplateLoader(
       this.recipientName as string,
       this.to as string,
@@ -199,7 +187,7 @@ class Email {
       ? (this.subject as string)
       : 'Welcome to Mark Njoroge family 🤗🤗🤗'
 
-    await this.send(setSubject, 'welcomeEmail')
+    await this.send(setSubject)
     return this
   }
 
@@ -213,7 +201,7 @@ class Email {
       ? (this.subject as string)
       : `📝📝📝 ${this.recipientName} please confirm your account!`
 
-    await this.send(setSubject, 'confirmAccountEmail')
+    await this.send(setSubject)
     return this
   }
 
@@ -227,7 +215,7 @@ class Email {
       ? (this.subject as string)
       : 'Account Password Reset Request (⏰ expires in 10 minutes)'
 
-    await this.send(setSubject, 'confirmAccount')
+    await this.send(setSubject)
     return this
   }
 
@@ -241,14 +229,14 @@ class Email {
       ? (this.subject as string)
       : '😊😊😊 We are so thrilled you have confirmed your account'
 
-    await this.send(setSubject, 'accountConfirmed')
+    await this.send(setSubject)
     return this
   }
 
   async contactMe(topic: string) {
     const setSubject = `New Message from ${this.recipientName} about (${topic})`
 
-    await this.send(setSubject, 'contactUsTemplate')
+    await this.send(setSubject)
     return this
   }
 }

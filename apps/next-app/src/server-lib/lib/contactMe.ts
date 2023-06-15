@@ -18,7 +18,7 @@ export async function contactMe(contactData: FormData) {
     ) as unknown as IContactFormData
     /// sanitize data
     /// if form is invalid send invalid response
-    /// Naive validation @TODO: Implement full validation
+    /// Naive validation @TODO: Implement full validation and filtering incoming messages with Akismet
     if (!fullName.trim() || !email.trim() || !message.trim() || !topic) {
       throw new Error('You name/email/message/topic cannot be empty')
     }
