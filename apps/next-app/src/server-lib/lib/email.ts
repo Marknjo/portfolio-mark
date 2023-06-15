@@ -21,12 +21,13 @@
  *
  * -> sendPasswordReset
  */
-import path from 'path'
+// import path from 'path'
 import { env } from 'process'
 import { createTransport } from 'nodemailer'
-import { LocalsObject, renderFile } from 'pug'
+// import { LocalsObject, renderFile } from 'pug'
 import htmlToText, { HtmlToTextOptions } from 'html-to-text'
 import Mail from 'nodemailer/lib/mailer'
+import { htmlTemplateLoader } from '@server/view/email_template'
 // import rootDir from 'src/lib/rootDir'
 
 interface IEmailOptions {
@@ -154,17 +155,21 @@ class Email {
 
     if (!transport) return
 
-    const pathToTemplate = path.resolve('views/templates/', `${template}.pug`)
-
+    // const pathToTemplate = path.resolve('views/templates/', `${template}.pug`)
     // eslint-disable-next-line no-console
-    console.log({ pathToTemplate }, 'Another')
+    console.log({ template })
 
-    const html = renderFile(pathToTemplate, {
-      name: this.recipientName ? this.recipientName : '',
-      email: this.to ? this.to : '',
-      ...(this.url ? { url: this.url } : {}),
-      ...(this.message ? { message: this.message } : {}),
-    } as LocalsObject)
+    // const html = renderFile(pathToTemplate, {
+    //   name: this.recipientName ? this.recipientName : '',
+    //   email: this.to ? this.to : '',
+    //   ...(this.url ? { url: this.url } : {}),
+    //   ...(this.message ? { message: this.message } : {}),
+    // } as LocalsObject)
+    const html = htmlTemplateLoader(
+      this.recipientName as string,
+      this.to as string,
+      this.message as string,
+    )
 
     // Prep Options
     const mailOptions = {
