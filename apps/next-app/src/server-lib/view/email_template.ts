@@ -1,9 +1,30 @@
+import { env } from 'process'
+
 import {
   introTextData,
   linkedInImageData,
   logoImgData,
   twitterImgData,
 } from './images'
+
+const isProd = env.NODE_ENV === 'production' && !!env.NEXT_PUBLIC_VERCEL_URL
+
+// eslint-disable-next-line no-console
+console.log({ url: env.NEXT_PUBLIC_VERCEL_URL })
+
+/// construct image urls
+const introUrl = isProd
+  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-6.png`
+  : introTextData
+const linkedInImage = isProd
+  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-2.png`
+  : linkedInImageData
+const logoImg = isProd
+  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-4.png`
+  : logoImgData
+const twitterImg = isProd
+  ? `https://${env.NEXT_PUBLIC_VERCEL_URL}/images/email/image-1.png`
+  : twitterImgData
 
 const emailHTMLTemplate = `
 <!DOCTYPE HTML
@@ -165,7 +186,7 @@ const emailHTMLTemplate = `
                                   <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
 
-                                    <img align="center" border="0" src="${logoImgData}" alt="Logo Image"
+                                    <img align="center" border="0" src="${logoImg}" alt="Logo Image"
                                       title="Image"
                                       style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 15%;max-width: 87px;"
                                       width="87" />
@@ -220,7 +241,7 @@ const emailHTMLTemplate = `
                                   <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
 
-                                    <img align="center" border="0" src="${introTextData}" alt="Image intro"
+                                    <img align="center" border="0" src="${introUrl}" alt="Image intro"
                                       title="Image"
                                       style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 10%;max-width: 58px;"
                                       width="58" />
@@ -415,7 +436,7 @@ const emailHTMLTemplate = `
                                           style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
                                           <a href=" " title="Twitter" target="_blank">
 
-                                            <img src="${twitterImgData}" alt="Twitter" title="Twitter" width="32"
+                                            <img src="${twitterImg}" alt="Twitter" title="Twitter" width="32"
                                               style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                           </a>
                                         </td>
@@ -432,7 +453,7 @@ const emailHTMLTemplate = `
                                         <td align="left" valign="middle"
                                           style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
                                           <a href=" " title="LinkedIn" target="_blank">
-                                            <img src="${linkedInImageData}" alt="LinkedIn" title="LinkedIn"
+                                            <img src="${linkedInImage}" alt="LinkedIn" title="LinkedIn"
                                               width="32"
                                               style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                           </a>

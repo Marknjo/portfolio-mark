@@ -69,6 +69,9 @@ class Email {
     // Initialize to
     this.to = this.setToRecipient(!!isContact, options)
 
+    // eslint-disable-next-line no-console
+    console.log({ isContact, to: this.to })
+
     // initialize user name
     this.recipientName = options.recipient
       ? options.recipient.name.split(' ').at(0)!
@@ -85,7 +88,7 @@ class Email {
   }
 
   private setToRecipient(isContact: boolean, options: IEmailOptions) {
-    if (isContact) env.APP_USER_EMAIL!
+    if (isContact) return env.APP_USER_EMAIL!
     return options.recipient ? options.recipient.email : false
   }
 
