@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 
 // eslint-disable-next-line import/no-unresolved
 import { chakra, shouldForwardProp } from '@chakra-ui/react'
@@ -18,11 +18,17 @@ import SectionHoneycombLoader from '@components/layouts/loaders/SectionHoneycomb
 /// Local components
 
 import HomePageHero from './hero/HomePageHero'
-import AboutSection from './about/AboutSection'
-import ProjectsSection from './projects/ProjectsSection'
-import FavProjectSection from './fav-project/FavProjectSection'
-import SkillsSection from './skills-section/SkillsSection'
-import ContactSection from './contact-section/ContactSection'
+// import AboutSection from './about/AboutSection'
+// import ProjectsSection from './projects/ProjectsSection'
+// import FavProjectSection from './fav-project/FavProjectSection'
+// import SkillsSection from './skills-section/SkillsSection'
+// import ContactSection from './contact-section/ContactSection'
+
+const AboutSection = lazy(() => import('./about/AboutSection'))
+const ProjectsSection = lazy(() => import('./projects/ProjectsSection'))
+const FavProjectSection = lazy(() => import('./fav-project/FavProjectSection'))
+const SkillsSection = lazy(() => import('./skills-section/SkillsSection'))
+const ContactSection = lazy(() => import('./contact-section/ContactSection'))
 
 const AnimationMain = chakra(motion.main, {
   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
@@ -45,8 +51,6 @@ const HomePageRootIndex = () => {
       {/* HomePage Navigation */}
       <MainTopNav displayMode={MenuMode.NORMAL} navLinks={navData} />
 
-      <SectionHoneycombLoader />
-
       {/* Page Hero Section */}
       <HomePageHero />
 
@@ -59,19 +63,39 @@ const HomePageRootIndex = () => {
         overflow="hidden"
       >
         {/* About Section */}
-        {aboutSecIsShown && <AboutSection />}
+        {aboutSecIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <AboutSection />
+          </Suspense>
+        )}
 
         {/* Projects Section */}
-        {projectsSecIsShown && <ProjectsSection />}
+        {projectsSecIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <ProjectsSection />
+          </Suspense>
+        )}
 
         {/* Favorite Project Section */}
-        {favSecIsShown && <FavProjectSection />}
+        {favSecIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <FavProjectSection />
+          </Suspense>
+        )}
 
         {/* Skills Section */}
-        {skillsSecIsShown && <SkillsSection />}
+        {skillsSecIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <SkillsSection />
+          </Suspense>
+        )}
 
         {/* Contact Section */}
-        {contactSecIsShown && <ContactSection />}
+        {contactSecIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <ContactSection />
+          </Suspense>
+        )}
 
         {/* Page CTA */}
         <CtaSection />

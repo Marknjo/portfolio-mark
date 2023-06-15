@@ -40,6 +40,7 @@ const SkillsSection = () => {
   return (
     <SectionBox
       id="skills-section"
+      position="relative"
       variants={sectionsReveal}
       initial="offscreen"
       whileInView="onscreen"

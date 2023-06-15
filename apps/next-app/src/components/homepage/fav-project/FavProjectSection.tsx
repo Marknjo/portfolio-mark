@@ -21,6 +21,7 @@ const FavProjectSection = () => (
     initial="offscreen"
     whileInView="onscreen"
     viewport={{ once: true }}
+    position="relative"
   >
     <SliderProvider>
       <FavProjectRoot />

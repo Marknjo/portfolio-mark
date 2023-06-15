@@ -55,6 +55,7 @@ const ContactSection = () => {
       id="contact-section"
       variants={sectionsReveal}
       initial="offscreen"
+      position="relative"
       whileInView="onscreen"
       viewport={{ once: true }}
     >
