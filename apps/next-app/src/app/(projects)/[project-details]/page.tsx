@@ -72,6 +72,7 @@ async function getData<T extends TPageTemplateContent>(slug: string) {
 
   /// get related projects
   const relatedProjects = findRelatedProjects(
+    slug,
     pageProject.isPicked,
     pageProject.category,
   )

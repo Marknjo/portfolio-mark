@@ -16,9 +16,13 @@ export const findPickedProjects = (
   filterCriteria?: (data: IProject) => boolean,
   maxPick: number = 3,
 ): Array<TPickedProjectsCard> => {
-  let foundPickedProjects = projectsData.filter(
-    project => filterCriteria || (project.isPicked && !project.isFavorite),
-  )
+  let foundPickedProjects = projectsData.filter(project => {
+    if (filterCriteria) {
+      return filterCriteria(project)
+    }
+
+    return project.isPicked && !project.isFavorite
+  })
 
   if (foundPickedProjects.length > maxPick) {
     foundPickedProjects = foundPickedProjects.slice(0, maxPick)
@@ -45,6 +49,7 @@ export function getProjectBySlug(slug: string): IProject | undefined {
 }
 
 export function findRelatedProjects(
+  pageSlug: string,
   isPicked: boolean | undefined,
   category: IProjectsCategory,
   maxPick: number = 3,
@@ -52,7 +57,8 @@ export function findRelatedProjects(
   let filterCriteria: undefined | ((data: IProject) => boolean)
 
   if (isPicked) {
-    filterCriteria = undefined
+    filterCriteria = projectData =>
+      projectData.slug !== pageSlug && !!projectData.isPicked
   } else {
     filterCriteria = (projectData: IProject) =>
       projectData.category.name === category.name

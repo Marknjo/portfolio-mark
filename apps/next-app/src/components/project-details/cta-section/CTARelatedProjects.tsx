@@ -7,10 +7,8 @@ import { TPickedProjectsCard } from '@data/types'
 
 const CTARelatedProjects = () => {
   const {
-    data: { relatedProjects, projectData },
+    data: { relatedProjects },
   } = useDetailsPageData()
-
-  const { title } = projectData!
 
   const projectRelated = relatedProjects as Array<TPickedProjectsCard>
 
@@ -30,15 +28,13 @@ const CTARelatedProjects = () => {
 
       <GridItem sx={mainStyles}>
         <HStack sx={cardsWrapperStyles}>
-          {projectRelated
-            .filter(project => project.title !== title)
-            .map(projectCardInfo => (
-              <ProjectCard
-                key={projectCardInfo.title}
-                {...projectCardInfo}
-                as={NextLink}
-              />
-            ))}
+          {projectRelated.map(projectCardInfo => (
+            <ProjectCard
+              key={projectCardInfo.title}
+              {...projectCardInfo}
+              as={NextLink}
+            />
+          ))}
         </HStack>
       </GridItem>
     </>
