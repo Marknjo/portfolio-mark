@@ -1,14 +1,26 @@
-import { AspectRatio, GridItem } from '@chakra-ui/react'
+import { useRef } from 'react'
+
+import { AspectRatio, Box, GridItem } from '@chakra-ui/react'
 import { IHomePageContentV1 } from '@data/types'
+import { useOptimizedYoutubePlayer } from '@hooks/optimized-youtube-player'
 import { useHomePageData } from '@store/context/homepage-context'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 /// @TODO: Implement splash image
 const AboutVideo = () => {
+  const playerImgLoaderRef = useRef<HTMLImageElement>(null)
+
   const {
     content: {
-      about: { videoLink },
+      about: { videoLink, videoSplashImg },
     },
   } = useHomePageData<IHomePageContentV1>()
+  const { isLoadingPlayer } = useOptimizedYoutubePlayer(
+    playerImgLoaderRef,
+    videoLink,
+    'about-video',
+  )
 
   return (
     <GridItem
@@ -38,13 +50,35 @@ const AboutVideo = () => {
         shadow="lg"
         mx={{ base: 'auto', md: 0 }}
       >
-        <iframe
-          src={videoLink}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
+        <>
+          {isLoadingPlayer && (
+            <Box
+              as={motion.div}
+              exit={{ opacity: 0, transition: { duration: 0.4 } }}
+            >
+              <Image
+                src={videoSplashImg!}
+                datatype="SREpK81HHJQ"
+                alt="YouTube player splash image"
+                fill
+                sizes="50vw"
+                ref={playerImgLoaderRef}
+                quality={50}
+                style={{ filter: 'blur(5px)' }}
+                blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
+                placeholder="blur"
+                loading="lazy"
+              />
+            </Box>
+          )}
+
+          <Box
+            as={motion.div}
+            id="about-video"
+            {...(isLoadingPlayer ? { display: 'none' } : {})}
+            exit={{ opacity: 0, transition: { duration: 0.8 } }}
+          />
+        </>
       </AspectRatio>
     </GridItem>
   )
