@@ -1,24 +1,38 @@
 'use client'
 
 import { Box, useBreakpoint } from '@chakra-ui/react'
+import { Suspense, lazy, useEffect } from 'react'
 
 import Footer from '@components/layouts/footer/Footer'
 import MainTopNav, { MenuMode } from '@components/layouts/navigation/MainTopNav'
 import ToTop from '@components/layouts/to-top/ToTop'
-import TheChallengeSection from '@components/project-details/the-challenge-section/TheChallengeSection'
-import ProjectDetailsCTA from '@components/project-details/cta-section/ProjectDetailCTA'
-import GallerySection from '@components/project-details/gallery-section/GallerySection'
-import SummarySection from '@components/project-details/summary-section/SummarySection'
-import HeroSection from '@components/project-details/hero-section/HeroSection'
 
-import { useEffect } from 'react'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { IProjectDetailsContentV1 } from '@data/types'
 
-// @TODO: Implement the details page context to share page data
-// interface DetailsPageProps {
-//   pageDetails?: any
-// }
+import HeroSection from '@components/project-details/hero-section/HeroSection'
+import SectionHoneycombLoader from '@components/layouts/loaders/SectionHoneycombLoader'
+/// lazy load these
+// import TheChallengeSection from '@components/project-details/the-challenge-section/TheChallengeSection'
+// import ProjectDetailsCTA from '@components/project-details/cta-section/ProjectDetailCTA'
+// import GallerySection from '@components/project-details/gallery-section/GallerySection'
+// import SummarySection from '@components/project-details/summary-section/SummarySection'
+
+const TheChallengeSection = lazy(
+  () =>
+    import(
+      '@components/project-details/the-challenge-section/TheChallengeSection'
+    ),
+)
+const ProjectDetailsCTA = lazy(
+  () => import('@components/project-details/cta-section/ProjectDetailCTA'),
+)
+const GallerySection = lazy(
+  () => import('@components/project-details/gallery-section/GallerySection'),
+)
+const SummarySection = lazy(
+  () => import('@components/project-details/summary-section/SummarySection'),
+)
 
 const DetailsPageRootIndex = () => {
   const {
@@ -54,19 +68,39 @@ const DetailsPageRootIndex = () => {
       {/* Main Content */}
       <Box as="main" backgroundColor="orange.50">
         {/* Page Hero Section */}
-        {heroIsShown && <HeroSection />}
+        {heroIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <HeroSection />
+          </Suspense>
+        )}
 
         {/* The Challenge Section */}
-        {theChallengeIsShown && <TheChallengeSection />}
+        {theChallengeIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <TheChallengeSection />
+          </Suspense>
+        )}
 
         {/* The Gallery Section */}
-        {galleryIsShown && <GallerySection />}
+        {galleryIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <GallerySection />
+          </Suspense>
+        )}
 
         {/* Project Summary Section */}
-        {summaryIsShown && <SummarySection />}
+        {summaryIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <SummarySection />
+          </Suspense>
+        )}
 
         {/* Project Links & related projects & Page CTA */}
-        {ctaIsShown && <ProjectDetailsCTA />}
+        {ctaIsShown && (
+          <Suspense fallback={<SectionHoneycombLoader />}>
+            <ProjectDetailsCTA />
+          </Suspense>
+        )}
       </Box>
 
       {/* Footer */}

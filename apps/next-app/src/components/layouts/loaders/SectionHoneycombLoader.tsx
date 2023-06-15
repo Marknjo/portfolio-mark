@@ -1,10 +1,13 @@
+import { Box } from '@chakra-ui/react'
 import HoneycombLoader from './HoneycombLoader'
 import WithoutPortal from './wrappers/WithoutPortal'
 
 export default function SectionHoneycombLoader() {
   return (
-    <WithoutPortal>
-      <HoneycombLoader />
-    </WithoutPortal>
+    <Box position="relative">
+      <WithoutPortal>
+        <HoneycombLoader />
+      </WithoutPortal>
+    </Box>
   )
 }
