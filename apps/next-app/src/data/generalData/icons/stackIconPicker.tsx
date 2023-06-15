@@ -38,6 +38,7 @@ import { IconChakra } from './tech-stacks-icons/IconChakra'
 import { IconRemix } from './tech-stacks-icons/IconRemix'
 import { IconVite } from './tech-stacks-icons/IconVite'
 import { IconTS } from './tech-stacks-icons/IconTS'
+import { IconREST } from './tech-stacks-icons/IconREST'
 
 export function stackIconPicker(stackName: EStackFullNames) {
   switch (stackName) {
@@ -130,6 +131,9 @@ export function stackIconPicker(stackName: EStackFullNames) {
 
     case EStackFullNames.REMIX:
       return IconRemix
+
+    case EStackFullNames.REST:
+      return IconREST
 
     case EStackFullNames.SOLID_JS:
       return IconSolidJs
