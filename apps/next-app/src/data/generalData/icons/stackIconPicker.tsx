@@ -37,6 +37,7 @@ import { IconDefault } from './tech-stacks-icons/IconDefault'
 import { IconChakra } from './tech-stacks-icons/IconChakra'
 import { IconRemix } from './tech-stacks-icons/IconRemix'
 import { IconVite } from './tech-stacks-icons/IconVite'
+import { IconTS } from './tech-stacks-icons/IconTS'
 
 export function stackIconPicker(stackName: EStackFullNames) {
   switch (stackName) {
@@ -135,6 +136,9 @@ export function stackIconPicker(stackName: EStackFullNames) {
 
     case EStackFullNames.TAILWIND:
       return IconTailwind
+
+    case EStackFullNames.TYPESCRIPT:
+      return IconTS
 
     case EStackFullNames.VITE:
       return IconVite
