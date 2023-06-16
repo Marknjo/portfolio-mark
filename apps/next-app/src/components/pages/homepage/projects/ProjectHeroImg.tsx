@@ -16,8 +16,8 @@ const ProjectHeroImg = () => {
 
   const columnBreakpoint = {
     base: 'content-start/content-end',
-    sm: 'col-start 2/span 10',
-    lg: 'col-start 2/span 8',
+    md: 'col-start 1/span 11',
+    lg: 'col-start 2/span 9',
   }
 
   return (

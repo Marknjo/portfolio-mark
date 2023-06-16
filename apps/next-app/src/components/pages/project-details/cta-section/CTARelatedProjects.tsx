@@ -49,7 +49,11 @@ const useStyles = (): {
 } => ({
   mainStyles: {
     gridRow: 'r3-start/r3-end',
-    gridColumn: 'col-start 2/col-end 11',
+    gridColumn: {
+      base: 'col-start 1/col-end 12',
+      sm: '1/-1',
+      md: 'col-start 2/col-end 11',
+    },
     position: 'relative',
     zIndex: '3',
     pb: sizes.lg,
@@ -57,11 +61,12 @@ const useStyles = (): {
   },
 
   cardsWrapperStyles: {
-    justifyContent: { base: 'center' },
+    justifyContent: { base: 'center', sm: 'space-around' },
     columnGap: { base: '4', md: '6' },
     rowGap: { base: '6', md: '8' },
     zIndex: '4',
     position: 'relative',
     flexWrap: { base: 'wrap', lg: 'no-wrap' },
+    mx: { sm: '5', md: 'auto' },
   },
 })

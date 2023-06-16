@@ -49,7 +49,7 @@ const titleVariant = (
   }
 
   const bgVal = isFromRight ? xValue : -xValue
-  const textVal = isFromRight ? xValue + 30 : -(xValue + 30)
+  const textVal = isFromRight ? xValue : -(xValue + 30)
 
   const xVl = isBg ? bgVal : textVal
 

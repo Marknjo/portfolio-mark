@@ -104,7 +104,18 @@ export const ProjectCard = ({
       whileHover="gesture"
       viewport={{ once: true }}
     >
-      <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
+      <GridItem
+        minW={{
+          base: '282px',
+          sm: '42vw',
+          md: '232px',
+          lg: '256px',
+          xl: '320px',
+        }}
+        gridColumn="1/-1"
+        gridRow="r1-start/r4-end"
+        shadow="lg"
+      >
         <Image
           src={`/images/${fileName}.jpg`}
           alt={alt || 'Project card Image'}

@@ -5,7 +5,7 @@ import { useHomePageData } from '@store/context/homepage-context'
 
 const columnBreakpoint = {
   base: 'col-start 2/col-end 11',
-  md: 'col-start 2/col-end 12',
+  md: 'col-start 1/col-end 12',
   lg: 'col-start 3/col-end 11',
 }
 
@@ -28,6 +28,11 @@ const ProjectCards = () => {
       <HStack
         columnGap={{ md: '2', lg: '4' }}
         rowGap={{ base: '6' }}
+        justifyContent={{
+          base: 'center',
+          md: 'space-between',
+          lg: 'flex-start',
+        }}
         alignItems={{ base: 'center', md: 'flex-start' }}
         flexDirection={{ base: 'column', md: 'inherit' }}
         px={{ md: '4', lg: 0 }}
