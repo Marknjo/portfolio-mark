@@ -10,17 +10,20 @@ export const headerText = `
 
 export const aboutText = `
   My Short Story
-  Hey, as I noted earlier, I am all JavaScript
 
-  But once upon a time, I tried my luck with PHP, Did not find it all-round like JavaScript. That's in the past, Though.
+  Hey, as I noted earlier, I am all JavaScript.
 
-  Like I don't code in PHP anymore, I am an Operations Manager by paper. That means I have a background in business management.
+  I've played with programming languages like Python, C#, GO, & PHP, but I could not resist JavaScript's charms. Nevertheless, I've learned a lot by experimenting with them.
 
-  Overtime, I found my professional a little lackluster and financial undependable. I wanted to switch to a high value skill field. A field I cannot retire from, it pays the bills, and I still find it fun no matter how head-aching it is. So, since 2021, I have been all hands on deck.
+  By profession, I'm a graduate of Operations Management. That means I have what it takes to make any business a success.
 
-  And that's why you are now looking at my dev portfolio. Did you think I made the right decision?
+  However, over time, I felt my mind belonged somewhere else. In my early days as a Business student, I was fond of sneaking into computer science lectures. Along the way, I picked HTML, CSS, UI/UX design, and eventually, when the time was right, I leaped. Since 2019, I have been all hands on deck. 
 
-  HI would love to hear your thoughts.
+  And that's why you are now looking at my dev portfolio. So far, I feel proud I switched my career.
+
+  Did you think I made the right decision?
+
+  I would love to hear your thoughts.
 `
 
 export const summaryText = `
