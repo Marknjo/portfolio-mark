@@ -1,10 +1,9 @@
 import {
   As,
-  GridItem,
   GridItemProps,
   Heading,
-  StyleProps,
   SystemStyleObject,
+  useBreakpoint,
 } from '@chakra-ui/react'
 import React, { ReactNode, useCallback } from 'react'
 
@@ -27,7 +26,7 @@ const BgBox = chakra(motion.div, {
   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
-const xValue = 200
+const xValue = 300
 const titleVariant = (isFromRight: boolean, isBg: boolean): Variants => {
   const bgTransition = {
     type: 'tween',
@@ -78,6 +77,10 @@ export const SectionTitle = React.memo(
     headingOverrides?: SystemStyleObject
     layerStyle?: string
   }) => {
+    const brkP = useBreakpoint()
+
+    const isAnimationHidden = brkP === 'sm' || brkP === 'base'
+
     const headingDefaults: SystemStyleObject = {
       textAlign: isRightAligned ? 'right' : 'left',
       color: 'orange.50',
@@ -85,24 +88,28 @@ export const SectionTitle = React.memo(
       ...headingOverrides,
     }
 
+    const animateTitle = useCallback(
+      (isBg: boolean) => ({
+        variants: titleVariant(isRightAligned, isBg),
+        initial: 'offscreen',
+        whileInView: 'onscreen',
+        viewport: { amount: 0.1 },
+      }),
+      [isRightAligned],
+    )
+
     return (
       <>
         <BgBox
-          {...bgGridSetting}
           layerStyle={layerStyle}
-          variants={titleVariant(isRightAligned, true)}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ amount: 0.1 }}
+          {...bgGridSetting}
+          {...(isAnimationHidden ? {} : animateTitle(true))}
         >
           {' '}
         </BgBox>
         <BgBox
           {...headingGridSetting}
-          variants={titleVariant(isRightAligned, false)}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ amount: 0.1 }}
+          {...(isAnimationHidden ? {} : animateTitle(false))}
         >
           <Heading as={type} sx={headingDefaults} textStyle="sec-title">
             {children}
