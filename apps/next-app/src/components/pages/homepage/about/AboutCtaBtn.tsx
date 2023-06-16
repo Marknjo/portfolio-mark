@@ -50,6 +50,7 @@ const useStyles = (brand: string): IStyles => {
     mainWrapper: {
       gap: '5',
       flexWrap: 'wrap',
+      justifyContent: { base: 'center', lg: 'flex-start' },
     },
     contactBtn: {
       borderColor: `${brand}.300`,

@@ -4,7 +4,13 @@ import { HiExternalLink } from 'react-icons/hi'
 
 import { useAppSettings } from '@store/context/app-settings-context'
 import { SolidBtn } from 'ui'
-import { Box, Flex, SystemStyleObject, Tooltip } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  SystemStyleObject,
+  Tooltip,
+  useBreakpoint,
+} from '@chakra-ui/react'
 
 export default function CvDownloadBtn({
   outlineDownloadBtn = false,
@@ -105,7 +111,11 @@ interface IStyles {
 }
 
 const useStyles = (brand: string): IStyles => {
+  const brkP = useBreakpoint()
   const sharedBtnStyles: SystemStyleObject = { border: '1px solid' }
+
+  const borderLeftColor =
+    brkP === 'base' || brkP === 'sm' ? 'transparent' : `${brand}.200`
 
   return {
     full: {
@@ -124,7 +134,7 @@ const useStyles = (brand: string): IStyles => {
       alignItems: 'center',
       paddingLeft: '5',
       borderLeft: '2px solid',
-      borderLeftColor: `${brand}.200`,
+      borderLeftColor,
     },
   }
 }

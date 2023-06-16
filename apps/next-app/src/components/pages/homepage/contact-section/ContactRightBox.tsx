@@ -282,6 +282,8 @@ const ContactRightBox = () => {
           sx={{
             gap: '5',
             flexWrap: 'wrap',
+            justifyContent: { base: 'space-between', md: 'flex-start' },
+            width: '100%',
           }}
         >
           <SolidBtn
