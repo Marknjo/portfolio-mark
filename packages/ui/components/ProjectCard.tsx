@@ -103,15 +103,10 @@ export const ProjectCard = ({
       whileInView="onscreen"
       whileHover="gesture"
       viewport={{ once: true }}
+      width="100%"
     >
       <GridItem
-        minW={{
-          base: '282px',
-          sm: '42vw',
-          md: '232px',
-          lg: '256px',
-          xl: '320px',
-        }}
+        width="100%"
         gridColumn="1/-1"
         gridRow="r1-start/r4-end"
         shadow="lg"
