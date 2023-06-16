@@ -117,7 +117,7 @@ export const CardDetailsGallery = ({
   }
 
   return (
-    <GridItem as="article" role="group" sx={cardStyles}>
+    <GridItem minW="100%" as="article" role="group" sx={cardStyles}>
       <Image
         src={`/images/${imgName}.jpg`}
         alt={alt}

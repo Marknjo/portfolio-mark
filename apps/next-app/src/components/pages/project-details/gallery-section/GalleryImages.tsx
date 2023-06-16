@@ -16,7 +16,7 @@ const GalleryImages = () => {
   return (
     <Grid sx={mainStyles}>
       {/* Main Image */}
-      <GridItem>
+      <GridItem sx={{ width: '100%' }}>
         <CardDetailsGallery
           alt={`${sliderItems.at(0)?.alt}`}
           imgName={`${sliderItems.at(0)?.fileName}`}
@@ -62,8 +62,8 @@ const useStyles = (): {
       zIndex: '2',
       ...(brkP === 'base' ? { justifyItems: 'center' } : {}),
       gridTemplateColumns: {
-        base: 'repeat(auto-fit, minmax(1fr, 1fr))',
-        md: 'repeat(auto-fit, minmax(calc(48em/2), 1fr))',
+        base: 'repeat(auto-fit, 1fr)',
+        sm: 'repeat(auto-fit, minmax(calc(48em/2), 1fr))',
       },
       gridTemplateRows: `[r1-start] 1fr [r1-end]`,
       gap: { base: '6', md: '4' },
@@ -71,13 +71,16 @@ const useStyles = (): {
 
     leftImagesStyles: {
       gridTemplateColumns: {
-        base: 'repeat(auto-fit, minmax(160px, 1fr))',
+        base: 'repeat(auto-fit, 45%)',
         sm: 'repeat(auto-fit, minmax(80px, 1fr))',
         md: 'repeat(auto-fit, minmax(150px, 1fr))',
         lg: 'repeat(auto-fit, minmax(200px, 1fr))',
         xl: 'repeat(auto-fit, minmax(256px, 1fr))',
       },
       gap: { base: '6', md: '4' },
+      width: { base: '100%', sm: 'auto' },
+      justifyContent: 'space-between',
+      alignContent: { base: 'space-between', sm: 'inherit' },
     },
   }
 }
