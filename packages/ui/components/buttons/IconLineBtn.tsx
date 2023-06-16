@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   Box,
   Button,
@@ -152,6 +151,7 @@ export function IconLineBtn({
     },
   }
 
+  // eslint-disable-next-line react/prop-types
   const { size } = props as ButtonProps
 
   return (

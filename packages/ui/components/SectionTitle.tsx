@@ -1,14 +1,17 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable import/no-extraneous-dependencies */
+import { ReactNode, memo } from 'react'
 import {
   As,
   GridItemProps,
   Heading,
   SystemStyleObject,
   useBreakpoint,
+  chakra,
+  shouldForwardProp,
 } from '@chakra-ui/react'
-import React, { ReactNode, useCallback } from 'react'
 
 import { Variants, isValidMotionProp, motion } from 'framer-motion'
-import { chakra, shouldForwardProp } from '@chakra-ui/react'
 
 export enum BgVariant {
   Orange600to50 = 'orange600to50',
@@ -26,25 +29,33 @@ const BgBox = chakra(motion.div, {
   shouldForwardProp: prop => isValidMotionProp(prop) || shouldForwardProp(prop),
 })
 
-const xValue = 300
-const titleVariant = (isFromRight: boolean, isBg: boolean): Variants => {
+// const xValue = 250
+const titleVariant = (
+  isFromRight: boolean,
+  isBg: boolean,
+  xValue: number,
+): Variants => {
   const bgTransition = {
     type: 'tween',
     ease: 'easeOut',
     duration: 0.4,
-    delay: 0.2,
   }
 
   const textTransition = {
-    delay: 0.5,
+    delay: 0.2,
     type: 'spring',
     bounce: 0.4,
     duration: 0.3,
   }
 
+  const bgVal = isFromRight ? xValue : -xValue
+  const textVal = isFromRight ? xValue + 30 : -(xValue + 30)
+
+  const xVl = isBg ? bgVal : textVal
+
   return {
     offscreen: {
-      x: isFromRight ? xValue : -xValue,
+      x: xVl,
       originX: isFromRight ? 1 : 0,
       scaleX: 0.4,
     },
@@ -59,7 +70,7 @@ const titleVariant = (isFromRight: boolean, isBg: boolean): Variants => {
 /**
  * Must be a grid to avoid negative margins
  */
-export const SectionTitle = React.memo(
+export const SectionTitle = memo(
   ({
     children,
     headingGridSetting,
@@ -78,6 +89,10 @@ export const SectionTitle = React.memo(
     layerStyle?: string
   }) => {
     const brkP = useBreakpoint()
+    const animationXValue = {
+      md: 250,
+      lg: 380,
+    }
 
     const isAnimationHidden = brkP === 'sm' || brkP === 'base'
 
@@ -88,15 +103,19 @@ export const SectionTitle = React.memo(
       ...headingOverrides,
     }
 
-    const animateTitle = useCallback(
-      (isBg: boolean) => ({
-        variants: titleVariant(isRightAligned, isBg),
-        initial: 'offscreen',
-        whileInView: 'onscreen',
-        viewport: { amount: 0.1 },
-      }),
-      [isRightAligned],
-    )
+    const xValue =
+      brkP === 'md'
+        ? animationXValue.md
+        : !isAnimationHidden && brkP !== 'md'
+        ? animationXValue.lg
+        : 150
+
+    const animateTitle = (isBg: boolean) => ({
+      variants: titleVariant(isRightAligned, isBg, xValue),
+      initial: 'offscreen',
+      whileInView: 'onscreen',
+      viewport: { amount: 0.1 },
+    })
 
     return (
       <>

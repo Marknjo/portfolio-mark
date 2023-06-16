@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { StackingWrapperMode } from '../types/tech-stacks-types'
 import { HStack, StackProps, VStack } from '@chakra-ui/react'
+import { StackingWrapperMode } from '../types/tech-stacks-types'
 
 export const StackingWrapper = ({
   mode,
@@ -10,10 +10,9 @@ export const StackingWrapper = ({
   mode?: StackingWrapperMode
   children: ReactNode
   stackProps?: StackProps
-}) => {
-  return mode === StackingWrapperMode.H ? (
+}) =>
+  mode === StackingWrapperMode.H ? (
     <HStack {...stackProps}>{children}</HStack>
   ) : (
     <VStack {...stackProps}>{children}</VStack>
   )
-}

@@ -58,8 +58,7 @@ export const customGradientWithImg = (
   variant: GradientVariants,
   url?: string,
   deg: number = 221.67,
-) => {
-  return `linear-gradient(${defaultGradients(variant, deg)}), ${
+) =>
+  `linear-gradient(${defaultGradients(variant, deg)}), ${
     url && `url(images/${url})`
   }`
-}

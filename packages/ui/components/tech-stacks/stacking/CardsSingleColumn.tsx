@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { useId } from 'react'
 import { SystemStyleObject, VStack } from '@chakra-ui/react'
 import {
@@ -8,9 +9,7 @@ import {
 import { TechStack } from './TechStack'
 
 const alignCardItem = (flexAlignPosition: AlignPosition): SystemStyleObject => {
-  let alignItemsStyles: SystemStyleObject = {
-    alignItems: 'flex-start',
-  }
+  let alignItemsStyles: SystemStyleObject = {}
 
   switch (flexAlignPosition) {
     case AlignPosition.CENTER:
@@ -26,6 +25,11 @@ const alignCardItem = (flexAlignPosition: AlignPosition): SystemStyleObject => {
       }
 
       break
+
+    default:
+      alignItemsStyles = {
+        alignItems: 'flex-start',
+      }
   }
 
   return alignItemsStyles

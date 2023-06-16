@@ -4,6 +4,7 @@ import {
   StackCategory,
   TitleStyles,
 } from '../types/tech-stacks-types'
+// eslint-disable-next-line import/no-cycle
 import { TechStack } from './TechStack'
 
 export function CardsTwoColumns<T extends { [key: string]: any }>({

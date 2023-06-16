@@ -8,7 +8,6 @@ import {
 export function TechStacksCard<T extends { [key: string]: any }>({
   stacks,
   isCustom = false,
-  showBadge = false,
   hasDivider = true,
   titlePosition = AlignPosition.LEFT,
   titleStyle = TitleStyles.SM_BADGE,
@@ -16,7 +15,6 @@ export function TechStacksCard<T extends { [key: string]: any }>({
   iconPicker,
 }: {
   stacks: T
-  showBadge?: boolean
   titlePosition?: AlignPosition
   titleStyle?: TitleStyles
   wrapperAlign?: AlignPosition

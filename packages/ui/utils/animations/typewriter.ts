@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-plusplus */
 import { RefObject } from 'react'
 
 interface ITypewriterConfig {

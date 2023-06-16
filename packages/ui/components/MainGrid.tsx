@@ -58,8 +58,8 @@ repeat(12, [col-start]minmax(20px, calc((${breakPoint} - (${innerGap}*11 + ${out
 
 const flexGrids = {
   base: templateColumns(breakingPoints.base, outerGaps.base, innerGaps.base), // 0-480px
-  //sm: templateColumns(breakingPoints.base, outerGaps.base, innerGaps.base), // 480px
-  //md: templateColumns(breakingPoints.md, outerGaps.md, innerGaps.md), // 768px
+  // sm: templateColumns(breakingPoints.base, outerGaps.base, innerGaps.base), // 480px
+  // md: templateColumns(breakingPoints.md, outerGaps.md, innerGaps.md), // 768px
   // lg: templateColumns(breakingPoints.lg, outerGaps.lg, innerGaps.lg), // 992px
   // xl: templateColumns(breakingPoints.xl, outerGaps.xl, innerGaps.xl), // 1280px
   sm: templateColumns(breakingPoints.lg, outerGaps.lg, innerGaps.lg), // 992px
@@ -76,16 +76,14 @@ const flexGaps = {
   sm: innerGaps.base,
 }
 
-export const MainGrid = ({ children, options = {}, as, id }: GenericProps) => {
-  return (
-    <Grid
-      {...(id ? { id } : {})}
-      templateColumns={flexGrids}
-      columnGap={flexGaps}
-      {...(as ? { as: as } : {})}
-      {...options}
-    >
-      {children}
-    </Grid>
-  )
-}
+export const MainGrid = ({ children, options = {}, as, id }: GenericProps) => (
+  <Grid
+    {...(id ? { id } : {})}
+    templateColumns={flexGrids}
+    columnGap={flexGaps}
+    {...(as ? { as } : {})}
+    {...options}
+  >
+    {children}
+  </Grid>
+)

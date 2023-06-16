@@ -11,10 +11,10 @@ import {
   WrapItem,
 } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/next-js'
+import { Variants, motion } from 'framer-motion'
 
 import { LinkIcon } from './LinkIcon'
 import { SolidBtn } from './buttons/SolidBtn'
-import { Variants, motion } from 'framer-motion'
 
 const cardAnimationVariant: Variants = {
   offscreen: {
@@ -89,7 +89,7 @@ export const ProjectCard = ({
   const wrapperStyles: SystemStyleObject = {
     gridTemplateColumns: gridColumnsBreakpoint,
     gridTemplateRows: gridRowsBreakpoint,
-    maxW: maxW,
+    maxW,
     minW: '56',
     ...wrapperSx,
   }
@@ -107,7 +107,7 @@ export const ProjectCard = ({
       <GridItem gridColumn="1/-1" gridRow="r1-start/r4-end" shadow="lg">
         <Image
           src={`/images/${fileName}.jpg`}
-          alt={alt ? alt : 'Project card Image'}
+          alt={alt || 'Project card Image'}
           sx={{
             borderRadius: 'md',
             border: '2px solid',

@@ -1,6 +1,7 @@
-import { SystemStyleObject } from '@chakra-ui/react'
-import { TechCard } from '../card/TechCard'
 import { useId } from 'react'
+import { SystemStyleObject } from '@chakra-ui/react'
+// eslint-disable-next-line import/no-cycle
+import { TechCard } from '../card/TechCard'
 
 export function StacksCard<T extends { [key: string]: any }>({
   stacks,

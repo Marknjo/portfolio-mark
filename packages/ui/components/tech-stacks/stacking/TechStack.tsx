@@ -1,23 +1,20 @@
 import { StackProps, SystemStyleObject } from '@chakra-ui/react'
 import {
   AlignPosition,
-  IStack,
   StackCategory,
   StackingWrapperMode,
   TitleStyles,
 } from '../types/tech-stacks-types'
 import { StackingWrapper } from './StackingWrapper'
 import { SubHeading } from '../../SubHeading'
+// eslint-disable-next-line import/no-cycle
 import { StacksCard } from './StackCard'
 
 const titleStyleOverrides = (
   titleStyleType: TitleStyles,
   titlePosition: AlignPosition,
 ) => {
-  let titlePositionStyles: SystemStyleObject = {
-    alignSelf: 'flex-start',
-    textAlign: 'left',
-  }
+  let titlePositionStyles: SystemStyleObject = {}
 
   switch (titlePosition) {
     case AlignPosition.CENTER:
@@ -36,6 +33,12 @@ const titleStyleOverrides = (
       }
 
       break
+
+    default:
+      titlePositionStyles = {
+        alignSelf: 'flex-start',
+        textAlign: 'left',
+      }
   }
 
   let styles: SystemStyleObject = {

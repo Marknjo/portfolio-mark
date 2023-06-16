@@ -1,6 +1,4 @@
 import { SystemStyleObject } from '@chakra-ui/react'
-import { ReactNode } from 'react'
-import { FiDribbble } from 'react-icons/fi'
 
 /**
  * A helper function that helps pick different Tech Skill icons

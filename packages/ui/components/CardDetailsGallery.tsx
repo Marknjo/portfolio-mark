@@ -1,6 +1,6 @@
+import { useCallback } from 'react'
 import { Image } from '@chakra-ui/next-js'
 import { Box, GridItem, Icon, SystemStyleObject } from '@chakra-ui/react'
-import { useCallback } from 'react'
 import { BsPlusLg } from 'react-icons/bs'
 
 export interface ICardDetailsGallery {
@@ -142,6 +142,7 @@ export const CardDetailsGallery = ({
           sx={iconStyles}
           onClick={() => {
             openGallery()
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             onExpandClick && largeImg
               ? onExpandClick(`./images/${largeImg}.jpg`)
               : () => {}

@@ -55,7 +55,7 @@ export function SolidBtn({
       {...(href ? { href } : {})}
       {...(target ? { target } : {})}
     >
-      {children ? children : text}
+      {children || text}
     </Button>
   )
 }
@@ -83,8 +83,8 @@ const useStyles = (
 
   ///
   let colorConfig: { tColor: TColor; rColor: TColor; tHover: TColor } = {
-    tColor: `${btnTheme ? btnTheme : 'orange'}.900`,
-    rColor: `${btnTheme ? btnTheme : 'orange'}.400`,
+    tColor: `${btnTheme || 'orange'}.900`,
+    rColor: `${btnTheme || 'orange'}.400`,
     tHover: 'white',
   }
 

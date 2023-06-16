@@ -1,4 +1,5 @@
 import { GridItem, SystemStyleObject } from '@chakra-ui/react'
+
 export const SectionSeparator = ({
   sxOverrides = {},
 }: {

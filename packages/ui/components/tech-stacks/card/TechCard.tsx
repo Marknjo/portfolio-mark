@@ -1,7 +1,8 @@
-import { As, Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
-import { CardLink, StackThemes, iconPicker, CardBadge } from '..'
+/* eslint-disable no-param-reassign */
+/* eslint-disable import/no-cycle */
+import { Grid, GridItem, SystemStyleObject } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { ReactNode } from 'react'
+import { CardLink, StackThemes, iconPicker, CardBadge } from '..'
 
 export interface ISkillsCardProps<T extends object> {
   skill: T
@@ -74,8 +75,8 @@ const themeHover = (theme: StackThemes) => {
   }
 }
 
-const theme = (theme: StackThemes) => {
-  switch (theme) {
+const theme = (themeName: StackThemes) => {
+  switch (themeName) {
     case StackThemes.PASSIVE:
       return passiveTheme
 

@@ -160,15 +160,14 @@ export function TextContentGenerator({
                 {...listOptions}
               />
             )
-          } else {
-            return (
-              <ParagraphGenerator
-                key={textKey as unknown as string}
-                content={textMap.get(textKey)!}
-                {...paraOptions}
-              />
-            )
           }
+          return (
+            <ParagraphGenerator
+              key={textKey as unknown as string}
+              content={textMap.get(textKey)!}
+              {...paraOptions}
+            />
+          )
         })}
       </>
     )
