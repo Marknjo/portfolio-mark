@@ -101,15 +101,21 @@ export const GalleryImageCard = ({
   }
 
   return (
-    <GridItem justifySelf="center" as="article" role="group" sx={cardStyles}>
+    <GridItem
+      width="100%"
+      justifySelf="center"
+      as="article"
+      role="group"
+      sx={cardStyles}
+    >
       <Image
         src={`/images/${imgName}.jpg`}
         alt={alt}
         sx={{ objectFit: 'cover', width: '100%', height: 'auto' }}
         blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8v4GhHgAGlQIwzd3mYAAAAABJRU5ErkJggg=="'
-        quality={75}
-        width={955}
-        height={585}
+        quality={90}
+        width={350}
+        height={234}
         loading="lazy"
         placeholder="blur"
       />

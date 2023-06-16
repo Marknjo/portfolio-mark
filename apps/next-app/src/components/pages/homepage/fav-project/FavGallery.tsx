@@ -16,7 +16,10 @@ const FavGallery = () => {
   } = useSlider<IGallery>()
 
   const gridColumnDef = {
-    base: 'repeat(auto-fit, minmax(18rem, 1fr))',
+    base: 'repeat(auto-fit, minmax(16em, 1fr))',
+    sm: 'repeat(auto-fit, minmax(12em, 1fr))',
+    md: 'repeat(auto-fit, minmax(14em, 1fr))',
+    lg: 'repeat(auto-fit, minmax(18em, 1fr))',
   }
 
   const rowBreakpoint = {
