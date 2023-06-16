@@ -1,5 +1,4 @@
 import {
-  Box,
   Flex,
   SystemStyleObject,
   chakra,
@@ -7,6 +6,7 @@ import {
 } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 import { isValidMotionProp, motion } from 'framer-motion'
+import { BgWithICons } from 'ui'
 
 const commonStyles: SystemStyleObject = {
   position: 'fixed',
@@ -48,10 +48,10 @@ export default function WithoutPortal({ children }: { children: ReactNode }) {
         opacity: 0,
       }}
     >
-      <Box
+      <BgWithICons
         sx={{
-          bgColor: 'whiteAlpha.700',
           ...commonStyles,
+          opacity: 0.6,
         }}
       />
 
