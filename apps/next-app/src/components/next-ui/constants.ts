@@ -28,7 +28,7 @@ export const sizes = {
 
 export const fontSizes = {
   lg: ['4xl', '5xl', '6xl', '7xl'],
-  md: { base: 'xl', md: '2xl', xl: '3xl' },
+  md: { base: '2xl', xl: '3xl' },
 }
 
 export const subHeadingsBr = {
@@ -66,7 +66,7 @@ export const largeBorderBrP = {
 
 export const overlays: { default: SystemStyleObject } = {
   default: {
-    backdropFilter: 'blur(8px)',
-    bgColor: 'blackAlpha.400',
+    backdropFilter: 'blur(5px)',
+    bgColor: 'blackAlpha.200',
   },
 }

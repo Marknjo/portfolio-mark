@@ -27,6 +27,7 @@ const navElStyles = (showHamburger: boolean) => {
   const navStylesWithHamburger: SystemStyleObject = {
     gridColumn: 'content-start/content-end',
     gridRow: 'nav-start/nav-end',
+    mt: '6',
   }
   const navStyles: SystemStyleObject = {
     gridColumn: 'col-start 5/content-end',
@@ -87,21 +88,31 @@ const MainTopNav = ({
 
   /// monitor screen sizes to enable hamburger menu
   useEffect(() => {
-    const isSmallScreen =
-      breakPoint === 'md' || breakPoint === 'sm' || breakPoint === 'base'
+    const isSmallScreen = breakPoint === 'base' || breakPoint === 'sm'
 
-    if (isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
+    function menuAsHamburger() {
       setIsHamburgerMode(MenuMode.HAMBURGER)
       setHideHamburger(false)
       setShowHamburger(true)
     }
 
-    if (!isSmallScreen && displayMode !== MenuMode.HAMBURGER) {
-      setIsHamburgerMode(displayMode)
+    /// ensure screen sizes below sm menu is displayed as Hamburger
+    if (isSmallScreen && isHamburgerMode !== MenuMode.HAMBURGER) {
+      menuAsHamburger()
+    }
+
+    /// For normal menus, this toggles hamburger mode on screen sizes above sm
+    if (!isSmallScreen && isHamburgerMode === MenuMode.HAMBURGER) {
+      setIsHamburgerMode(MenuMode.NORMAL)
       setHideHamburger(true)
       setShowHamburger(false)
     }
-  }, [breakPoint, displayMode])
+
+    /// ensures if a menu is hamburger it stays hamburger across all screen sizes
+    if (!isSmallScreen && displayMode === MenuMode.HAMBURGER) {
+      menuAsHamburger()
+    }
+  }, [breakPoint, isHamburgerMode, displayMode])
 
   const handleToggleHamburger = (isToggled: boolean) => {
     setShowHamburger(isToggled)
@@ -123,7 +134,6 @@ const MainTopNav = ({
     >
       {/* Logo */}
       <LogoText asHamburger={showHamburger} />
-
       {/* Nav Hamburger */}
       {isHamburgerMode === MenuMode.HAMBURGER && (
         <Hamburger
@@ -131,7 +141,6 @@ const MainTopNav = ({
           closeOverlay={hideHamburger}
         />
       )}
-
       {/* Nav  */}
       <GridItem
         as={motion.nav}

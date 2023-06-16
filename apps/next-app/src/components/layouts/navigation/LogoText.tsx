@@ -52,6 +52,7 @@ const LogoText = ({
     gridColumn: 'content-start/content-end',
     gridRow: 'icon-start/icon-end',
     alignSelf: 'center',
+    mt: { base: '16', md: 'auto' },
   }
   const logoTextStyles: SystemStyleObject = {
     gridColumn: { base: 'content-start/span 8', md: 'content-start/col-end 4' },

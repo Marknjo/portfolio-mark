@@ -41,9 +41,10 @@ const NavLink = ({
   const linkWithHamburger: SystemStyleObject = {
     py: '3',
     justifyContent: 'center',
-    w: ['100vw', '20vw'],
+    w: { base: '90vw', sm: '60vw', md: '40vw', lg: '25vw' },
     borderBottom: '2px solid ',
     borderBottomColor: 'blackAlpha.100',
+    fontWeight: 'regular',
     _active: linkActive,
     _selected: linkActive,
     _hover: {
