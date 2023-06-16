@@ -80,7 +80,7 @@ const NavLink = ({
       <Link
         className="main__nav-link"
         href={newLink}
-        as={!linkHasHash ? NextLink : undefined}
+        {...(!linkHasHash ? { as: NextLink } : {})}
         sx={linkStyles}
         aria-selected={isSelected}
         onClick={event => {
