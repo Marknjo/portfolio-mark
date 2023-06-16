@@ -61,8 +61,8 @@ export function useOptimizedYoutubePlayer(
         playerVars: {
           autoplay: 0,
           modestbranding: 1,
+          origin: window.location.href,
         },
-        host: 'https://www.youtube.com',
       })
 
       await player.playVideo()
