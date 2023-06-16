@@ -8,13 +8,13 @@ const footerNavLinks: Array<INavLink> = [
   },
   {
     id: 'f2',
-    title: 'Terms Of Use',
+    title: 'Terms',
     link: '#',
     description: 'Coming Soon',
   },
   {
     id: 'f3',
-    title: 'Privacy Policy',
+    title: 'Privacy',
     link: '#',
     description: 'Coming Soon',
   },
