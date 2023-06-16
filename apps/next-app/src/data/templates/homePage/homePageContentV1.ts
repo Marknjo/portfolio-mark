@@ -54,7 +54,7 @@ export const homePageContentV1: IHomePageContentV1 = {
   },
   favProject: {
     isShown: true,
-    titleMain: 'I Build Expressive Websites, Awesome, And Catchy.',
+    titleMain: 'I build expressive web apps, catchy yet friendly',
     titleSub: "Here's A Quick Peak Of My Favorite Project",
     moreDetailsButtonText: 'Learn More',
     visitProjectButtonText: 'Visit Live Project',
