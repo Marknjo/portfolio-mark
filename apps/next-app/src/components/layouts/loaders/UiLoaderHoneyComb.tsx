@@ -3,7 +3,7 @@ import HoneycombLoader from './HoneycombLoader'
 import WithPortal from './wrappers/WithPortal'
 
 export default function UiLoaderHoneyComb() {
-  const isLoading = useIsLoading()
+  const { isLoading } = useIsLoading()
 
   return (
     <>

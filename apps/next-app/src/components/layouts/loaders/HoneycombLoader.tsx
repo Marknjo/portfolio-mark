@@ -1,9 +1,12 @@
 import { Box, SystemStyleObject, keyframes } from '@chakra-ui/react'
+import { useIsLoading } from '@hooks/is-loading'
+import { useLayoutEffect } from 'react'
 
 const honeyCombWrapperStyles: SystemStyleObject = {
   height: '24px',
   position: 'relative',
   width: '24px',
+  zIndex: 'tooltip',
 
   'div:nth-child(1)': {
     animationDelay: '0s',
@@ -94,8 +97,18 @@ const honeyBoxStyles: SystemStyleObject = {
 }
 
 export default function HoneycombLoader() {
+  const { isLoading } = useIsLoading()
+
+  useLayoutEffect(() => {
+    const wrapperElInDOM = document.getElementById('honeycomb-loader')
+
+    if (wrapperElInDOM && isLoading) {
+      wrapperElInDOM.style.display = 'none'
+    }
+  }, [isLoading])
+
   return (
-    <Box sx={honeyCombWrapperStyles}>
+    <Box sx={honeyCombWrapperStyles} id="honeycomb-loader">
       <Box sx={honeyBoxStyles} />
       <Box sx={honeyBoxStyles} />
       <Box sx={honeyBoxStyles} />

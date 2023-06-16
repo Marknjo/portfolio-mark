@@ -35,7 +35,7 @@ const NavList = ({
   asHamburger: boolean
 }) => {
   const currentRoute = usePathname()
-  const isLoading = useIsLoading()
+  const { isLoading } = useIsLoading()
   const [selectedLinkEl, setSelectedLinkEl] = useState<string | null>(null)
 
   useSafeLayoutEffect(() => {

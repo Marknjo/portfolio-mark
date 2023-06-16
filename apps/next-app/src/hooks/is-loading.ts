@@ -15,5 +15,8 @@ export const useIsLoading = () => {
     }
   }, [])
 
-  return isLoading
+  return {
+    isLoading,
+    setIsLoading,
+  }
 }
