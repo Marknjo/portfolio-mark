@@ -46,6 +46,7 @@ export interface CardsInfoInterface {
   slug: string
   alt?: string
   fileName: string
+  liveLink: string
   as?: As
   tags: Array<ProjectTagsInterface>
   maxW?: string | { [key: string]: string }
@@ -55,6 +56,7 @@ export interface CardsInfoInterface {
 export const ProjectCard = ({
   alt,
   fileName,
+  liveLink,
   title,
   slug,
   tags,
@@ -105,6 +107,40 @@ export const ProjectCard = ({
       viewport={{ once: true }}
       width="100%"
     >
+      {liveLink === 'coming soon' && (
+        <GridItem
+          mx="3"
+          zIndex="1"
+          gridColumn="1 / span 4"
+          gridRow="1 / span 1"
+          transform="translateY(-40%)"
+        >
+          <Tooltip
+            color="orange.50"
+            bg="orange.400"
+            hasArrow
+            placement="top-start"
+            label={`${title} is still in development, hang on! ☺️`}
+          >
+            {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+            <Tag
+              cursor="help"
+              color="orange.50"
+              bgColor="orange.500"
+              size="sm"
+              fontSize="x-small"
+              fontWeight="medium"
+              textTransform="uppercase"
+              border="1px solid"
+              borderColor="orange.50"
+              boxShadow="base"
+            >
+              {liveLink}
+            </Tag>
+          </Tooltip>
+        </GridItem>
+      )}
+
       <GridItem
         width="100%"
         gridColumn="1/-1"
@@ -186,12 +222,15 @@ export const ProjectCard = ({
               ...(as ? { as } : {}),
               size: 'sm',
               rightIcon: <LinkIcon />,
+              isDisabled: liveLink === 'coming soon',
+              disabled: liveLink === 'coming soon',
             }}
-            href={`${slug}`}
+            href={liveLink === 'coming soon' ? '#' : slug}
             sx={{
               border: '1px solid',
               borderColor: 'orange.200',
               bgColor: 'orange.50',
+              cursor: liveLink === 'coming soon' ? 'not-allowed' : 'pointer',
             }}
           />
         </VStack>

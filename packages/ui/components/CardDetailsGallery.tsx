@@ -123,7 +123,6 @@ export const CardDetailsGallery = ({
         alt={alt}
         sx={{
           objectFit: 'cover',
-          maxW: '320px',
           width: '100%',
           height: 'auto',
         }}

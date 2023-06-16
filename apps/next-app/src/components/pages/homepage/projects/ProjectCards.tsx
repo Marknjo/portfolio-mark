@@ -10,8 +10,11 @@ const columnBreakpoint = {
 }
 
 const wrapperOverridesStyles: SystemStyleObject = {
-  maxW: 'auto',
+  maxW: '384px',
   minW: 'auto',
+  _notLast: {
+    mb: '4',
+  },
 }
 
 const ProjectCards = () => {
@@ -26,8 +29,8 @@ const ProjectCards = () => {
       px={{ base: '4' }}
     >
       <HStack
-        columnGap={{ md: '2', lg: '4' }}
-        rowGap={{ base: '6' }}
+        columnGap={{ base: '6', md: '2', lg: '4' }}
+        rowGap="6"
         justifyContent={{
           base: 'center',
           md: 'space-between',

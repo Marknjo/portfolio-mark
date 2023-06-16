@@ -34,6 +34,7 @@ export const findPickedProjects = (
       title: project.title,
       slug: project.slug,
       tags: project.tags,
+      liveLink: project.liveLink,
       ...(imagePicker(
         project.cardImgId as string,
         true,
@@ -45,7 +46,13 @@ export const findPickedProjects = (
 }
 
 export function getProjectBySlug(slug: string): IProject | undefined {
-  return mappedProjectsBySlug[slug]
+  const foundProject = mappedProjectsBySlug[slug]
+
+  if (foundProject.liveLink === 'coming soon' && slug !== 'luku-fiti') {
+    return undefined
+  }
+
+  return foundProject
 }
 
 export function findRelatedProjects(

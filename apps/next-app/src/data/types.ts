@@ -287,7 +287,8 @@ export interface IStack {
 export type TCardSlimGalleryData = Pick<IGallery, 'fileName' | 'alt'>
 
 export type TPickedProjectsCard =
-  | Pick<IProject, 'id' | 'title' | 'slug' | 'tags'> & TCardSlimGalleryData
+  | Pick<IProject, 'id' | 'title' | 'slug' | 'tags' | 'liveLink'> &
+      TCardSlimGalleryData
 
 export type TProjectStackData =
   | Array<Pick<IStack, 'id'>>
