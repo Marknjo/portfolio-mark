@@ -12,8 +12,8 @@ export const sizes = {
   xl: ['8', '10', '12', '16'],
   'xl-sm': ['0', '10', '12', '16'],
   lg: ['6', '8', '10', '12'],
-  md: ['4', '6', '8'],
-  sm: ['3', '4', '6'],
+  md: ['5', '7', '8'],
+  sm: ['3', '4', '7'],
   xs: { sm: '2', lg: '4' },
   xl_TB: [`${24}px`, `${32}px`, `${40 + 48}px`, `${48 + 56}px`, `${64 + 58}px`], // suitable for hero section that neighbors TopNav but on small screen goes below another component
   xl_TT: [

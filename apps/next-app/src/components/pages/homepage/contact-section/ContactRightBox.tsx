@@ -184,10 +184,13 @@ const ContactRightBox = () => {
           justifyContent="space-around"
           width="100%"
           flexWrap={{ base: 'wrap', sm: 'nowrap' }}
-          rowGap={{ base: 0, md: '2' }}
+          rowGap={{ base: 'auto', md: '3' }}
+          columnGap={{ base: '3', md: 'auto' }}
         >
           <FormControl isRequired>
-            <FormLabel htmlFor="fullName">Full Name</FormLabel>
+            <FormLabel mb={{ base: 0, md: 'inherit' }} htmlFor="fullName">
+              Full Name
+            </FormLabel>
             <Input
               type="text"
               name="fullName"
@@ -203,7 +206,9 @@ const ContactRightBox = () => {
           </FormControl>
 
           <FormControl isRequired>
-            <FormLabel htmlFor="email">Email</FormLabel>
+            <FormLabel mb={{ base: 0, md: 'inherit' }} htmlFor="email">
+              Email
+            </FormLabel>
             <Input
               id="email"
               type="email"
@@ -267,7 +272,9 @@ const ContactRightBox = () => {
           </RadioGroup>
         </Box>
         <FormControl isRequired>
-          <FormLabel htmlFor="message">Your Message</FormLabel>
+          <FormLabel mb={{ base: 0, md: 'inherit' }} htmlFor="message">
+            Your Message
+          </FormLabel>
           <Textarea
             id="message"
             name="message"
