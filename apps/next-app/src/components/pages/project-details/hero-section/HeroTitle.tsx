@@ -1,3 +1,4 @@
+import { fontSizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { LargeTitle } from 'ui'
 
@@ -23,6 +24,7 @@ const HeroTitle = () => {
         pb: { base: '12', lg: '28' },
         pt: '0',
         zIndex: 3,
+        fontSize: fontSizes.lg,
       }}
       isCapitalized
       hasTypewriter

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import React, { useEffect, useMemo, useRef } from 'react'
 import {
   As,
@@ -106,7 +107,7 @@ export const LargeTitle = ({
         startTypingAfter: 500,
         typingSpeed: 200,
       })
-  }, [hasTypewriter, typewriter, title])
+  }, [hasTypewriter, title])
 
   return (
     <Heading as={as} {...options} sx={titleConfig} textStyle={hLg}>
@@ -115,6 +116,8 @@ export const LargeTitle = ({
           as="span"
           sx={{
             ...subTitleConfig,
+            fontSize: titleConfig.fontSize,
+            color: titleConfig.color,
           }}
           textStyle={lg.replace('-light', '')}
           layerStyle={lg}
