@@ -122,7 +122,6 @@ export const projectsData: Array<IProject> = [
     category: projectCategories[2],
     liveLink: 'coming soon',
     isPicked: true,
-    isFavorite: true,
 
     /// Text content
     excerpt: lukuFiti.excerpt,
@@ -214,10 +213,11 @@ export const projectsData: Array<IProject> = [
   {
     id: 'p5',
     // slug: 'mark-njoroge-profile',
-    slug: 'project-details',
-    title: 'Dev Profile',
+    slug: 'demo-projects-page',
+    title: 'Mark Njoroge Profile',
     category: projectCategories[5],
     liveLink: 'coming soon',
+    isFavorite: true,
 
     /// Text content
     excerpt: markProfile.excerpt,
@@ -243,6 +243,10 @@ export const projectsData: Array<IProject> = [
       text: markProfile.lessonsText as [[[key: string], string]],
       type: 'mixed',
     },
+    favGalleryText: {
+      text: markProfile.favGalleryText as [[[key: string], string]],
+      type: 'mixed',
+    },
 
     /// Images
     cardImgId: 'g2',
@@ -255,5 +259,6 @@ export const projectsData: Array<IProject> = [
     tags: projectStacks.markProfile.tags,
     stacks: projectStacks.markProfile.allStacks,
     gallery: galleryImgs.markProfile,
+    favGallery: favProject,
   },
 ]

@@ -14,6 +14,35 @@ const lessonsListText = `
     Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
   `
 
+const favGalleryParaText1 = `
+  This section represents my project, which aims to deliver a modern and expressive web application with a wealth of frontend and backend development concepts. 
+
+  Here are some key highlights:
+`
+const favGalleryListText = `
+  The project is built using Next.js, allowing seamless integration of the frontend and backend, eliminating the need for separate API calls.
+
+  By leveraging Turborepo, I have created a monorepo structure, providing ample room for future expansion.
+
+  I have implemented a decoupled data and UI approach, facilitating easy addition of new features and gradual migration to a database in the future.
+
+  To enhance the user interface, I have used Chakra UI, a React-based UI framework. It eases the UI design process as it comes with built-in components and tools for theming and making responsive design hustles. 
+
+  The contact form enables convenient email notifications when users leave messages.
+
+  Each project has its own landing page, showcasing its unique story.
+`
+
+const favGalleryParaText2 = `
+  Full disclosure: All my showcased projects are available on GitHub, some being redesigned while others are built from scratch. Please disregard any "coming soon" tags until they are removed.
+
+  Through this project, I aim to express my passion for web application development. I have meticulously handcrafted every aspect, infusing it with my personality. 
+  
+  I invite you to explore this project, hoping it inspires you, captures your interest, or even leads to potential job opportunities.
+
+  I value your feedback and thoughts. Feel free to leave me a message, and I'll be delighted to respond.
+`
+
 /// 1. Hiking Project
 export const afriHickr = {
   excerpt:
@@ -253,6 +282,11 @@ export const markProfile = {
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
   `,
+  favGalleryText: [
+    ['para-1', favGalleryParaText1],
+    ['list-1', favGalleryListText],
+    ['para-2', favGalleryParaText2],
+  ],
   lessonsText: [
     ['para-1', lessonsParaText],
     ['list-1', lessonsListText],

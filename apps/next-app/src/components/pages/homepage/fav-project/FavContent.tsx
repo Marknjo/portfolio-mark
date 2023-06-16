@@ -47,7 +47,11 @@ const FavContent = () => {
         </VStack>
 
         <SolidBtn
-          text={moreDetailsButtonText}
+          text={
+            link.includes('demo')
+              ? "Visit A Demo Project's Page"
+              : moreDetailsButtonText
+          }
           props={{
             as: NextLink,
             rightIcon: <LinkIconRight />,

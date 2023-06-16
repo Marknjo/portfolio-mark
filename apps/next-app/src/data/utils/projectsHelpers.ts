@@ -48,7 +48,10 @@ export const findPickedProjects = (
 export function getProjectBySlug(slug: string): IProject | undefined {
   const foundProject = mappedProjectsBySlug[slug]
 
-  if (foundProject.liveLink === 'coming soon' && slug !== 'luku-fiti') {
+  if (
+    foundProject.liveLink === 'coming soon' &&
+    slug !== 'demo-projects-page'
+  ) {
     return undefined
   }
 
