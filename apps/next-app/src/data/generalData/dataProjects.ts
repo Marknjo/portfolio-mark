@@ -218,6 +218,7 @@ export const projectsData: Array<IProject> = [
     category: projectCategories[5],
     liveLink: 'coming soon',
     isFavorite: true,
+    isPicked: true,
 
     /// Text content
     excerpt: markProfile.excerpt,

@@ -182,14 +182,15 @@ export const ProjectCard = ({
             <Heading
               as="h3"
               color="orange.800"
-              fontSize={{ base: 'xl', md: '2xl' }}
+              fontSize="2xl"
+              mb="1"
               textAlign="center"
               lineHeight="none"
             >
               {title}
             </Heading>
 
-            <Wrap justify="space-evenly">
+            <Wrap justify="space-evenly" mb={{ base: '2', md: '1' }}>
               {tags.map(tag => (
                 <Tooltip
                   hasArrow

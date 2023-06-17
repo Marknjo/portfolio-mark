@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
+import { Box, GridItem, HStack, SystemStyleObject } from '@chakra-ui/react'
 import { DotsBottomRight, ProjectCard } from 'ui'
 import { sizes } from '@components/next-ui'
 import { useDetailsPageData } from '@store/context/details-page-context'
@@ -29,11 +29,23 @@ const CTARelatedProjects = () => {
       <GridItem sx={mainStyles}>
         <HStack sx={cardsWrapperStyles}>
           {projectRelated.map(projectCardInfo => (
-            <ProjectCard
+            <Box
               key={projectCardInfo.title}
-              {...projectCardInfo}
-              as={NextLink}
-            />
+              _notLast={{ mb: '2' }}
+              minW={{ base: '320px', lg: '260px', xl: '320px' }}
+            >
+              <ProjectCard
+                key={projectCardInfo.title}
+                {...projectCardInfo}
+                as={NextLink}
+                wrapperSx={{ minW: '100%' }}
+              />
+            </Box>
+            // <ProjectCard
+            //   key={projectCardInfo.title}
+            //   {...projectCardInfo}
+            //   as={NextLink}
+            // />
           ))}
         </HStack>
       </GridItem>
@@ -68,5 +80,8 @@ const useStyles = (): {
     position: 'relative',
     flexWrap: { base: 'wrap', lg: 'no-wrap' },
     mx: { sm: '5', md: 'auto' },
+    _notLast: {
+      mb: '4',
+    },
   },
 })
