@@ -86,8 +86,8 @@ export const CardDetailsGallery = ({
     borderRadius: 'md',
     overflow: 'clip',
     boxShadow: 'md',
-    border: '1px solid',
-    borderColor: 'orange.50',
+    border: '2px solid',
+    borderColor: 'orange.100',
     transition: 'all .3s ease-in',
     zIndex: 4,
     _after: { afterContentStyles: cardOverlayStyles },
@@ -106,6 +106,7 @@ export const CardDetailsGallery = ({
     },
 
     opacity: '1',
+    userSelect: 'none',
   }
 
   const imageDetailsStyles: SystemStyleObject = {
@@ -114,10 +115,17 @@ export const CardDetailsGallery = ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    userSelect: 'none',
   }
 
   return (
-    <GridItem minW="100%" as="article" role="group" sx={cardStyles}>
+    <GridItem
+      minW="100%"
+      as="article"
+      role="group"
+      sx={cardStyles}
+      onDoubleClick={openGallery}
+    >
       <Image
         src={`/images/${imgName}.jpg`}
         alt={alt}
