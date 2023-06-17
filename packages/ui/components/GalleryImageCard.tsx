@@ -58,8 +58,8 @@ export const GalleryImageCard = ({
     overflow: 'clip',
     zIndex: 3,
     boxShadow: 'md',
-    border: '1px solid',
-    borderColor: 'orange.50',
+    border: '2px solid',
+    borderColor: 'orange.100',
     transition: 'all .3s ease',
     _hover: { transform: 'scale(1.02) translateY(-3px)' },
     cursor: 'pointer',
@@ -69,13 +69,13 @@ export const GalleryImageCard = ({
     position: 'absolute',
     top: 2,
     right: 2,
-    color: 'teal.100',
+    color: 'orange.100',
   }
 
   const iconStyles: SystemStyleObject = {
     transition: 'all 150ms ease-in',
     _hover: {
-      color: 'teal.50',
+      color: 'orange.50',
       transform: 'translateY(-3px)',
     },
   }
@@ -89,15 +89,17 @@ export const GalleryImageCard = ({
   }
 
   const headingStyles: SystemStyleObject = {
-    fontSize: 'lg',
+    fontSize: { base: 'regular', lg: 'lg' },
     fontWeight: 'bold',
-    color: 'teal.100',
+    color: 'orange.50',
+    textAlign: 'center',
     textShadow: 'base',
     mt: '8',
     backgroundColor: 'blackAlpha.200',
     py: '1',
     px: '3',
     cursor: 'default',
+    userSelect: 'none',
   }
 
   return (
@@ -107,6 +109,7 @@ export const GalleryImageCard = ({
       as="article"
       role="group"
       sx={cardStyles}
+      onDoubleClick={onClick}
     >
       <Image
         src={`/images/${imgName}.jpg`}
