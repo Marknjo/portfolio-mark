@@ -76,6 +76,7 @@ export const LargeTitle = ({
   isLighter = false,
   isCapitalized = false,
   hasTypewriter = false,
+  isLoading = true,
 }: {
   title: string
   subTitle?: string
@@ -88,6 +89,7 @@ export const LargeTitle = ({
   as?: As
   isLighter?: boolean
   hasTypewriter?: boolean
+  isLoading?: boolean
 }) => {
   const { sub, lg, hLg } = titleStyles(as, isLighter)
   const largeTitleRef = useRef<HTMLSpanElement>(null)
@@ -102,12 +104,13 @@ export const LargeTitle = ({
 
   useEffect(() => {
     hasTypewriter &&
+      !isLoading &&
       typewriter(largeTitleRef, [title], {
         loop: false,
         startTypingAfter: 500,
         typingSpeed: 200,
       })
-  }, [hasTypewriter, title])
+  }, [hasTypewriter, isLoading, title])
 
   return (
     <Heading as={as} {...options} sx={titleConfig} textStyle={hLg}>

@@ -16,12 +16,14 @@ import { TextContentGenerator, SolidBtn, typewriter } from 'ui'
 import { appIcons } from '@data/generalData/icons/dataAppIcons'
 import { IHomePageContentV1 } from '@data/types'
 import { motion } from 'framer-motion'
+import { useIsLoading } from '@hooks/is-loading'
 
 const HeroLeftGrid = () => {
   const salutationRef = useRef<HTMLSpanElement>(null)
   const firstNameRef = useRef<HTMLSpanElement>(null)
   const lastNameRef = useRef<HTMLSpanElement>(null)
   const subTitleRef = useRef<HTMLSpanElement>(null)
+  const { isLoading } = useIsLoading()
 
   const {
     content: {
@@ -48,12 +50,14 @@ const HeroLeftGrid = () => {
   const [firstName, lastName] = headerTitleSub.split(' ')
 
   useEffect(() => {
-    typewriter(
-      [salutationRef, subTitleRef, firstNameRef, lastNameRef],
-      [salutationText, headerTitleMain, firstName, lastName],
-      { loop: false, startTypingAfter: 500 },
-    )
-  }, [salutationText, headerTitleMain, firstName, lastName])
+    if (!isLoading) {
+      typewriter(
+        [salutationRef, subTitleRef, firstNameRef, lastNameRef],
+        [salutationText, headerTitleMain, firstName, lastName],
+        { loop: false, startTypingAfter: 500 },
+      )
+    }
+  }, [isLoading, salutationText, headerTitleMain, firstName, lastName])
 
   const brand = 'orange'
   const styles = useStyles(brand)

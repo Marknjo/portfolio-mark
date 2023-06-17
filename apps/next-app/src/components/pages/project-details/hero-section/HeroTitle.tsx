@@ -1,4 +1,5 @@
 import { fontSizes } from '@components/next-ui'
+import { useIsLoading } from '@hooks/is-loading'
 import { useDetailsPageData } from '@store/context/details-page-context'
 import { LargeTitle } from 'ui'
 
@@ -10,6 +11,8 @@ const HeroTitle = () => {
     title,
     category: { name },
   } = projectData!
+
+  const { isLoading } = useIsLoading()
 
   return (
     <LargeTitle
@@ -28,6 +31,7 @@ const HeroTitle = () => {
       }}
       isCapitalized
       hasTypewriter
+      isLoading={isLoading}
     />
   )
 }

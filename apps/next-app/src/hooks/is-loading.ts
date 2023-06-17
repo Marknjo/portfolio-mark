@@ -12,6 +12,12 @@ export const useIsLoading = () => {
     // Check if the page has already loaded
     if (document.readyState === 'complete') {
       onPageLoad()
+    } else {
+      document.addEventListener('load', onPageLoad)
+    }
+
+    return () => {
+      document.removeEventListener('load', onPageLoad)
     }
   }, [])
 
