@@ -57,7 +57,7 @@ const useStyles = (): {
     position: 'relative',
     zIndex: '3',
     pb: sizes.lg,
-    pt: { base: '0', lg: '4' },
+    pt: { base: '5', lg: '4' },
   },
 
   cardsWrapperStyles: {
