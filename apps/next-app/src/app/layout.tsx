@@ -12,19 +12,21 @@ export const metadata: Metadata = {
   viewport: 'width=device-width, initial-scale=1',
   keywords:
     'JavaScript, TypeScript, NodeJs, Express, NestJs, React, NextJs, Remix, HTML, CSS, TailwindCSS, ChakraUI, Figma, Vue, Nuxt, GraphQl, ApolloGQL, PostgreSQL, MongoDB, Docker, Vite, Docker Swarm, Vitest, Git/Github, MVC, REST API, Microservices, Github Action, CI/CD, Python, Django, React Native, Electron, C#, Golang',
-  applicationName: 'Mark Njoroge Profile',
+  applicationName: 'Mark Njoroge Portfolio',
   authors: [{ name: 'Mark Njoroge', url: 'https://nextjs.org' }], // @TODO: update this on purchase of a new domain,
   category: 'Science & Technology',
   classification: 'Programming',
+  description:
+    'Welcome to the digital playground of Mark Njoroge, a creative developer who builds web and mobile apps with JavaScript and its cutting-edge mobile, desktop, frontend, and backend tools.',
   twitter: {
     card: 'summary_large_image',
     site: '@marknjo',
     creator: '@marknjo',
     images: '/images/profile-image.jpg',
     creatorId: '@marknjo',
-    title: 'Mark Njoroge Profile',
+    title: 'Mark Njoroge Portfolio',
     description:
-      "This is Mark Njoroge's Profile Website to showcase his projects and share his thoughts in the space of technology, especially on JavaScript and it's ecosystem of Frontend and Backend tools",
+      'Welcome to the digital playground of Mark Njoroge, a creative developer who builds web and mobile apps with JavaScript and its cutting-edge mobile, desktop, frontend, and backend tools.',
   },
 }
 
