@@ -72,51 +72,6 @@ export const projectsData: Array<IProject> = [
   },
   {
     id: 'p2',
-    slug: 'opti-planner',
-    title: 'OptiPlanner',
-    category: projectCategories[3],
-    liveLink: 'coming soon',
-    isPicked: true,
-
-    /// Text content
-    excerpt: optiPlanner.excerpt,
-    introSummaryText: {
-      text: optiPlanner.introSummaryText as string,
-      type: 'paragraph',
-    },
-    goalsText: {
-      text: optiPlanner.goalsText as string,
-      type: 'paragraph',
-    },
-    textStacksText: {
-      text: optiPlanner.textStacksText as string,
-      type: 'mixed',
-      delimiter: '<--l-->',
-    },
-    challengesText: {
-      text: optiPlanner.challengesText as string,
-      type: 'mixed',
-      delimiter: '<--l-->',
-    },
-    lessonsText: {
-      text: optiPlanner.lessonsText as [[[key: string], string]],
-      type: 'mixed',
-    },
-
-    /// Images
-    cardImgId: 'g2',
-    introBgImg: imagePicker('g7', true) as TCardSlimGalleryData,
-    introLgImg: imagePicker('g10', true) as TCardSlimGalleryData,
-    footerLgImg: imagePicker('g13', true) as TCardSlimGalleryData,
-
-    /// Relations to other data types
-    introStacks: projectStacks.optiPlanner.intro,
-    tags: projectStacks.optiPlanner.tags,
-    stacks: projectStacks.optiPlanner.allStacks,
-    gallery: galleryImgs.optiPlanner,
-  },
-  {
-    id: 'p3',
     slug: 'luku-fiti',
     title: 'LukuFiti',
     category: projectCategories[2],
@@ -166,7 +121,7 @@ export const projectsData: Array<IProject> = [
     favGallery: favProject,
   },
   {
-    id: 'p4',
+    id: 'p3',
     slug: 'pesa-sync',
     title: 'PesaSync',
     category: projectCategories[1],
@@ -209,6 +164,51 @@ export const projectsData: Array<IProject> = [
     stacks: projectStacks.pesaSync.allStacks,
     tags: projectStacks.pesaSync.tags,
     gallery: galleryImgs.pesaSync,
+  },
+  {
+    id: 'p4',
+    slug: 'opti-planner',
+    title: 'OptiPlanner',
+    category: projectCategories[3],
+    liveLink: 'coming soon',
+    isPicked: true,
+
+    /// Text content
+    excerpt: optiPlanner.excerpt,
+    introSummaryText: {
+      text: optiPlanner.introSummaryText as string,
+      type: 'paragraph',
+    },
+    goalsText: {
+      text: optiPlanner.goalsText as string,
+      type: 'paragraph',
+    },
+    textStacksText: {
+      text: optiPlanner.textStacksText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    challengesText: {
+      text: optiPlanner.challengesText as string,
+      type: 'mixed',
+      delimiter: '<--l-->',
+    },
+    lessonsText: {
+      text: optiPlanner.lessonsText as [[[key: string], string]],
+      type: 'mixed',
+    },
+
+    /// Images
+    cardImgId: 'g2',
+    introBgImg: imagePicker('g7', true) as TCardSlimGalleryData,
+    introLgImg: imagePicker('g10', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g13', true) as TCardSlimGalleryData,
+
+    /// Relations to other data types
+    introStacks: projectStacks.optiPlanner.intro,
+    tags: projectStacks.optiPlanner.tags,
+    stacks: projectStacks.optiPlanner.allStacks,
+    gallery: galleryImgs.optiPlanner,
   },
   {
     id: 'p5',
