@@ -112,8 +112,8 @@ function Slider<
   const handlers = useSwipeable({
     onSwipeStart: () => setStopScroll(true),
     onSwiped: () => setStopScroll(false),
-    onSwipedLeft: prevSlideHandler,
-    onSwipedRight: nextSlideHandler,
+    onSwipedLeft: nextSlideHandler,
+    onSwipedRight: prevSlideHandler,
   })
 
   return (
