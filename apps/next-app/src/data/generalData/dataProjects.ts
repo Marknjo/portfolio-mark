@@ -17,12 +17,12 @@ import { galleryImgs } from './projects/projectGalleries'
 import { projectStacks } from './projects/projectStacks'
 
 const favProject = favProjectsGalleryImgsPicker([
-  'g7',
-  'g7',
-  'g7',
-  'g7',
-  'g7',
-  'g7',
+  'g14',
+  'g15',
+  'g16',
+  'g17',
+  'g18',
+  'g19',
 ])
 
 export const projectsData: Array<IProject> = [
@@ -60,9 +60,9 @@ export const projectsData: Array<IProject> = [
     },
     /// Images
     cardImgId: 'g2',
-    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
-    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
-    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
+    introBgImg: imagePicker('g7', true) as TCardSlimGalleryData,
+    introLgImg: imagePicker('g10', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g13', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
     introStacks: projectStacks.afriHicker.intro,
@@ -105,9 +105,9 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
-    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
-    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
-    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
+    introBgImg: imagePicker('g7', true) as TCardSlimGalleryData,
+    introLgImg: imagePicker('g10', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g13', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
     introStacks: projectStacks.optiPlanner.intro,
@@ -154,9 +154,9 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
-    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
-    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
-    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
+    introBgImg: imagePicker('g7', true) as TCardSlimGalleryData,
+    introLgImg: imagePicker('g10', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g13', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
     introStacks: projectStacks.fitHustle.intro,
@@ -200,9 +200,9 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
-    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
-    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
-    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
+    introBgImg: imagePicker('g7', true) as TCardSlimGalleryData,
+    introLgImg: imagePicker('g10', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g13', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
     introStacks: projectStacks.pesaSync.intro,
@@ -214,7 +214,7 @@ export const projectsData: Array<IProject> = [
     id: 'p5',
     // slug: 'mark-njoroge-profile',
     slug: 'demo-projects-page',
-    title: 'Mark Njoroge Profile',
+    title: 'Demo Project',
     category: projectCategories[5],
     liveLink: 'coming soon',
     isFavorite: true,
@@ -250,9 +250,9 @@ export const projectsData: Array<IProject> = [
 
     /// Images
     cardImgId: 'g2',
-    introBgImg: imagePicker('g8', true) as TCardSlimGalleryData,
-    introLgImg: imagePicker('g11', true) as TCardSlimGalleryData,
-    footerLgImg: imagePicker('g14', true) as TCardSlimGalleryData,
+    introBgImg: imagePicker('g7', true) as TCardSlimGalleryData,
+    introLgImg: imagePicker('g10', true) as TCardSlimGalleryData,
+    footerLgImg: imagePicker('g13', true) as TCardSlimGalleryData,
 
     /// Relations to other data types
     introStacks: projectStacks.markProfile.intro,

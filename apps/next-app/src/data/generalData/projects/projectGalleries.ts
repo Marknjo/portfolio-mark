@@ -8,7 +8,7 @@ import { appFiles } from '../dataFiles'
 /// Filter images for AfriHickr project
 const mappedAfriHickerFiles = mapDataFieldAsKey<IGallery>(appFiles, 'id')
 const groupAfriHickerFilesByIds = filterMappedDataByFields<IGallery>(
-  ['g9', 'g6', 'g3', 'g5', 'g4'],
+  ['g8', 'g6', 'g3', 'g5', 'g4'],
   mappedAfriHickerFiles,
 )
 
