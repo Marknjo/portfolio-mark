@@ -10,6 +10,7 @@ import SliderThumbs from '@components/next-ui/slider/SliderThumbs'
 import { IGallery } from '@data/types'
 import { useSlider } from '@store/context/slider'
 import { ReactNode } from 'react'
+
 import { overlays } from '../constants'
 
 const GalleryToolkit = ({ children }: { children: ReactNode }) => {

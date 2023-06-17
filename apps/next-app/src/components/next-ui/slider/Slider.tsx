@@ -1,5 +1,13 @@
-import { ComponentType, ReactNode, useCallback, useEffect, useId } from 'react'
+import {
+  ComponentType,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useState,
+} from 'react'
 import { Box, SystemStyleObject } from '@chakra-ui/react'
+import { useSwipeable } from 'react-swipeable'
 
 /// local
 import { useSlider } from '@store/context/slider'
@@ -29,13 +37,13 @@ function Slider<
     setIsActiveSlide,
     sliderSizes,
     setSlideTitle,
-    isModal,
+    // isModal,
     isSliderOpen,
     sliderItems,
   } = useSlider<T>()
-
+  const [stopScroll, setStopScroll] = useState(false)
   // Styles
-  const styles = useStyles(sliderSizes.height)
+  const styles = useStyles(stopScroll, sliderSizes.height)
 
   const maxSlides = sliderItems.length
 
@@ -100,8 +108,16 @@ function Slider<
   }, [isSliderOpen, prevSlideHandler, nextSlideHandler])
 
   /* Prep content for the case of a modal */
-  const content = (
-    <>
+
+  const handlers = useSwipeable({
+    onSwipeStart: () => setStopScroll(true),
+    onSwiped: () => setStopScroll(false),
+    onSwipedLeft: prevSlideHandler,
+    onSwipedRight: nextSlideHandler,
+  })
+
+  return (
+    <Box sx={styles.mainWrapper} {...handlers}>
       {sliderItems.map((slideData, i) => {
         const style = {
           transform: `translateX(${100 * (i - curActiveSlide)}%)`,
@@ -119,14 +135,7 @@ function Slider<
 
       {/* Slider next and prev handles */}
       <SliderHandles onNext={nextSlideHandler} onPrev={prevSlideHandler} />
-    </>
-  )
-
-  return (
-    <>
-      {!isModal && <Box sx={styles.mainWrapper}>{content}</Box>}
-      {isModal && content}
-    </>
+    </Box>
   )
 }
 
@@ -137,7 +146,7 @@ interface Styles {
   mainWrapper: SystemStyleObject
 }
 
-const useStyles = (minH?: number): Styles => ({
+const useStyles = (stopScroll: boolean, minH?: number): Styles => ({
   mainWrapper: {
     display: 'flex',
     justifyContent: 'center',
@@ -146,5 +155,6 @@ const useStyles = (minH?: number): Styles => ({
     ...(minH ? { minH: `${minH}px` } : {}),
     width: '100%',
     borderRadius: 'md',
+    touchAction: stopScroll ? 'none' : 'auto',
   },
 })

@@ -15,7 +15,8 @@
     "Navs",
     "Opti",
     "pesa",
-    "SENDGRID"
+    "SENDGRID",
+    "Swipeable"
   ],
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true

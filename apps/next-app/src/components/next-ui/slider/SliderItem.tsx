@@ -1,5 +1,5 @@
-import { Flex, SystemStyleObject } from '@chakra-ui/react'
 import { CSSProperties, ReactNode } from 'react'
+import { Flex, SystemStyleObject } from '@chakra-ui/react'
 
 const SlideItem = ({
   children,
@@ -8,7 +8,11 @@ const SlideItem = ({
   children: ReactNode
   style: CSSProperties
 }) => {
+  /// Slider swipe
+
+  /// styles
   const styles = useStyles()
+
   return (
     <Flex sx={styles.itemWrapper} style={style}>
       {children}
