@@ -18,7 +18,6 @@ const afriHickerAllMappedStacks = [
   ...getGroupedStacksByName([
     EStackFullNames.JAVASCRIPT,
     EStackFullNames.NODE_JS,
-    EStackFullNames.POSTGRES,
     EStackFullNames.DOCKER,
   ]),
 ]
