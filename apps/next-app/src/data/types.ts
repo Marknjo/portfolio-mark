@@ -574,8 +574,7 @@ export interface IHomePageContentV1 {
     titleMain: string
     titleSub: string
     subTitle: string
-    mainImg: string
-    mainImgAlt: string
+    mainImg: IGallery
     viewAllButtonText: string
     viewAllButtonLink: string
   }

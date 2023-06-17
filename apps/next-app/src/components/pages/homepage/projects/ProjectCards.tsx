@@ -13,7 +13,7 @@ const wrapperOverridesStyles: SystemStyleObject = {
   maxW: '384px',
   minW: 'auto',
   _notLast: {
-    mb: '4',
+    mb: '2',
   },
 }
 
@@ -27,6 +27,7 @@ const ProjectCards = () => {
       gridColumn={columnBreakpoint}
       gridRow="img-r3-start/ span 2"
       px={{ base: '4' }}
+      zIndex={3}
     >
       <HStack
         columnGap={{ base: '6', md: '2', lg: '4' }}

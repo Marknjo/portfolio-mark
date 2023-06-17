@@ -1,5 +1,6 @@
+import { imagePicker } from '@data/utils/galleryHelpers'
 import { appFiles } from '@data/generalData/dataFiles'
-import { EWorkAvailability, IHomePageContentV1 } from '@data/types'
+import { EWorkAvailability, IGallery, IHomePageContentV1 } from '@data/types'
 import { aboutText, headerText } from './dataHomepageText'
 
 export const homePageContentV1: IHomePageContentV1 = {
@@ -47,8 +48,7 @@ export const homePageContentV1: IHomePageContentV1 = {
     titleMain: 'Projects',
     titleSub: 'Here is my latest selection',
     subTitle: 'Top 3 Projects',
-    mainImg: 'project-hero-img',
-    mainImgAlt: 'Top Picked Projects Showcase',
+    mainImg: imagePicker('g9') as IGallery,
     viewAllButtonText: 'Visit All Projects',
     viewAllButtonLink: '/projects',
   },

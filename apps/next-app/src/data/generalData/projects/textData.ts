@@ -15,7 +15,7 @@ const lessonsListText = `
   `
 
 const favGalleryParaText1 = `
-  This section represents my project, which aims to deliver a modern and expressive web application with a wealth of frontend and backend development concepts. 
+  This section currently showcases this portfolio project, which aims to share a project that represents a modern and expressive web application with a wealth of frontend and backend development concepts (This will change in future).  
 
   Here are some key highlights:
 `
@@ -34,7 +34,7 @@ const favGalleryListText = `
 `
 
 const favGalleryParaText2 = `
-  Full disclosure: All my showcased projects are available on GitHub, some being redesigned while others are built from scratch. Please disregard any "coming soon" tags until they are removed.
+  Full disclosure:All my showcased projects are available on GitHub, some being redesigned while others are built from scratch. Please disregard any "coming soon" tags until they are removed.
 
   Through this project, I aim to express my passion for web application development. I have meticulously handcrafted every aspect, infusing it with my personality. 
   
